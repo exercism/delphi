@@ -1,0 +1,14 @@
+{
+  "slug": "pascal",
+  "language": "Pascal",
+  "repository": "https://github.com/exercism/xpascal",
+  "active": false,
+  "gitter": "xpascal",
+  "exercises": [
+    {
+	   "slug": "hello-world",
+	   "difficulty": 1,
+	   "topics": []
+	}
+  ]
+}
