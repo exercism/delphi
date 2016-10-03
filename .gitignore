@@ -8,3 +8,4 @@ bin/configlet.exe
 *.*~*
 *.identcache
 *.res
+exercises/Hello-World/uHelloWorld.pas
