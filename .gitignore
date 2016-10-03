@@ -10,3 +10,4 @@ bin/configlet.exe
 *.res
 exercises/Hello-World/uHelloWorld.pas
 exercises/hamming/uHamming.pas
+exercises/leap/uLeap.pas
