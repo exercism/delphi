@@ -1,3 +1,9 @@
+//========================================================
+// Example solution to exercise.
+//
+// A simple hello function would suffice, however this
+// solution is mimicking the Ruby hello-world exercise
+//========================================================
 unit uHelloWorld;
 
 interface
