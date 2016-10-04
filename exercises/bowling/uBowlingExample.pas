@@ -10,6 +10,11 @@ type
      function Score: integer;
    end;
 
+   function NewBowlingGame: IBowlingGame;
+
+implementation
+
+type
    TBowlingGame = class(TInterfacedObject, IBowlingGame)
    private
      fRolls: TList<integer>;
@@ -26,7 +31,10 @@ type
      procedure Roll(aPins: integer);
    end;
 
-implementation
+function NewBowlingGame: IBowlingGame;
+begin
+  result := TBowlingGame.create;
+end;
 
 constructor TBowlingGame.create;
 begin

@@ -36,7 +36,7 @@ implementation
 procedure BowlingTests.Gutter_game;
 var game: IBowlingGame;
 begin
-  game := TBowlingGame.create;
+  game := NewBowlingGame;
   RollMany(0,20,game);
   assert.AreEqual(0,game.Score);
 end;
@@ -44,7 +44,7 @@ end;
 procedure BowlingTests.All_ones_game;
 var game: IBowlingGame;
 begin
-  game := TBowlingGame.create;
+  game := NewBowlingGame;
   RollMany(1, 20, game);
   assert.AreEqual(20,game.Score);
 end;
@@ -52,7 +52,7 @@ end;
 procedure BowlingTests.One_spare_game;
 var game: IBowlingGame;
 begin
-  game := TBowlingGame.create;
+  game := NewBowlingGame;
   RollSpare(game);
   game.Roll(3);
   RollMany(0, 17, game);
@@ -62,7 +62,7 @@ end;
 procedure BowlingTests.One_strike_game;
 var game: IBowlingGame;
 begin
-  game := TBowlingGame.create;
+  game := NewBowlingGame;
   RollStrike(game);
   game.Roll(3);
   game.Roll(4);
@@ -73,7 +73,7 @@ end;
 procedure BowlingTests.Perfect_game;
 var game: IBowlingGame;
 begin
-  game := TBowlingGame.create;
+  game := NewBowlingGame;
   RollMany(10, 12, game);
   assert.AreEqual(300, Game.Score);
 end;
