@@ -5,7 +5,11 @@
   "active": false,
   "test_pattern": "TODO",
   "exercises": [
-
+    "hello-world",
+    "bob",
+    "leap",
+    "hamming",
+    "bowling"
   ],
   "deprecated": [
 
