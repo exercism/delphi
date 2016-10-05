@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="Z:\projects.git\xpascal\exercises\leap\Win32\Debug\LeapTest.exe" total="0" errors="0" failures="0" ignored="7" inconclusive="0" not-run="7" skipped="0" invalid="0" date="2016-10-03" time="0.002">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="LeapTest.exe" executed="true" result="Success" success="True" time="0.002" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="uLeapTests" executed="true" result="Success" success="True" time="0.000" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="YearTest" executed="True" result="Success" success="True" time="0.000" >
+                <results>
+                  <test-case name="test_leap_year" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="test_standard_and_odd_year" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="test_standard_even_year" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="test_standard_nineteenth_century" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="test_standard_eighteenth_century" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="test_leap_twenty_fourth_century" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="test_leap_y2k" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>
