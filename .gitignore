@@ -19,3 +19,6 @@ exercises/allergies/uAllergies.pas
 exercises/bank-account/uBankAccount.pas
 exercises/bank-account/Win32/Debug/BankAccountTests.exe
 exercises/bank-account/Win32/Debug/dunitx-results.xml
+exercises/beer-song/uBeerSong.pas
+exercises/beer-song/Win32/Debug/BeerSongTests.exe
+exercises/beer-song/Win32/Debug/dunitx-results.xml
