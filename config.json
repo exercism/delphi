@@ -10,7 +10,10 @@
     "leap",
     "hamming",
     "bowling",
-    "allergies"
+    "allergies",
+	"bank-account",
+	"beer-song",
+	"phone-number"
   ],
   "deprecated": [
 

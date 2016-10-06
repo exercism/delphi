@@ -22,3 +22,6 @@ exercises/bank-account/Win32/Debug/dunitx-results.xml
 exercises/beer-song/uBeerSong.pas
 exercises/beer-song/Win32/Debug/BeerSongTests.exe
 exercises/beer-song/Win32/Debug/dunitx-results.xml
+exercises/phone-number/uPhoneNumber.pas
+exercises/phone-number/Win32/Debug/dunitx-results.xml
+exercises/phone-number/Win32/Debug/PhoneNumberTests.exe
