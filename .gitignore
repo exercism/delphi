@@ -16,3 +16,6 @@ exercises/hamming/uHamming.pas
 exercises/leap/uLeap.pas
 exercises/bowling/uBowling.pas
 exercises/allergies/uAllergies.pas
+exercises/bank-account/uBankAccount.pas
+exercises/bank-account/Win32/Debug/BankAccountTests.exe
+exercises/bank-account/Win32/Debug/dunitx-results.xml
