@@ -52,7 +52,6 @@ uses uBinarySearch;
 procedure BinarySearchTests.Should_return_minus_one_when_an_empty_array_is_searched;
 var input: TArray<integer>;
 begin
-  SetLength(input, 1);
   assert.AreEqual(-1, TBinarySearch.Search(input, 6));
 end;
 
