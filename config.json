@@ -13,7 +13,8 @@
     "allergies",
 	"bank-account",
 	"beer-song",
-	"phone-number"
+	"phone-number",
+	"binary-search"
   ],
   "deprecated": [
 

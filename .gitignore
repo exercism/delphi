@@ -25,3 +25,6 @@ exercises/beer-song/Win32/Debug/dunitx-results.xml
 exercises/phone-number/uPhoneNumber.pas
 exercises/phone-number/Win32/Debug/dunitx-results.xml
 exercises/phone-number/Win32/Debug/PhoneNumberTests.exe
+exercises/binary-search/uBinarySearch.pas
+exercises/binary-search/Win32/Debug/BinarySearch.exe
+exercises/binary-search/Win32/Debug/dunitx-results.xml
