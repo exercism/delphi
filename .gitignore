@@ -28,3 +28,6 @@ exercises/phone-number/Win32/Debug/PhoneNumberTests.exe
 exercises/binary-search/uBinarySearch.pas
 exercises/binary-search/Win32/Debug/BinarySearch.exe
 exercises/binary-search/Win32/Debug/dunitx-results.xml
+exercises/harry-potter/uHarryPotter.pas
+exercises/harry-potter/Win32/Debug/HarryPotterTests.exe
+exercises/harry-potter/Win32/Debug/dunitx-results.xml
