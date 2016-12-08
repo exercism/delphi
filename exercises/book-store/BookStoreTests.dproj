@@ -3,7 +3,7 @@
         <ProjectGuid>{00833D4E-9C22-4AE8-8578-81B63523F423}</ProjectGuid>
         <ProjectVersion>15.3</ProjectVersion>
         <FrameworkType>None</FrameworkType>
-        <MainSource>HarryPotterTests.dpr</MainSource>
+        <MainSource>BookStoreTests.dpr</MainSource>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
@@ -89,8 +89,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="uHarryPotterTests.pas"/>
-        <DCCReference Include="uHarryPotter.pas"/>
+        <DCCReference Include="uBookStoreTests.pas"/>
+        <DCCReference Include="uBookStore.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -159,7 +159,7 @@
                     <VersionInfoKeys Name="theme"/>
                 </VersionInfoKeys>
                 <Source>
-                    <Source Name="MainSource">HarryPotterTests.dpr</Source>
+                    <Source Name="MainSource">BookStoreTests.dpr</Source>
                 </Source>
             </Delphi.Personality>
             <Deployment/>

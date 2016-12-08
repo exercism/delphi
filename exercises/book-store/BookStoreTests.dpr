@@ -1,4 +1,4 @@
-program HarryPotterTests;
+program BookStoreTests;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uHarryPotterTests in 'uHarryPotterTests.pas',
-  uHarryPotter in 'uHarryPotter.pas';
+  uBookStoreTests in 'uBookStoreTests.pas',
+  uBookStore in 'uBookStore.pas';
 
 var
   runner : ITestRunner;

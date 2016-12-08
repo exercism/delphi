@@ -1,8 +1,8 @@
-unit uHarryPotterTests;
+unit uBookStoreTests;
 
 interface
 uses
-  DUnitX.TestFramework, uHarryPotter;
+  DUnitX.TestFramework, uBookStore;
 
 type
 
