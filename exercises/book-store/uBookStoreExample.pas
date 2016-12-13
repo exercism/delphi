@@ -3,25 +3,18 @@ unit uBookStore;
 interface
 
 type
-  Ihp = interface(IInvokable)
+  IBasket = interface(IInvokable)
   ['{22B4BAF3-88E6-456D-9DE5-F6BAC743A655}']
-    function BasketTotal:extended;
-    function NumberOfDifferentBooks(inStr : string):integer;
-    function GroupBasket:TArray<String>;
-    function GetSingleBookPrice: extended;
-    function GetBasket: string;
-    procedure SetBasket(aValue: string);
-    property Basket: string read GetBasket write SetBasket;
-    property SingleBookPrice: extended read GetSingleBookPrice;
+    function Total:extended;
   end;
 
-function NewHPBasket: Ihp;
+function NewBasket(aBasket: TArray<Integer>): IBasket;
 
 implementation
 uses System.SysUtils;
 
 const
-  hpBooks = '123456';
+  seriesBooks = '12345';
   cNumberOfBooks = 5;
   cDiscounts: array[1..cNumberOfBooks] of extended = (1.00,
                                                       0.95,
@@ -30,63 +23,52 @@ const
                                                       0.75);
 
 type
-  Thp = class(TInterfacedObject, Ihp)
+  TBasket = class(TInterfacedObject, IBasket)
   private
     fSingleBookPrice: extended;
     fBasket: string;
-    Group: TArray<String>;
     class function Head(inStr: string): string; static;
     class function Tail(inStr: string): string; static;
-    function GetSingleBookPrice: extended;
+    class function ConvertIntArrayToString(const aIntArray: TArray<Integer>): string; static;
     function DiscountPercentage(inStr : string): extended;
-    procedure SetBasket(aValue: string);
-    function GetBasket: string;
-  public
-    function BasketTotal:extended;
-    function NumberOfDifferentBooks(inStr : string):integer;
     function GroupBasket:TArray<String>;
-    property SingleBookPrice: extended read GetSingleBookPrice;
-    property Basket: string read GetBasket write SetBasket;
-    constructor Create;
+    function NumberOfDifferentBooks(inStr : string):integer;
+  public
+    function Total:extended;
+    constructor Create(aBasket: TArray<Integer>);
   end;
 
-function NewHPBasket: Ihp;
+function NewBasket(aBasket: TArray<Integer>): IBasket;
 begin
-  result := Thp.Create;
+  result := TBasket.Create(aBasket);
 end;
 
-class function Thp.Head(inStr : string):string;
+class function TBasket.Head(inStr : string):string;
 begin
   result := inStr.Remove(1);
 end;
 
-class function Thp.Tail(inStr : string):string;
+class function TBasket.Tail(inStr : string):string;
 begin
   result := inStr.Remove(0,1);
 end;
 
-constructor Thp.Create;
+class function TBasket.ConvertIntArrayToString(const aIntArray: TArray<Integer>): string;
+var arrayItem: integer;
+begin
+  result := '';
+  if length(aIntArray) > 0 then
+    for arrayItem in aIntArray do
+      result := result + arrayItem.ToString;
+end;
+
+constructor TBasket.Create(aBasket: TArray<Integer>);
 begin
   fSingleBookPrice := 8;
-  fBasket := '';
+  fBasket := ConvertIntArrayToString(aBasket);
 end;
 
-function Thp.GetSingleBookPrice;
-begin
-  result := fSingleBookPrice;
-end;
-
-procedure Thp.SetBasket(aValue: string);
-begin
-  fBasket := aValue;
-end;
-
-function Thp.GetBasket: string;
-begin
-  result := fBasket;
-end;
-
-function Thp.GroupBasket:TArray<String>;
+function TBasket.GroupBasket:TArray<String>;
 var lStrArray: TArray<String>;
     wrkBasket: string;
     tmpStr   : string;
@@ -125,7 +107,7 @@ begin
   result := lStrArray;
 end;
 
-function Thp.BasketTotal:extended;
+function TBasket.Total:extended;
 var hpBook      : char;
     totalBooks  : integer;
     subBaskets  : TArray<String>;
@@ -142,7 +124,7 @@ begin
   end;
 end;
 
-function Thp.DiscountPercentage(inStr : string):extended;
+function TBasket.DiscountPercentage(inStr : string):extended;
 var numDiffBooks: integer;
 begin
   result := 1;
@@ -150,12 +132,12 @@ begin
   result := CDiscounts[numDiffBooks];
 end;
 
-function Thp.NumberOfDifferentBooks(inStr : string):integer;
-var hpBook: char;
+function TBasket.NumberOfDifferentBooks(inStr : string):integer;
+var Book: char;
 begin
   result := 0;
-  for hpBook in hpBooks do
-    if inStr.Contains(hpBook) then
+  for Book in seriesBooks do
+    if inStr.Contains(Book) then
       inc(result);
 end;
 
