@@ -11,12 +11,13 @@
     "hamming",
     "bowling",
     "allergies",
-	"bank-account",
-	"beer-song",
-	"phone-number",
-	"binary-search",
-	"book-store",
-	"perfect-numbers"
+    "bank-account",
+    "beer-song",
+    "phone-number",
+    "binary-search",
+    "book-store",
+    "perfect-numbers",
+    "nucleotide-count"
   ],
   "deprecated": [
 
