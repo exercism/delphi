@@ -19,6 +19,7 @@ type
 //    [TestCase('Test basket with four different books',                                   '1|2|3|4, 25.6')]
 //    [TestCase('Test basket with five different books',                                   '1|2|3|4|5, 30.0')]
 //    [TestCase('Test basket w/2 copies of books 1..3 and one copy of books 4 and 5',      '1|1|2|2|3|3|4|5, 51.20')]
+//    [TestCase('Test basket w/2 copies of books 1..4 and one copy of book 5',             '1|1|2|2|3|3|4|4|5, 55.60')]
 //    [TestCase('Test basket w/2 copies of each book',                                     '1|1|2|2|3|3|4|4|5|5, 60.00')]
 //    [TestCase('Test basket w/2 copies of each book plus one more copy of book 1',        '1|1|2|2|3|3|4|4|5|5|1, 68.00')]
 //    [TestCase('Test basket w/2 copies of each book plus one more copy of books 1 and 2', '1|1|2|2|3|3|4|4|5|5|1|2, 75.20')]
