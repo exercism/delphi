@@ -100,7 +100,7 @@
         "Dictionaries",
         "Strings"
       ]
-    },
+    }
   ],
   "ignored": [
     "bin",
