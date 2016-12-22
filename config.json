@@ -109,6 +109,15 @@
         "Lists",
         "Transforming"
       ]
+    },
+    {
+      "slug": "binary-search",
+      "difficulty": 3,
+      "topics": [
+        "Searching",
+        "Arrays",
+        "Recursion"
+      ]
     }
   ],
   "ignored": [
