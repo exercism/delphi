@@ -3,19 +3,126 @@
   "language": "Pascal",
   "repository": "https://github.com/exercism/xpascal",
   "active": false,
-  "test_pattern": "TODO",
   "exercises": [
-
-  ],
-  "deprecated": [
-
+     {
+	  "slug": "hello-world",
+	  "difficulty": 1,
+	  "topics": [
+	    "Text formatting",
+	    "Optional values"
+	  ]
+	},
+	{
+	  "slug": "bob",
+	  "difficulty": 1,
+	  "topics": [
+	    "Strings",
+		"Control-flow (if-else statements)"
+      ]
+	},
+    {
+      "slug": "leap",
+      "difficulty": 1,
+      "topics": [
+        "Integers"
+      ]
+    },
+    {
+      "slug": "hamming",
+      "difficulty": 2,
+      "topics": [
+        "Strings",
+        "Filtering"
+      ]
+    },
+    {
+      "slug": "bowling",
+      "difficulty": 6,
+      "topics": [
+        "Algorithms",
+        "Control-flow (loops)"
+      ]
+    },
+    {
+      "slug": "allergies",
+      "difficulty": 4,
+      "topics": [
+        "Bitwise operations",
+        "Filtering"
+      ]
+    },
+    {
+      "slug": "bank-account",
+      "difficulty": 2,
+      "topics": [
+        "Classes"
+      ]
+    },
+    {
+      "slug": "beer-song",
+      "difficulty": 3,
+      "topics": [
+        "Text formatting",
+        "Algorithms"
+      ]
+    },
+    {
+      "slug": "phone-number",
+      "difficulty": 3,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
+    },
+    {
+      "slug": "binary-search",
+      "difficulty": 3,
+      "topics": [
+        "Searching",
+        "Arrays"
+      ]
+    },
+    {
+	  "slug": "book-store",
+	  "difficulty": 6
+	},
+    {
+      "slug": "perfect-numbers",
+      "difficulty": 3,
+      "topics": [
+        "Integers"
+      ]
+    },
+    {
+      "slug": "nucleotide-count",
+      "difficulty": 2,
+      "topics": [
+        "Dictionaries",
+        "Strings"
+      ]
+    },
+    {
+      "slug": "etl",
+      "difficulty": 2,
+      "topics": [
+        "Dictionaries",
+        "Lists",
+        "Transforming"
+      ]
+    },
+    {
+      "slug": "binary-search",
+      "difficulty": 3,
+      "topics": [
+        "Searching",
+        "Arrays",
+        "Recursion"
+      ]
+    }
   ],
   "ignored": [
     "bin",
     "img",
     "docs"
-  ],
-  "foregone": [
-
   ]
 }
