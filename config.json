@@ -118,6 +118,14 @@
         "Arrays",
         "Recursion"
       ]
+    },
+    {
+      "slug": "clock",
+      "difficulty": 3,
+      "topics": [
+        "Time",
+        "Structural equality"
+      ]
     }
   ],
   "ignored": [
