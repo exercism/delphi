@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<test-results name="Z:\projects.git\xpascal\exercises\bob\Win32\Debug\BobTests.exe" total="2" errors="0" failures="0" ignored="16" inconclusive="0" not-run="16" skipped="0" invalid="0" date="2016-10-04" time="0.002">
+  <culture-info current-culture="en" current-uiculture="en" />
+  <test-suite type="Assembly" name="BobTests.exe" executed="true" result="Success" success="True" time="0.002" asserts="0">
+    <results>
+        <test-suite type="Namespace" name="uBobTests" executed="true" result="Success" success="True" time="0.001" asserts="0" >
+          <results>
+              <test-suite type="Fixture" name="BobTests" executed="True" result="Success" success="True" time="0.001" >
+                <results>
+                  <test-case name="Stating_something" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Shouting" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Asking_a_question" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Asking_a_question_with_a_trailing_space" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Asking_a_numeric_question" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Talking_forcefully" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Using_acronyms_in_regular_search" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Forceful_questions" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Shouting_numbers" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Only_numbers" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Question_with_only_numbers" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Shouting_with_special_characters" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Shouting_with_no_exclamation_mark" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Statement_containing_question_mark" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Prattling_on" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                  <test-case name="Silence" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="Prolonged_silence" executed="True" result="Success" success="True" time="0.000" asserts="0" />
+                  <test-case name="Multiple_line_question" executed="False" result="Ignored"  time="0.000" asserts="0" >
+                    <reason>
+                      <message>
+                        <![CDATA[  ]]>
+                      </message>
+                    </reason>
+                  </test-case>
+                </results>
+              </test-suite>
+          </results>
+        </test-suite>
+    </results>
+  </test-suite>
+</test-results>
