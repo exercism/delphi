@@ -1,7 +1,6 @@
 unit uPhoneNumber;
 
 interface
-uses RegularExpressions;
 
 type
    IPhoneNumber = interface(IInvokable)
@@ -13,9 +12,16 @@ type
      property AreaCode: string read GetAreaCode;
    end;
 
+function NewPhoneNumber(aPhoneNumber: string): IPhoneNumber;
+
+implementation
+uses RegularExpressions, System.SysUtils, System.StrUtils;
+
+type
    TPhoneNumber = class(TInterfacedObject, IPhoneNumber)
    private
      fDigitsOnly: TRegex;
+     fContainsLetters: TRegex;
      fNumber: string;
      fAreaCode: string;
      function GetNumber: string;
@@ -32,13 +38,15 @@ type
      property AreaCode: string read GetAreaCode;
    end;
 
-
-implementation
-uses System.SysUtils, System.StrUtils;
+function NewPhoneNumber(aPhoneNumber: string): IPhoneNumber;
+begin
+  result := TPhoneNumber.Create(aPhoneNumber);
+end;
 
 constructor TPhoneNumber.Create(aPhoneNumber: string);
 begin
   fDigitsOnly := TRegEx.Create('[^\d]');
+  fContainsLetters := TRegEx.Create('[a-zA-Z]');
   fNumber := GetValidatedPhoneNumber(aPhoneNumber);
   fAreaCode := fNumber.Substring(0, 3);
 end;
@@ -65,7 +73,10 @@ end;
 
 function TPhoneNumber.StripOutNonNumerics(aValue: string): string;
 begin
-  result := fDigitsOnly.Replace(aValue, '');
+  if fContainsLetters.IsMatch(aValue) then
+    result := ''
+  else
+    result := fDigitsOnly.Replace(aValue, '');
 end;
 
 function TPhoneNumber.IsInvalidPhoneNumber(aPhoneNumber: string): Boolean;
@@ -75,7 +86,7 @@ end;
 
 function TPhoneNumber.GetInvalidPhoneNumberReplacement(aPhoneNumber: string): string;
 begin
-  result := ifthen(IsPhoneNumberwithUSAreaCode(aPhoneNumber), aPhoneNumber.Substring(1), '0000000000');
+  result := ifthen(IsPhoneNumberwithUSAreaCode(aPhoneNumber), aPhoneNumber.Substring(1), '');
 end;
 
 function TPhoneNumber.IsPhoneNumberwithUSAreaCode(aValue: string): Boolean;
