@@ -126,6 +126,15 @@
         "Queues",
         "Classes"
       ]
+    },
+    {
+      "slug": "saddle-points",
+      "difficulty": 4,
+      "topics": [
+        "Matrices",
+        "Arrays",
+        "Tuples"
+      ]
     }
   ],
   "ignored": [
