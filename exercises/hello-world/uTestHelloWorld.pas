@@ -9,13 +9,12 @@ type
   HelloWorldTest = class(TObject)
   public
     [Test]
-//    [Ignore]
     procedure test_no_name;
     [Test]
-//    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_sample_name;
     [Test]
-//    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_other_sample_name;
   end;
 
