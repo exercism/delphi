@@ -52,7 +52,6 @@ begin
   fValue2 := Value2;
 end;
 
-
 procedure TSaddlePointTests.Readme_example;
 var SaddlePoints: ISaddlePoints;
     values: TArray<TArray<integer>>;
@@ -159,3 +158,30 @@ end;
 initialization
   TDUnitX.RegisterTestFixture(TSaddlePointTests);
 end.
+
+(*
+*****************************************************
+You got an error, which is exactly as it should be.
+This is the first step in the Test-Driven Development
+(TDD) process.
+
+The most important part of the error is
+
+   "cannot compile"
+
+It's looking for a file named uSaddlePoints.pas that doesn't
+exist yet.
+
+To fix the error, create an empty file named uSaddlePoints.pas
+in the same directory as the uSaddlePointsTests.pas file.
+
+Then run the test again.
+
+Hint: You will be using TTuple in your solution.  TTuple is
+declared in this unit.  It will be necessary for you to add
+a uses statement in the interface section of uSaddlePoints.pas.
+
+For more guidance as you work on this exercise, see
+GETTING_STARTED.md.
+*****************************************************
+*)
