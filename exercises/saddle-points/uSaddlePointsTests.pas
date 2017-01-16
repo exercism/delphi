@@ -1,34 +1,11 @@
-//*****************************************************
-// You got an error, which is exactly as it should be.
-// This is the first step in the Test-Driven Development
-// (TDD) process.
-//
-// The most important part of the error is
-//
-//   "cannot compile"
-//
-// It's looking for a file named uSaddlePoints.pas that doesn't
-// exist yet.
-//
-// To fix the error, create a unit file named uSaddlePoints.pas
-// in the same directory as the uSaddlePointsTests.pas file.
-//
-// The beginning of the new unit file should contain a unit statement:
-// unit uSaddlePoints;
-//
-// The new unit should contain Interface, Implementation, and End. statements.
-//
-// Hint: Delphi will take care of all this if you instruct it to add a new unit
-// to your project.  Be sure to save the new unit as uSaddlePoints.pas before
-// trying to compile again.
-//
+//******************************************************************
 // Hint: You will be using TTuple in your solution.  TTuple is
 // declared in this unit.  It will be necessary for you to add
 // a uses statement in the interface section of uSaddlePoints.pas.
 //
 // For more guidance as you work on this exercise, see
 // GETTING_STARTED.md.
-//*****************************************************
+//******************************************************************
 
 unit uSaddlePointsTests;
 
