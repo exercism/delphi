@@ -1,3 +1,12 @@
+//******************************************************************
+// Hint: You will be using TTuple in your solution.  TTuple is
+// declared in this unit.  It will be necessary for you to add
+// a uses statement in the interface section of uSaddlePoints.pas.
+//
+// For more guidance as you work on this exercise, see
+// GETTING_STARTED.md.
+//******************************************************************
+
 unit uSaddlePointsTests;
 
 interface
@@ -51,7 +60,6 @@ begin
   fValue1 := Value1;
   fValue2 := Value2;
 end;
-
 
 procedure TSaddlePointTests.Readme_example;
 var SaddlePoints: ISaddlePoints;
