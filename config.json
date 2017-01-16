@@ -36,53 +36,10 @@
       ]
     },
     {
-      "slug": "bowling",
-      "difficulty": 6,
-      "topics": [
-        "Algorithms",
-        "Control-flow (loops)"
-      ]
-    },
-    {
-      "slug": "allergies",
-      "difficulty": 4,
-      "topics": [
-        "Bitwise operations",
-        "Filtering"
-      ]
-    },
-    {
       "slug": "bank-account",
       "difficulty": 2,
       "topics": [
         "Classes"
-      ]
-    },
-    {
-      "slug": "beer-song",
-      "difficulty": 3,
-      "topics": [
-        "Text formatting",
-        "Algorithms"
-      ]
-    },
-    {
-      "slug": "phone-number",
-      "difficulty": 3,
-      "topics": [
-        "Parsing",
-        "Transforming"
-      ]
-    },
-    {
-	  "slug": "book-store",
-	  "difficulty": 6
-	},
-    {
-      "slug": "perfect-numbers",
-      "difficulty": 3,
-      "topics": [
-        "Integers"
       ]
     },
     {
@@ -103,6 +60,29 @@
       ]
     },
     {
+      "slug": "beer-song",
+      "difficulty": 3,
+      "topics": [
+        "Text formatting",
+        "Algorithms"
+      ]
+    },
+    {
+      "slug": "phone-number",
+      "difficulty": 3,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
+    },
+    {
+      "slug": "perfect-numbers",
+      "difficulty": 3,
+      "topics": [
+        "Integers"
+      ]
+    },
+    {
       "slug": "binary-search",
       "difficulty": 3,
       "topics": [
@@ -120,11 +100,11 @@
       ]
     },
     {
-      "slug": "circular-buffer",
-      "difficulty": 5,
+      "slug": "allergies",
+      "difficulty": 4,
       "topics": [
-        "Queues",
-        "Classes"
+        "Bitwise operations",
+        "Filtering"
       ]
     },
     {
@@ -135,7 +115,27 @@
         "Arrays",
         "Tuples"
       ]
-    }
+    },
+    {
+      "slug": "circular-buffer",
+      "difficulty": 5,
+      "topics": [
+        "Queues",
+        "Classes"
+      ]
+    },
+    {
+      "slug": "bowling",
+      "difficulty": 6,
+      "topics": [
+        "Algorithms",
+        "Control-flow (loops)"
+      ]
+    },
+    {
+	  "slug": "book-store",
+	  "difficulty": 6
+	}
   ],
   "ignored": [
     "bin",
