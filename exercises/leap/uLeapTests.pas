@@ -10,7 +10,6 @@ type
   YearTest = class(TObject)
   public
     [Test]
-    [Ignore]
     procedure test_leap_year;
 
     [Test]
