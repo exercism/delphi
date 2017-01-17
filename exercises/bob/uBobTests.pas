@@ -10,7 +10,6 @@ type
   BobTests = class(TObject)
   public
     [Test]
-    [Ignore]
     procedure Stating_something;
 
     [Test]
