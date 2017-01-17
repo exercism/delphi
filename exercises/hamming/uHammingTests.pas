@@ -10,7 +10,6 @@ type
   HammingTests = class(TObject) 
   public
     [Test]
-    [Ignore]
     procedure test_identical_strands;
 
     [Test]

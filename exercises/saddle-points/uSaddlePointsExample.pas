@@ -1,3 +1,14 @@
+//========================================================================
+// For this example solution I utilized Stefen Glienke's
+// open-source code library titled Spring4D.  Latest
+// version is available here: https://bitbucket.org/sglienke/spring4d
+// Spring4D is not absolutely necessary, but it does greatly help
+// facilitate a much simpler solution.
+//
+// Spring4D does include a Tuple record type that I have purposely
+// not used in favor of my own, simple, TTuple that I declared in the
+// test runner, in order to remove Spring4D dependency for test execution 
+//========================================================================
 unit uSaddlePoints;
 
 interface
