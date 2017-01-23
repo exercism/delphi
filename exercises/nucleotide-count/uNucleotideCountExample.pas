@@ -6,33 +6,19 @@ uses SysUtils, System.Generics.Collections;
 type
   EInvalidNucleotideException = class(Exception);
 
-  IDNA = interface(IInvokable)
-  ['{AE218E73-90BB-4445-B40E-D8693CA54E2F}']
-    function Count(aChar: char): integer;
-    function GetNucleotideCounts: TDictionary<char, integer>;
-    property NucleotideCounts: TDictionary<char, integer> read GetNucleotideCounts;
-  end;
-
-  function NewDNA(aSequence: string): IDNA;
-
-implementation
-
-type
-  TDNA = class(TInterfacedObject, IDNA)
+  TDNA = class
   private
     fNucleotideCounts: TDictionary<char, integer>;
-  protected
     function GetNucleotideCounts: TDictionary<char, integer>;
   public
     constructor create(aSequence: string);
+    destructor destroy;
     function Count(aChar: char): integer;
     property NucleotideCounts: TDictionary<char, integer> read GetNucleotideCounts;
   end;
 
-function NewDNA(aSequence: string): IDNA;
-begin
-  result := TDNA.create(aSequence);
-end;
+implementation
+
 
 constructor TDNA.create(aSequence: string);
 var NucleotideList: TList<TPair<char, integer>>;
@@ -55,6 +41,11 @@ begin
       fNucleotideCounts[charInSequence] := count;
     end;
   end;
+end;
+
+destructor TDNA.Destroy;
+begin
+  fNucleotideCounts.Free;
 end;
 
 function TDNA.GetNucleotideCounts: TDictionary<char, integer>;

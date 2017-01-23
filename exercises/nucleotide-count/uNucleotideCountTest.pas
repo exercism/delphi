@@ -81,7 +81,7 @@ begin
 end;
 
 procedure NucleoTideCountTest.Has_no_nucleotides;
-var dna: IDNA;
+var dna: TDNA;
     expected: TDictionary<char, integer>;
 begin
   expected := TDictionary<char, integer>.Create;
@@ -90,33 +90,33 @@ begin
   expected.Add('C',0);
   expected.Add('G',0);
 
-  dna := NewDNA('');
+  dna := TDNA.Create('');
 
   CompareDictionaries(expected, dna.NucleotideCounts);
 end;
 
 procedure NucleoTideCountTest.Has_no_adenosine;
-var dna: IDNA;
+var dna: TDNA;
     inStr: string;
 begin
   inStr := '';
-  dna := NewDNA(inStr);
+  dna := TDNA.Create(inStr);
 
   Assert.AreEqual(length(inStr), dna.Count('A'));
 end;
 
 procedure NucleoTideCountTest.Repetitive_cytidine_gets_counts;
-var dna: IDNA;
+var dna: TDNA;
     inStr: string;
 begin
   inStr := 'CCCCC';
-  dna := NewDNA(inStr);
+  dna := TDNA.Create(inStr);
 
   Assert.AreEqual(length(inStr), dna.Count('C'));
 end;
 
 procedure NucleoTideCountTest.Repetitive_sequence_has_only_guanosine;
-var dna: IDNA;
+var dna: TDNA;
     expected: TDictionary<char, integer>;
     inStr: string;
 begin
@@ -127,27 +127,27 @@ begin
   expected.Add('G',8);
   inStr := 'GGGGGGGG';
 
-  dna := NewDNA(inStr);
+  dna := TDNA.Create(inStr);
 
   CompareDictionaries(expected, dna.NucleotideCounts);
 end;
 
 procedure NucleoTideCountTest.Counts_only_thymidine;
-var dna: IDNA;
+var dna: TDNA;
     inStr: string;
 begin
   inStr := 'GGGGTAACCCGG';
-  dna := NewDNA(inStr);
+  dna := TDNA.Create(inStr);
 
   Assert.AreEqual(length('T'), dna.Count('T'));
 end;
 
 procedure NucleoTideCountTest.Counts_a_nucleotide_only_once;
-var dna: IDNA;
+var dna: TDNA;
     inStr: string;
 begin
   inStr := 'GGTTGG';
-  dna := NewDNA(inStr);
+  dna := TDNA.Create(inStr);
   dna.Count('T');
 
   Assert.AreEqual(2, dna.Count('T'));
@@ -157,11 +157,11 @@ procedure NucleoTideCountTest.Validates_nucleotides;
 var MyProc: TTestLocalMethod;
 begin
   MyProc := procedure
-            var dna: IDNA;
+            var dna: TDNA;
                 inStr: string;
             begin
               inStr := 'GGTTGG';
-              dna := NewDNA(inStr);
+              dna := TDNA.Create(inStr);
               dna.Count('X');
             end;
 
@@ -169,7 +169,7 @@ begin
 end;
 
 procedure NucleoTideCountTest.Counts_all_nucleotides;
-var dna: IDNA;
+var dna: TDNA;
     expected: TDictionary<char, integer>;
     inStr: string;
 begin
@@ -180,7 +180,7 @@ begin
   expected.Add('G',17);
   inStr := 'AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC';
 
-  dna := NewDNA(inStr);
+  dna := TDNA.Create(inStr);
 
   CompareDictionaries(expected, dna.NucleotideCounts);
 end;
