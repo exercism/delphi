@@ -17,4 +17,56 @@ With Delphi successfully installed, and working correctly, please follow these s
 - Step-by-step instructions on how to install DUnitX into Delphi have been posted by Vincent Parrett in a blog post located [here](https://www.finalbuilder.com/resources/blogs/postid/702/dunitx-has-a-wizard).
 - The Starter Edition of Delphi doesn't allow the use of project experts.  DUnitX comes with an expert which will aid the student in creating a new DUnitX based project.  The expert creates the project's .DPR file.  The exercises in this track all include the .DPR file making the expert not necessary.  DUnitX otherwise has no issues with projects created in Delphi versions starting with XE all the way up to and including the Starter Edition of Berlin.
 
+### Delphi Configuration for DunitX ###
+
+If you had to install DUnitX because your installation didn't already come with it then please follow the following illustrated steps to make the necessary configuration changes to Delphi in order for it to locate your installation of DUnitX.
+
+*Note: it is assumed that you have completed the installation of Delphi by this point.*
+
+- Start Delphi.  If your installation is new you will most likely end up at a Welcome Page similar to this.
+
+![Welcome Page](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepage.png)
+
+- Find and click `Tools` along the top menu.
+ 
+![Tools](http://x.exercism.io/v3/tracks/pascal/docs/img/01delphiclicktools.png)
+
+- Click `Options`.
+
+![Options](http://x.exercism.io/v3/tracks/pascal/docs/img/02delphiclickoptions.png)
+
+- Along the left side of the Options screen find and click on `Environment Variables`.
+
+![Options Screen Environment Variables](http://x.exercism.io/v3/tracks/pascal/docs/img/03delphioptionsenvironmentvariables.png)
+
+- Click the `New` button located in the `User overrides` group 
+
+![Click New](http://x.exercism.io/v3/tracks/pascal/docs/img/04delphioptionsenvironmentvariablesclicknew.png)
+
+- A New User Variable window should appear that contains two fields.  In the top field enter `DUNITX` for the Variable Name.  In the bottom field enter the complete path to your copy of DUnitX, for example mine is `C:\Program Files\Embarcadero\Studio\18.0\source\DUnitX`. Click the `Ok` button to then close this window.
+
+![New User Variable](http://x.exercism.io/v3/tracks/pascal/docs/img/05delphinewuservariable.png)
+
+- Locate and click on `Library` along the left side of the Options screen.
+
+![Library](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibrary.png)
+
+- Click the `...` button associated with the Library path in the Directories group
+
+![...button](http://x.exercism.io/v3/tracks/pascal/docs/img/07delphiclicklibrarypathbutton.png)
+
+- In the Directories window enter the variable name that you created a few steps ago.  The entry should appear like this `$(DUNITX)` 
+
+![Directories](http://x.exercism.io/v3/tracks/pascal/docs/img/08delphidirectoriesinputvarnameclickadd.png)
+
+- Click the `Add` button to add this new item to the list.
+
+- Click the `Ok` button to store the change.
+
+![ClickOK](http://x.exercism.io/v3/tracks/pascal/docs/img/09delphidirectoriesclickok.png)
+
+- Finally, click the `Ok` button on the Options window to save all the changes.
+
+Delphi will now be able to locate units that pertain to the DUnitX testing framework library.
+
 *Note: It is assumed that Delphi versions XE and higher are being utilized by the student.*
