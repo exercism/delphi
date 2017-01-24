@@ -25,45 +25,45 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Start Delphi.  If your installation is new you will most likely end up at a Welcome Page similar to this.
 
-![Welcome Page](C:\projects.git\xpascal\docs\img\00delphiwelcomepage.png)
+![Welcome Page](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepage.png)
 
 - Find and click `Tools` along the top menu.
  
-![Tools](C:\projects.git\xpascal\docs\img\01delphiclicktools.png)
+![Tools](http://x.exercism.io/v3/tracks/pascal/docs/img/01delphiclicktools.png)
 
 - Click `Options`.
 
-![Options](C:\projects.git\xpascal\docs\img\02delphiclickoptions.png)
+![Options](http://x.exercism.io/v3/tracks/pascal/docs/img/02delphiclickoptions.png)
 
 - Along the left side of the Options screen find and click on `Environment Variables`.
 
-![Options Screen Environment Variables](C:\projects.git\xpascal\docs\img\03delphioptionsenvironmentvariables.png)
+![Options Screen Environment Variables](http://x.exercism.io/v3/tracks/pascal/docs/img/03delphioptionsenvironmentvariables.png)
 
 - Click the `New` button located in the `User overrides` group 
 
-![Click New](C:\projects.git\xpascal\docs\img\04delphioptionsenvironmentvariablesclicknew.png)
+![Click New](http://x.exercism.io/v3/tracks/pascal/docs/img/04delphioptionsenvironmentvariablesclicknew.png)
 
 - A New User Variable window should appear that contains two fields.  In the top field enter `DUNITX` for the Variable Name.  In the bottom field enter the complete path to your copy of DUnitX, for example mine is `C:\Program Files\Embarcadero\Studio\18.0\source\DUnitX`. Click the `Ok` button to then close this window.
 
-![New User Variable](C:\projects.git\xpascal\docs\img\05delphinewuservariable.png)
+![New User Variable](http://x.exercism.io/v3/tracks/pascal/docs/img/05delphinewuservariable.png)
 
 - Locate and click on `Library` along the left side of the Options screen.
 
-![Library](C:\projects.git\xpascal\docs\img\06delphioptionslibrary.png)
+![Library](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibrary.png)
 
 - Click the `...` button associated with the Library path in the Directories group
 
-![...button](C:\projects.git\xpascal\docs\img\07delphiclicklibrarypathbutton.png)
+![...button](http://x.exercism.io/v3/tracks/pascal/docs/img/07delphiclicklibrarypathbutton.png)
 
 - In the Directories window enter the variable name that you created a few steps ago.  The entry should appear like this `$(DUNITX)` 
 
-![Directories](C:\projects.git\xpascal\docs\img\08delphidirectoriesinputvarnameclickadd.png)
+![Directories](http://x.exercism.io/v3/tracks/pascal/docs/img/08delphidirectoriesinputvarnameclickadd.png)
 
 - Click the `Add` button to add this new item to the list.
 
 - Click the `Ok` button to store the change.
 
-![ClickOK](C:\projects.git\xpascal\docs\img\09delphidirectoriesclickok.png)
+![ClickOK](http://x.exercism.io/v3/tracks/pascal/docs/img/09delphidirectoriesclickok.png)
 
 - Finally, click the `Ok` button on the Options window to save all the changes.
 
