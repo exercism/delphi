@@ -1,3 +1,9 @@
+//=============================================================================
+// You are expected to write an abstraction layer for your class called
+// IPhoneNumber.  Your unit 'uPhoneNumber.pas' should only expose the
+// abstraction layer along with a function called 'NewPhoneNumber' that returns
+// an instance of IPhoneNumber.
+//=============================================================================
 unit uPhoneNumberTests;
 
 interface
@@ -49,7 +55,7 @@ type
     procedure Has_an_area_code;
 
     [Test]
-    [Ignore]
+    [Ignore('This is a bonus test')]
     procedure Formats_a_number;
   end;
 
