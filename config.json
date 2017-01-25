@@ -1,6 +1,6 @@
 {
   "slug": "pascal",
-  "language": "Object Pascal",
+  "language": "Delphi Pascal",
   "repository": "https://github.com/exercism/xpascal",
   "active": false,
   "exercises": [
