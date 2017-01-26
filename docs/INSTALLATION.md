@@ -25,7 +25,7 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Start Delphi.  If your installation is new you will most likely end up at a Welcome Page similar to this.
 
-![Welcome Page](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepage.png)
+[![Welcome Page](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepageLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepage.png)
 
 - Find and click `Tools` along the top menu.
  
@@ -37,7 +37,7 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Along the left side of the Options screen find and click on `Environment Variables`.
 
-![Options Screen Environment Variables](http://x.exercism.io/v3/tracks/pascal/docs/img/03delphioptionsenvironmentvariables.png)
+[![Options Screen Environment Variables](http://x.exercism.io/v3/tracks/pascal/docs/img/03delphioptionsenvironmentvariablesLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/03delphioptionsenvironmentvariables.png)
 
 - Click the `New` button located in the `User overrides` group 
 
@@ -49,7 +49,7 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Locate and click on `Library` along the left side of the Options screen.
 
-![Library](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibrary.png)
+![[Library](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibraryLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibrary.png)
 
 - Click the `...` button associated with the Library path in the Directories group
 
