@@ -23,7 +23,7 @@ If you had to install DUnitX because your installation didn't already come with 
 
 *Note: it is assumed that you have completed the installation of Delphi by this point.*
 
-- Start Delphi.  If your installation is new you will most likely end up at a Welcome Page similar to this.
+- Start Delphi.  If your installation is new you will most likely end up at a `Welcome Page` similar to this.
 
 [![Welcome Page](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepageLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/00delphiwelcomepage.png)
 
@@ -49,11 +49,11 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Locate and click on `Library` along the left side of the Options screen.
 
-![[Library](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibraryLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibrary.png)
+[![Library](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibraryLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/06delphioptionslibrary.png)
 
 - Click the `...` button associated with the Library path in the Directories group
 
-![...button](http://x.exercism.io/v3/tracks/pascal/docs/img/07delphiclicklibrarypathbutton.png)
+[![...button](http://x.exercism.io/v3/tracks/pascal/docs/img/07delphiclicklibrarypathbuttonLogo.png)](http://x.exercism.io/v3/tracks/pascal/docs/img/07delphiclicklibrarypathbutton.png)
 
 - In the Directories window enter the variable name that you created a few steps ago.  The entry should appear like this `$(DUNITX)` 
 
