@@ -60,6 +60,14 @@
       ]
     },
     {
+	    "slug": "grains",
+	    "difficulty": 2,
+	    "topics": [
+	      "Integers",
+	      "Recursion"
+      ]
+    },
+    {
       "slug": "beer-song",
       "difficulty": 3,
       "topics": [
