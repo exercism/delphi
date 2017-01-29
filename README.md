@@ -1,8 +1,8 @@
-# xPascal
+# xDelphi
 
-[![Build Status](https://travis-ci.org/exercism/xpascal.png?branch=master)](https://travis-ci.org/exercism/xpascal)
+[![Build Status](https://travis-ci.org/exercism/xdelphi.png?branch=master)](https://travis-ci.org/exercism/xdelphi)
 
-Exercism exercises in Pascal.
+Exercism exercises in Delphi Pascal.
 
 ## Contributing Guide
 
