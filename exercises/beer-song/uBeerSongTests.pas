@@ -10,17 +10,23 @@ type
   BeerSongTests = class(TObject)
   public
     [Test]
-    [TestCase('verse 8', '8, 0')]
-//    [TestCase('verse 2', '2, 1')] //Uncomment to run test case
-//    [TestCase('verse 1', '1, 2')] //Uncomment to run test case
-//    [TestCase('verse 0', '0, 3')] //Uncomment to run test case
-    procedure Verse(const verseNumber: integer; const verseResult: integer);
+    procedure Verse_8;
 
     [Test]
-    [Ignore] //Comment or remove [Ignore] to run this test
-    [TestCase('verse 8 to 6','8, 6, 0')]
-    [TestCase('verse 3 to 0','3, 0, 1')]
-    procedure Sing(const start : Integer;const stop : Integer; singResult: integer);
+    [Ignore('Comment this line to run this test')]
+    procedure Verse_2;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Verse_0;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Verse_8_to_6;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Verse_3_to_0;
   end;
 
 implementation
@@ -61,21 +67,48 @@ const verseResults: array[0..3] of string = ('8 bottles of beer on the wall, 8 b
                                             'Go to the store and buy some more, 99 bottles of beer on the wall.' + sLineBreak +
                                             sLineBreak);
 
-procedure BeerSongTests.Verse(const verseNumber: integer; const verseResult: integer);
+procedure BeerSongTests.Verse_8;
 var Expected,
     Actual: string;
 begin
-  Expected := verseResults[verseResult];
-  Actual := Beer.Verse(verseNumber);
+  Expected := verseResults[0];
+  Actual := Beer.Verse(8);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure BeerSongTests.Verse_2;
+var Expected,
+    Actual: string;
+begin
+  Expected := verseResults[1];
+  Actual := Beer.Verse(2);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure BeerSongTests.Verse_0;
+var Expected,
+    Actual: string;
+begin
+  Expected := verseResults[3];
+  Actual := Beer.Verse(0);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure BeerSongTests.Verse_8_to_6;
+var Expected,
+    Actual: string;
+begin
+  Expected := singResults[0];
+  Actual := Beer.Sing(8, 6);
   assert.AreEqual(Expected, Actual);
 end;
 
-procedure BeerSongTests.Sing(const start : Integer;const stop : Integer; singResult: integer);
+procedure BeerSongTests.Verse_3_to_0;
 var Expected,
     Actual: string;
 begin
-  Expected := singResults[singResult];
-  Actual := Beer.Sing(start, stop);
+  Expected := singResults[1];
+  Actual := Beer.Sing(3, 0);
   assert.AreEqual(Expected, Actual);
 end;
 
