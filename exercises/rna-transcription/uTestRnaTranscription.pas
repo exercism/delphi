@@ -1,30 +1,3 @@
-//*****************************************************************************
-// You got an error, which is exactly as it should be.
-// This is the first step in the Test-Driven Development
-// (TDD) process.
-//
-// The most important part of the error is
-//
-//   "cannot compile"
-//
-// It's looking for a file named uHelloWorld.pas that doesn't exist.
-//
-// To fix the error, create a unit file named uHelloWorld.pas
-// in the same directory as the file uTestHelloWorld.pas.
-//
-// The beginning of the new unit file should contain a unit statement:
-//
-// unit uHelloWorld;
-//
-// The new unit should contain Interface, Implementation, and End. statements.
-//
-// Hint: Delphi will take care of all this if you instruct it to add a new unit
-// to your project.  Be sure to save the new unit as uHelloWorld.pas before
-// trying to compile again.
-//
-// For more guidance as you work on this exercise, see
-// GETTING_STARTED.md.
-//*****************************************************************************
 unit uTestRnaTranscription;
 
 interface
@@ -36,12 +9,80 @@ type
   RnaTranscriptionTest = class(TObject)
   public
     [Test]
+    procedure Rna_complement_of_cytosine_is_guanine;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Rna_complement_of_guanine_is_cytosine;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Rna_complement_of_thymine_is_adenine;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Rna_complement_of_adenine_is_uracil;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Rna_complement;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Dna_correctly_handles_invalid_input;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Dna_correctly_handles_completely_invalid_input;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Dna_correctly_handles_partially_invalid_input;
   end;
 
 implementation
 uses uRnaTranscription;
 
+procedure RnaTranscriptionTest.Rna_complement_of_cytosine_is_guanine;
+begin
+  Assert.AreEqual('G', complement.OfDna('C'));
+end;
+
+procedure RnaTranscriptionTest.Rna_complement_of_guanine_is_cytosine;
+begin
+  Assert.AreEqual('C', complement.OfDna('G'));
+end;
+
+procedure RnaTranscriptionTest.Rna_complement_of_thymine_is_adenine;
+begin
+  Assert.AreEqual('A', complement.OfDna('T'));
+end;
+
+procedure RnaTranscriptionTest.Rna_complement_of_adenine_is_uracil;
+begin
+  Assert.AreEqual('U', complement.OfDna('A'));
+end;
+
+procedure RnaTranscriptionTest.Rna_complement;
+begin
+  Assert.AreEqual('UGCACCAGAAUU', complement.OfDna('ACGTGGTCTTAA'));
+end;
+
+procedure RnaTranscriptionTest.Dna_correctly_handles_invalid_input;
+begin
+  Assert.AreEqual('', complement.OfDna('U'));
+end;
+
+procedure RnaTranscriptionTest.Dna_correctly_handles_completely_invalid_input;
+begin
+  Assert.AreEqual('', complement.OfDna('XXX'));
+end;
+
+procedure RnaTranscriptionTest.Dna_correctly_handles_partially_invalid_input;
+begin
+  Assert.AreEqual('', complement.OfDna('ACGTXXXCTTAA'));
+end;
 
 initialization
-  TDUnitX.RegisterTestFixture(HelloWorldTest);
+  TDUnitX.RegisterTestFixture(RnaTranscriptionTest);
 end.
