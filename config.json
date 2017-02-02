@@ -28,6 +28,14 @@
       ]
     },
     {
+      "slug": "rna-transcription",
+      "difficulty": 1,
+      "topics": [
+        "Strings",
+        "Transforming"
+      ]
+    },
+    {
       "slug": "hamming",
       "difficulty": 2,
       "topics": [
