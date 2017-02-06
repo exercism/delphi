@@ -6,112 +6,127 @@ uses
 
 type
 
-  [TestFixture]
-  BeerSongTests = class(TObject)
+  [TestFixture('Return 1 verse')]
+  VerseTests = class(TObject)
   public
     [Test]
-    procedure Verse_8;
+    procedure First_verse;
 
     [Test]
     [Ignore('Comment this line to run this test')]
-    procedure Verse_2;
+    procedure Middle_verse;
 
     [Test]
     [Ignore('Comment this line to run this test')]
-    procedure Verse_0;
+    procedure Third_to_last_verse;
 
     [Test]
     [Ignore('Comment this line to run this test')]
-    procedure Verse_8_to_6;
+    procedure Penultimate_verse;
 
     [Test]
     [Ignore('Comment this line to run this test')]
-    procedure Verse_3_to_0;
+    procedure Last_verse;
+  end;
+
+  [TextFixture('Return multiple verses')]
+  LyricsTests = class(TObject)
+  public
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure Last_4_verses;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
+    procedure All_verses;
   end;
 
 implementation
-uses System.SysUtils, uBeerSong;
+uses System.SysUtils, System.Classes, uBeerSong;
 
-const verseResults: array[0..3] of string = ('8 bottles of beer on the wall, 8 bottles of beer.' + sLineBreak +
-                                             'Take one down and pass it around, 7 bottles of beer on the wall.' + sLineBreak,
+var inputFile: TStringlist;
 
-                                             '2 bottles of beer on the wall, 2 bottles of beer.' + sLineBreak +
-                                             'Take one down and pass it around, 1 bottle of beer on the wall.' + sLineBreak,
+{$region 'Return 1 verse'}
 
-                                             '1 bottle of beer on the wall, 1 bottle of beer.' + sLineBreak +
-                                             'Take it down and pass it around, no more bottles of beer on the wall.' + sLineBreak,
-
-                                             'No more bottles of beer on the wall, no more bottles of beer.' + sLineBreak +
-                                             'Go to the store and buy some more, 99 bottles of beer on the wall.' + sLineBreak);
-
-      singResults: array[0..1] of string = ('8 bottles of beer on the wall, 8 bottles of beer.' + sLineBreak +
-                                            'Take one down and pass it around, 7 bottles of beer on the wall.' + sLineBreak +
-                                            sLineBreak +
-                                            '7 bottles of beer on the wall, 7 bottles of beer.' + sLineBreak +
-                                            'Take one down and pass it around, 6 bottles of beer on the wall.' + sLineBreak +
-                                            sLineBreak +
-                                            '6 bottles of beer on the wall, 6 bottles of beer.' + sLineBreak +
-                                            'Take one down and pass it around, 5 bottles of beer on the wall.' + sLineBreak +
-                                            sLineBreak,
-
-                                            '3 bottles of beer on the wall, 3 bottles of beer.' + sLineBreak +
-                                            'Take one down and pass it around, 2 bottles of beer on the wall.' + sLineBreak +
-                                            sLineBreak +
-                                            '2 bottles of beer on the wall, 2 bottles of beer.' + sLineBreak +
-                                            'Take one down and pass it around, 1 bottle of beer on the wall.' + sLineBreak +
-                                            sLineBreak +
-                                            '1 bottle of beer on the wall, 1 bottle of beer.' + sLineBreak +
-                                            'Take it down and pass it around, no more bottles of beer on the wall.' + sLineBreak +
-                                            sLineBreak +
-                                            'No more bottles of beer on the wall, no more bottles of beer.' + sLineBreak +
-                                            'Go to the store and buy some more, 99 bottles of beer on the wall.' + sLineBreak +
-                                            sLineBreak);
-
-procedure BeerSongTests.Verse_8;
+procedure VerseTests.First_verse;
 var Expected,
     Actual: string;
 begin
-  Expected := verseResults[0];
-  Actual := Beer.Verse(8);
+  Expected := inputFile[0];
+  Actual := Beer.Verse(99);
   Assert.AreEqual(Expected, Actual);
 end;
 
-procedure BeerSongTests.Verse_2;
+procedure VerseTests.Middle_verse;
 var Expected,
     Actual: string;
 begin
-  Expected := verseResults[1];
+  Expected := inputFile[1];
+  Actual := Beer.Verse(44);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure VerseTests.Third_to_last_verse;
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[2];
   Actual := Beer.Verse(2);
   Assert.AreEqual(Expected, Actual);
 end;
 
-procedure BeerSongTests.Verse_0;
+procedure VerseTests.Penultimate_verse;
 var Expected,
     Actual: string;
 begin
-  Expected := verseResults[3];
+  Expected := inputFile[3];
+  Actual := Beer.Verse(1);
+  assert.AreEqual(Expected, Actual);
+end;
+
+procedure VerseTests.Last_verse;
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[4];
   Actual := Beer.Verse(0);
-  Assert.AreEqual(Expected, Actual);
+  assert.AreEqual(Expected, Actual);
 end;
+{$endregion}
 
-procedure BeerSongTests.Verse_8_to_6;
+{$region 'Return multiple verses'}
+
+procedure LyricsTests.Last_4_verses;
 var Expected,
     Actual: string;
 begin
-  Expected := singResults[0];
-  Actual := Beer.Sing(8, 6);
+  Expected := inputFile[5];
+  Actual := Beer.Verses(3,0);
   assert.AreEqual(Expected, Actual);
 end;
 
-procedure BeerSongTests.Verse_3_to_0;
+procedure LyricsTests.All_verses;
 var Expected,
     Actual: string;
 begin
-  Expected := singResults[1];
-  Actual := Beer.Sing(3, 0);
+  Expected := inputFile[6];
+  Actual := Beer.Verses(99,0);
   assert.AreEqual(Expected, Actual);
+end;
+
+{$endregion}
+
+function loadInputData: TStringlist;
+begin
+  result := TStringlist.Create;
+  result.LoadFromFile('inputdata.txt');
 end;
 
 initialization
-  TDUnitX.RegisterTestFixture(BeerSongTests);
+  inputFile := loadInputData;
+  TDUnitX.RegisterTestFixture(VerseTests);
+  TDUnitX.RegisterTestFixture(LyricsTests);
+
+finalization
+  inputFile.DisposeOf;
 end.
