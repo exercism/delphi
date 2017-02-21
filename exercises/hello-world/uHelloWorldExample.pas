@@ -2,13 +2,13 @@ unit uHelloWorld;
 
 interface
 
-  function Hello(name: string='World'): string;
+  function Hello: string;
 
 implementation
 
-function Hello(name: string='World'): string;
+function Hello: string;
 begin
-  result := 'Hello, ' + name + '!';
+  result := 'Hello, World!';
 end;
 
 end.

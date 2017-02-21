@@ -36,31 +36,15 @@ type
   HelloWorldTest = class(TObject)
   public
     [Test]
-    procedure test_no_name;
-    [Test]
-    [Ignore('Comment this line to run this test')]
-    procedure test_sample_name;
-    [Test]
-    [Ignore('Comment this line to run this test')]
-    procedure test_other_sample_name;
+    procedure Say_hi;
   end;
 
 implementation
 uses uHelloWorld;
 
-procedure HelloWorldTest.test_no_name;
+procedure HelloWorldTest.Say_hi;
 begin
   assert.AreEqual('Hello, World!', Hello);
-end;
-
-procedure HelloWorldTest.test_sample_name;
-begin
-  assert.AreEqual('Hello, Alice!',Hello('Alice'));
-end;
-
-procedure HelloWorldTest.test_other_sample_name;
-begin
-  assert.AreEqual('Hello, Bob!', Hello('Bob'));
 end;
 
 initialization
