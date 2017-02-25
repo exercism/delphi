@@ -151,7 +151,16 @@
     {
 	  "slug": "book-store",
 	  "difficulty": 6
-	}
+	},
+    {
+      "slug": "poker",
+      "difficulty": 7,
+      "topics": [
+        "Parsing",
+        "Sorting",
+        "Games"
+      ]
+    }
   ],
   "ignored": [
     "bin",
