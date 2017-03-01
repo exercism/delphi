@@ -1,7 +1,6 @@
 unit uBowling;
 
 interface
-uses System.Generics.Collections;
 
 type
    IBowlingGame = interface(IInvokable)
@@ -13,18 +12,22 @@ type
    function NewBowlingGame: IBowlingGame;
 
 implementation
+uses System.SysUtils, System.Math, System.Generics.Collections;
 
 type
    TBowlingGame = class(TInterfacedObject, IBowlingGame)
    private
-     fRolls: TList<integer>;
-     fNumberOfFrames: integer;
-     fMaximumFrameScore: integer;
+     var
+       fRolls: TList<integer>;
+     const
+       fNumberOfFrames = 10;
+       fMaximumFrameScore = 10;
      function IsStrike(aFrameIndex: integer): Boolean;
      function IsSpare(aFrameIndex: integer): Boolean;
      function StrikeBonus(aFrameIndex: integer): integer;
      function SpareBonus(aFrameIndex: integer): integer;
      function SumOfPinsInFrame(aFrameIndex: integer): integer;
+     function CorrectNumberOfRolls(aFrameIndex: integer): boolean;
    public
      constructor create;
      function Score: integer;
@@ -38,8 +41,6 @@ end;
 
 constructor TBowlingGame.create;
 begin
-  fNumberOfFrames := 10;
-  fMaximumFrameScore := 10;
   fRolls := TList<integer>.Create;
 end;
 
@@ -52,29 +53,52 @@ function TBowlingGame.Score: integer;
 var lFrameIndex: integer;
     i: integer;
     lScore: integer;
+    lStrikeBonus: integer;
+    lFrameScore: integer;
 begin
   lScore := 0;
   lFrameIndex := 0;
-  for i := 0 to fNumberOfFrames - 1 do
-  begin
-    if IsStrike(lFrameIndex) then
+  try
+    for i := 1 to fNumberOfFrames do
     begin
-      lScore := lScore + 10 + StrikeBonus(lFrameIndex);
-      inc(lFrameIndex);
-    end
-    else
-    if IsSpare(lFrameIndex) then
-    begin
-      lScore := lScore + 10 + SpareBonus(lFrameIndex);
-      inc(lFrameIndex, 2);
-    end
-    else
-    begin
-      lScore := lScore + SumOfPinsInFrame(lFrameIndex);
-      inc(lFrameIndex, 2);
+      if fRolls.Count <= lFrameIndex then
+        raise EArgumentException.Create('Not a proper game');
+
+      if IsStrike(lFrameIndex) then
+      begin
+        if (fRolls.Count <= lFrameIndex + 2) then
+          raise EArgumentException.Create('Not a proper game');
+
+        lStrikeBonus := StrikeBonus(lFrameIndex);
+        if (lStrikeBonus > fMaximumFrameScore) and not IsStrike(lFrameIndex + 1) then
+          raise EArgumentException.Create('Not a proper game');
+
+        lScore := lScore + 10 + lStrikeBonus;
+        inc(lFrameIndex, ifthen(i = fNumberOfFrames, 3, 1));
+      end
+      else
+      if IsSpare(lFrameIndex) then
+      begin
+        if (fRolls.Count <= lFrameIndex + 2) then
+          raise EArgumentException.Create('Not a proper game');
+
+        lScore := lScore + 10 + SpareBonus(lFrameIndex);
+        inc(lFrameIndex, ifthen(i = fNumberOfFrames, 3, 2));
+      end
+      else
+      begin
+        lFrameScore := SumOfPinsInFrame(lFrameIndex);
+        if (lFrameScore < 0) or (lFrameScore > 10) then
+          raise EArgumentException.Create('Not a proper game');
+
+        lScore := lScore + lFrameScore;
+        inc(lFrameIndex, 2);
+      end;
     end;
+    result := ifthen(CorrectNumberOfRolls(lFrameIndex), lScore, -1);
+  except
+    result := -1;
   end;
-  result := lScore;
 end;
 
 function TBowlingGame.IsStrike(aFrameIndex: Integer): Boolean;
@@ -100,6 +124,11 @@ end;
 function TBowlingGame.SumOfPinsInFrame(aFrameIndex: Integer): integer;
 begin
   result := fRolls[aFrameIndex] + fRolls[aFrameIndex + 1];
+end;
+
+function TBowlingGame.CorrectNumberOfRolls(aFrameIndex: Integer): boolean;
+begin
+  result := aFrameIndex = fRolls.Count;
 end;
 
 end.
