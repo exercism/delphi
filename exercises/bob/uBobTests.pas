@@ -13,71 +13,71 @@ type
     procedure Stating_something;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Shouting;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Asking_a_question;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Asking_a_question_with_a_trailing_space;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Asking_a_numeric_question;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Talking_forcefully;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Using_acronyms_in_regular_search;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Forceful_questions;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Shouting_numbers;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Only_numbers;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Question_with_only_numbers;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Shouting_with_special_characters;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Shouting_with_no_exclamation_mark;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Statement_containing_question_mark;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Prattling_on;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Silence;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Prolonged_silence;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Multiple_line_question;
   end;
 
