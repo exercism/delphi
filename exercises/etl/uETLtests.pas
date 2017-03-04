@@ -15,19 +15,18 @@ type
     procedure Validate_CompareDictionaries;
 
     [Test]
-//    [Ignore]
     procedure Transforms_one_value;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Transforms_multiple_values;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Transforms_multiple_keys;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Transforms_a_full_dataset;
   end;
 

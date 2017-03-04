@@ -13,59 +13,59 @@ type
     procedure test_identical_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_long_identical_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_complete_distance_in_single_nucleotide_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_complete_distance_in_small_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_small_distance_in_small_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_small_distance;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_small_distance_in_long_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_non_unique_character_in_first_strand;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_non_unique_character_in_second_strand;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_same_nucleotides_in_different_positions;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_large_distance;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_large_distance_in_off_by_one_strand;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_empty_strands;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_disallow_first_strand_longer;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure test_disallow_second_strand_longer;
   end;
 

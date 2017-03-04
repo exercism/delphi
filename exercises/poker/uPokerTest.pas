@@ -13,75 +13,75 @@ type
     procedure One_hand;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Nothing_vs_one_pair;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_pairs;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure One_pair_vs_double_pair;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_double_pairs;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Double_pair_vs_three;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_threes;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Three_vs_straight;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_straights;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Straight_vs_flush;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_flushes;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Flush_vs_full;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_fulls;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Full_vs_square;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_squares;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Square_vs_straight_flush;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Two_straight_flushes;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Three_hand_with_tie;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Straight_to_5_against_a_pair_of_jacks;
   end;
 

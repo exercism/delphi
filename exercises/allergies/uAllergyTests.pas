@@ -10,43 +10,42 @@ type
   AllergyTests = class(TObject) 
   public
     [Test]
-    [Ignore]
     procedure No_allergies_means_not_allergic;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_eggs;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_eggs_in_addition_to_other_stuff;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure No_allergies_at_all;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_just_eggs;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_just_peanuts;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_eggs_and_peanuts;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_lots_of_stuff;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Allergic_to_everything;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Ignore_non_allergen_score_parts;
   end;
 

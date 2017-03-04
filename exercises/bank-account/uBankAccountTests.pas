@@ -10,23 +10,22 @@ type
   BankAccountTests = class(TObject)
   public
     [Test]
-    [Ignore]
     procedure Returns_empty_balance_after_opening;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Check_basic_balance;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Balance_can_increment_and_decrement;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Closed_account_throws_exception_when_checking_balance;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Change_account_balance_from_multiple_threads;
   end;
 

@@ -10,39 +10,38 @@ type
   TestCircularBuffer = class(TObject)
   public
     [Test]
-    [Ignore]
     procedure Write_and_read_back_one_item;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Write_and_read_back_multiple_items;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Clearing_buffer;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Alternate_write_and_read;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Reads_back_oldest_item;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Writing_to_a_full_buffer_throws_an_exception;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Overwriting_oldest_item_in_a_full_buffer;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Forced_writes_to_non_full_buffer_should_behave_like_writes;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Alternate_read_and_write_into_buffer_overflow;
   end;
 

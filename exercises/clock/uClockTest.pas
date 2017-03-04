@@ -10,69 +10,76 @@ type
   TClockTest = class(TObject) 
   public
     [Test]
-    [TestCase('Prints the hour','8,08:00')]
-    [TestCase('Prints the hour','9,09:00')]
-    procedure Prints_the_hour(const hours: Integer; const expected : string);
+    procedure Prints_the_hour_8;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
+    procedure Prints_the_hour_9;
+
+    [Test]
+    [Ignore('Comment this line to run this test')]
     procedure Can_add_minutes;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Can_add_over_an_hour;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Can_add_over_more_than_one_day;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Can_subtract_minutes;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Can_subtract_to_previous_hour;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Can_subtract_over_an_hour;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Wraps_around_midnight;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Wraps_around_midnight_backwards;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Midnight_is_zero_hundred_hours;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Sixty_minutes_is_next_hour;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Clocks_with_same_time_are_equal;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Clocks_with_different_time_are_not_equal;
 
     [Test]
-    [Ignore]
+    [Ignore('Comment this line to run this test')]
     procedure Overflown_clocks_with_same_time_are_equal;
   end;
 
 implementation
 uses uClock;
 
-procedure TClockTest.Prints_the_hour(const hours: Integer; const expected : string);
+procedure TClockTest.Prints_the_hour_8;
 begin
-  Assert.AreEqual(expected, Clock.SetHands(hours).ToString);
+  Assert.AreEqual('08:00', Clock.SetHands(8).ToString);
+end;
+
+procedure TClockTest.Prints_the_hour_9;
+begin
+  Assert.AreEqual('09:00', Clock.SetHands(9).ToString);
 end;
 
 procedure TClockTest.Can_add_minutes;
