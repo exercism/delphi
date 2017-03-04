@@ -1,4 +1,4 @@
-program BowlingTests;
+program SaddlePoints;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uBowlingTests in 'uBowlingTests.pas',
-  uBowling in 'uBowling.pas';
+  uSaddlePointsTests in 'uSaddlePointsTests.pas',
+  uSaddlePoints in 'uSaddlePoints.pas';
 
 var
   runner : ITestRunner;

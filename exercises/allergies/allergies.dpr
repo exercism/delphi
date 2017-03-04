@@ -1,4 +1,4 @@
-program ETLtests;
+program allergies;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uETLtests in 'uETLtests.pas',
-  uETL in 'uETL.pas';
+  uAllergyTests in 'uAllergyTests.pas',
+  uAllergies in 'uAllergies.pas';
 
 var
   runner : ITestRunner;

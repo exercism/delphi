@@ -1,4 +1,4 @@
-program CircularBufferTests;
+program ETL;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uCircularBufferTests in 'uCircularBufferTests.pas',
-  uCircularBuffer in 'uCircularBuffer.pas';
+  uETLtests in 'uETLtests.pas',
+  uETL in 'uETL.pas';
 
 var
   runner : ITestRunner;

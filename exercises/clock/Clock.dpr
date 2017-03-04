@@ -1,4 +1,4 @@
-program TestRNATranscription;
+program Clock;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uTestRnaTranscription in 'uTestRnaTranscription.pas',
-  uRnaTranscription in 'uRnaTranscription.pas';
+  uClockTest in 'uClockTest.pas',
+  uClock in 'uClock.pas';
 
 var
   runner : ITestRunner;

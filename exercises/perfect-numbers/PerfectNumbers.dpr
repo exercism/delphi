@@ -1,4 +1,4 @@
-program PerfectNumbersTest;
+program PerfectNumbers;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}

@@ -1,4 +1,4 @@
-program BeerSongTests;
+program BeerSong;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}

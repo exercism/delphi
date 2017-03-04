@@ -1,4 +1,4 @@
-program BookStoreTests;
+program BinarySearch;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uBookStoreTests in 'uBookStoreTests.pas',
-  uBookStore in 'uBookStore.pas';
+  uBinarySearchTest in 'uBinarySearchTest.pas',
+  uBinarySearch in 'uBinarySearch.pas';
 
 var
   runner : ITestRunner;

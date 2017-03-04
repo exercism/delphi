@@ -1,4 +1,4 @@
-program NucleotideCountTest;
+program BankAccount;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uNucleotideCountTest in 'uNucleotideCountTest.pas',
-  uNucleotideCount in 'uNucleotideCount.pas';
+  uBankAccountTests in 'uBankAccountTests.pas',
+  uBankAccount in 'uBankAccount.pas';
 
 var
   runner : ITestRunner;

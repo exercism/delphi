@@ -1,4 +1,4 @@
-program LeapTest;
+program PhoneNumber;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uLeapTests in 'uLeapTests.pas',
-  uLeap in 'uLeap.pas';
+  uPhoneNumberTests in 'uPhoneNumberTests.pas',
+  uPhoneNumber in 'uPhoneNumber.pas';
 
 var
   runner : ITestRunner;
@@ -38,7 +38,7 @@ begin
     //Generate an NUnit compatible XML File
     nunitLogger := TDUnitXXMLNUnitFileLogger.Create(TDUnitX.Options.XMLOutputFile);
     runner.AddLogger(nunitLogger);
-    runner.FailsOnNoAsserts := True; //When true, Assertions must be made during tests;
+    runner.FailsOnNoAsserts := False; //When true, Assertions must be made during tests;
 
     //Run tests
     results := runner.Execute;

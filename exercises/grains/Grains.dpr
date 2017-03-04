@@ -1,4 +1,4 @@
-program TestSaddlePoints;
+program Grains;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uSaddlePointsTests in 'uSaddlePointsTests.pas',
-  uSaddlePoints in 'uSaddlePoints.pas';
+  uGrainsTests in 'uGrainsTests.pas',
+  uGrains in 'uGrains.pas';
 
 var
   runner : ITestRunner;
