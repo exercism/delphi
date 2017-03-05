@@ -1,4 +1,4 @@
-program PhoneNumberTests;
+program Bowling;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uPhoneNumberTests in 'uPhoneNumberTests.pas',
-  uPhoneNumber in 'uPhoneNumber.pas';
+  uBowlingTests in 'uBowlingTests.pas',
+  uBowling in 'uBowling.pas';
 
 var
   runner : ITestRunner;

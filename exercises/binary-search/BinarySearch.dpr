@@ -1,4 +1,4 @@
-program ETLtests;
+program BinarySearch;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uETLtests in 'uETLtests.pas',
-  uETL in 'uETL.pas';
+  uBinarySearchTest in 'uBinarySearchTest.pas',
+  uBinarySearch in 'uBinarySearch.pas';
 
 var
   runner : ITestRunner;

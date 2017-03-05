@@ -1,4 +1,4 @@
-program ClockTest;
+program NucleotideCount;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uClockTest in 'uClockTest.pas',
-  uClock in 'uClock.pas';
+  uNucleotideCountTest in 'uNucleotideCountTest.pas',
+  uNucleotideCount in 'uNucleotideCount.pas';
 
 var
   runner : ITestRunner;

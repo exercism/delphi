@@ -1,4 +1,4 @@
-program BankAccountTests;
+program BookStore;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uBankAccountTests in 'uBankAccountTests.pas',
-  uBankAccount in 'uBankAccount.pas';
+  uBookStoreTests in 'uBookStoreTests.pas',
+  uBookStore in 'uBookStore.pas';
 
 var
   runner : ITestRunner;

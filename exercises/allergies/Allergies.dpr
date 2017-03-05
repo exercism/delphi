@@ -1,4 +1,4 @@
-program PerfectNumbersTest;
+program Allergies;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uPerfectNumbersTest in 'uPerfectNumbersTest.pas',
-  uPerfectNumbers in 'uPerfectNumbers.pas';
+  uAllergyTests in 'uAllergyTests.pas',
+  uAllergies in 'uAllergies.pas';
 
 var
   runner : ITestRunner;

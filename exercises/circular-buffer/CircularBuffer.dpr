@@ -1,4 +1,4 @@
-program GrainsTests;
+program CircularBuffer;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uGrainsTests in 'uGrainsTests.pas',
-  uGrains in 'uGrains.pas';
+  uCircularBufferTests in 'uCircularBufferTests.pas',
+  uCircularBuffer in 'uCircularBuffer.pas';
 
 var
   runner : ITestRunner;

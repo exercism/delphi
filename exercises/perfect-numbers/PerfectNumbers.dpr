@@ -1,4 +1,4 @@
-program BinarySearchTest;
+program PerfectNumbers;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uBinarySearchTest in 'uBinarySearchTest.pas',
-  uBinarySearch in 'uBinarySearch.pas';
+  uPerfectNumbersTest in 'uPerfectNumbersTest.pas',
+  uPerfectNumbers in 'uPerfectNumbers.pas';
 
 var
   runner : ITestRunner;

@@ -1,4 +1,4 @@
-program AllergyTests;
+program RNATranscription;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uAllergyTests in 'uAllergyTests.pas',
-  uAllergies in 'uAllergies.pas';
+  uTestRnaTranscription in 'uTestRnaTranscription.pas',
+  uRnaTranscription in 'uRnaTranscription.pas';
 
 var
   runner : ITestRunner;
