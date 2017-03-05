@@ -12,43 +12,43 @@ type
     procedure Test_square_1;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Test_square_2;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Test_square_3;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Test_square_4;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Test_square_16;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Test_square_32;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Test_square_64;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Square_0_raises_an_exception;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Negative_square_raises_an_exception;
 
     [Test]
-    [Ignore('Comment this line to run the test')]
+    [Ignore]
     procedure Square_greater_than_64_raises_an_exception;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Test_total_grains;
   end;
 

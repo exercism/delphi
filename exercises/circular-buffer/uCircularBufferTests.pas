@@ -13,35 +13,35 @@ type
     procedure Write_and_read_back_one_item;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Write_and_read_back_multiple_items;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Clearing_buffer;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Alternate_write_and_read;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Reads_back_oldest_item;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Writing_to_a_full_buffer_throws_an_exception;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Overwriting_oldest_item_in_a_full_buffer;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Forced_writes_to_non_full_buffer_should_behave_like_writes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Alternate_read_and_write_into_buffer_overflow;
   end;
 

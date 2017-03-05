@@ -13,39 +13,39 @@ type
     procedure No_allergies_means_not_allergic;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Allergic_to_eggs;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Allergic_to_eggs_in_addition_to_other_stuff;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure No_allergies_at_all;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Allergic_to_just_eggs;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Allergic_to_just_peanuts;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Allergic_to_eggs_and_peanuts;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Allergic_to_lots_of_stuff;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Allergic_to_everything;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Ignore_non_allergen_score_parts;
   end;
 

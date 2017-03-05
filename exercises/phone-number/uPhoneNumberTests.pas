@@ -19,39 +19,39 @@ type
     procedure Cleans_parens_spaces_and_dashes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Cleans_numbers_with_dots;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Valid_when_11_digits_and_starting_with_1;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Invalid_when_11_digits;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Invalid_when_12_digits;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Invalid_when_9_digits;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Invalid_with_letters;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Invalid_with_punctuations;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Invalid_with_right_number_of_digits_but_letters_mixed_in;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Has_an_area_code;
 
     [Test]

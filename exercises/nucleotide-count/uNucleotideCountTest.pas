@@ -2,7 +2,7 @@ unit uNucleotideCountTest;
 
 interface
 uses
-  DUnitX.TestFramework,  System.Generics.Collections;
+  DUnitX.TestFramework, System.Generics.Collections;
 
 type
 
@@ -18,31 +18,31 @@ type
     procedure Has_no_nucleotides;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Has_no_adenosine;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Repetitive_cytidine_gets_counts;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Repetitive_sequence_has_only_guanosine;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Counts_only_thymidine;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Counts_a_nucleotide_only_once;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Validates_nucleotides;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Counts_all_nucleotides;
   end;
 

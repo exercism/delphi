@@ -16,95 +16,95 @@ type
     procedure Should_be_able_to_score_a_game_with_all_zeros;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Should_be_able_to_score_a_game_with_no_strikes_or_spares;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_spare_followed_by_zeros_is_worth_ten_points;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Points_scored_in_the_roll_after_a_spare_are_counted_twice;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Consecutive_spares_each_get_a_one_roll_bonus;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_spare_in_the_last_frame_gets_a_one_roll_bonus_that_is_counted_once;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_strike_earns_ten_points_in_frame_with_a_single_roll;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Points_scored_in_the_two_rolls_after_a_strike_are_counted_twice_as_a_bonus;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Consecutive_strikes_each_get_the_two_roll_bonus;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_strike_in_the_last_frame_gets_a_two_roll_bonus_that_is_counted_once;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Rolling_a_spare_with_the_two_roll_bonus_does_not_get_a_bonus_roll;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Strikes_with_the_two_roll_bonus_do_not_get_bonus_rolls;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_strike_with_the_one_roll_bonus_after_a_spare_in_the_last_frame_does_not_get_a_bonus;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure All_strikes_is_a_perfect_game;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Rolls_can_not_score_negative_points;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_roll_can_not_score_more_than_10_points;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_rolls_in_a_frame_can_not_score_more_than_10_points;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_bonus_rolls_after_a_strike_in_the_last_frame_can_not_score_more_than_10_points;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure An_unstarted_game_can_not_be_scored;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure An_incomplete_game_can_not_be_scored;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_game_with_more_than_ten_frames_can_not_be_scored;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Bonus_rolls_for_a_strike_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Both_bonus_rolls_for_a_strike_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Bonus_roll_for_a_spare_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
   end;
 

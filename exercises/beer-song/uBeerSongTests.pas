@@ -13,19 +13,19 @@ type
     procedure First_verse;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Middle_verse;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Third_to_last_verse;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Penultimate_verse;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Last_verse;
   end;
 
@@ -33,11 +33,11 @@ type
   LyricsTests = class(TObject)
   public
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Last_4_verses;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure All_verses;
   end;
 

@@ -13,35 +13,35 @@ type
     procedure Can_classify_3_as_deficient;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Can_classify_7_as_deficient;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_13_as_deficient;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_6_as_perfect;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_28_as_perfect;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_496_as_perfect;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_12_as_abundant;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_18_as_abundant;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_classify_20_as_abundant;
   end;
 

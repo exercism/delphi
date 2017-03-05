@@ -13,75 +13,75 @@ type
     procedure One_hand;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Nothing_vs_one_pair;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_pairs;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure One_pair_vs_double_pair;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_double_pairs;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Double_pair_vs_three;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_threes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Three_vs_straight;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_straights;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Straight_vs_flush;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_flushes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Flush_vs_full;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_fulls;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Full_vs_square;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_squares;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Square_vs_straight_flush;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Two_straight_flushes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Three_hand_with_tie;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Straight_to_5_against_a_pair_of_jacks;
   end;
 

@@ -13,59 +13,59 @@ type
     procedure Prints_the_hour_8;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Prints_the_hour_9;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_add_minutes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_add_over_an_hour;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_add_over_more_than_one_day;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_subtract_minutes;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_subtract_to_previous_hour;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Can_subtract_over_an_hour;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Wraps_around_midnight;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Wraps_around_midnight_backwards;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Midnight_is_zero_hundred_hours;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Sixty_minutes_is_next_hour;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Clocks_with_same_time_are_equal;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Clocks_with_different_time_are_not_equal;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Overflown_clocks_with_same_time_are_equal;
   end;
 

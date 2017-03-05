@@ -18,15 +18,15 @@ type
     procedure Transforms_one_value;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Transforms_multiple_values;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Transforms_multiple_keys;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Transforms_a_full_dataset;
   end;
 

@@ -13,19 +13,19 @@ type
     procedure Returns_empty_balance_after_opening;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure Check_basic_balance;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Balance_can_increment_and_decrement;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Closed_account_throws_exception_when_checking_balance;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Change_account_balance_from_multiple_threads;
   end;
 

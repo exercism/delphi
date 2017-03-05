@@ -13,27 +13,27 @@ type
     procedure test_leap_year;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore('Comment these lines to run these tests')]
     procedure test_standard_and_odd_year;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure test_standard_even_year;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure test_standard_nineteenth_century;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure test_standard_eighteenth_century;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure test_leap_twenty_fourth_century;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure test_leap_y2k;
   end;
 
