@@ -1,4 +1,4 @@
-program allergies;
+program Allergies;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
