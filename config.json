@@ -124,6 +124,14 @@
       ]
     },
     {
+      "slug": "triangle",
+      "difficulty": 3,
+      "topics": [
+        "Integers",
+        "Enumerations"
+      ]
+    },
+    {
       "slug": "allergies",
       "difficulty": 4,
       "topics": [
