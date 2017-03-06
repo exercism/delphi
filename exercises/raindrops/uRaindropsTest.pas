@@ -10,10 +10,11 @@ type
   RaindropsTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure the_sound_for_1_is_1;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure the_sound_for_3_is_Pling;
 
     [Test]
