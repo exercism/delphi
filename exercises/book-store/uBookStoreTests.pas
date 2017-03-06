@@ -9,50 +9,51 @@ type
   hpTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure A_basket_containing_only_a_single_book;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_only_two_of_the_same_book;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure No_charge_to_carry_around_an_empty_basket;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_only_two_different_books;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_with_three_different_books;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_with_four_different_books;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_with_five_different_books;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_eight_books_consisting_of_a_pair_each_of_the_first_three_books_plus_one_copy_each_of_the_last_two_books;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_nine_books_consisting_of_a_pair_each_of_the_first_four_books_plus_one_of_the_last_book;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_ten_books_consisting_of_two_copies_of_each_book_in_the_series;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_eleven_books_consisting_of_three_copies_of_the_first_book_plus_two_each_of_the_remaing_four_bookes_in_the_series;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure A_basket_containing_twelve_books_consisting_of_three_copies_of_the_first_two_books_plus_two_each_of_the_remaining_three_books_in_the_series;
   end;
 

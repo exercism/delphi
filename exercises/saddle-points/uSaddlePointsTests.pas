@@ -19,26 +19,27 @@ type
   TSaddlePointTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Readme_example;
 
     [Test]
-    [Ignore('Comment this line to run test')]
+    [Ignore]
     procedure No_saddle_point;
 
     [Test]
-    [Ignore('Comment this line to run test')]
+    [Ignore]
     procedure Saddle_point;
 
     [Test]
-    [Ignore('Comment this line to run test')]
+    [Ignore]
     procedure Another_saddle_point;
 
     [Test]
-    [Ignore('Comment this line to run test')]
+    [Ignore]
     procedure Multiple_saddle_points;
 
     [Test]
-    [Ignore('Comment this line to run test')]
+    [Ignore]
     procedure Five_by_five_matrix;
   end;
 

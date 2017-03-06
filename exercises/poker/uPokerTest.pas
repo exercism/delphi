@@ -10,6 +10,7 @@ type
   PokerTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure One_hand;
 
     [Test]

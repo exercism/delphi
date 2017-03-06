@@ -9,34 +9,35 @@ type
   RnaTranscriptionTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Rna_complement_of_cytosine_is_guanine;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Rna_complement_of_guanine_is_cytosine;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Rna_complement_of_thymine_is_adenine;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Rna_complement_of_adenine_is_uracil;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Rna_complement;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Dna_correctly_handles_invalid_input;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Dna_correctly_handles_completely_invalid_input;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Dna_correctly_handles_partially_invalid_input;
   end;
 

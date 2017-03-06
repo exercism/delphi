@@ -10,7 +10,7 @@ type
   AllergyTests = class(TObject) 
   public
     [Test]
-    [Ignore]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure No_allergies_means_not_allergic;
 
     [Test]

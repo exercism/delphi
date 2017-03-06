@@ -10,74 +10,75 @@ type
   BobTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Stating_something;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Shouting;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Asking_a_question;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Asking_a_question_with_a_trailing_space;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Asking_a_numeric_question;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Talking_forcefully;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Using_acronyms_in_regular_search;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Forceful_questions;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Shouting_numbers;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Only_numbers;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Question_with_only_numbers;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Shouting_with_special_characters;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Shouting_with_no_exclamation_mark;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Statement_containing_question_mark;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Prattling_on;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Silence;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Prolonged_silence;
 
     [Test]
-    [Ignore('Comment this line to run this test')]
+    [Ignore]
     procedure Multiple_line_question;
   end;
 

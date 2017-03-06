@@ -10,7 +10,7 @@ type
   BankAccountTests = class(TObject)
   public
     [Test]
-    [Ignore]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Returns_empty_balance_after_opening;
 
     [Test]

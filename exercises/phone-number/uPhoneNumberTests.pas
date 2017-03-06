@@ -16,6 +16,7 @@ type
   PhoneNumberTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Cleans_parens_spaces_and_dashes;
 
     [Test]

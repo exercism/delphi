@@ -10,7 +10,7 @@ type
   TestCircularBuffer = class(TObject)
   public
     [Test]
-    [Ignore]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Write_and_read_back_one_item;
 
     [Test]
