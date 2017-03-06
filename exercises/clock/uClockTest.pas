@@ -10,10 +10,11 @@ type
   TClockTest = class(TObject) 
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Prints_the_hour_8;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Prints_the_hour_9;
 
     [Test]

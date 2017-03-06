@@ -10,10 +10,11 @@ type
   TBinarySearchTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Should_return_minus_one_when_an_empty_array_is_searched;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Should_be_able_to_find_a_value_in_a_single_element_array_with_one_access;
 
     [Test]

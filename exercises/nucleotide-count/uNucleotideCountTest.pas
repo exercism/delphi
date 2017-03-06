@@ -15,10 +15,11 @@ type
     procedure Validate_CompareDictionaries;
 
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Has_no_nucleotides;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Has_no_adenosine;
 
     [Test]

@@ -10,10 +10,11 @@ type
   YearTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure test_leap_year;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure test_standard_and_odd_year;
 
     [Test]

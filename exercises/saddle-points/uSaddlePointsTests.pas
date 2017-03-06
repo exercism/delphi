@@ -19,10 +19,11 @@ type
   TSaddlePointTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Readme_example;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure No_saddle_point;
 
     [Test]

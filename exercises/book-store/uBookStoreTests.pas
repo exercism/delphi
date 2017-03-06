@@ -9,10 +9,11 @@ type
   hpTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure A_basket_containing_only_a_single_book;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure A_basket_containing_only_two_of_the_same_book;
 
     [Test]

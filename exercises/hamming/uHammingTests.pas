@@ -10,10 +10,11 @@ type
   HammingTests = class(TObject) 
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure test_identical_strands;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure test_long_identical_strands;
 
     [Test]

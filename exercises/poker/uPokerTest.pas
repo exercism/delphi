@@ -10,10 +10,11 @@ type
   PokerTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure One_hand;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Nothing_vs_one_pair;
 
     [Test]

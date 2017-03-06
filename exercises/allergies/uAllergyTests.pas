@@ -10,10 +10,11 @@ type
   AllergyTests = class(TObject) 
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure No_allergies_means_not_allergic;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Allergic_to_eggs;
 
     [Test]

@@ -9,10 +9,11 @@ type
   RnaTranscriptionTest = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Rna_complement_of_cytosine_is_guanine;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Rna_complement_of_guanine_is_cytosine;
 
     [Test]

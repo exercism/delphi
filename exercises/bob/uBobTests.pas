@@ -10,10 +10,11 @@ type
   BobTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Stating_something;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Shouting;
 
     [Test]

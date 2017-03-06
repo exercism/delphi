@@ -10,10 +10,11 @@ type
   PerfectNumbersTest = class(TObject) 
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Can_classify_3_as_deficient;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Can_classify_7_as_deficient;
 
     [Test]

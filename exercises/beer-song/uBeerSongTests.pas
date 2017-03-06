@@ -10,10 +10,11 @@ type
   VerseTests = class(TObject)
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure First_verse;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Middle_verse;
 
     [Test]

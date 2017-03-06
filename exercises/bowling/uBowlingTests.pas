@@ -13,10 +13,11 @@ type
     class function RollMany(pins: array of integer; game: IBowlingGame): IBowlingGame; static;
   public
     [Test]
+//  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Should_be_able_to_score_a_game_with_all_zeros;
 
     [Test]
-    [Ignore('Comment these lines to run these tests')]
+    [Ignore]
     procedure Should_be_able_to_score_a_game_with_no_strikes_or_spares;
 
     [Test]
