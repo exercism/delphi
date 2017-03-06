@@ -36,6 +36,14 @@
       ]
     },
     {
+      "slug": "raindrops",
+      "difficulty": 2,
+      "topics": [
+        "Text formatting",
+        "Filtering"
+      ]
+    },
+    {
       "slug": "hamming",
       "difficulty": 2,
       "topics": [
