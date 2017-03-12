@@ -157,6 +157,14 @@
       ]
     },
     {
+      "slug": "minesweeper",
+      "difficulty": 5,
+      "topics": [
+        "Parsing",
+        "Transforming"
+      ]
+    },   
+    {
       "slug": "bowling",
       "difficulty": 6,
       "topics": [
