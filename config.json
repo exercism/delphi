@@ -165,6 +165,14 @@
       ]
     },   
     {
+      "slug": "roman-numerals",
+      "difficulty": 5,
+      "topics": [
+        "Control-flow (loops)",
+        "Record Helpers"
+      ]
+    },
+    {
       "slug": "bowling",
       "difficulty": 6,
       "topics": [
