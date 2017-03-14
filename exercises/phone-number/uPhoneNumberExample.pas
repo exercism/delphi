@@ -5,10 +5,10 @@ interface
 type
    IPhoneNumber = interface(IInvokable)
    ['{2415B863-E2D7-4E13-BDEF-F7FE9B3E0788}']
-     function GetNumber: string;
+     function GetCleanNumber: string;
      function GetAreaCode: string;
      function ToString: string;
-     property Number: string read GetNumber;
+     property Clean: string read GetCleanNumber;
      property AreaCode: string read GetAreaCode;
    end;
 
@@ -24,7 +24,7 @@ type
      fContainsLetters: TRegex;
      fNumber: string;
      fAreaCode: string;
-     function GetNumber: string;
+     function GetCleanNumber: string;
      function GetAreaCode: string;
      function GetValidatedPhoneNumber(aPhoneNumber: string): string;
      function StripOutNonNumerics(aValue: string): string;
@@ -34,7 +34,7 @@ type
    public
      constructor Create(aPhoneNumber: string);
      function ToString: string;
-     property Number: string read GetNumber;
+     property Clean: string read GetCleanNumber;
      property AreaCode: string read GetAreaCode;
    end;
 
@@ -51,7 +51,7 @@ begin
   fAreaCode := fNumber.Substring(0, 3);
 end;
 
-function TPhoneNumber.GetNumber: string;
+function TPhoneNumber.GetCleanNumber: string;
 begin
   result := fNumber;
 end;
@@ -96,7 +96,7 @@ end;
 
 function TPhoneNumber.ToString: string;
 begin
-  result := Format('(%s) %s-%s',[AreaCode, Number.Substring(3, 3), Number.Substring(6)]);
+  result := Format('(%s) %s-%s',[AreaCode, Clean.Substring(3, 3), Clean.Substring(6)]);
 end;
 
 end.

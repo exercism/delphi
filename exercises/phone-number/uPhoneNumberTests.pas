@@ -17,7 +17,7 @@ type
   public
     [Test]
 //  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure Cleans_parens_spaces_and_dashes;
+    procedure Cleans_the_number;
 
     [Test]
     [Ignore]
@@ -25,19 +25,23 @@ type
 
     [Test]
     [Ignore]
+    procedure Cleans_numbers_with_multiple_spaces;
+
+    [Test]
+    [Ignore]
     procedure Valid_when_11_digits_and_starting_with_1;
 
     [Test]
     [Ignore]
-    procedure Invalid_when_11_digits;
-
-    [Test]
-    [Ignore]
-    procedure Invalid_when_12_digits;
-
-    [Test]
-    [Ignore]
     procedure Invalid_when_9_digits;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_when_11_digits_does_not_start_with_a_1;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_when_more_than_11_digits;
 
     [Test]
     [Ignore]
@@ -52,7 +56,7 @@ type
     procedure Invalid_with_right_number_of_digits_but_letters_mixed_in;
 
     [Test]
-    [Ignore]
+    [Ignore('This is a bonus test')]
     procedure Has_an_area_code;
 
     [Test]
@@ -63,67 +67,74 @@ type
 implementation
 uses uPhoneNumber;
 
-procedure PhoneNumberTests.Cleans_parens_spaces_and_dashes;
+procedure PhoneNumberTests.Cleans_the_number;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('(123) 456-7890');
-  assert.AreEqual('1234567890',phone.Number);
+  assert.AreEqual('1234567890',phone.Clean);
 end;
 
 procedure PhoneNumberTests.Cleans_numbers_with_dots;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('123.456.7890');
-  assert.AreEqual('1234567890',phone.Number);
+  assert.AreEqual('1234567890',phone.Clean);
+end;
+
+procedure PhoneNumberTests.Cleans_numbers_with_multiple_spaces;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('123 456   7890   ');
+  assert.AreEqual('1234567890',phone.Clean);
 end;
 
 procedure PhoneNumberTests.Valid_when_11_digits_and_starting_with_1;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('11234567890');
-  assert.AreEqual('1234567890', phone.Number);
+  assert.AreEqual('1234567890', phone.Clean);
 end;
 
-procedure PhoneNumberTests.Invalid_when_11_digits;
+procedure PhoneNumberTests.Invalid_when_11_digits_does_not_start_with_a_1;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('21234567890');
-  assert.AreEqual('', phone.Number);
+  assert.AreEqual('', phone.Clean);
 end;
 
-procedure PhoneNumberTests.Invalid_when_12_digits;
+procedure PhoneNumberTests.Invalid_when_more_than_11_digits;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('321234567890');
-  assert.AreEqual('', phone.Number);
+  assert.AreEqual('', phone.Clean);
 end;
 
 procedure PhoneNumberTests.Invalid_when_9_digits;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('123456789');
-  assert.AreEqual('', phone.Number);
+  assert.AreEqual('', phone.Clean);
 end;
 
 procedure PhoneNumberTests.Invalid_with_letters;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('123-abc-7890');
-  assert.AreEqual('', phone.Number);
+  assert.AreEqual('', phone.Clean);
 end;
 
 procedure PhoneNumberTests.Invalid_with_punctuations;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('123-@:!-7890');
-  assert.AreEqual('', phone.Number);
+  assert.AreEqual('', phone.Clean);
 end;
 
 procedure PhoneNumberTests.Invalid_with_right_number_of_digits_but_letters_mixed_in;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('1a2b3c4d5e6f7g8h9i0j');
-  assert.AreEqual('', phone.Number);
+  assert.AreEqual('', phone.Clean);
 end;
 
 procedure PhoneNumberTests.Has_an_area_code;
