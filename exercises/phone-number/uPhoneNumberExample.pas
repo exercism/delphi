@@ -7,9 +7,11 @@ type
    ['{2415B863-E2D7-4E13-BDEF-F7FE9B3E0788}']
      function GetCleanNumber: string;
      function GetAreaCode: string;
+     function GetExchangeCode: string;
      function ToString: string;
      property Clean: string read GetCleanNumber;
-     property AreaCode: string read GetAreaCode;
+     property Area: string read GetAreaCode;
+     property Exchange: string read GetExchangeCode;
    end;
 
 function NewPhoneNumber(aPhoneNumber: string): IPhoneNumber;
@@ -24,18 +26,22 @@ type
      fContainsLetters: TRegex;
      fNumber: string;
      fAreaCode: string;
+     fExchangeCode: string;
      function GetCleanNumber: string;
      function GetAreaCode: string;
+     function GetExchangeCode: string;
      function GetValidatedPhoneNumber(aPhoneNumber: string): string;
      function StripOutNonNumerics(aValue: string): string;
      function IsInvalidPhoneNumber(aPhoneNumber: string): Boolean;
      function GetInvalidPhoneNumberReplacement(aPhoneNumber: string): string;
      function IsPhoneNumberwithUSAreaCode(aValue: string): Boolean;
+     function IsValidCode(aCode: string): Boolean;
    public
      constructor Create(aPhoneNumber: string);
      function ToString: string;
      property Clean: string read GetCleanNumber;
-     property AreaCode: string read GetAreaCode;
+     property Area: string read GetAreaCode;
+     property Exchange: string read GetExchangeCode;
    end;
 
 function NewPhoneNumber(aPhoneNumber: string): IPhoneNumber;
@@ -48,17 +54,26 @@ begin
   fDigitsOnly := TRegEx.Create('[^\d]');
   fContainsLetters := TRegEx.Create('[a-zA-Z]');
   fNumber := GetValidatedPhoneNumber(aPhoneNumber);
-  fAreaCode := fNumber.Substring(0, 3);
+  if not fNumber.IsEmpty then
+  begin
+    fAreaCode := fNumber.Substring(0, 3);
+    fExchangeCode := fNumber.Substring(3,3);
+  end;
 end;
 
 function TPhoneNumber.GetCleanNumber: string;
 begin
-  result := fNumber;
+  result := ifthen(IsValidCode(fAreaCode) and IsValidCode(fExchangeCode),fNumber,'');
 end;
 
 function TPhoneNumber.GetAreaCode: string;
 begin
-  result := fAreaCode;
+  result := ifthen(IsValidCode(fAreaCode),fAreaCode,'');
+end;
+
+function TPhoneNumber.GetExchangeCode: string;
+begin
+  result := ifthen(IsValidCode(fExchangeCode),fExchangeCode,'');
 end;
 
 function TPhoneNumber.GetValidatedPhoneNumber(aPhoneNumber: string):string;
@@ -94,9 +109,14 @@ begin
   result := (aValue.Length = 11) and aValue.StartsWith('1');
 end;
 
+function TPhoneNumber.IsValidCode(aCode: string): Boolean;
+begin
+  result := (not aCode.IsEmpty) and (aCode[1] in ['2'..'9']);
+end;
+
 function TPhoneNumber.ToString: string;
 begin
-  result := Format('(%s) %s-%s',[AreaCode, Clean.Substring(3, 3), Clean.Substring(6)]);
+  result := Format('(%s) %s-%s',[Area, Exchange, Clean.Substring(6)]);
 end;
 
 end.
