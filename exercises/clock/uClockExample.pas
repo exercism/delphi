@@ -12,8 +12,8 @@ type
   public
     constructor SetHands(aHours: integer; aMinutes: integer=0);
     function Add(minutesToAdd: integer): Clock;
-    function Subtract(minutesToSubtract: integer): Clock;
     function ToString: string;
+    function Equal(aClock: Clock): Boolean;
   End;
 
 implementation
@@ -30,14 +30,14 @@ begin
   result := Clock.SetHands(hours, minutes + minutesToAdd);
 end;
 
-function Clock.Subtract(minutesToSubtract: Integer): Clock;
-begin
-  result := Clock.SetHands(hours, minutes - minutesToSubtract);
-end;
-
 function Clock.ToString: string;
 begin
   result := format('%.2d:%.2d',[hours, minutes]);
+end;
+
+function Clock.Equal(aClock: Clock): Boolean;
+begin
+  result := (aClock.hours = hours) and (aClock.minutes = minutes);
 end;
 
 class function Clock.fltMod(x, y: double): integer;
