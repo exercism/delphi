@@ -8,6 +8,13 @@
 	  "slug": "hello-world",
 	  "difficulty": 1,
 	  "topics": [
+	    "Text formatting"
+	  ]
+	},
+    {
+	  "slug": "two-fer",
+	  "difficulty": 1,
+	  "topics": [
 	    "Text formatting",
 	    "Optional values"
 	  ]
