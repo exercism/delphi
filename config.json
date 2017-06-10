@@ -4,29 +4,29 @@
   "repository": "https://github.com/exercism/xdelphi",
   "active": true,
   "exercises": [
-     {
-	  "slug": "hello-world",
-	  "difficulty": 1,
-	  "topics": [
-	    "Text formatting"
-	  ]
-	},
     {
-	  "slug": "two-fer",
-	  "difficulty": 1,
-	  "topics": [
-	    "Text formatting",
-	    "Optional values"
-	  ]
-	},
-	{
-	  "slug": "bob",
-	  "difficulty": 1,
-	  "topics": [
-	    "Strings",
-		"Control-flow (if-else statements)"
+      "slug": "hello-world",
+      "difficulty": 1,
+      "topics": [
+        "Text formatting"
       ]
-	},
+    },
+    {
+      "slug": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "Text formatting",
+        "Optional values"
+      ]
+    },
+    {
+      "slug": "bob",
+      "difficulty": 1,
+      "topics": [
+        "Strings",
+        "Control-flow (if-else statements)"
+      ]
+    },
     {
       "slug": "leap",
       "difficulty": 1,
@@ -83,11 +83,11 @@
       ]
     },
     {
-	    "slug": "grains",
-	    "difficulty": 2,
-	    "topics": [
-	      "Integers",
-	      "Recursion"
+      "slug": "grains",
+      "difficulty": 2,
+      "topics": [
+        "Integers",
+        "Recursion"
       ]
     },
     {
@@ -188,9 +188,9 @@
       ]
     },
     {
-	  "slug": "book-store",
-	  "difficulty": 6
-	},
+      "slug": "book-store",
+      "difficulty": 6
+    },
     {
       "slug": "poker",
       "difficulty": 7,
@@ -200,10 +200,5 @@
         "Games"
       ]
     }
-  ],
-  "ignored": [
-    "bin",
-    "img",
-    "docs"
   ]
 }
