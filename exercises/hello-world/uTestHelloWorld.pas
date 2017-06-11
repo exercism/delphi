@@ -65,8 +65,13 @@ implementation
 uses uHelloWorld;
 
 procedure HelloWorldTest.Say_hi;
+var
+  Expected: string;
+  Actual: string;
 begin
-  assert.AreEqual('Hello, World!', Hello);
+  Expected := 'Hello, World!';
+  Actual := Hello;
+  assert.AreEqual(Expected, Actual);
 end;
 
 initialization
