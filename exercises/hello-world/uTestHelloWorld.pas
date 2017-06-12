@@ -69,9 +69,15 @@ var
   Expected: string;
   Actual: string;
 begin
-  Expected := 'Hello, World!';
-  Actual := Hello;
-  assert.AreEqual(Expected, Actual);
+  Expected := 'Hello, World!';  //Expected: This is what is expected to be returned by the function/method (Hello) 
+  Actual := Hello;              //Actual: This is what is actually returned by the function/method (Hello)
+  Assert.AreEqual(Expected, Actual);
+
+  //As you progress in this track you will find that not every exercise has Expected and
+  //Actual defined as explicitly as they have been above.  Often times you may find
+  //that the Expected outcome is inserted as an inline statement and the the call
+  //to the method being tested will be inserted in the Actual position of AreEqual like so:
+  //Assert.AreEqual('Hello, World!', Hello);
 end;
 
 initialization
