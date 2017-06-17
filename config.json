@@ -91,6 +91,15 @@
       ]
     },
     {
+      "slug": "collatz-conjecture",
+      "difficulty": 2,
+      "topics": [
+        "Algorithms",
+        "Looping",
+        "Raising Exceptions"
+      ]
+    },
+    {
       "slug": "beer-song",
       "difficulty": 3,
       "topics": [
