@@ -70,31 +70,31 @@ type
 
     [Test]
     [Ignore]
-    procedure Rolls_can_not_score_negative_points;
+    procedure Rolls_cannot_score_negative_points;
 
     [Test]
     [Ignore]
-    procedure A_roll_can_not_score_more_than_10_points;
+    procedure A_roll_cannot_score_more_than_10_points;
 
     [Test]
     [Ignore]
-    procedure Two_rolls_in_a_frame_can_not_score_more_than_10_points;
+    procedure Two_rolls_in_a_frame_cannot_score_more_than_10_points;
 
     [Test]
     [Ignore]
-    procedure Two_bonus_rolls_after_a_strike_in_the_last_frame_can_not_score_more_than_10_points;
+    procedure Two_bonus_rolls_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
 
     [Test]
     [Ignore]
-    procedure An_unstarted_game_can_not_be_scored;
+    procedure An_unstarted_game_cannot_be_scored;
 
     [Test]
     [Ignore]
-    procedure An_incomplete_game_can_not_be_scored;
+    procedure An_incomplete_game_cannot_be_scored;
 
     [Test]
     [Ignore]
-    procedure A_game_with_more_than_ten_frames_can_not_be_scored;
+    procedure A_game_with_more_than_ten_frames_cannot_be_scored;
 
     [Test]
     [Ignore]
@@ -210,49 +210,49 @@ begin
   assert.AreEqual(300, game.Score);
 end;
 
-procedure BowlingTests.Rolls_can_not_score_negative_points;
+procedure BowlingTests.Rolls_cannot_score_negative_points;
 var game: IBowlingGame;
 begin
   game := RollMany([-1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.A_roll_can_not_score_more_than_10_points;
+procedure BowlingTests.A_roll_cannot_score_more_than_10_points;
 var game: IBowlingGame;
 begin
   game := RollMany([11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.Two_rolls_in_a_frame_can_not_score_more_than_10_points;
+procedure BowlingTests.Two_rolls_in_a_frame_cannot_score_more_than_10_points;
 var game: IBowlingGame;
 begin
   game := RollMany([5, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.Two_bonus_rolls_after_a_strike_in_the_last_frame_can_not_score_more_than_10_points;
+procedure BowlingTests.Two_bonus_rolls_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
 var game: IBowlingGame;
 begin
   game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 6], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.An_unstarted_game_can_not_be_scored;
+procedure BowlingTests.An_unstarted_game_cannot_be_scored;
 var game: IBowlingGame;
 begin
   game := RollMany([],NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.An_incomplete_game_can_not_be_scored;
+procedure BowlingTests.An_incomplete_game_cannot_be_scored;
 var game: IBowlingGame;
 begin
   game := RollMany([0, 0], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.A_game_with_more_than_ten_frames_can_not_be_scored;
+procedure BowlingTests.A_game_with_more_than_ten_frames_cannot_be_scored;
 var game: IBowlingGame;
 begin
   game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], NewBowlingGame);
