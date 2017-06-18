@@ -1,7 +1,7 @@
 {
   "slug": "delphi",
   "language": "Delphi Pascal",
-  "repository": "https://github.com/exercism/xdelphi",
+  "repository": "https://github.com/exercism/delphi",
   "active": true,
   "exercises": [
     {
