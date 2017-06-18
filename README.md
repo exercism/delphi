@@ -1,6 +1,6 @@
-# xDelphi
+# Exercism Delphi Pascal Track
 
-[![Build Status](https://travis-ci.org/exercism/xdelphi.svg?branch=master)](https://travis-ci.org/exercism/xdelphi)
+[![Build Status](https://travis-ci.org/exercism/delphi.svg?branch=master)](https://travis-ci.org/exercism/delphi)
 
 Exercism exercises in Delphi Pascal.
 
