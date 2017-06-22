@@ -37,16 +37,19 @@ const HalfCentTolerance = 0.005;
 
 procedure BankAccountTests.Returns_empty_balance_after_opening;
 var account: IBankAccount;
+    Expected: double;
 begin
+  Expected := 0.00;
   account := TBankAccount.Create;
   account.Open;
-  assert.AreEqual(0.00,account.Balance,HalfCentTolerance);
+  assert.AreEqual(Expected,account.Balance,HalfCentTolerance);
 end;
 
 procedure BankAccountTests.Check_basic_balance;
 var account: IBankAccount;
     openingBalance: Double;
     updatedBalance: Double;
+    Expected: double;
 begin
   account := TBankAccount.Create;
   account.Open;
@@ -56,8 +59,10 @@ begin
 
   updatedBalance := account.Balance;
 
-  assert.AreEqual(0, openingBalance, HalfCentTolerance);
-  assert.AreEqual(10, updatedBalance, HalfCentTolerance);
+  Expected := 0.00;
+  assert.AreEqual(Expected, openingBalance, HalfCentTolerance);
+  Expected := 10.00;
+  assert.AreEqual(Expected, updatedBalance, HalfCentTolerance);
 end;
 
 procedure BankAccountTests.Balance_can_increment_and_decrement;
@@ -65,6 +70,7 @@ var account: IBankAccount;
     openingBalance: Double;
     addedBalance: Double;
     subtractedBalance: Double;
+    Expected: double;
 begin
   account := TBankAccount.Create;
   account.Open;
@@ -77,9 +83,14 @@ begin
   account.UpdateBalance(-15);
   subtractedBalance := account.Balance;
 
-  assert.AreEqual(0, openingBalance, HalfCentTolerance);
-  assert.AreEqual(10, addedBalance, HalfCentTolerance);
-  assert.AreEqual(-5, subtractedBalance, HalfCentTolerance);
+  Expected := 0.00;
+  assert.AreEqual(Expected, openingBalance, HalfCentTolerance);
+
+  Expected := 10.00;
+  assert.AreEqual(Expected, addedBalance, HalfCentTolerance);
+
+  Expected := -5.00;
+  assert.AreEqual(Expected, subtractedBalance, HalfCentTolerance);
 end;
 
 procedure BankAccountTests.Closed_account_throws_exception_when_checking_balance;
@@ -105,6 +116,7 @@ var account: IBankAccount;
     activeThreadCount: integer;
     allthreadsDone: TEvent;
     i: integer;
+    Expected: double;
 begin
   activeThreadCount := threads;
   account := TBankAccount.Create;
@@ -132,7 +144,8 @@ begin
   end;
 
   assert.AreEqual(wrSignaled,allthreadsDone.WaitFor(60000));
-  assert.AreEqual(0, account.Balance, HalfCentTolerance);
+  Expected := 0.00;
+  assert.AreEqual(Expected, account.Balance, HalfCentTolerance);
 end;
 
 initialization
