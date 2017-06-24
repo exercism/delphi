@@ -118,15 +118,17 @@ begin
       procedure
       var j: integer;
       begin
-        for j := 1 to iterations do
-        begin
-          account.UpdateBalance(1);
-          account.UpdateBalance(-1);
+        try
+          for j := 1 to iterations do
+          begin
+            account.UpdateBalance(1);
+            account.UpdateBalance(-1);
+          end;
+        finally
+          dec(activeThreadCount);
+          if activeThreadCount <= 0 then
+            allthreadsDone.SetEvent;
         end;
-
-        dec(activeThreadCount);
-        if activeThreadCount <= 0 then
-          allthreadsDone.SetEvent;
       end)
       .Start;
   end;
