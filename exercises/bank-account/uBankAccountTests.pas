@@ -31,7 +31,7 @@ type
   end;
 
 implementation
-uses System.Classes, System.SyncObjs, uBankAccount;
+uses System.SysUtils, System.Classes, System.SyncObjs, uBankAccount;
 
 const HalfCentTolerance = 0.005;
 
@@ -133,7 +133,7 @@ begin
       .Start;
   end;
 
-  assert.AreEqual(wrSignaled,allthreadsDone.WaitFor(60000));
+  assert.AreEqual(wrSignaled,allthreadsDone.WaitFor(60000), format('%d threads still active',[activeThreadCount]));
   assert.AreEqual(0, account.Balance, HalfCentTolerance);
 end;
 
