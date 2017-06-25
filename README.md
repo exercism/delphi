@@ -6,5 +6,5 @@ Exercism exercises in Delphi Pascal.
 
 ## Contributing Guide
 
-Please see the [contributing guide](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md).
+Please see the [contributing guide](https://github.com/exercism/problem-specifications/blob/master/CONTRIBUTING.md).
 
