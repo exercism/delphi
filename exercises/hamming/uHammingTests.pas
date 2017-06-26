@@ -7,157 +7,155 @@ uses
 type
 
   [TestFixture]
-  HammingTests = class(TObject) 
+  HammingTests = class(TObject)
   public
     [Test]
 //  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure test_identical_strands;
+    procedure empty_strands;
 
     [Test]
     [Ignore]
-    procedure test_long_identical_strands;
+    procedure identical_strands;
 
     [Test]
     [Ignore]
-    procedure test_complete_distance_in_single_nucleotide_strands;
+    procedure long_identical_strands;
 
     [Test]
     [Ignore]
-    procedure test_complete_distance_in_small_strands;
+    procedure complete_distance_in_single_nucleotide_strands;
 
     [Test]
     [Ignore]
-    procedure test_small_distance_in_small_strands;
+    procedure complete_distance_in_small_strands;
 
     [Test]
     [Ignore]
-    procedure test_small_distance;
+    procedure small_distance_in_small_strands;
 
     [Test]
     [Ignore]
-    procedure test_small_distance_in_long_strands;
+    procedure small_distance;
 
     [Test]
     [Ignore]
-    procedure test_non_unique_character_in_first_strand;
+    procedure small_distance_in_long_strands;
 
     [Test]
     [Ignore]
-    procedure test_non_unique_character_in_second_strand;
+    procedure non_unique_character_in_first_strand;
 
     [Test]
     [Ignore]
-    procedure test_same_nucleotides_in_different_positions;
+    procedure non_unique_character_in_second_strand;
 
     [Test]
     [Ignore]
-    procedure test_large_distance;
+    procedure same_nucleotides_in_different_positions;
 
     [Test]
     [Ignore]
-    procedure test_large_distance_in_off_by_one_strand;
+    procedure large_distance;
 
     [Test]
     [Ignore]
-    procedure test_empty_strands;
+    procedure large_distance_in_off_by_one_strand;
 
     [Test]
     [Ignore]
-    procedure test_disallow_first_strand_longer;
+    procedure disallow_first_strand_longer;
 
     [Test]
     [Ignore]
-    procedure test_disallow_second_strand_longer;
+    procedure disallow_second_strand_longer;
   end;
 
 implementation
 uses System.SysUtils, uHamming;
 
-procedure HammingTests.test_identical_strands;
+procedure HammingTests.empty_strands;
 begin
-  assert.AreEqual(0,THamming.compute('A','A'));
+  assert.AreEqual(0,THamming.Distance('',''));
 end;
 
-procedure HammingTests.test_long_identical_strands;
+procedure HammingTests.identical_strands;
 begin
-  assert.AreEqual(0, THamming.compute('GGACTGA', 'GGACTGA'));
+  assert.AreEqual(0,THamming.Distance('A','A'));
 end;
 
-procedure HammingTests.test_complete_distance_in_single_nucleotide_strands;
+procedure HammingTests.long_identical_strands;
 begin
-  assert.AreEqual(1, THamming.compute('A', 'G'));
+  assert.AreEqual(0, THamming.Distance('GGACTGA', 'GGACTGA'));
 end;
 
-procedure HammingTests.test_complete_distance_in_small_strands;
+procedure HammingTests.complete_distance_in_single_nucleotide_strands;
 begin
-  assert.AreEqual( 2, THamming.compute('AG', 'CT'));
+  assert.AreEqual(1, THamming.Distance('A', 'G'));
 end;
 
-procedure HammingTests.test_small_distance_in_small_strands;
+procedure HammingTests.complete_distance_in_small_strands;
 begin
-  assert.AreEqual(1, THamming.compute('AT', 'CT'));
+  assert.AreEqual( 2, THamming.Distance('AG', 'CT'));
 end;
 
-procedure HammingTests.test_small_distance;
+procedure HammingTests.small_distance_in_small_strands;
 begin
-  assert.AreEqual(1, THamming.compute('GGACG', 'GGTCG'));
+  assert.AreEqual(1, THamming.Distance('AT', 'CT'));
 end;
 
-procedure HammingTests.test_small_distance_in_long_strands;
+procedure HammingTests.small_distance;
 begin
-  assert.AreEqual(2, THamming.compute('ACCAGGG', 'ACTATGG'));
+  assert.AreEqual(1, THamming.Distance('GGACG', 'GGTCG'));
 end;
 
-procedure HammingTests.test_non_unique_character_in_first_strand;
+procedure HammingTests.small_distance_in_long_strands;
 begin
-  assert.AreEqual(1, THamming.compute('AGA', 'AGG'));
+  assert.AreEqual(2, THamming.Distance('ACCAGGG', 'ACTATGG'));
 end;
 
-procedure HammingTests.test_non_unique_character_in_second_strand;
+procedure HammingTests.non_unique_character_in_first_strand;
 begin
-  assert.AreEqual(1, THamming.compute('AGG', 'AGA'));
+  assert.AreEqual(1, THamming.Distance('AGA', 'AGG'));
 end;
 
-procedure HammingTests.test_same_nucleotides_in_different_positions;
+procedure HammingTests.non_unique_character_in_second_strand;
 begin
-  assert.AreEqual(2, THamming.compute('TAG', 'GAT'));
+  assert.AreEqual(1, THamming.Distance('AGG', 'AGA'));
 end;
 
-procedure HammingTests.test_large_distance;
+procedure HammingTests.same_nucleotides_in_different_positions;
 begin
-  assert.AreEqual(4, THamming.compute('GATACA', 'GCATAA'));
+  assert.AreEqual(2, THamming.Distance('TAG', 'GAT'));
 end;
 
-procedure HammingTests.test_large_distance_in_off_by_one_strand;
+procedure HammingTests.large_distance;
 begin
-  assert.AreEqual(9, THamming.compute('GGACGGATTCTG', 'AGGACGGATTCT'));
+  assert.AreEqual(4, THamming.Distance('GATACA', 'GCATAA'));
 end;
 
-procedure HammingTests.test_empty_strands;
+procedure HammingTests.large_distance_in_off_by_one_strand;
 begin
-  assert.AreEqual(0, THamming.compute('', ''));
+  assert.AreEqual(9, THamming.Distance('GGACGGATTCTG', 'AGGACGGATTCT'));
 end;
 
-procedure HammingTests.test_disallow_first_strand_longer;
+procedure HammingTests.disallow_first_strand_longer;
 var MyProc: TTestLocalMethod;
 begin
   MyProc := procedure
             begin
-              THamming.compute('AATG', 'AAA');
+              THamming.Distance('AATG', 'AAA');
             end;
   assert.WillRaise(MyProc, EArgumentException);
-  MyProc := nil;
 end;
 
-procedure HammingTests.test_disallow_second_strand_longer;
+procedure HammingTests.disallow_second_strand_longer;
 var MyProc: TTestLocalMethod;
 begin
   MyProc := procedure
             begin
-              THamming.compute('ATA', 'AGTG');
+              THamming.Distance('ATA', 'AGTG');
             end;
   assert.WillRaise(MyProc, EArgumentException);
-  MyProc := nil;
 end;
 
 initialization
