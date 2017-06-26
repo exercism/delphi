@@ -31,7 +31,7 @@ type
   end;
 
 implementation
-uses System.Classes, System.SyncObjs, uBankAccount;
+uses System.SysUtils, System.Classes, System.SyncObjs, uBankAccount;
 
 const HalfCentTolerance = 0.005;
 
@@ -118,20 +118,22 @@ begin
       procedure
       var j: integer;
       begin
-        for j := 1 to iterations do
-        begin
-          account.UpdateBalance(1);
-          account.UpdateBalance(-1);
+        try
+          for j := 1 to iterations do
+          begin
+            account.UpdateBalance(1);
+            account.UpdateBalance(-1);
+          end;
+        finally
+          dec(activeThreadCount);
+          if activeThreadCount <= 0 then
+            allthreadsDone.SetEvent;
         end;
-
-        dec(activeThreadCount);
-        if activeThreadCount <= 0 then
-          allthreadsDone.SetEvent;
       end)
       .Start;
   end;
 
-  assert.AreEqual(wrSignaled,allthreadsDone.WaitFor(60000));
+  assert.AreEqual(wrSignaled,allthreadsDone.WaitFor(60000), format('%d threads still active',[activeThreadCount]));
   assert.AreEqual(0, account.Balance, HalfCentTolerance);
 end;
 
