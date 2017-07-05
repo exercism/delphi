@@ -201,6 +201,15 @@
       "difficulty": 6
     },
     {
+      "slug": "wordy",
+      "difficulty": 7,
+      "topics": [
+        "Parsing",
+        "Strings",
+        "Transforming"
+      ]
+    },
+    {
       "slug": "poker",
       "difficulty": 7,
       "topics": [
