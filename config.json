@@ -28,8 +28,7 @@
     {
       "uuid": "b3f7e56b-8a69-4b7f-bbb8-5fbcfa357eba",
       "slug": "bob",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "Strings",
@@ -39,8 +38,7 @@
     {
       "uuid": "761e0143-163c-48ed-8bb3-5ad6a59fb69d",
       "slug": "leap",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "Integers"
@@ -50,7 +48,7 @@
       "uuid": "72022a7f-ff34-4a9b-b710-546eebd094e1",
       "slug": "rna-transcription",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "bob",
       "difficulty": 1,
       "topics": [
         "Strings",
@@ -60,8 +58,7 @@
     {
       "uuid": "cf22573e-9099-4df5-86d6-02e9bf42784d",
       "slug": "raindrops",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "Text formatting",
@@ -72,7 +69,7 @@
       "uuid": "6bc985bc-f04f-41de-9582-e0d51ea8df54",
       "slug": "hamming",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "raindrops",
       "difficulty": 2,
       "topics": [
         "Strings",
@@ -82,8 +79,7 @@
     {
       "uuid": "746fdc7b-8d7f-4df1-8d68-7af5d5c63396",
       "slug": "bank-account",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "Classes"
@@ -92,8 +88,7 @@
     {
       "uuid": "a77d309f-ddd6-4700-b300-347fb7e1d916",
       "slug": "nucleotide-count",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "Dictionaries",
@@ -104,7 +99,7 @@
       "uuid": "3cc7a1b6-b613-4cf1-9318-fd2e48eac6a4",
       "slug": "etl",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "nucleotide-count",
       "difficulty": 2,
       "topics": [
         "Dictionaries",
@@ -115,8 +110,7 @@
     {
       "uuid": "dbf6dfed-b3c1-4bac-8d86-4584c1d9f08c",
       "slug": "grains",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "Integers",
@@ -126,8 +120,7 @@
     {
       "uuid": "b30fbfa4-8568-467c-bf50-9d9fd49d3af2",
       "slug": "collatz-conjecture",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 2,
       "topics": [
         "Algorithms",
@@ -138,8 +131,7 @@
     {
       "uuid": "76754970-3b28-45f6-8f36-10f063b3f846",
       "slug": "beer-song",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 3,
       "topics": [
         "Text formatting",
@@ -149,8 +141,7 @@
     {
       "uuid": "4d8b5c36-3562-41a6-aaca-b5229059a009",
       "slug": "phone-number",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 3,
       "topics": [
         "Parsing",
@@ -161,7 +152,7 @@
       "uuid": "95ca4105-b3f7-42f8-a07d-8d912056ed26",
       "slug": "perfect-numbers",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "leap",
       "difficulty": 3,
       "topics": [
         "Integers"
@@ -170,8 +161,7 @@
     {
       "uuid": "c89324f8-8f40-4e99-9ce2-4bf11d4d91d5",
       "slug": "binary-search",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 3,
       "topics": [
         "Searching",
@@ -182,8 +172,7 @@
     {
       "uuid": "6488fc37-7bd4-4854-8043-8b261554695d",
       "slug": "clock",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 3,
       "topics": [
         "Time",
@@ -193,8 +182,7 @@
     {
       "uuid": "6404ad71-4f20-4f5b-8530-8ba1578e9550",
       "slug": "triangle",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 3,
       "topics": [
         "Integers",
@@ -204,8 +192,7 @@
     {
       "uuid": "fcaf9a85-579b-4607-8d2c-b6353664502d",
       "slug": "allergies",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 4,
       "topics": [
         "Bitwise operations",
@@ -215,8 +202,7 @@
     {
       "uuid": "4fd252a7-520a-416d-b976-a8f4cf3c4516",
       "slug": "saddle-points",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 4,
       "topics": [
         "Matrices",
@@ -227,8 +213,7 @@
     {
       "uuid": "51b2fe3e-996c-41f2-86cd-c6666898c850",
       "slug": "circular-buffer",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 5,
       "topics": [
         "Queues",
@@ -239,7 +224,7 @@
       "uuid": "0648988c-0916-4651-897a-349c94c32ca8",
       "slug": "minesweeper",
       "core": false,
-      "unlocked_by": null,
+      "unlocked_by": "phone-number",
       "difficulty": 5,
       "topics": [
         "Parsing",
@@ -249,8 +234,7 @@
     {
       "uuid": "b4d9cd9c-bdc7-4485-bcce-80e4303fad51",
       "slug": "roman-numerals",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 5,
       "topics": [
         "Control-flow (loops)",
@@ -260,8 +244,7 @@
     {
       "uuid": "f823e453-90c1-4f9f-ab73-d560ca3675f0",
       "slug": "bowling",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 6,
       "topics": [
         "Algorithms",
@@ -271,8 +254,7 @@
     {
       "uuid": "d83a653b-da78-4f49-9ab2-3cc947825a2b",
       "slug": "book-store",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 6,
       "topics": [
         "Sequences",
@@ -284,8 +266,7 @@
     {
       "uuid": "f522e311-2d29-4fe2-a91c-5357ff85fde6",
       "slug": "wordy",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 7,
       "topics": [
         "Parsing",
@@ -296,8 +277,7 @@
     {
       "uuid": "250c222d-3d29-42fd-8695-bc9fc33db6f5",
       "slug": "poker",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 7,
       "topics": [
         "Parsing",
