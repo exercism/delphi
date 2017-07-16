@@ -274,7 +274,12 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 6,
-      "topics": null
+      "topics": [
+        "Sequences",
+        "Control-flow (loops)",
+        "Arrays",
+        "Classes"
+      ]
     },
     {
       "uuid": "f522e311-2d29-4fe2-a91c-5357ff85fde6",
