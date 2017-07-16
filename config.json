@@ -17,8 +17,7 @@
     {
       "uuid": "0c75f779-dbf1-43f7-8f36-2e8d34fec410",
       "slug": "two-fer",
-      "core": false,
-      "unlocked_by": null,
+      "core": true,
       "difficulty": 1,
       "topics": [
         "Text formatting",
@@ -28,7 +27,8 @@
     {
       "uuid": "b3f7e56b-8a69-4b7f-bbb8-5fbcfa357eba",
       "slug": "bob",
-      "core": true,
+      "core": false,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "Strings",
@@ -48,7 +48,7 @@
       "uuid": "72022a7f-ff34-4a9b-b710-546eebd094e1",
       "slug": "rna-transcription",
       "core": false,
-      "unlocked_by": "bob",
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "Strings",
@@ -58,7 +58,8 @@
     {
       "uuid": "cf22573e-9099-4df5-86d6-02e9bf42784d",
       "slug": "raindrops",
-      "core": true,
+      "core": false,
+      "unlocked_by": "two-fer",
       "difficulty": 2,
       "topics": [
         "Text formatting",
@@ -69,7 +70,7 @@
       "uuid": "6bc985bc-f04f-41de-9582-e0d51ea8df54",
       "slug": "hamming",
       "core": false,
-      "unlocked_by": "raindrops",
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "Strings",
@@ -79,7 +80,8 @@
     {
       "uuid": "746fdc7b-8d7f-4df1-8d68-7af5d5c63396",
       "slug": "bank-account",
-      "core": true,
+      "core": false,
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "Classes"
@@ -120,7 +122,8 @@
     {
       "uuid": "b30fbfa4-8568-467c-bf50-9d9fd49d3af2",
       "slug": "collatz-conjecture",
-      "core": true,
+      "core": false,
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "Algorithms",
@@ -131,7 +134,8 @@
     {
       "uuid": "76754970-3b28-45f6-8f36-10f063b3f846",
       "slug": "beer-song",
-      "core": true,
+      "core": false,
+      "unlocked_by": "two-fer",
       "difficulty": 3,
       "topics": [
         "Text formatting",
@@ -161,7 +165,8 @@
     {
       "uuid": "c89324f8-8f40-4e99-9ce2-4bf11d4d91d5",
       "slug": "binary-search",
-      "core": true,
+      "core": false,
+      "unlocked_by": "grains",
       "difficulty": 3,
       "topics": [
         "Searching",
@@ -244,7 +249,8 @@
     {
       "uuid": "f823e453-90c1-4f9f-ab73-d560ca3675f0",
       "slug": "bowling",
-      "core": true,
+      "core": false,
+      "unlocked_by": null,
       "difficulty": 6,
       "topics": [
         "Algorithms",
@@ -266,7 +272,8 @@
     {
       "uuid": "f522e311-2d29-4fe2-a91c-5357ff85fde6",
       "slug": "wordy",
-      "core": true,
+      "core": false,
+      "unlocked_by": "phone-number",
       "difficulty": 7,
       "topics": [
         "Parsing",
@@ -277,7 +284,8 @@
     {
       "uuid": "250c222d-3d29-42fd-8695-bc9fc33db6f5",
       "slug": "poker",
-      "core": true,
+      "core": false,
+      "unlocked_by": null,
       "difficulty": 7,
       "topics": [
         "Parsing",
