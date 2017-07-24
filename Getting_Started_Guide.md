@@ -109,10 +109,11 @@ uses
   Windows, Messages, Classes, 
   Controls, Forms, Graphics, 
   StdCtrls, ExtCtrls, CommCtrl;
-It does not matter if you place a type section before a const section, or if you mix type and const sections up in any order you choose.
+```
+It does not matter if you place a type section before a const section, or if you mix type and const sections up in any order you choose.  
 
-The implementation should list the word implementation first, then the uses clause, then any include statements or other directives:
-
+The implementation should list the word implementation first, then the uses clause, then any include statements or other directives:  
+```pascal
 implementation
 
 uses 
