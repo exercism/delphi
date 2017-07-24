@@ -1,4 +1,4 @@
-#+OPTIONS:     toc:t
+#+OPTIONS:     toc:nil
 *Abstract: This article documents a standard style for formatting Delphi
 code. It is based on the conventions developed by the Delphi team.*
 
@@ -33,45 +33,8 @@ for the largest number of people that is behind this effort. If at first
 our guidelines seem strange to you, we ask you to try them for awhile,
 and then we are sure you will grow used to them over time.
 
-* Contents
-
--  1.0 Introduction
--  1.1 Background 1.2 Acknowledgments
--  2.0 Source Files
--  2.1 Source-File Naming 2.2 Source-File Organization
-
-   -  2.2.1 Copyright/ID block comment 2.2.2 unit declaration 2.2.3 uses
-      declarations 2.2.4 class/interface declarations
-
--  3.0 Naming Conventions
--  3.1 Unit Naming 3.2 Class/Interface Naming 3.3 Field Naming 3.4
-   Method Naming 3.5 Local Variable Naming 3.6 Reserved Words 3.7 Type
-   Declarations
--  4.0 White Space Usage
--  4.1 Blank Lines 4.2 Blank Spaces
-
-   -  4.2.1 A single blank space (not tab) should be used: 4.2.2 Blanks
-      should not be used:
-
--  4.3 Indentation 4.4 Continuation Lines
--  *5.0 Comments*
--  5.1 Block Comments 5.2 Single-Line Comments
--  6.0 Classes
--  6.1 Class Body Organization 6.2 Method Declarations 6.3 Data Store
-   Declarations
--  7.0 Interfaces
--  7.1 Interface Body Organization
--  8.0 Statements
--  8.1 Simple Statements
-
-   -  8.1.1 Assignment and expression statements 8.1.2 Local variable
-      declarations 8.1.3 Array declarations
-
--  8.2 Compound Statements
-
-   -  8.2.3 if statement 8.2.4 for statement 8.2.5 while statement 8.2.6
-      repeat until statement 8.2.7 case statement 8.2.8 try statement
-
+* Table Of Contents
+#+OPTIONS: toc:5
 * 1.0 Introduction
 
 This document is not an attempt to define a grammar for the Object
