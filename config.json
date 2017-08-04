@@ -1,6 +1,7 @@
 {
   "language": "Delphi Pascal",
   "active": true,
+  "blurb": "Delphi is a programming language and SDK for desktop, mobile, web, and console applications. Delphi's compilers use their own Object Pascal dialect of Pascal and generate native code for several platforms: Windows (x86 and x64), OS X (32-bit only), iOS (32 and 64-bit), Android, and 64 bit Linux.",
   "exercises": [
     {
       "uuid": "e3b0af0d-7ecd-43c8-a394-91ef2cf4d7d0",
