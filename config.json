@@ -1,6 +1,7 @@
 {
   "language": "Delphi Pascal",
   "active": true,
+  "blurb": "Object Pascal based, Delphi is great for developing cross-platform desktop, mobile, web, and console applications.",
   "exercises": [
     {
       "uuid": "e3b0af0d-7ecd-43c8-a394-91ef2cf4d7d0",
