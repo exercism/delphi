@@ -1,5 +1,18 @@
-**Embarcadero Delphi** is a [programming language](https://en.wikipedia.org/wiki/Programming_language) and [software development kit](https://en.wikipedia.org/wiki/Software_development_kit) (SDK) for [desktop](https://en.wikipedia.org/wiki/Graphical_user_interface), [mobile](https://en.wikipedia.org/wiki/Mobile_app), [web](https://en.wikipedia.org/wiki/Web_application), and [console](https://en.wikipedia.org/wiki/Console_application) applications.[[1]](https://en.wikipedia.org/wiki/Delphi_(programming_language)#cite_note-Buchanan2003-1) Delphi's compilers use their own [Object Pascal](https://en.wikipedia.org/wiki/Object_Pascal) dialect of [Pascal](https://en.wikipedia.org/wiki/Pascal_(programming_language)) and generate native code for several platforms: Windows ([x86](https://en.wikipedia.org/wiki/IA-32) and [x64](https://en.wikipedia.org/wiki/X86-64)), [OS X](https://en.wikipedia.org/wiki/MacOS) (32-bit only), [iOS](https://en.wikipedia.org/wiki/IOS) (32 and 64-bit), [Android](https://en.wikipedia.org/wiki/Android_(operating_system)), and 64 bit [Linux](https://en.wikipedia.org/wiki/Linux).
+**Delphi** is an Object Pascal based programming language for desktop, mobile, web, and console software development. Delphi was the [code name](https://edn.embarcadero.com/article/20396) for a yet unnamed product during its initial development prior to its debut in 1995.
 
-Delphi was originally developed by [Borland](https://en.wikipedia.org/wiki/Borland) as a [rapid application development](https://en.wikipedia.org/wiki/Rapid_application_development) tool for Windows as the successor of [Turbo Pascal](https://en.wikipedia.org/wiki/Turbo_Pascal). Delphi added full object-orientation to the existing language, and since then the language has grown and supports many other modern language features, including generics and anonymous methods, as well as unusual features such as inbuilt string types and native COM support.
+Delphi was originally developed by [Borland](https://en.wikipedia.org/wiki/Borland), lead by Anders Heilsberg as a [RAD](https://en.wikipedia.org/wiki/Rapid_application_development) tool for Windows as the successor of [Turbo Pascal](https://en.wikipedia.org/wiki/Turbo_Pascal). Delphi added full object-orientation to the existing language, and since then the language has grown and supports many other modern language features, including:
+  
+- **Generics**  
+- **Anonymous Methods (closures)**  
+- **inbuilt string types**  
+- **native COM support**  
+
+Like its predecessor Turbo Pascal, at the core of Delphi is a native code compiler.  Being able to quickly develop quickly executing software is something that has been synonymous with Turbo Pascal and now Delphi.  More recent versions of Delphi are able to compile native code for many different platforms:
+
+- **Windows (x86 and x64)**  
+- **OS X (32 bit only)**  
+- **iOS (32 and 64 bit)**  
+- **Android**  
+- **Linux (64 bit only)**  
 
 In 2006, Borland’s developer tools section were transferred from Borland to a wholly owned subsidiary known as [CodeGear](https://en.wikipedia.org/wiki/CodeGear), which was sold to [Embarcadero Technologies](https://en.wikipedia.org/wiki/Embarcadero_Technologies) in 2008. In 2015, Embarcadero was purchased by Idera, but the Embarcadero mark was retained for the developer tools division.
