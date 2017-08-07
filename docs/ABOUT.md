@@ -3,11 +3,16 @@
 Delphi was originally developed by [Borland](https://en.wikipedia.org/wiki/Borland), lead by Anders Heilsberg as a [RAD](https://en.wikipedia.org/wiki/Rapid_application_development) tool for Windows as the successor of [Turbo Pascal](https://en.wikipedia.org/wiki/Turbo_Pascal). Delphi added full object-orientation to the existing language, and since then the language has grown and supports many other modern language features, including:
   
 - **Generics**  
-- **Anonymous Methods (closures)**  
-- **inbuilt string types**  
-- **native COM support**  
+- **Anonymous Methods (Closures)**  
+- **Dynamic Constructs (Attributes)**  
+- **Abstract Methods**  
+- **Inbuilt string types**  
+- **Native COM support**  
+- **RTTI**  
 
-Like its predecessor Turbo Pascal, at the core of Delphi is a native code compiler.  Being able to quickly develop quickly executing software is something that has been synonymous with Turbo Pascal and now Delphi.  More recent versions of Delphi are able to compile native code for many different platforms:
+Like its predecessor Turbo Pascal, at the core of Delphi is a native code compiler.  Turbo Pascal provided an ideal balance between the speed of
+programming and the speed of the resulting programs, clarity of syntax and power
+of expression, these tenets remain true today in Delphi.  More recent versions of Delphi are able to compile native code for many different platforms:
 
 - **Windows (x86 and x64)**  
 - **OS X (32 bit only)**  
