@@ -75,67 +75,67 @@ uses System.SysUtils, uHamming;
 
 procedure HammingTests.empty_strands;
 begin
-  assert.AreEqual(0,THamming.Distance('',''));
+  Assert.AreEqual(0,THamming.Distance('',''));
 end;
 
 procedure HammingTests.identical_strands;
 begin
-  assert.AreEqual(0,THamming.Distance('A','A'));
+  Assert.AreEqual(0,THamming.Distance('A','A'));
 end;
 
 procedure HammingTests.long_identical_strands;
 begin
-  assert.AreEqual(0, THamming.Distance('GGACTGA', 'GGACTGA'));
+  Assert.AreEqual(0, THamming.Distance('GGACTGA', 'GGACTGA'));
 end;
 
 procedure HammingTests.complete_distance_in_single_nucleotide_strands;
 begin
-  assert.AreEqual(1, THamming.Distance('A', 'G'));
+  Assert.AreEqual(1, THamming.Distance('A', 'G'));
 end;
 
 procedure HammingTests.complete_distance_in_small_strands;
 begin
-  assert.AreEqual( 2, THamming.Distance('AG', 'CT'));
+  Assert.AreEqual( 2, THamming.Distance('AG', 'CT'));
 end;
 
 procedure HammingTests.small_distance_in_small_strands;
 begin
-  assert.AreEqual(1, THamming.Distance('AT', 'CT'));
+  Assert.AreEqual(1, THamming.Distance('AT', 'CT'));
 end;
 
 procedure HammingTests.small_distance;
 begin
-  assert.AreEqual(1, THamming.Distance('GGACG', 'GGTCG'));
+  Assert.AreEqual(1, THamming.Distance('GGACG', 'GGTCG'));
 end;
 
 procedure HammingTests.small_distance_in_long_strands;
 begin
-  assert.AreEqual(2, THamming.Distance('ACCAGGG', 'ACTATGG'));
+  Assert.AreEqual(2, THamming.Distance('ACCAGGG', 'ACTATGG'));
 end;
 
 procedure HammingTests.non_unique_character_in_first_strand;
 begin
-  assert.AreEqual(1, THamming.Distance('AGA', 'AGG'));
+  Assert.AreEqual(1, THamming.Distance('AGA', 'AGG'));
 end;
 
 procedure HammingTests.non_unique_character_in_second_strand;
 begin
-  assert.AreEqual(1, THamming.Distance('AGG', 'AGA'));
+  Assert.AreEqual(1, THamming.Distance('AGG', 'AGA'));
 end;
 
 procedure HammingTests.same_nucleotides_in_different_positions;
 begin
-  assert.AreEqual(2, THamming.Distance('TAG', 'GAT'));
+  Assert.AreEqual(2, THamming.Distance('TAG', 'GAT'));
 end;
 
 procedure HammingTests.large_distance;
 begin
-  assert.AreEqual(4, THamming.Distance('GATACA', 'GCATAA'));
+  Assert.AreEqual(4, THamming.Distance('GATACA', 'GCATAA'));
 end;
 
 procedure HammingTests.large_distance_in_off_by_one_strand;
 begin
-  assert.AreEqual(9, THamming.Distance('GGACGGATTCTG', 'AGGACGGATTCT'));
+  Assert.AreEqual(9, THamming.Distance('GGACGGATTCTG', 'AGGACGGATTCT'));
 end;
 
 procedure HammingTests.disallow_first_strand_longer;
@@ -145,7 +145,7 @@ begin
             begin
               THamming.Distance('AATG', 'AAA');
             end;
-  assert.WillRaise(MyProc, EArgumentException);
+  Assert.WillRaiseWithMessage(MyProc, EArgumentException, 'error: left and right strands must be of equal length');
 end;
 
 procedure HammingTests.disallow_second_strand_longer;
@@ -155,7 +155,7 @@ begin
             begin
               THamming.Distance('ATA', 'AGTG');
             end;
-  assert.WillRaise(MyProc, EArgumentException);
+  Assert.WillRaiseWithMessage(MyProc, EArgumentException, 'error: left and right strands must be of equal length');
 end;
 
 initialization
