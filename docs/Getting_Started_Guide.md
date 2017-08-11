@@ -84,14 +84,14 @@ The format of this document and some of its language is based on work done to de
 
 The Delphi team also contributed heavily to the generation of this document, and indeed, it would not have been possible to create it without their help.
 
-Source Files Object Pascal source is divided up primarily into
-------------------------------------------------------------------------------------------------------
+Source Files
+----------------------------------------------------
 
-units and Delphi Project files, which both follow the same conventions. A Delphi Project file has a `DPR` extension. It is the main source file for a project. Any units used in the project will have a `PAS` extension. Additional files, such as batch files, html files, or DLLs, may play a role in a project, but this paper only treats the formatting of `DPR` and `PAS` files.
+Object Pascal source is divided up primarily into units and Delphi Project files, which both follow the same conventions. A Delphi Project file has a `DPR` extension. It is the main source file for a project. Any units used in the project will have a `PAS` extension. Additional files, such as batch files, html files, or DLLs, may play a role in a project, but this paper only treats the formatting of `DPR` and `PAS` files.
 
-### Source-File Naming Object Pascal supports long file names. If
+### Source-File Naming
 
-you are appending several words to create a single name, then it is best to use capital letters for each word in the name: MyFile.pas. This is known as InfixCaps, or Camel Caps. Extensions should be in lower case. For historical reasons, the Delphi source itself often confines itself to 8:3 naming patterns, but developers no longer need feel constrained by those limits, even if turning in source that might be used by the Delphi team.
+Object Pascal supports long file names. If you are appending several words to create a single name, then it is best to use capital letters for each word in the name: MyFile.pas. This is known as InfixCaps, or Camel Caps. Extensions should be in lower case. For historical reasons, the Delphi source itself often confines itself to 8:3 naming patterns, but developers no longer need feel constrained by those limits, even if turning in source that might be used by the Delphi team.
 
 If you are translating a C/C++ header file, then your Pascal header translation will usually have the same name as the file you are translating, except it should have a `PAS` extension. For instance, `Windows.h` would become `Windows.pas`. If the rules of Pascal grammar force you to combine multiple header files into a single unit, then use the name of the base unit into which you are folding the other files. For instance, if you fold `WinBase.h` into `Windows.h`, then call the resulting file Windows.pas.
 
