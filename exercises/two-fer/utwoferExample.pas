@@ -2,15 +2,12 @@ unit utwofer;
 
 interface
 
-  function twoFer(aName: string=''): string;
+  function twoFer(aName: string='you'): string;
 
 implementation
-uses SysUtils;
 
-function twoFer(aName: string=''): string;
+function twoFer(aName: string='you'): string;
 begin
-  if trim(aName).IsEmpty then
-    aName := 'you';
   result := 'One for ' + aName + ', one for me.';
 end;
 
