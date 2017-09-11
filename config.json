@@ -1,296 +1,296 @@
 {
-  "language": "Delphi Pascal",
   "active": true,
   "blurb": "Object Pascal based, Delphi is great for developing cross-platform desktop, mobile, web, and console applications.",
   "exercises": [
     {
-      "uuid": "e3b0af0d-7ecd-43c8-a394-91ef2cf4d7d0",
+      "core": false,
+      "difficulty": 1,
       "slug": "hello-world",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
       "topics": [
-        "Text formatting"
-      ]
+        "text_formatting"
+      ],
+      "unlocked_by": null,
+      "uuid": "56bed5eb-0b75-e080-70db-8392c2d11a737c186df"
     },
     {
-      "uuid": "0c75f779-dbf1-43f7-8f36-2e8d34fec410",
+      "core": true,
+      "difficulty": 1,
       "slug": "two-fer",
-      "core": true,
-      "difficulty": 1,
       "topics": [
-        "Text formatting",
-        "Optional values"
-      ]
+        "optional_values",
+        "text_formatting"
+      ],
+      "uuid": "bce38d57-08a7-9b80-c00c-4024009d76182c9b465"
     },
     {
-      "uuid": "b3f7e56b-8a69-4b7f-bbb8-5fbcfa357eba",
+      "core": false,
+      "difficulty": 1,
       "slug": "bob",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
       "topics": [
-        "Strings",
-        "Control-flow (if-else statements)"
-      ]
+        "control_flow_if_else_statements",
+        "strings"
+      ],
+      "unlocked_by": null,
+      "uuid": "472d2634-0d07-1a80-96f1-a1e42a21bb45ebbdc57"
     },
     {
-      "uuid": "761e0143-163c-48ed-8bb3-5ad6a59fb69d",
+      "core": true,
+      "difficulty": 1,
       "slug": "leap",
-      "core": true,
-      "difficulty": 1,
       "topics": [
-        "Integers"
-      ]
+        "integers"
+      ],
+      "uuid": "a274d04a-0024-a380-b762-003d045c596d0616203"
     },
     {
-      "uuid": "72022a7f-ff34-4a9b-b710-546eebd094e1",
+      "core": false,
+      "difficulty": 1,
       "slug": "rna-transcription",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
       "topics": [
-        "Strings",
-        "Transforming"
-      ]
+        "strings",
+        "transforming"
+      ],
+      "unlocked_by": null,
+      "uuid": "ad19be59-061a-ab80-36c6-52f00fbe9426855aad4"
     },
     {
-      "uuid": "cf22573e-9099-4df5-86d6-02e9bf42784d",
+      "core": false,
+      "difficulty": 2,
       "slug": "raindrops",
-      "core": false,
-      "unlocked_by": "two-fer",
-      "difficulty": 2,
       "topics": [
-        "Text formatting",
-        "Filtering"
-      ]
+        "filtering",
+        "text_formatting"
+      ],
+      "unlocked_by": "two-fer",
+      "uuid": "d8e62ae5-0f1f-dd80-3c1f-bb53505ae7d403cbcf2"
     },
     {
-      "uuid": "6bc985bc-f04f-41de-9582-e0d51ea8df54",
+      "core": false,
+      "difficulty": 2,
       "slug": "hamming",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
       "topics": [
-        "Strings",
-        "Filtering"
-      ]
+        "filtering",
+        "strings"
+      ],
+      "unlocked_by": null,
+      "uuid": "ec22ed83-0b5d-df80-c2b7-2ff38ebbcc430d39ab7"
     },
     {
-      "uuid": "746fdc7b-8d7f-4df1-8d68-7af5d5c63396",
+      "core": false,
+      "difficulty": 2,
       "slug": "bank-account",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
       "topics": [
-        "Classes"
-      ]
+        "classes"
+      ],
+      "unlocked_by": null,
+      "uuid": "60f410a3-0fca-c380-c1a9-f020953884fd3fcf621"
     },
     {
-      "uuid": "a77d309f-ddd6-4700-b300-347fb7e1d916",
+      "core": true,
+      "difficulty": 2,
       "slug": "nucleotide-count",
-      "core": true,
-      "difficulty": 2,
       "topics": [
-        "Dictionaries",
-        "Strings"
-      ]
+        "dictionaries",
+        "strings"
+      ],
+      "uuid": "8c67d408-0fdc-3780-4e29-fdc9fb3720cf0c8da66"
     },
     {
-      "uuid": "3cc7a1b6-b613-4cf1-9318-fd2e48eac6a4",
+      "core": false,
+      "difficulty": 2,
       "slug": "etl",
-      "core": false,
+      "topics": [
+        "dictionaries",
+        "lists",
+        "transforming"
+      ],
       "unlocked_by": "nucleotide-count",
-      "difficulty": 2,
-      "topics": [
-        "Dictionaries",
-        "Lists",
-        "Transforming"
-      ]
+      "uuid": "f1c4c74d-0f90-cb80-3d60-3670885b6853a373ad8"
     },
     {
-      "uuid": "dbf6dfed-b3c1-4bac-8d86-4584c1d9f08c",
+      "core": true,
+      "difficulty": 2,
       "slug": "grains",
-      "core": true,
-      "difficulty": 2,
       "topics": [
-        "Integers",
-        "Recursion"
-      ]
+        "integers",
+        "recursion"
+      ],
+      "uuid": "21abc7f4-036c-5780-68b5-ac3cf9655c3f88e4729"
     },
     {
-      "uuid": "b30fbfa4-8568-467c-bf50-9d9fd49d3af2",
+      "core": false,
+      "difficulty": 2,
       "slug": "collatz-conjecture",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 2,
       "topics": [
-        "Algorithms",
-        "Looping",
-        "Raising Exceptions"
-      ]
+        "algorithms",
+        "looping",
+        "raising_exceptions"
+      ],
+      "unlocked_by": null,
+      "uuid": "9faf8515-04b2-ec80-ff54-35e345575efc2907d42"
     },
     {
-      "uuid": "76754970-3b28-45f6-8f36-10f063b3f846",
+      "core": false,
+      "difficulty": 3,
       "slug": "beer-song",
-      "core": false,
+      "topics": [
+        "algorithms",
+        "text_formatting"
+      ],
       "unlocked_by": "two-fer",
-      "difficulty": 3,
-      "topics": [
-        "Text formatting",
-        "Algorithms"
-      ]
+      "uuid": "25e19f7e-02d6-7280-a4dd-0fd7d5d2132437be3a0"
     },
     {
-      "uuid": "4d8b5c36-3562-41a6-aaca-b5229059a009",
+      "core": true,
+      "difficulty": 3,
       "slug": "phone-number",
-      "core": true,
-      "difficulty": 3,
       "topics": [
-        "Parsing",
-        "Transforming"
-      ]
+        "parsing",
+        "transforming"
+      ],
+      "uuid": "f9c4af8f-0776-2b80-1a86-7a870ba470db59ffb12"
     },
     {
-      "uuid": "95ca4105-b3f7-42f8-a07d-8d912056ed26",
+      "core": false,
+      "difficulty": 3,
       "slug": "perfect-numbers",
-      "core": false,
+      "topics": [
+        "integers"
+      ],
       "unlocked_by": "leap",
-      "difficulty": 3,
-      "topics": [
-        "Integers"
-      ]
+      "uuid": "002736ee-0d0b-0a80-ff49-bc2797326818e54c28a"
     },
     {
-      "uuid": "c89324f8-8f40-4e99-9ce2-4bf11d4d91d5",
+      "core": false,
+      "difficulty": 3,
       "slug": "binary-search",
-      "core": false,
+      "topics": [
+        "arrays",
+        "recursion",
+        "searching"
+      ],
       "unlocked_by": "grains",
-      "difficulty": 3,
-      "topics": [
-        "Searching",
-        "Arrays",
-        "Recursion"
-      ]
+      "uuid": "1d5b540a-0e53-ce80-53f1-f376a3df8043188d765"
     },
     {
-      "uuid": "6488fc37-7bd4-4854-8043-8b261554695d",
+      "core": true,
+      "difficulty": 3,
       "slug": "clock",
-      "core": true,
-      "difficulty": 3,
       "topics": [
-        "Time",
-        "Structural equality"
-      ]
+        "structural_equality",
+        "time"
+      ],
+      "uuid": "fa832d24-0ee0-5880-8bf9-9c5147b282736829c37"
     },
     {
-      "uuid": "6404ad71-4f20-4f5b-8530-8ba1578e9550",
+      "core": true,
+      "difficulty": 3,
       "slug": "triangle",
-      "core": true,
-      "difficulty": 3,
       "topics": [
-        "Integers",
-        "Enumerations"
-      ]
+        "enumerations",
+        "integers"
+      ],
+      "uuid": "7c8e01c6-0e98-9d80-b8ef-41b77fe1cf494cc6fb7"
     },
     {
-      "uuid": "fcaf9a85-579b-4607-8d2c-b6353664502d",
+      "core": true,
+      "difficulty": 4,
       "slug": "allergies",
-      "core": true,
-      "difficulty": 4,
       "topics": [
-        "Bitwise operations",
-        "Filtering"
-      ]
+        "bitwise_operations",
+        "filtering"
+      ],
+      "uuid": "1bd82ce9-04e9-6780-7d2e-f09e50e2466f9b90d6a"
     },
     {
-      "uuid": "4fd252a7-520a-416d-b976-a8f4cf3c4516",
+      "core": true,
+      "difficulty": 4,
       "slug": "saddle-points",
-      "core": true,
-      "difficulty": 4,
       "topics": [
-        "Matrices",
-        "Arrays",
-        "Tuples"
-      ]
+        "arrays",
+        "matrices",
+        "tuples"
+      ],
+      "uuid": "2fbe298b-044e-b280-55e1-720e7f9371d90cb9443"
     },
     {
-      "uuid": "51b2fe3e-996c-41f2-86cd-c6666898c850",
+      "core": true,
+      "difficulty": 5,
       "slug": "circular-buffer",
-      "core": true,
-      "difficulty": 5,
       "topics": [
-        "Queues",
-        "Classes"
-      ]
+        "classes",
+        "queues"
+      ],
+      "uuid": "45cf6fd0-0196-7a80-9bdb-26d39c8af65f0b5387c"
     },
     {
-      "uuid": "0648988c-0916-4651-897a-349c94c32ca8",
+      "core": false,
+      "difficulty": 5,
       "slug": "minesweeper",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 5,
       "topics": [
-        "Parsing",
-        "Transforming"
-      ]
+        "parsing",
+        "transforming"
+      ],
+      "unlocked_by": "phone-number",
+      "uuid": "984ff763-0f4c-6780-0537-c306fab2cfb3b3ea534"
     },
     {
-      "uuid": "b4d9cd9c-bdc7-4485-bcce-80e4303fad51",
+      "core": true,
+      "difficulty": 5,
       "slug": "roman-numerals",
-      "core": true,
-      "difficulty": 5,
       "topics": [
-        "Control-flow (loops)",
-        "Record Helpers"
-      ]
+        "control_flow_loops",
+        "record_helpers"
+      ],
+      "uuid": "69f233ac-0054-4e80-c3fd-ab5571d79d5186238d7"
     },
     {
-      "uuid": "f823e453-90c1-4f9f-ab73-d560ca3675f0",
+      "core": false,
+      "difficulty": 6,
       "slug": "bowling",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 6,
       "topics": [
-        "Algorithms",
-        "Control-flow (loops)"
-      ]
+        "algorithms",
+        "control_flow_loops"
+      ],
+      "unlocked_by": null,
+      "uuid": "e8704f7f-0f79-7880-94b3-d0bc66a24a74ac03909"
     },
     {
-      "uuid": "d83a653b-da78-4f49-9ab2-3cc947825a2b",
-      "slug": "book-store",
       "core": true,
       "difficulty": 6,
+      "slug": "book-store",
       "topics": [
-        "Sequences",
-        "Control-flow (loops)",
-        "Arrays",
-        "Classes"
-      ]
+        "arrays",
+        "classes",
+        "control_flow_loops",
+        "sequences"
+      ],
+      "uuid": "b114cb6a-0f62-0180-3a6c-2d8379bc793e0c9cff1"
     },
     {
-      "uuid": "f522e311-2d29-4fe2-a91c-5357ff85fde6",
+      "core": false,
+      "difficulty": 7,
       "slug": "wordy",
-      "core": false,
-      "unlocked_by": "phone-number",
-      "difficulty": 7,
       "topics": [
-        "Parsing",
-        "Strings",
-        "Transforming"
-      ]
+        "parsing",
+        "strings",
+        "transforming"
+      ],
+      "unlocked_by": "phone-number",
+      "uuid": "981cb5ae-06e4-dc80-c08f-c3f32227fa64ef2ecd6"
     },
     {
-      "uuid": "250c222d-3d29-42fd-8695-bc9fc33db6f5",
-      "slug": "poker",
       "core": false,
-      "unlocked_by": null,
       "difficulty": 7,
+      "slug": "poker",
       "topics": [
-        "Parsing",
-        "Sorting",
-        "Games"
-      ]
+        "games",
+        "parsing",
+        "sorting"
+      ],
+      "unlocked_by": null,
+      "uuid": "ac19f835-015b-cb80-8761-bcd2399aad61c98a7c3"
     }
-  ]
+  ],
+  "language": "Delphi Pascal"
 }
