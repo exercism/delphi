@@ -1,25 +1,25 @@
 {
+  "docs_url": "https://github.com/exercism/docs/blob/master/maintaining-a-track/maintainer-configuration.md",
   "maintainers": [
     {
-      "github_username": "kotp",
-      "show_on_website": false,
       "alumnus": false,
-      "name": null,
+      "avatar_url": null,
       "bio": null,
+      "github_username": "kotp",
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": null,
+      "show_on_website": false
     },
     {
-      "github_username": "rpottsoh",
-      "show_on_website": true,
       "alumnus": false,
-      "name": "Ryan Potts",
+      "avatar_url": null,
       "bio": "I have been using Delphi professionally since 1996.  At my day job I develop software used in the control of various types of test machines used by the auto industry.  Exercism is my first real push into Open Source and I'm happy to have this opportunity to teach and share the virtures of Delphi with others.",
+      "github_username": "rpottsoh",
       "link_text": null,
       "link_url": null,
-      "avatar_url": null
+      "name": "Ryan Potts",
+      "show_on_website": true
     }
-  ],
-  "docs_url": "https://github.com/exercism/docs/blob/master/maintaining-a-track/maintainer-configuration.md"
+  ]
 }
