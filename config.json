@@ -256,15 +256,15 @@
       "uuid": "0bfab0d4-04ca-2080-f5ae-3199d09960b80633e82"
     },
     {
-      "uuid": "40c44251-0dff-3380-6a14-ef8e02d1e9242dca58f",
-      "slug": "pig-latin",
       "core": false,
-      "unlocked_by": "book-store",
       "difficulty": 6,
+      "slug": "pig-latin",
       "topics": [
-        "Strings",
-        "Transforming"
-      ]
+        "strings",
+        "transforming"
+      ],
+      "unlocked_by": "book-store",
+      "uuid": "40c44251-0dff-3380-6a14-ef8e02d1e9242dca58f"
     },
     {
       "core": true,
