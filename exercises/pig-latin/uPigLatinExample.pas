@@ -5,7 +5,6 @@ interface
 type
   TPigLatin = class
   private
-    class function WordOnlyHasYForAVowel(aWord: string): boolean;
     class function WordStartsWithVowelLike(aWord: string): boolean;
     class function WordStartsWithPrefixes(aWord: string; aPrefixes: array of string): boolean;
     class function WordStartsWithConsonantAndQu(aWord: string): boolean;
@@ -37,43 +36,20 @@ begin
 end;
 
 class function TPigLatin.TranslateWord(aWord: string): string;
-var splitWordAtY: TArray<string>;
 begin
-  if WordOnlyHasYForAVowel(aWord) then
-  begin
-    splitWordAtY := aWord.Split(['y']);
-    result := 'y' + splitWordAtY[1] + splitWordAtY[0] + 'ay';
-  end
-  else
   if WordStartsWithVowelLike(aWord) then
     result := aWord + 'ay'
   else
   if WordStartsWithPrefixes(aWord, ['thr', 'sch']) then
     result :=  aword.Substring(3) + aWord.Substring(0, 3) + 'ay'
   else
-  if WordStartsWithPrefixes(aWord, ['ch', 'qu', 'th']) then
+  if WordStartsWithPrefixes(aWord, ['ch', 'qu', 'th', 'rh']) then
     result := aWord.Substring(2) + aWord.Substring(0, 2) + 'ay'
   else
   if WordStartsWithConsonantAndQu(aWord) then
     result := aWord.Substring(3) + aWord[1] + 'quay'
   else
     result := aWord.Substring(1) + aWord[1] + 'ay';
-end;
-
-class function TPigLatin.WordOnlyHasYForAVowel(aWord: string): boolean;
-var singleLetter: string;
-begin
-  result := false;
-  for singleLetter in aWord do
-  begin
-    result := TRegex.IsMatch(singleLetter,'[aeiou]',[roIgnoreCase]);
-    if result then
-      break;
-  end;
-  if not result then
-    result := aWord.Contains('y')
-  else
-    result := false;
 end;
 
 class function TPigLatin.WordStartsWithConsonantAndQu(aWord: string): boolean;
