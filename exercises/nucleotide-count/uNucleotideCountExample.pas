@@ -57,7 +57,7 @@ function TDNA.Count(aChar: Char): integer;
 begin
   result := 0;
   if not fNucleotideCounts.TryGetValue(aChar, result) then
-    raise EInvalidNucleotideException.Create('Invalid Nucleotide');
+    raise EInvalidNucleotideException.Create('Invalid nucleotide in strand');
 end;
 
 end.
