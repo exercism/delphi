@@ -115,12 +115,12 @@ end;
 
 procedure HammingTests.non_unique_character_in_first_strand;
 begin
-  Assert.AreEqual(1, THamming.Distance('AGA', 'AGG'));
+  Assert.AreEqual(1, THamming.Distance('AAG', 'AAA'));
 end;
 
 procedure HammingTests.non_unique_character_in_second_strand;
 begin
-  Assert.AreEqual(1, THamming.Distance('AGG', 'AGA'));
+  Assert.AreEqual(1, THamming.Distance('AAA', 'AAG'));
 end;
 
 procedure HammingTests.same_nucleotides_in_different_positions;
