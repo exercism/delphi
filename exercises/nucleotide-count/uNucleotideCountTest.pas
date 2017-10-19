@@ -18,11 +18,11 @@ type
 
     [Test]
     [Ignore]
-    procedure strand_with_repeated_nucleotide;
+    procedure can_count_one_nucleotide_in_single_character_input;
 
     [Test]
     [Ignore]
-    procedure can_count_one_nucleotide_in_single_character_input;
+    procedure strand_with_repeated_nucleotide;
 
     [Test]
     [Ignore]
