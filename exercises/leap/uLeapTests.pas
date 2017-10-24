@@ -36,7 +36,7 @@ end;
 
 procedure YearTest.year_divisible_by_4_not_divisible_by_100_leap_year;
 begin
-  assert.IsTrue(TYear.IsLeap(2020), 'Expected ''true'', 2020 is a leap year.');
+  assert.IsTrue(TYear.IsLeap(1996), 'Expected ''true'', 1996 is a leap year.');
 end;
 
 procedure YearTest.year_divisible_by_100_not_divisible_by_400_common_year;
