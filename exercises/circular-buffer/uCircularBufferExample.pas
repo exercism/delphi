@@ -8,7 +8,7 @@ type
   ['{E3531870-DA5D-451A-9E7A-86B1C46B4D29}']
     function Read: T;
     procedure Write(aValue: T);
-    procedure ForceWrite(aValue: T);
+    procedure OverWrite(aValue: T);
     procedure Clear;
   end;
 
@@ -21,7 +21,7 @@ type
     destructor destroy;
     function Read: T;
     procedure Write(aValue: T);
-    procedure ForceWrite(aValue: T);
+    procedure OverWrite(aValue: T);
     procedure Clear;
   end;
 
@@ -57,7 +57,7 @@ begin
   FBuffer.Enqueue(aValue);
 end;
 
-procedure TCircularBuffer<T>.ForceWrite(aValue: T);
+procedure TCircularBuffer<T>.OverWrite(aValue: T);
 begin
   if FBuffer.Count = FSize then
     FBuffer.Dequeue;
