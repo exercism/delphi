@@ -4,9 +4,10 @@ interface
 
 type
   Beer = class
-  public
+  private
     class function Verse(number: integer): string; static;
-    class function Verses(start, stop: integer): string; static;
+  public
+    class function Recite(start, takeDown: integer): string; static;
   end;
 
 implementation
@@ -31,15 +32,23 @@ begin
   end; //case
 end;
 
-class function Beer.Verses(start, stop: integer): string;
+class function Beer.Recite(start, takeDown: integer): string;
 var i: integer;
+    stop: integer;
+    verseNum: integer;
 begin
+   stop := (start - takeDown) + 1;
    result := '';
    for i := start downto stop do
+   begin
+     verseNum := i;
+     if verseNum < 0 then
+       verseNum := verseNum + 100;
      if i = stop then
-       result := result + Verse(i)
+       result := result + Verse(verseNum)
      else
-       result := result + Verse(i) + '\n';
+       result := result + Verse(verseNum) + '\n';
+   end;
 end;
 
 end.

@@ -4,42 +4,49 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '2.0.0';
+
 type
 
-  [TestFixture('Return 1 verse')]
+  [TestFixture('single verse')]
   VerseTests = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure First_verse;
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure first_generic_verse;
 
     [Test]
     [Ignore]
-    procedure Middle_verse;
+    procedure last_generic_verse;
 
     [Test]
     [Ignore]
-    procedure Third_to_last_verse;
+    procedure verse_with_2_bottles;
 
     [Test]
     [Ignore]
-    procedure Penultimate_verse;
+    procedure verse_with_1_bottle;
 
     [Test]
     [Ignore]
-    procedure Last_verse;
+    procedure verse_with_0_bottles;
   end;
 
-  [TextFixture('Return multiple verses')]
+  [TextFixture('multiple verses')]
   LyricsTests = class(TObject)
   public
     [Test]
     [Ignore]
-    procedure Last_4_verses;
+    procedure first_two_verses;
 
     [Test]
     [Ignore]
-    procedure All_verses;
+    procedure last_three_verses;
+
+    [Test]
+    [Ignore]
+    procedure all_verses;
   end;
 
 implementation
@@ -47,71 +54,80 @@ uses System.SysUtils, System.Classes, uBeerSong;
 
 var inputFile: TStringlist;
 
-{$region 'Return 1 verse'}
+{$region 'single verse'}
 
-procedure VerseTests.First_verse;
+procedure VerseTests.first_generic_verse;
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[0];
-  Actual := Beer.Verse(99);
+  Actual := Beer.Recite(99,1);
   Assert.AreEqual(Expected, Actual);
 end;
 
-procedure VerseTests.Middle_verse;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[1];
-  Actual := Beer.Verse(44);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.Third_to_last_verse;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[2];
-  Actual := Beer.Verse(2);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.Penultimate_verse;
+procedure VerseTests.verse_with_1_bottle;
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[3];
-  Actual := Beer.Verse(1);
-  assert.AreEqual(Expected, Actual);
+  Actual := Beer.Recite(1,1);
+  Assert.AreEqual(Expected, Actual);
 end;
 
-procedure VerseTests.Last_verse;
+procedure VerseTests.verse_with_2_bottles;
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[2];
+  Actual := Beer.Recite(2,1);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure VerseTests.last_generic_verse;
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[3];
+  Actual := Beer.Recite(1,1);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure VerseTests.verse_with_0_bottles;
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[4];
-  Actual := Beer.Verse(0);
-  assert.AreEqual(Expected, Actual);
+  Actual := Beer.Recite(0,1);
+  Assert.AreEqual(Expected, Actual);
 end;
 {$endregion}
 
-{$region 'Return multiple verses'}
+{$region 'multiple verses'}
 
-procedure LyricsTests.Last_4_verses;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[5];
-  Actual := Beer.Verses(3,0);
-  assert.AreEqual(Expected, Actual);
-end;
-
-procedure LyricsTests.All_verses;
+procedure LyricsTests.first_two_verses;
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[6];
-  Actual := Beer.Verses(99,0);
+  Actual := Beer.Recite(99,2);
+  assert.AreEqual(Expected, Actual);
+end;
+
+procedure LyricsTests.last_three_verses;
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[5];
+  Actual := Beer.Recite(2,3);
+  assert.AreEqual(Expected, Actual);
+end;
+
+procedure LyricsTests.all_verses;
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[7];
+  Actual := Beer.Recite(99,100);
   assert.AreEqual(Expected, Actual);
 end;
 
