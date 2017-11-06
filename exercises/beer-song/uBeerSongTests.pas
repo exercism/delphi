@@ -10,43 +10,43 @@ const
 type
 
   [TestFixture('single verse')]
-  VerseTests = class(TObject)
+  SingleVerseTests = class(TObject)
   public
-    [Test]
+    [TestCase('single verse','99,1')]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure first_generic_verse;
+    procedure first_generic_verse(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('last generic verse','3,1')]
     [Ignore]
-    procedure last_generic_verse;
+    procedure last_generic_verse(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('verse with 2 bottles','2,1')]
     [Ignore]
-    procedure verse_with_2_bottles;
+    procedure verse_with_2_bottles(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('verse with 1 bottle','1,1')]
     [Ignore]
-    procedure verse_with_1_bottle;
+    procedure verse_with_1_bottle(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('verse with 0 bottles','0,1')]
     [Ignore]
-    procedure verse_with_0_bottles;
+    procedure verse_with_0_bottles(const startBottles: integer; const takeDown: integer);
   end;
 
   [TextFixture('multiple verses')]
-  LyricsTests = class(TObject)
+  MultipleVersesTests = class(TObject)
   public
-    [Test]
+    [TestCase('first two verses','99,2')]
     [Ignore]
-    procedure first_two_verses;
+    procedure first_two_verses(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('last three verses','2,3')]
     [Ignore]
-    procedure last_three_verses;
+    procedure last_three_verses(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('all verses','99,100')]
     [Ignore]
-    procedure all_verses;
+    procedure all_verses(const startBottles: integer; const takeDown: integer);
   end;
 
 implementation
@@ -56,78 +56,78 @@ var inputFile: TStringlist;
 
 {$region 'single verse'}
 
-procedure VerseTests.first_generic_verse;
+procedure SingleVerseTests.first_generic_verse(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[0];
-  Actual := Beer.Recite(99,1);
+  Actual := Beer.Recite(startBottles,takeDown);
   Assert.AreEqual(Expected, Actual);
 end;
 
-procedure VerseTests.verse_with_1_bottle;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[3];
-  Actual := Beer.Recite(1,1);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.verse_with_2_bottles;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[2];
-  Actual := Beer.Recite(2,1);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.last_generic_verse;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[3];
-  Actual := Beer.Recite(1,1);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.verse_with_0_bottles;
+procedure SingleVerseTests.verse_with_1_bottle(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[4];
-  Actual := Beer.Recite(0,1);
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure SingleVerseTests.verse_with_2_bottles(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[2];
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure SingleVerseTests.last_generic_verse(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[3];
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure SingleVerseTests.verse_with_0_bottles(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[5];
+  Actual := Beer.Recite(startBottles,takeDown);
   Assert.AreEqual(Expected, Actual);
 end;
 {$endregion}
 
 {$region 'multiple verses'}
 
-procedure LyricsTests.first_two_verses;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[6];
-  Actual := Beer.Recite(99,2);
-  assert.AreEqual(Expected, Actual);
-end;
-
-procedure LyricsTests.last_three_verses;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[5];
-  Actual := Beer.Recite(2,3);
-  assert.AreEqual(Expected, Actual);
-end;
-
-procedure LyricsTests.all_verses;
+procedure MultipleVersesTests.first_two_verses(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[7];
-  Actual := Beer.Recite(99,100);
+  Actual := Beer.Recite(startBottles,takeDown);
+  assert.AreEqual(Expected, Actual);
+end;
+
+procedure MultipleVersesTests.last_three_verses(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[6];
+  Actual := Beer.Recite(startBottles,takeDown);
+  assert.AreEqual(Expected, Actual);
+end;
+
+procedure MultipleVersesTests.all_verses(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[8];
+  Actual := Beer.Recite(startBottles,takeDown);
   assert.AreEqual(Expected, Actual);
 end;
 
@@ -141,8 +141,8 @@ end;
 
 initialization
   inputFile := loadInputData;
-  TDUnitX.RegisterTestFixture(VerseTests);
-  TDUnitX.RegisterTestFixture(LyricsTests);
+  TDUnitX.RegisterTestFixture(SingleVerseTests);
+  TDUnitX.RegisterTestFixture(MultipleVersesTests);
 
 finalization
   inputFile.DisposeOf;
