@@ -4,42 +4,49 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '2.0.0';
+
 type
 
-  [TestFixture('Return 1 verse')]
-  VerseTests = class(TObject)
+  [TestFixture('single verse')]
+  SingleVerseTests = class(TObject)
   public
-    [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure First_verse;
+    [TestCase('single verse','99,1')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure first_generic_verse(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('last generic verse','3,1')]
     [Ignore]
-    procedure Middle_verse;
+    procedure last_generic_verse(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('verse with 2 bottles','2,1')]
     [Ignore]
-    procedure Third_to_last_verse;
+    procedure verse_with_2_bottles(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('verse with 1 bottle','1,1')]
     [Ignore]
-    procedure Penultimate_verse;
+    procedure verse_with_1_bottle(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('verse with 0 bottles','0,1')]
     [Ignore]
-    procedure Last_verse;
+    procedure verse_with_0_bottles(const startBottles: integer; const takeDown: integer);
   end;
 
-  [TextFixture('Return multiple verses')]
-  LyricsTests = class(TObject)
+  [TextFixture('multiple verses')]
+  MultipleVersesTests = class(TObject)
   public
-    [Test]
+    [TestCase('first two verses','99,2')]
     [Ignore]
-    procedure Last_4_verses;
+    procedure first_two_verses(const startBottles: integer; const takeDown: integer);
 
-    [Test]
+    [TestCase('last three verses','2,3')]
     [Ignore]
-    procedure All_verses;
+    procedure last_three_verses(const startBottles: integer; const takeDown: integer);
+
+    [TestCase('all verses','99,100')]
+    [Ignore]
+    procedure all_verses(const startBottles: integer; const takeDown: integer);
   end;
 
 implementation
@@ -47,71 +54,80 @@ uses System.SysUtils, System.Classes, uBeerSong;
 
 var inputFile: TStringlist;
 
-{$region 'Return 1 verse'}
+{$region 'single verse'}
 
-procedure VerseTests.First_verse;
+procedure SingleVerseTests.first_generic_verse(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[0];
-  Actual := Beer.Verse(99);
+  Actual := Beer.Recite(startBottles,takeDown);
   Assert.AreEqual(Expected, Actual);
 end;
 
-procedure VerseTests.Middle_verse;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[1];
-  Actual := Beer.Verse(44);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.Third_to_last_verse;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[2];
-  Actual := Beer.Verse(2);
-  Assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.Penultimate_verse;
-var Expected,
-    Actual: string;
-begin
-  Expected := inputFile[3];
-  Actual := Beer.Verse(1);
-  assert.AreEqual(Expected, Actual);
-end;
-
-procedure VerseTests.Last_verse;
+procedure SingleVerseTests.verse_with_1_bottle(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[4];
-  Actual := Beer.Verse(0);
-  assert.AreEqual(Expected, Actual);
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
 end;
-{$endregion}
 
-{$region 'Return multiple verses'}
+procedure SingleVerseTests.verse_with_2_bottles(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[2];
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
+end;
 
-procedure LyricsTests.Last_4_verses;
+procedure SingleVerseTests.last_generic_verse(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[3];
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
+end;
+
+procedure SingleVerseTests.verse_with_0_bottles(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[5];
-  Actual := Beer.Verses(3,0);
+  Actual := Beer.Recite(startBottles,takeDown);
+  Assert.AreEqual(Expected, Actual);
+end;
+{$endregion}
+
+{$region 'multiple verses'}
+
+procedure MultipleVersesTests.first_two_verses(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[7];
+  Actual := Beer.Recite(startBottles,takeDown);
   assert.AreEqual(Expected, Actual);
 end;
 
-procedure LyricsTests.All_verses;
+procedure MultipleVersesTests.last_three_verses(const startBottles: integer; const takeDown: integer);
 var Expected,
     Actual: string;
 begin
   Expected := inputFile[6];
-  Actual := Beer.Verses(99,0);
+  Actual := Beer.Recite(startBottles,takeDown);
+  assert.AreEqual(Expected, Actual);
+end;
+
+procedure MultipleVersesTests.all_verses(const startBottles: integer; const takeDown: integer);
+var Expected,
+    Actual: string;
+begin
+  Expected := inputFile[8];
+  Actual := Beer.Recite(startBottles,takeDown);
   assert.AreEqual(Expected, Actual);
 end;
 
@@ -125,8 +141,8 @@ end;
 
 initialization
   inputFile := loadInputData;
-  TDUnitX.RegisterTestFixture(VerseTests);
-  TDUnitX.RegisterTestFixture(LyricsTests);
+  TDUnitX.RegisterTestFixture(SingleVerseTests);
+  TDUnitX.RegisterTestFixture(MultipleVersesTests);
 
 finalization
   inputFile.DisposeOf;
