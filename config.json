@@ -10,7 +10,7 @@
         "text_formatting"
       ],
       "unlocked_by": null,
-      "uuid": "765b5bcf-00e0-d180-ea7f-92dae26e6da0b30151c"
+      "uuid": "497011b8-4dcf-4084-a7d1-11ea954e605f"
     },
     {
       "core": true,
@@ -20,7 +20,7 @@
         "optional_values",
         "text_formatting"
       ],
-      "uuid": "b38f504c-098e-fe80-896f-60e6c45751033d26161"
+      "uuid": "60eb0882-495d-45f4-8d38-5b10d8851cf6"
     },
     {
       "core": false,
@@ -31,7 +31,7 @@
         "strings"
       ],
       "unlocked_by": null,
-      "uuid": "cd80ef91-0451-c380-3d58-01a2ddff3029f430eea"
+      "uuid": "afbc3955-d9be-4842-9697-e778e5d23d1c"
     },
     {
       "core": true,
@@ -40,7 +40,7 @@
       "topics": [
         "integers"
       ],
-      "uuid": "9234d900-050c-5980-561b-e1f772ae2b9c7b3fd08"
+      "uuid": "9e54a998-450c-4020-834e-eaa77f909744"
     },
     {
       "core": false,
@@ -51,7 +51,7 @@
         "transforming"
       ],
       "unlocked_by": null,
-      "uuid": "e8849e37-0b3e-ec80-c41c-c53f2a871f6ee59e2d6"
+      "uuid": "4a50bfd2-f6c9-480e-af82-d468cf585f0d"
     },
     {
       "core": false,
@@ -62,7 +62,7 @@
         "text_formatting"
       ],
       "unlocked_by": "two-fer",
-      "uuid": "3b1391da-04c2-e580-30a5-6063e888da196dfba6a"
+      "uuid": "2617f4a3-cf0e-4690-a464-45eac3f97317"
     },
     {
       "core": false,
@@ -73,7 +73,7 @@
         "strings"
       ],
       "unlocked_by": null,
-      "uuid": "68c5b50b-03c0-4880-af0f-9cfacb1ba507e837d12"
+      "uuid": "c623f1f2-8e54-4c46-a577-2570fa2f317b"
     },
     {
       "core": false,
@@ -83,7 +83,7 @@
         "classes"
       ],
       "unlocked_by": null,
-      "uuid": "bb32f666-0f50-e480-9738-e4e3e8f7ece13c9b460"
+      "uuid": "777f9f9e-acf8-4b73-89c7-ee08d4ff49e3"
     },
     {
       "core": true,
@@ -93,7 +93,7 @@
         "dictionaries",
         "strings"
       ],
-      "uuid": "d5cae090-0626-c880-3b62-58ed5d301931de3171d"
+      "uuid": "f2fae277-db73-482c-ac3a-496237ad5a42"
     },
     {
       "core": false,
@@ -105,7 +105,7 @@
         "transforming"
       ],
       "unlocked_by": "nucleotide-count",
-      "uuid": "4e538a24-0e30-2b80-2b3f-82ca73b593a81a8cc8d"
+      "uuid": "f22f0ac1-3836-4ece-9c47-491929c8fc85"
     },
     {
       "core": true,
@@ -115,7 +115,7 @@
         "integers",
         "recursion"
       ],
-      "uuid": "acf5b5ab-03d7-0e80-f419-255df25d35a2466a421"
+      "uuid": "d0ddd5dc-30cd-4876-937d-9e89bae7dc93"
     },
     {
       "core": false,
@@ -127,7 +127,7 @@
         "raising_exceptions"
       ],
       "unlocked_by": null,
-      "uuid": "d8093412-0665-0280-b4ae-edd0a7b483a316f236b"
+      "uuid": "edfc2903-1165-4029-9901-0be72b32865f"
     },
     {
       "core": false,
@@ -138,7 +138,7 @@
         "text_formatting"
       ],
       "unlocked_by": "two-fer",
-      "uuid": "311b59d8-01ed-0780-14a9-fa94a2937508a4fbf40"
+      "uuid": "48f443f6-3bbc-4086-9f47-f46bcfa0623a"
     },
     {
       "core": true,
@@ -148,7 +148,7 @@
         "parsing",
         "transforming"
       ],
-      "uuid": "ce2587db-02b3-3880-e5aa-0765496de558966abf5"
+      "uuid": "cba5cf99-8001-4113-af80-cf9c041f1b21"
     },
     {
       "core": false,
@@ -158,7 +158,7 @@
         "integers"
       ],
       "unlocked_by": "leap",
-      "uuid": "ea99e05d-0f87-4280-aec3-907d40556314f89a033"
+      "uuid": "964abaeb-b1b6-4609-bb9e-ca569302f406"
     },
     {
       "core": false,
@@ -170,7 +170,7 @@
         "searching"
       ],
       "unlocked_by": "grains",
-      "uuid": "5a865bce-0f07-e980-5c71-c5307dc82e30076faeb"
+      "uuid": "b1cfe374-4881-4e06-9333-d5d9b367580f"
     },
     {
       "core": true,
@@ -180,7 +180,7 @@
         "structural_equality",
         "time"
       ],
-      "uuid": "4e38035b-040b-0880-b592-f750e82b574e0e58c41"
+      "uuid": "0223dfe4-3ff4-4f4e-8cd2-821e1fd50217"
     },
     {
       "core": true,
@@ -190,7 +190,7 @@
         "enumerations",
         "integers"
       ],
-      "uuid": "ad99318a-0397-e080-5d92-0043fa439ccc604f7ed"
+      "uuid": "f5d43bcd-34fe-4b96-a687-254f7c0f5601"
     },
     {
       "core": true,
@@ -200,7 +200,7 @@
         "bitwise_operations",
         "filtering"
       ],
-      "uuid": "aedbd675-0c9f-3680-126d-38e9c675c8a00297062"
+      "uuid": "65214085-edfc-4ee7-a286-eca225b57ea3"
     },
     {
       "core": true,
@@ -211,7 +211,7 @@
         "matrices",
         "tuples"
       ],
-      "uuid": "dbfbea24-014a-0080-5b0e-fe38d498443be3df149"
+      "uuid": "78166582-6df9-4076-bd37-53230cd78f71"
     },
     {
       "core": true,
@@ -221,7 +221,7 @@
         "classes",
         "queues"
       ],
-      "uuid": "a1cb2ebe-05f0-4380-c2c4-7efe9eba69d05f6de75"
+      "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57"
     },
     {
       "core": false,
@@ -232,7 +232,7 @@
         "transforming"
       ],
       "unlocked_by": "phone-number",
-      "uuid": "b36d2d0d-0ef6-0780-cb76-de828d83c7ce7f5b62b"
+      "uuid": "5ab52a90-8a72-42f8-b430-042436041348"
     },
     {
       "core": true,
@@ -242,7 +242,7 @@
         "control_flow_loops",
         "record_helpers"
       ],
-      "uuid": "90d241e1-07d4-ff80-de15-77f2042d2d249233b28"
+      "uuid": "51d6c5fc-6bde-4b78-842b-518346649431"
     },
     {
       "core": false,
@@ -253,7 +253,7 @@
         "control_flow_loops"
       ],
       "unlocked_by": null,
-      "uuid": "0bfab0d4-04ca-2080-f5ae-3199d09960b80633e82"
+      "uuid": "88f7ab7d-30c1-4cb5-81ff-1114b5f78291"
     },
     {
       "core": false,
@@ -264,7 +264,7 @@
         "transforming"
       ],
       "unlocked_by": "book-store",
-      "uuid": "40c44251-0dff-3380-6a14-ef8e02d1e9242dca58f"
+      "uuid": "67bd22f2-b707-48c7-b0a1-a0413e543959"
     },
     {
       "core": true,
@@ -276,7 +276,7 @@
         "control_flow_loops",
         "sequences"
       ],
-      "uuid": "234df60b-0b1a-1e80-67c5-f8bcefb32e61245df7d"
+      "uuid": "d471f0d3-6d7c-4abe-bf31-712fb0cadea7"
     },
     {
       "core": false,
@@ -288,7 +288,7 @@
         "transforming"
       ],
       "unlocked_by": "phone-number",
-      "uuid": "426eaa07-02bf-cc80-d4b6-d444f233c0b0eab3b8e"
+      "uuid": "24d81651-de3b-4cc8-8a4a-67cefc0453f6"
     },
     {
       "core": false,
@@ -300,7 +300,7 @@
         "sorting"
       ],
       "unlocked_by": null,
-      "uuid": "14675cf2-0504-1480-8495-d9aa32915b3a76f2383"
+      "uuid": "d4f0509b-2687-4ee2-adbb-2a1a295a9975"
     }
   ],
   "language": "Delphi Pascal"
