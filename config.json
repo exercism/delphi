@@ -3,7 +3,7 @@
   "blurb": "Object Pascal based, Delphi is great for developing cross-platform desktop, mobile, web, and console applications.",
   "exercises": [
     {
-      "core": false,
+      "core": true,
       "difficulty": 1,
       "slug": "hello-world",
       "topics": [
@@ -23,7 +23,7 @@
       "uuid": "60eb0882-495d-45f4-8d38-5b10d8851cf6"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 1,
       "slug": "bob",
       "topics": [
@@ -50,29 +50,29 @@
         "strings",
         "transforming"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "roman-numerals",
       "uuid": "4a50bfd2-f6c9-480e-af82-d468cf585f0d"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 2,
       "slug": "raindrops",
       "topics": [
         "filtering",
         "text_formatting"
       ],
-      "unlocked_by": "two-fer",
+      "unlocked_by": null,
       "uuid": "2617f4a3-cf0e-4690-a464-45eac3f97317"
     },
     {
       "core": false,
-      "difficulty": 2,
+      "difficulty": 1,
       "slug": "hamming",
       "topics": [
         "filtering",
         "strings"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "hello-world",
       "uuid": "c623f1f2-8e54-4c46-a577-2570fa2f317b"
     },
     {
@@ -82,7 +82,7 @@
       "topics": [
         "classes"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "clock",
       "uuid": "777f9f9e-acf8-4b73-89c7-ee08d4ff49e3"
     },
     {
@@ -108,17 +108,18 @@
       "uuid": "f22f0ac1-3836-4ece-9c47-491929c8fc85"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 2,
       "slug": "grains",
       "topics": [
         "integers",
         "recursion"
       ],
+      "unlocked_by": "leap",
       "uuid": "d0ddd5dc-30cd-4876-937d-9e89bae7dc93"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 2,
       "slug": "collatz-conjecture",
       "topics": [
@@ -137,17 +138,18 @@
         "algorithms",
         "text_formatting"
       ],
-      "unlocked_by": "two-fer",
+      "unlocked_by": "raindrops",
       "uuid": "48f443f6-3bbc-4086-9f47-f46bcfa0623a"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 3,
       "slug": "phone-number",
       "topics": [
         "parsing",
         "transforming"
       ],
+      "unlocked_by": "collatz-conjecture",
       "uuid": "cba5cf99-8001-4113-af80-cf9c041f1b21"
     },
     {
@@ -161,7 +163,7 @@
       "uuid": "964abaeb-b1b6-4609-bb9e-ca569302f406"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 3,
       "slug": "binary-search",
       "topics": [
@@ -169,7 +171,7 @@
         "recursion",
         "searching"
       ],
-      "unlocked_by": "grains",
+      "unlocked_by": null,
       "uuid": "b1cfe374-4881-4e06-9333-d5d9b367580f"
     },
     {
@@ -183,13 +185,14 @@
       "uuid": "0223dfe4-3ff4-4f4e-8cd2-821e1fd50217"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 3,
       "slug": "triangle",
       "topics": [
         "enumerations",
         "integers"
       ],
+      "unlocked_by": "leap",
       "uuid": "f5d43bcd-34fe-4b96-a687-254f7c0f5601"
     },
     {
@@ -224,14 +227,14 @@
       "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 5,
       "slug": "minesweeper",
       "topics": [
         "parsing",
         "transforming"
       ],
-      "unlocked_by": "phone-number",
+      "unlocked_by": null,
       "uuid": "5ab52a90-8a72-42f8-b430-042436041348"
     },
     {
@@ -252,7 +255,7 @@
         "algorithms",
         "control_flow_loops"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "circular-buffer",
       "uuid": "88f7ab7d-30c1-4cb5-81ff-1114b5f78291"
     },
     {
@@ -287,7 +290,7 @@
         "strings",
         "transforming"
       ],
-      "unlocked_by": "phone-number",
+      "unlocked_by": "minesweeper",
       "uuid": "24d81651-de3b-4cc8-8a4a-67cefc0453f6"
     },
     {
@@ -299,7 +302,7 @@
         "parsing",
         "sorting"
       ],
-      "unlocked_by": null,
+      "unlocked_by": "minesweeper",
       "uuid": "d4f0509b-2687-4ee2-adbb-2a1a295a9975"
     }
   ],
