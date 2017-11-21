@@ -13,7 +13,7 @@
       "uuid": "497011b8-4dcf-4084-a7d1-11ea954e605f"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 1,
       "slug": "two-fer",
       "topics": [
@@ -23,7 +23,7 @@
       "uuid": "60eb0882-495d-45f4-8d38-5b10d8851cf6"
     },
     {
-      "core": true,
+      "core": false,
       "difficulty": 1,
       "slug": "bob",
       "topics": [
