@@ -25,6 +25,16 @@
     {
       "core": false,
       "difficulty": 1,
+      "slug": "reverse-string",
+      "topics": [
+        "strings"
+      ],
+      "unlocked_by": null,
+      "uuid": "8bdf3796-592c-48f1-b2ef-8e4deb40cc37"
+    },
+    {
+      "core": false,
+      "difficulty": 1,
       "slug": "bob",
       "topics": [
         "control_flow_if_else_statements",
