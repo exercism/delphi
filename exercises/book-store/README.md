@@ -70,7 +70,7 @@ And $51.20 is the price with the biggest discount.
 ## Testing
 
 In order to run the tests for this track, you will need to install
-DUnitX. Please see the [installation](http://www.exercism.io/languages/delphi/installing) instructions for more information.
+DUnitX. Please see the [installation](http://www.exercism.io/languages/delphi/installation) instructions for more information.
 
 ### Loading Exercises into Delphi
 
