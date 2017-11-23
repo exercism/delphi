@@ -49,7 +49,7 @@ game while being scored at 4 in the Hawaiian-language version.
 ## Testing
 
 In order to run the tests for this track, you will need to install
-DUnitX. Please see the [installation](http://www.exercism.io/languages/delphi/installing) instructions for more information.
+DUnitX. Please see the [installation](http://www.exercism.io/languages/delphi/installation) instructions for more information.
 
 ### Loading Exercises into Delphi
 
