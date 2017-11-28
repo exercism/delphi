@@ -4,12 +4,15 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+   CanonicalVersion = '1.1.0';
+
 type
   [TestFixture]
   hpTests = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure A_basket_containing_only_a_single_book;
 
     [Test]
@@ -55,6 +58,10 @@ type
     [Test]
     [Ignore]
     procedure A_basket_containing_twelve_books_consisting_of_three_copies_of_the_first_two_books_plus_two_each_of_the_remaining_three_books_in_the_series;
+
+    [Test]
+    [Ignore]
+    procedure Four_groups_of_four_are_cheaper_than_two_groups_each_of_five_and_three;
   end;
 
 implementation
@@ -125,6 +132,34 @@ begin
   Basket[1] := 2;
   Basket[2] := 3;
   Expected := 21.6;
+
+  fBasket := NewBasket(Basket);
+  assert.AreEqual(Expected, fBasket.Total, MinDelta, format('Total should be %0.2f',[Expected]));
+end;
+
+procedure hpTests.Four_groups_of_four_are_cheaper_than_two_groups_each_of_five_and_three;
+var Basket: TArray<integer>;
+    fBasket: IBasket;
+    Expected: double;
+begin
+  SetLength(Basket, 16);
+  Basket[0] := 1;
+  Basket[1] := 1;
+  Basket[2] := 2;
+  Basket[3] := 2;
+  Basket[4] := 3;
+  Basket[5] := 3;
+  Basket[6] := 4;
+  Basket[7] := 5;
+  Basket[8] := 1;
+  Basket[9] := 1;
+  Basket[10] := 2;
+  Basket[11] := 2;
+  Basket[12] := 3;
+  Basket[13] := 3;
+  Basket[14] := 4;
+  Basket[15] := 5;
+  Expected := 102.40;
 
   fBasket := NewBasket(Basket);
   assert.AreEqual(Expected, fBasket.Total, MinDelta, format('Total should be %0.2f',[Expected]));
