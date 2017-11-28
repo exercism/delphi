@@ -11,7 +11,7 @@ type
 function NewBasket(aBasket: TArray<Integer>): IBasket;
 
 implementation
-uses System.SysUtils;
+uses System.SysUtils, System.Generics.collections, System.Math;
 
 const
   seriesBooks = '12345';
@@ -27,6 +27,7 @@ type
   private
     fSingleBookPrice: extended;
     fBasket: string;
+    fIntList: TList<integer>;
     class function Head(inStr: string): string; static;
     class function Tail(inStr: string): string; static;
     class function ConvertIntArrayToString(const aIntArray: TArray<Integer>): string; static;
@@ -65,6 +66,9 @@ end;
 constructor TBasket.Create(aBasket: TArray<Integer>);
 begin
   fSingleBookPrice := 8;
+  fIntList := TList<integer>.Create;
+  fIntList.AddRange(aBasket);
+  fIntList.Sort;
   fBasket := ConvertIntArrayToString(aBasket);
 end;
 
@@ -108,26 +112,42 @@ begin
 end;
 
 function TBasket.Total:extended;
-var hpBook      : char;
-    totalBooks  : integer;
-    subBaskets  : TArray<String>;
-    wrkSubBasket: string;
-    subTotal    : extended;
+var
+    subBaskets    : TArray<String>;
+    subResult     : array[0..1] of extended;
+    lSortedBasket : TArray<integer>;
+
+    function computeTotal: extended;
+    var wrkSubBasket: string;
+        totalBooks  : integer;
+        subTotal    : extended;
+    begin
+      result := 0;
+      for wrkSubBasket in subBaskets do
+      begin
+        totalBooks := wrkSubBasket.Length;
+        subTotal := totalBooks * (fSingleBookPrice * DiscountPercentage(wrkSubBasket));
+        Result := Result + subTotal;
+      end;
+    end;
+
 begin
+  fillchar(subResult, sizeof(extended), #0);
+
   subBaskets := GroupBasket;
-  result := 0;
-  for wrkSubBasket in subBaskets do
-  begin
-    totalBooks := wrkSubBasket.Length;
-    subTotal := totalBooks * (fSingleBookPrice * DiscountPercentage(wrkSubBasket));
-    result := result + subTotal;
-  end;
+  subResult[0] := computeTotal;
+
+  lSortedBasket := fIntList.ToArray;
+  fBasket := ConvertIntArrayToString(lSortedBasket);
+  subBaskets := GroupBasket;
+  subResult[1] := computeTotal;
+
+  result := min(subResult[0], subResult[1]);
 end;
 
 function TBasket.DiscountPercentage(inStr : string):extended;
 var numDiffBooks: integer;
 begin
-  result := 1;
   numDiffBooks := NumberOfDifferentBooks(inStr);
   result := CDiscounts[numDiffBooks];
 end;
