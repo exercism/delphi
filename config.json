@@ -142,6 +142,16 @@
     },
     {
       "core": false,
+      "difficulty": 2,
+      "slug": "armstrong-numbers",
+      "topics": [
+        "algorithms"
+      ],
+      "unlocked_by": "collatz-conjecture",
+      "uuid": "5315f8b0-f2a2-4750-8dc3-b4d182111036"
+    },
+    {
+      "core": false,
       "difficulty": 3,
       "slug": "beer-song",
       "topics": [
