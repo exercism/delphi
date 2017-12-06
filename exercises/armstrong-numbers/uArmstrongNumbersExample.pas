@@ -8,17 +8,20 @@ function isArmstrongNumber(aNumber: integer): Boolean;
 implementation
 
 function isArmstrongNumber(aNumber: integer): Boolean;
-var wrkString: string;
-    Exponent: integer;
-    wrkInteger: integer;
-    i: integer;
+var
+  wrkNumber: integer;
+  Calculation: integer;
+  valLength: integer;
 begin
-  wrkString := aNumber.ToString;
-  Exponent := length(wrkString);
-  wrkInteger := 0;
-  for i := low(wrkString) to high(wrkString) do
-    wrkInteger := wrkInteger + trunc(Power(string.ToInteger(wrkString[i]), Exponent));
-  result := wrkInteger = aNumber;
+  wrkNumber := aNumber;
+  Calculation := 0;
+  valLength := aNumber.ToString.Length;
+  while wrkNumber > 0 do
+  begin
+    Calculation := Calculation + trunc(IntPower((wrkNumber mod 10), valLength));
+    wrkNumber := wrkNumber div 10;
+  end;
+  result := aNumber = Calculation;
 end;
 
 end.
