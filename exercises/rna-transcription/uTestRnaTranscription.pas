@@ -4,12 +4,15 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.1.0';
+
 type
   [TestFixture]
   RnaTranscriptionTest = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Rna_complement_of_cytosine_is_guanine;
 
     [Test]
@@ -27,18 +30,6 @@ type
     [Test]
     [Ignore]
     procedure Rna_complement;
-
-    [Test]
-    [Ignore]
-    procedure Dna_correctly_handles_invalid_input;
-
-    [Test]
-    [Ignore]
-    procedure Dna_correctly_handles_completely_invalid_input;
-
-    [Test]
-    [Ignore]
-    procedure Dna_correctly_handles_partially_invalid_input;
   end;
 
 implementation
@@ -67,21 +58,6 @@ end;
 procedure RnaTranscriptionTest.Rna_complement;
 begin
   Assert.AreEqual('UGCACCAGAAUU', complement.OfDna('ACGTGGTCTTAA'));
-end;
-
-procedure RnaTranscriptionTest.Dna_correctly_handles_invalid_input;
-begin
-  Assert.AreEqual('', complement.OfDna('U'));
-end;
-
-procedure RnaTranscriptionTest.Dna_correctly_handles_completely_invalid_input;
-begin
-  Assert.AreEqual('', complement.OfDna('XXX'));
-end;
-
-procedure RnaTranscriptionTest.Dna_correctly_handles_partially_invalid_input;
-begin
-  Assert.AreEqual('', complement.OfDna('ACGTXXXCTTAA'));
 end;
 
 initialization
