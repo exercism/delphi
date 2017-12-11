@@ -17,7 +17,7 @@ With Delphi successfully installed, and working correctly, please follow these s
 - Step-by-step instructions on how to install DUnitX into Delphi have been posted by Vincent Parrett in a blog post located [here](https://www.finalbuilder.com/resources/blogs/postid/702/dunitx-has-a-wizard).
 - The Starter Edition of Delphi doesn't allow the use of project experts.  DUnitX comes with an expert which will aid the student in creating a new DUnitX based project.  The expert creates the project's .DPR file.  The exercises in this track all include the .DPR file making the expert not necessary.  DUnitX otherwise has no issues with projects created in Delphi versions starting with XE all the way up to and including the Starter Edition of Berlin.
 
-### Delphi Configuration for DunitX ###
+### Delphi Configuration for DUnitX ###
 
 If you had to install DUnitX because your installation didn't already come with it then please follow the following illustrated steps to make the necessary configuration changes to Delphi in order for it to locate your installation of DUnitX.
 
