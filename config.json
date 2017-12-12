@@ -175,6 +175,17 @@
     {
       "core": false,
       "difficulty": 3,
+      "slug": "secret-handshake",
+      "topics": [
+        "arrays",
+        "bitwise_operations"
+      ],
+      "unlocked_by": "collatz-conjecture",
+      "uuid": "2032ba03-845a-460b-ad93-0958e97eb7cc"
+    },
+    {
+      "core": false,
+      "difficulty": 3,
       "slug": "perfect-numbers",
       "topics": [
         "integers"
