@@ -1,6 +1,7 @@
 # Exercism project
 bin/configlet
 bin/configlet.exe
+*.skip
 
 # Delphi Language
 *.a
