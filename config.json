@@ -54,6 +54,19 @@
     },
     {
       "core": false,
+      "difficulty": 4,
+      "slug": "isbn-verifier",
+      "topics": [
+        "conditionals",
+        "loops",
+        "pattern_matching",
+        "strings"
+      ],
+      "unlocked_by": "bob",
+      "uuid": "4cdb8216-4526-49ac-8ab5-68d70060a54e"
+    },
+    {
+      "core": false,
       "difficulty": 1,
       "slug": "rna-transcription",
       "topics": [
