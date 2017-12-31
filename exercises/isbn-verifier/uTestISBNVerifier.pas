@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '2.2.0';
+
 type
   [TestFixture]
   ISBNVerifierTest = class(TObject)
@@ -59,6 +62,10 @@ type
     [Test]
     [Ignore]
     procedure check_digit_of_X_should_not_be_used_for_0;
+
+    [Test]
+    [Ignore]
+    procedure empty_ISBN;
   end;
 
 implementation
@@ -74,6 +81,11 @@ end;
 procedure ISBNVerifierTest.check_digit_of_X_should_not_be_used_for_0;
 begin
   Assert.IsFalse(TIsbn.isValid('3-598-21515-X'));
+end;
+
+procedure ISBNVerifierTest.empty_ISBN;
+begin
+  Assert.IsFalse(TIsbn.isValid(''))
 end;
 
 procedure ISBNVerifierTest.invalid_character_in_isbn;
