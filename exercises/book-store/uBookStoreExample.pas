@@ -5,7 +5,7 @@ interface
 type
   IBasket = interface(IInvokable)
   ['{22B4BAF3-88E6-456D-9DE5-F6BAC743A655}']
-    function Total:extended;
+    function Total:integer;
   end;
 
 function NewBasket(aBasket: TArray<Integer>): IBasket;
@@ -25,7 +25,7 @@ const
 type
   TBasket = class(TInterfacedObject, IBasket)
   private
-    fSingleBookPrice: extended;
+    fSingleBookPrice: integer;
     fBasket: string;
     fIntList: TList<integer>;
     class function Head(inStr: string): string; static;
@@ -35,7 +35,7 @@ type
     function GroupBasket:TArray<String>;
     function NumberOfDifferentBooks(inStr : string):integer;
   public
-    function Total:extended;
+    function Total:integer;
     constructor Create(aBasket: TArray<Integer>);
   end;
 
@@ -65,7 +65,7 @@ end;
 
 constructor TBasket.Create(aBasket: TArray<Integer>);
 begin
-  fSingleBookPrice := 8;
+  fSingleBookPrice := 800;
   fIntList := TList<integer>.Create;
   fIntList.AddRange(aBasket);
   fIntList.Sort;
@@ -111,28 +111,28 @@ begin
   result := lStrArray;
 end;
 
-function TBasket.Total:extended;
+function TBasket.Total:integer;
 var
     subBaskets    : TArray<String>;
-    subResult     : array[0..1] of extended;
+    subResult     : array[0..1] of integer;
     lSortedBasket : TArray<integer>;
 
-    function computeTotal: extended;
+    function computeTotal: integer;
     var wrkSubBasket: string;
         totalBooks  : integer;
-        subTotal    : extended;
+        subTotal    : integer;
     begin
       result := 0;
       for wrkSubBasket in subBaskets do
       begin
         totalBooks := wrkSubBasket.Length;
-        subTotal := totalBooks * (fSingleBookPrice * DiscountPercentage(wrkSubBasket));
+        subTotal := totalBooks * round(fSingleBookPrice * DiscountPercentage(wrkSubBasket));
         Result := Result + subTotal;
       end;
     end;
 
 begin
-  fillchar(subResult, sizeof(extended), #0);
+  fillchar(subResult, sizeof(integer), #0);
 
   subBaskets := GroupBasket;
   subResult[0] := computeTotal;
