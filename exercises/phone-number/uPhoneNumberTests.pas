@@ -10,6 +10,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.4.0';
+
 type
 
   [TestFixture]
@@ -29,15 +32,19 @@ type
 
     [Test]
     [Ignore]
-    procedure Valid_when_11_digits_and_starting_with_1;
-
-    [Test]
-    [Ignore]
     procedure Invalid_when_9_digits;
 
     [Test]
     [Ignore]
     procedure Invalid_when_11_digits_does_not_start_with_a_1;
+
+    [Test]
+    [Ignore]
+    procedure Valid_when_11_digits_and_starting_with_1;
+
+    [Test]
+    [Ignore]
+    procedure Valid_when_11_digits_and_starting_with_1_even_with_punctuation;
 
     [Test]
     [Ignore]
@@ -53,15 +60,19 @@ type
 
     [Test]
     [Ignore]
-    procedure Invalid_with_right_number_of_digits_but_letters_mixed_in;
+    procedure Invalid_if_area_code_starts_with_0;
 
     [Test]
     [Ignore]
-    procedure Invalid_if_area_code_does_not_start_with_2_thru_9;
+    procedure Invalid_if_area_code_starts_with_1;
 
     [Test]
     [Ignore]
-    procedure Invalid_if_exchange_code_does_not_start_with_2_thru_9;
+    procedure Invalid_if_exchange_code_starts_with_0;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_if_exchange_code_starts_with_1;
 
     [Test]
     [Ignore('This is a bonus test')]
@@ -107,6 +118,13 @@ begin
   assert.AreEqual('2234567890', phone.Clean);
 end;
 
+procedure PhoneNumberTests.Valid_when_11_digits_and_starting_with_1_even_with_punctuation;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('+1 (223) 456-7890');
+  assert.AreEqual('2234567890', phone.Clean);
+end;
+
 procedure PhoneNumberTests.Invalid_when_11_digits_does_not_start_with_a_1;
 var phone: IPhoneNumber;
 begin
@@ -142,24 +160,31 @@ begin
   assert.AreEqual('', phone.Clean);
 end;
 
-procedure PhoneNumberTests.Invalid_with_right_number_of_digits_but_letters_mixed_in;
+procedure PhoneNumberTests.Invalid_if_area_code_starts_with_0;
 var phone: IPhoneNumber;
 begin
-  phone := NewPhoneNumber('1a2b3c4d5e6f7g8h9i0j');
+  phone := NewPhoneNumber('(023) 456-7890');
   assert.AreEqual('', phone.Clean);
 end;
 
-procedure PhoneNumberTests.Invalid_if_area_code_does_not_start_with_2_thru_9;
+procedure PhoneNumberTests.Invalid_if_area_code_starts_with_1;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('(123) 456-7890');
   assert.AreEqual('', phone.Clean);
 end;
 
-procedure PhoneNumberTests.Invalid_if_exchange_code_does_not_start_with_2_thru_9;
+procedure PhoneNumberTests.Invalid_if_exchange_code_starts_with_0;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('(223) 056-7890');
+  assert.AreEqual('', phone.Clean);
+end;
+
+procedure PhoneNumberTests.Invalid_if_exchange_code_starts_with_1;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('(223) 156-7890');
   assert.AreEqual('', phone.Clean);
 end;
 
