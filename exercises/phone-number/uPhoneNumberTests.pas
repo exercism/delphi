@@ -206,7 +206,7 @@ procedure PhoneNumberTests.Formats_a_number;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('2234567890');
-  assert.AreEqual('(223) 456-7890', phone.ToString);
+  assert.AreEqual('(223) 456-7890', phone.Formatted);
 end;
 
 initialization
