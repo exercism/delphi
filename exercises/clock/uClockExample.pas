@@ -12,6 +12,7 @@ type
   public
     constructor SetHands(aHours: integer; aMinutes: integer=0);
     function Add(minutesToAdd: integer): Clock;
+    function Subtract(minutesToSubtract: integer): Clock;
     function ToString: string;
     function Equal(aClock: Clock): Boolean;
   End;
@@ -23,6 +24,11 @@ constructor Clock.SetHands(aHours: Integer; aMinutes: Integer = 0);
 begin
   hours := fltMod((aHours * 60 + aMinutes) / 60.0, 24);
   minutes := fltMod(aMinutes, 60);
+end;
+
+function Clock.Subtract(minutesToSubtract: integer): Clock;
+begin
+  result := Clock.SetHands(hours, minutes - minutesToSubtract);
 end;
 
 function Clock.Add(minutesToAdd: Integer): Clock;
@@ -43,7 +49,6 @@ end;
 class function Clock.fltMod(x, y: double): integer;
 var intX, intY: integer;
     tmpFloat: double;
-    xDy: double;
 begin
   intX := trunc(x);
   tmpFloat := x - intX;
