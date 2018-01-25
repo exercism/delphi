@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '2.2.1';
+
 type
 
   [TestFixture('Create a new clock with an initial time')]
@@ -79,6 +82,10 @@ type
 
     [Test]
     [Ignore]
+    procedure Negative_hour_and_minutes_both_roll_over;
+
+    [Test]
+    [Ignore]
     procedure Negative_hour_and_minutes_both_roll_over_continuously;
   end;
 
@@ -143,10 +150,6 @@ type
 
     [Test]
     [Ignore]
-    procedure Midnight_is_zero_hundred_hours;
-
-    [Test]
-    [Ignore]
     procedure Subtract_more_than_two_hours_with_borrow;
 
     [Test]
@@ -167,7 +170,7 @@ type
 
     [Test]
     [Ignore]
-    procedure Clocks_a_minutes_apart;
+    procedure Clocks_a_minute_apart;
 
     [Test]
     [Ignore]
@@ -311,6 +314,11 @@ begin
   Assert.AreEqual('16:40', Clock.SetHands(1, -4820).ToString);
 end;
 
+procedure TClockTest.Negative_hour_and_minutes_both_roll_over;
+begin
+  Assert.AreEqual('20:20', Clock.SetHands(-25, -160).ToString);
+end;
+
 procedure TClockTest.Negative_hour_and_minutes_both_roll_over_continuously;
 begin
   Assert.AreEqual('22:10', Clock.SetHands(-121, -5810).ToString);
@@ -362,47 +370,42 @@ end;
 {$region 'TSubtractMinutes'}
 procedure TSubtractMinutes.Subtract_minutes;
 begin
-  Assert.AreEqual('10:00', Clock.SetHands(10, 3).Add(-3).ToString);
+  Assert.AreEqual('10:00', Clock.SetHands(10, 3).Subtract(3).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_to_previous_hour;
 begin
-  Assert.AreEqual('09:33', Clock.SetHands(10, 3).Add(-30).ToString);
+  Assert.AreEqual('09:33', Clock.SetHands(10, 3).Subtract(30).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_more_than_one_hour;
 begin
-  Assert.AreEqual('08:53', Clock.SetHands(10, 3).Add(-70).ToString);
+  Assert.AreEqual('08:53', Clock.SetHands(10, 3).Subtract(70).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_across_midnight;
 begin
-  Assert.AreEqual('23:59', Clock.SetHands(0, 3).Add(-4).ToString);
+  Assert.AreEqual('23:59', Clock.SetHands(0, 3).Subtract(4).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_more_than_two_hours;
 begin
-  Assert.AreEqual('21:20', Clock.SetHands(0, 0).Add(-160).ToString);
-end;
-
-procedure TSubtractMinutes.Midnight_is_zero_hundred_hours;
-begin
-  Assert.AreEqual('00:00', Clock.SetHands(24).ToString);
+  Assert.AreEqual('21:20', Clock.SetHands(0, 0).Subtract(160).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_more_than_two_hours_with_borrow;
 begin
-  Assert.AreEqual('03:35', Clock.SetHands(6, 15).Add(-160).ToString);
+  Assert.AreEqual('03:35', Clock.SetHands(6, 15).Subtract(160).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_more_than_one_day;
 begin
-  Assert.AreEqual('04:32', Clock.SetHands(5, 32).Add(-1500).ToString);
+  Assert.AreEqual('04:32', Clock.SetHands(5, 32).Subtract(1500).ToString);
 end;
 
 procedure TSubtractMinutes.Subtract_more_than_two_days;
 begin
-  Assert.AreEqual('00:20', Clock.SetHands(2, 20).Add(-3000).ToString);
+  Assert.AreEqual('00:20', Clock.SetHands(2, 20).Subtract(3000).ToString);
 end;
 {$endregion}
 
@@ -416,7 +419,7 @@ begin
   Assert.IsTrue(Clock1.Equal(Clock2));
 end;
 
-procedure TCompareClocks.Clocks_a_minutes_apart;
+procedure TCompareClocks.Clocks_a_minute_apart;
 var Clock1, Clock2: Clock;
 begin
   Clock1 := Clock.SetHands(15, 36);
