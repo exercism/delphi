@@ -54,6 +54,17 @@
     },
     {
       "core": false,
+      "difficulty": 1,
+      "slug": "space-age",
+      "topics": [
+        "floating_point_numbers",
+        "64 bit integers"
+      ],
+      "unlocked_by": "leap",
+      "uuid": "471559bf-ffa9-442b-9e4e-b452c82e703a"
+    },
+    {
+      "core": false,
       "difficulty": 4,
       "slug": "isbn-verifier",
       "topics": [
