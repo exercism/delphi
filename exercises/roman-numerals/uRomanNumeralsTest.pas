@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.2.0';
+
 type
 
   [TestFixture]
@@ -44,6 +47,10 @@ type
     [Test]
     [Ignore]
     procedure Fourty_eight_is_not_50_minus_2_but_rather_40_plus_8;
+
+    [Test]
+    [Ignore]
+    procedure Fourty_nine_is_not_40_plus_5_plus_4_but_rather_50_minus_10_plus_10_minus_1;
 
     [Test]
     [Ignore]
@@ -146,6 +153,13 @@ var arabicNumeral: integer;
 begin
   arabicNumeral := 48;
   Assert.AreEqual('XLVIII', arabicNumeral.ToRoman);
+end;
+
+procedure RomanNumeralsTest.Fourty_nine_is_not_40_plus_5_plus_4_but_rather_50_minus_10_plus_10_minus_1;
+var arabicNumeral: integer;
+begin
+  arabicNumeral := 49;
+  Assert.AreEqual('XLIX',arabicNumeral.ToRoman);
 end;
 
 procedure RomanNumeralsTest.Fifty_is_a_single_L;
