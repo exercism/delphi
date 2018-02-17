@@ -5,6 +5,9 @@ uses
   DUnitX.TestFramework,
   uBowling;
 
+const
+  CanonicalVersion = '1.2.0';
+
 type
 
   [TestFixture]
@@ -13,7 +16,7 @@ type
     class function RollMany(pins: array of integer; game: IBowlingGame): IBowlingGame; static;
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Should_be_able_to_score_a_game_with_all_zeros;
 
     [Test]
@@ -82,7 +85,23 @@ type
 
     [Test]
     [Ignore]
+    procedure Bonus_roll_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
+
+    [Test]
+    [Ignore]
     procedure Two_bonus_rolls_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
+
+    [Test]
+    [Ignore]
+    procedure Two_bonus_rolls_after_a_strike_in_the_last_frame_can_score_more_than_10_points_if_one_is_a_strike;
+
+    [Test]
+    [Ignore]
+    procedure The_second_bonus_rolls_after_a_strike_in_the_last_frame_cannot_be_a_strike_if_the_first_one_is_not_a_strike;
+
+    [Test]
+    [Ignore]
+    procedure Second_bonus_roll_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
 
     [Test]
     [Ignore]
@@ -94,7 +113,7 @@ type
 
     [Test]
     [Ignore]
-    procedure A_game_with_more_than_ten_frames_cannot_be_scored;
+    procedure Cannot_roll_if_game_already_has_ten_frames;
 
     [Test]
     [Ignore]
@@ -107,10 +126,25 @@ type
     [Test]
     [Ignore]
     procedure Bonus_roll_for_a_spare_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
+
+    [Test]
+    [Ignore]
+    procedure Cannot_roll_after_bonus_roll_for_spare;
+
+    [Test]
+    [Ignore]
+    procedure Cannot_roll_after_bonus_rolls_for_strike;
   end;
 
 implementation
 uses System.SysUtils;
+
+procedure BowlingTests.Second_bonus_roll_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
+var game: IBowlingGame;
+begin
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10], NewBowlingGame);
+  Assert.IsFalse(game.Roll(11));
+end;
 
 procedure BowlingTests.Should_be_able_to_score_a_game_with_all_zeros;
 var game: IBowlingGame;
@@ -231,11 +265,25 @@ begin
   Assert.AreEqual(-1, game.Score);
 end;
 
+procedure BowlingTests.The_second_bonus_rolls_after_a_strike_in_the_last_frame_cannot_be_a_strike_if_the_first_one_is_not_a_strike;
+var game: IBowlingGame;
+begin
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 6], NewBowlingGame);
+  Assert.IsFalse(game.Roll(10));
+end;
+
 procedure BowlingTests.Two_bonus_rolls_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
 var game: IBowlingGame;
 begin
   game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 5, 6], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
+end;
+
+procedure BowlingTests.Two_bonus_rolls_after_a_strike_in_the_last_frame_can_score_more_than_10_points_if_one_is_a_strike;
+var game: IBowlingGame;
+begin
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10, 6], NewBowlingGame);
+  Assert.AreEqual(26, game.Score);
 end;
 
 procedure BowlingTests.An_unstarted_game_cannot_be_scored;
@@ -252,11 +300,25 @@ begin
   Assert.AreEqual(-1, game.Score);
 end;
 
-procedure BowlingTests.A_game_with_more_than_ten_frames_cannot_be_scored;
+procedure BowlingTests.Cannot_roll_after_bonus_rolls_for_strike;
 var game: IBowlingGame;
 begin
-  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], NewBowlingGame);
-  Assert.AreEqual(-1, game.Score);
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 2], NewBowlingGame);
+  Assert.IsFalse(game.Roll(2));
+end;
+
+procedure BowlingTests.Cannot_roll_after_bonus_roll_for_spare;
+var game: IBowlingGame;
+begin
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 2], NewBowlingGame);
+  Assert.IsFalse(game.Roll(2));
+end;
+
+procedure BowlingTests.Cannot_roll_if_game_already_has_ten_frames;
+var game: IBowlingGame;
+begin
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], NewBowlingGame);
+  Assert.IsFalse(game.Roll(0));
 end;
 
 procedure BowlingTests.Bonus_rolls_for_a_strike_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
@@ -271,6 +333,20 @@ var game: IBowlingGame;
 begin
   game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 10], NewBowlingGame);
   Assert.AreEqual(-1, game.Score);
+end;
+
+procedure BowlingTests.Bonus_roll_after_a_strike_in_the_last_frame_cannot_score_more_than_10_points;
+var game: IBowlingGame;
+begin
+  game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10], NewBowlingGame);
+  Assert.IsFalse(game.Roll(11));
+    (*{
+        var sut = new BowlingGame();
+        var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10};
+        DoRoll(previousRolls, sut);
+        Assert.Throws<ArgumentException>(() => sut.Roll(11));
+    } (**)
+
 end;
 
 procedure BowlingTests.Bonus_roll_for_a_spare_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
