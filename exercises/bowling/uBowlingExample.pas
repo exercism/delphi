@@ -5,7 +5,7 @@ interface
 type
    IBowlingGame = interface(IInvokable)
    ['{D4A292B6-BC15-48ED-AE04-2D34759017CB}']
-     procedure Roll(aPins: integer);
+     function Roll(aPins: integer): Boolean;
      function Score: integer;
    end;
 
@@ -28,10 +28,11 @@ type
      function SpareBonus(aFrameIndex: integer): integer;
      function SumOfPinsInFrame(aFrameIndex: integer): integer;
      function CorrectNumberOfRolls(aFrameIndex: integer): boolean;
+     function ValidInput(aPin: integer): Boolean;
    public
      constructor create;
      function Score: integer;
-     procedure Roll(aPins: integer);
+     function Roll(aPins: integer): Boolean;
    end;
 
 function NewBowlingGame: IBowlingGame;
@@ -44,8 +45,11 @@ begin
   fRolls := TList<integer>.Create;
 end;
 
-procedure TBowlingGame.Roll(aPins: Integer);
+function TBowlingGame.Roll(aPins: Integer): Boolean;
 begin
+  if not ValidInput(aPins) then
+    exit(false);
+
   fRolls.Add(aPins);
 end;
 
@@ -59,6 +63,8 @@ begin
   lScore := 0;
   lFrameIndex := 0;
   try
+    if (fRolls.Count < 12) or (fRolls.Count > 21) then
+      raise EArgumentException.Create('Not a proper game');
     for i := 1 to fNumberOfFrames do
     begin
       if fRolls.Count <= lFrameIndex then
@@ -70,7 +76,7 @@ begin
           raise EArgumentException.Create('Not a proper game');
 
         lStrikeBonus := StrikeBonus(lFrameIndex);
-        if (lStrikeBonus > fMaximumFrameScore) and not IsStrike(lFrameIndex + 1) then
+        if (lStrikeBonus > fMaximumFrameScore) and not IsStrike(lFrameIndex + 1) or (lStrikeBonus > 20) then
           raise EArgumentException.Create('Not a proper game');
 
         lScore := lScore + 10 + lStrikeBonus;
@@ -124,6 +130,27 @@ end;
 function TBowlingGame.SumOfPinsInFrame(aFrameIndex: Integer): integer;
 begin
   result := fRolls[aFrameIndex] + fRolls[aFrameIndex + 1];
+end;
+
+function TBowlingGame.ValidInput(aPin: integer): Boolean;
+begin
+  result := true;
+  if (fRolls.Count >= 21) or (aPin < 0) or (aPin > 10) or
+      ((fRolls.Count + 1) mod 2 = 0) and (fRolls[fRolls.Count - 1] <> 10) and ((fRolls[fRolls.Count - 1] + aPin) > 10) then
+    exit(false);
+
+  if (fRolls.Count = 20) then
+  begin
+    if (fRolls[18] <> 10) and (fRolls[18] + fRolls[19] <> 10) then
+      exit(false);
+
+    if (aPin = 10) and ((fRolls[18] <> 10) or (fRolls[19] <> 10) or (fRolls[19] + aPin > 10) and (fRolls[19] + aPin <> 20)) and
+        (fRolls[18] + fRolls[19] <> 10) then
+      exit(false);
+
+    if (aPin <> 10) and (fRolls[19] + aPin > 10) and (fRolls[19] <> 10) then
+      exit(false);
+  end;
 end;
 
 function TBowlingGame.CorrectNumberOfRolls(aFrameIndex: Integer): boolean;
