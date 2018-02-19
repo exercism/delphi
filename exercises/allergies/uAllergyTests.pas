@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.1.0';
+
 type
 
   [TestFixture]
@@ -35,7 +38,15 @@ type
 
     [Test]
     [Ignore]
+    procedure Allergic_to_just_strawberries;
+
+    [Test]
+    [Ignore]
     procedure Allergic_to_eggs_and_peanuts;
+
+    [Test]
+    [Ignore]
+    procedure Allergic_to_more_than_eggs_but_not_peanuts;
 
     [Test]
     [Ignore]
@@ -101,6 +112,14 @@ begin
   assert.IsTrue(allergies.IList.Contains('peanuts'));
 end;
 
+procedure AllergyTests.Allergic_to_just_strawberries;
+var allergies: IAllergies;
+begin
+  allergies := TAllergies.Create(8);
+  assert.AreEqual(1, allergies.IList.Count);
+  assert.IsTrue(allergies.IList.Contains('strawberries'));
+end;
+
 procedure AllergyTests.Allergic_to_eggs_and_peanuts;
 var allergies: IAllergies;
 begin
@@ -108,6 +127,15 @@ begin
   assert.AreEqual(2, allergies.IList.Count);
   assert.IsTrue(allergies.IList.Contains('peanuts'));
   assert.IsTrue(allergies.IList.Contains('eggs'));
+end;
+
+procedure AllergyTests.Allergic_to_more_than_eggs_but_not_peanuts;
+var allergies: IAllergies;
+begin
+  allergies := TAllergies.Create(5);
+  assert.AreEqual(2, allergies.IList.Count);
+  assert.IsTrue(allergies.IList.Contains('eggs'));
+  assert.IsTrue(allergies.IList.Contains('shellfish'));
 end;
 
 procedure AllergyTests.Allergic_to_lots_of_stuff;
