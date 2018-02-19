@@ -4,6 +4,9 @@ interface
 uses
   System.Generics.Collections, DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.0.0';
+
 type
 
   [TestFixture]
@@ -15,20 +18,20 @@ type
     procedure Validate_CompareDictionaries;
 
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure Transforms_one_value;
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure A_single_letter;
 
     [Test]
     [Ignore]
-    procedure Transforms_multiple_values;
+    procedure Single_score_with_multiple_letters;
 
     [Test]
     [Ignore]
-    procedure Transforms_multiple_keys;
+    procedure Multiple_scores_with_multiple_letters;
 
     [Test]
     [Ignore]
-    procedure Transforms_a_full_dataset;
+    procedure Multiple_scores_with_differing_numbers_of_letters;
   end;
 
 implementation
@@ -61,7 +64,7 @@ begin
   CompareDictionaries(expected, actual);
 end;
 
-procedure testETL.Transforms_one_value;
+procedure testETL.A_single_letter;
 var aList: TList<string>;
     old: TDictionary<integer, TList<string>>;
     expected: TDictionary<string, integer>;
@@ -77,7 +80,7 @@ begin
   CompareDictionaries(expected, ETL.Transform(old));
 end;
 
-procedure testETL.Transforms_multiple_values;
+procedure testETL.Single_score_with_multiple_letters;
 var aList: TList<string>;
     old: TDictionary<integer, TList<string>>;
     expected: TDictionary<string, integer>;
@@ -97,7 +100,7 @@ begin
   CompareDictionaries(expected, ETL.Transform(old));
 end;
 
-procedure testETL.Transforms_multiple_keys;
+procedure testETL.Multiple_scores_with_multiple_letters;
 var aList: TList<string>;
     old: TDictionary<integer, TList<string>>;
     expected: TDictionary<string, integer>;
@@ -114,14 +117,14 @@ begin
 
   expected := TDictionary<string, integer>.Create;
   expected.Add('a',1);
-  expected.Add('e',1);
   expected.Add('d',2);
+  expected.Add('e',1);
   expected.Add('g',2);
 
   CompareDictionaries(expected, ETL.Transform(old));
 end;
 
-procedure testETL.Transforms_a_full_dataset;
+procedure testETL.Multiple_scores_with_differing_numbers_of_letters;
 var aList: TList<string>;
     old: TDictionary<integer, TList<string>>;
     expected: TDictionary<string, integer>;
