@@ -30,6 +30,9 @@ unit utwoferTest;
 interface
 uses
   DUnitX.TestFramework;
+  
+const
+  CanonicalVersion = '1.2.0';
 
 type
   [TestFixture]

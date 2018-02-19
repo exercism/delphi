@@ -3,8 +3,10 @@ unit uTestTriangle;
 interface 
 uses 
   DUnitX.TestFramework; 
- 
-type 
+  
+const CanonicalVersion = '1.1.0';
+
+type
   [TestFixture('Equilateral')] 
   EquilateralTests = class(TObject) 
   public 
