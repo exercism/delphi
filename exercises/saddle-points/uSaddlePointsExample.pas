@@ -53,8 +53,6 @@ begin
 end;
 
 constructor TSaddlePoints.create(aValues: TArray<TArray<Integer>>);
-var I: integer;
-    J: integer;
 begin
   fValues := copy(aValues);
   fmaxRows := getMaxRows;
@@ -125,7 +123,10 @@ end;
 
 function TSaddlePoints.ColumnCount: integer;
 begin
-  result := length(fValues[1]);
+  if RowCount > 0 then
+    result := length(fValues[1])
+  else
+    result := 0;
 end;
 
 function TSaddlePoints.RowCount: integer;
