@@ -13,34 +13,33 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.1.0';
+
 type
 
   [TestFixture]
   TSaddlePointTests = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure Readme_example;
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure Can_identify_single_saddle_point;
 
     [Test]
     [Ignore]
-    procedure No_saddle_point;
+    procedure Can_identify_that_empty_matrix_has_no_saddle_points;
 
     [Test]
     [Ignore]
-    procedure Saddle_point;
+    procedure Can_identify_lack_of_saddle_points_when_there_are_none;
 
     [Test]
     [Ignore]
-    procedure Another_saddle_point;
+    procedure Can_identify_multiple_saddle_points;
 
     [Test]
     [Ignore]
-    procedure Multiple_saddle_points;
-
-    [Test]
-    [Ignore]
-    procedure Five_by_five_matrix;
+    procedure Can_identify_saddle_point_in_bottom_right_corner;
   end;
 
   TTuple<T1, T2> = record
@@ -62,7 +61,7 @@ begin
   fValue2 := Value2;
 end;
 
-procedure TSaddlePointTests.Readme_example;
+procedure TSaddlePointTests.Can_identify_single_saddle_point;
 var SaddlePoints: ISaddlePoints;
     values: TArray<TArray<integer>>;
     expected: TArray<TTuple<integer,integer>>;
@@ -79,14 +78,12 @@ begin
   Assert.AreEqual(expected,SaddlePoints.Calculate);
 end;
 
-procedure TSaddlePointTests.No_saddle_point;
+procedure TSaddlePointTests.Can_identify_that_empty_matrix_has_no_saddle_points;
 var SaddlePoints: ISaddlePoints;
     values: TArray<TArray<integer>>;
     expected: TArray<TTuple<integer,integer>>;
 begin
-  SetLength(values, 2, 2);
-  values[0,0] := 2; values[0,1] := 1;
-  values[1,0] := 1; values[1,1] := 2;
+  SetLength(values, 0, 0);
 
   SaddlePoints := newSaddlePoints(values);
 
@@ -94,40 +91,23 @@ begin
   Assert.AreEqual(expected,SaddlePoints.Calculate);
 end;
 
-procedure TSaddlePointTests.Saddle_point;
+procedure TSaddlePointTests.Can_identify_lack_of_saddle_points_when_there_are_none;
 var SaddlePoints: ISaddlePoints;
     values: TArray<TArray<integer>>;
     expected: TArray<TTuple<integer,integer>>;
 begin
-  SetLength(values, 2, 2);
-  values[0,0] := 1; values[0,1] := 2;
-  values[1,0] := 3; values[1,1] := 4;
+  SetLength(values, 3, 3);
+  values[0,0] := 1; values[0,1] := 2; values[0,2] := 3;
+  values[1,0] := 3; values[1,1] := 1; values[1,2] := 2;
+  values[2,0] := 2; values[2,1] := 3; values[2,2] := 1;
 
   SaddlePoints := newSaddlePoints(values);
 
-  SetLength(expected, 1);
-  expected[0] := TTuple<integer,integer>.Create(0,1);
+  SetLength(expected, 0);
   Assert.AreEqual(expected,SaddlePoints.Calculate);
 end;
 
-procedure TSaddlePointTests.Another_saddle_point;
-var SaddlePoints: ISaddlePoints;
-    values: TArray<TArray<integer>>;
-    expected: TArray<TTuple<integer,integer>>;
-begin
-  SetLength(values, 3, 5);
-  values[0,0] := 18; values[0,1] := 3;  values[0,2] := 39; values[0,3] := 19; values[0,4] := 91;
-  values[1,0] := 38; values[1,1] := 10; values[1,2] := 8;  values[1,3] := 77; values[1,4] := 320;
-  values[2,0] := 3;  values[2,1] := 4;  values[2,2] := 8;  values[2,3] := 6;  values[2,4] := 7;
-
-  SaddlePoints := newSaddlePoints(values);
-
-  SetLength(expected, 1);
-  expected[0] := TTuple<integer,integer>.Create(2,2);
-  Assert.AreEqual(expected,SaddlePoints.Calculate);
-end;
-
-procedure TSaddlePointTests.Multiple_saddle_points;
+procedure TSaddlePointTests.Can_identify_multiple_saddle_points;
 var SaddlePoints: ISaddlePoints;
     values: TArray<TArray<integer>>;
     expected: TArray<TTuple<integer,integer>>;
@@ -146,23 +126,21 @@ begin
   Assert.AreEqual(expected,SaddlePoints.Calculate);
 end;
 
-procedure TSaddlePointTests.Five_by_five_matrix;
+procedure TSaddlePointTests.Can_identify_saddle_point_in_bottom_right_corner;
 var SaddlePoints: ISaddlePoints;
     values: TArray<TArray<integer>>;
     expected: TArray<TTuple<integer,integer>>;
 begin
-  SetLength(values, 5, 5);
-  values[0,0] := 34; values[0,1] := 21; values[0,2] := 61; values[0,3] := 41; values[0,4] := 25;
-  values[1,0] := 14; values[1,1] := 42; values[1,2] := 60; values[1,3] := 14; values[1,4] := 31;
-  values[2,0] := 54; values[2,1] := 45; values[2,2] := 55; values[2,3] := 42; values[2,4] := 23;
-  values[3,0] := 33; values[3,1] := 15; values[3,2] := 61; values[3,3] := 31; values[3,4] := 35;
-  values[4,0] := 21; values[4,1] := 52; values[4,2] := 63; values[4,3] := 13; values[4,4] := 23;
+  SetLength(values, 3, 3);
+  values[0,0] := 8; values[0,1] := 7; values[0,2] := 9;
+  values[1,0] := 6; values[1,1] := 7; values[1,2] := 6;
+  values[2,0] := 3; values[2,1] := 2; values[2,2] := 5;
 
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 1);
   expected[0] := TTuple<integer,integer>.Create(2,2);
-  Assert.AreEqual(expected, SaddlePoints.Calculate);
+  Assert.AreEqual(expected,SaddlePoints.Calculate);
 end;
 
 initialization
