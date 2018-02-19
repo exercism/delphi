@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '2.1.0';
+
 type
 
   [TestFixture]
