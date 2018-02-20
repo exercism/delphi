@@ -4,93 +4,131 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.1.0';
+
 type
 
   [TestFixture]
   PokerTest = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure One_hand;
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure Single_hand_always_wins;
 
     [Test]
     [Ignore]
-    procedure Nothing_vs_one_pair;
+    procedure Highest_card_out_of_all_hands_wins;
 
     [Test]
     [Ignore]
-    procedure Two_pairs;
+    procedure A_tie_has_multiple_winners;
 
     [Test]
     [Ignore]
-    procedure One_pair_vs_double_pair;
+    procedure Multiple_hands_with_the_same_high_cards_tie_compares_next_highest_ranked_down_to_last_card;
 
     [Test]
     [Ignore]
-    procedure Two_double_pairs;
+    procedure One_pair_beats_high_card;
 
     [Test]
     [Ignore]
-    procedure Double_pair_vs_three;
+    procedure Highest_pair_wins;
 
     [Test]
     [Ignore]
-    procedure Two_threes;
+    procedure Two_pairs_beats_one_pair;
 
     [Test]
     [Ignore]
-    procedure Three_vs_straight;
+    procedure Both_hands_have_two_pairs_highest_ranked_pair_wins;
 
     [Test]
     [Ignore]
-    procedure Two_straights;
+    procedure Both_hands_have_two_pairs_with_the_same_highest_ranked_pair_tie_goes_to_low_pair;
 
     [Test]
     [Ignore]
-    procedure Straight_vs_flush;
+    procedure Both_hands_have_two_identically_ranked_pairs_tie_goes_to_remaining_card_kicker;
 
     [Test]
     [Ignore]
-    procedure Two_flushes;
+    procedure Three_of_a_kind_beats_two_pair;
 
     [Test]
     [Ignore]
-    procedure Flush_vs_full;
+    procedure Both_hands_have_three_of_a_kind_tie_goes_to_highest_ranked_triplet;
 
     [Test]
     [Ignore]
-    procedure Two_fulls;
+    procedure With_multiple_decks_two_players_can_have_same_three_of_a_kind_ties_go_to_highest_remaining_cards;
 
     [Test]
     [Ignore]
-    procedure Full_vs_square;
+    procedure A_straight_beats_three_of_a_kind;
 
     [Test]
     [Ignore]
-    procedure Two_squares;
+    procedure Aces_can_end_a_straight_10_J_Q_K_A;
 
     [Test]
     [Ignore]
-    procedure Square_vs_straight_flush;
+    procedure Aces_can_start_a_straight_A_2_3_4_5;
 
     [Test]
     [Ignore]
-    procedure Two_straight_flushes;
+    procedure Both_hands_with_a_straight_tie_goes_to_highest_ranked_card;
 
     [Test]
     [Ignore]
-    procedure Three_hand_with_tie;
+    procedure Even_though_an_ace_is_usually_high_a_5_high_straight_is_the_lowest_scoring_straight;
 
     [Test]
     [Ignore]
-    procedure Straight_to_5_against_a_pair_of_jacks;
+    procedure Flush_beats_a_straight;
+
+    [Test]
+    [Ignore]
+    procedure Both_hands_have_a_flush_tie_goes_to_high_card_down_to_the_last_one_if_necessary;
+
+    [Test]
+    [Ignore]
+    procedure Full_house_beats_a_flush;
+
+    [Test]
+    [Ignore]
+    procedure Both_hands_have_a_full_house_tie_goes_to_highest_ranked_triplet;
+
+    [Test]
+    [Ignore]
+    procedure With_multiple_decks_both_hands_have_a_full_house_with_the_same_triplet_tie_goes_to_the_pair;
+
+    [Test]
+    [Ignore]
+    procedure Four_of_a_kind_beats_a_full_house;
+
+    [Test]
+    [Ignore]
+    procedure Both_hands_have_four_of_a_kind_tie_goes_to_high_quad;
+
+    [Test]
+    [Ignore]
+    procedure With_multiple_decks_both_hands_with_identical_four_of_a_kind_tie_determined_by_kicker;
+
+    [Test]
+    [Ignore]
+    procedure Straight_flush_beats_four_of_a_kind;
+
+    [Test]
+    [Ignore]
+    procedure Both_hands_have_straight_flush_tie_goes_to_highest_ranked_card;
   end;
 
 implementation
 uses Generics.Collections, uPoker;
 
-procedure PokerTest.One_hand;
-const hand: string = '5S 4S 7H 8D JC';
+procedure PokerTest.Single_hand_always_wins;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -99,9 +137,9 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange(hand);
+  inputHands.AddRange(['5S 4S 7H 8D JC']);
   expectedHands := TList<string>.Create;
-  expectedHands.AddRange(hand);
+  expectedHands.AddRange(['5S 4S 7H 8D JC']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -112,9 +150,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Nothing_vs_one_pair;
-const nothing: string = '4S 5H 6S 8D JH';
-      pairOf4: string = '2S 4H 6S 4D JH';
+procedure PokerTest.Highest_card_out_of_all_hands_wins;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -123,9 +159,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([nothing, pairOf4]);
+  inputHands.AddRange(['4D 5S 6S 8D 3C', 
+                       '2S 4C 7S 9H 10H',
+                       '3S 4S 5D 6H JH']);
   expectedHands := TList<string>.Create;
-  expectedHands.AddRange(pairOf4);
+  expectedHands.AddRange(['3S 4S 5D 6H JH']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -136,9 +174,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_pairs;
-const pairOf2: string = '4S 2H 6D 2D JD';
-      pairOf4: string = '2S 4H 6S 4D JH';
+procedure PokerTest.A_tie_has_multiple_winners;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -147,9 +183,13 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.create;
-  inputHands.AddRange([pairOf2, pairOf4]);
+  inputHands.AddRange(['4D 5S 6S 8D 3C',
+                       '2S 4C 7S 9H 10H',
+                       '3S 4S 5D 6H JH',
+                       '3H 4H 5C 6C JD']);
   expectedHands := TList<string>.Create;
-  expectedHands.AddRange(pairOf4);
+  expectedHands.AddRange(['3S 4S 5D 6H JH',
+                          '3H 4H 5C 6C JD']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -160,9 +200,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.One_pair_vs_double_pair;
-const pairOf8: string = '2S 8H 6S 8D JH';
-      doublePair: string = '4C 5C 4S 8D 5H';
+procedure PokerTest.Multiple_hands_with_the_same_high_cards_tie_compares_next_highest_ranked_down_to_last_card;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -171,10 +209,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([pairOf8, doublePair]);
+  inputHands.AddRange(['3S 5H 6S 8D 7H',
+                       '2S 5D 6D 8C 7S']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(doublePair);
+  expectedHands.AddRange(['3S 5H 6S 8D 7H']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -185,9 +224,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_double_pairs;
-const doublePair2And8: string = '2D 8H 2S 8D JH';
-      doublePair4And5: string = '4S 5C 4C 8D 5H';
+procedure PokerTest.One_pair_beats_high_card;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -196,10 +233,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([doublePair2And8, doublePair4And5]);
+  inputHands.AddRange(['4S 5H 6C 8D KH',
+                       '2S 4H 6S 4D JH']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(doublePair2And8);
+  expectedHands.AddRange(['2S 4H 6S 4D JH']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -210,9 +248,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Double_pair_vs_three;
-const doublePair2And8: string = '2D 8H 2S 8D JH';
-      threeOf4: string = '4D 5H 4S 8D 4H';
+procedure PokerTest.Highest_pair_wins;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -221,10 +257,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([doublePair2And8, threeOf4]);
+  inputHands.AddRange(['4S 2H 6S 2D JH',
+                       '2S 4H 6C 4D JD']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(threeOf4);
+  expectedHands.AddRange(['2S 4H 6C 4D JD']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -235,9 +272,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_threes;
-const threeOf2: string = '2S 2H 2S 8D JH';
-      threeOf1: string = '4S AH AS 8D AH';
+procedure PokerTest.Two_pairs_beats_one_pair;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -246,10 +281,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([threeOf2, threeOf1]);
+  inputHands.AddRange(['2S 8H 6S 8D JH',
+                       '4S 5H 4C 8C 5C']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(threeOf1);
+  expectedHands.AddRange(['4S 5H 4C 8C 5C']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -260,9 +296,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Three_vs_straight;
-const threeOf4: string = '4S 5D 4C 8D 4H';
-      straight: string = '3S 4D 2S 6D 5H';
+procedure PokerTest.Both_hands_have_two_pairs_highest_ranked_pair_wins;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -271,10 +305,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([threeOf4, straight]);
+  inputHands.AddRange(['2S 8H 2D 8D 3H',
+                       '4S 5H 4C 8S 5D']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(straight);
+  expectedHands.AddRange(['2S 8H 2D 8D 3H']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -285,11 +320,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_straights;
-const straightTo8: string = '4S 6H 7S 8D 5H';
-      straightTo9: string = '5S 7H 8S 9D 6H';
-      straightTo1: string = 'AS QH KS TD JH';
-      straightTo5: string = '4S AH 3S 2D 5H';
+procedure PokerTest.Both_hands_have_two_pairs_with_the_same_highest_ranked_pair_tie_goes_to_low_pair;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -298,24 +329,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([straightTo8, straightTo9]);
+  inputHands.AddRange(['2S QS 2C QD JH',
+                       'JD QH JS 8D QC']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(straightTo9);
-
-  ActualHands := Poker.BestHands(inputHands);
-
-  expectedHandsArray := expectedHands.ToArray;
-  ActualHandsArray := ActualHands.ToArray;
-  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
-  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
-    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
-
-  inputHands.Clear;
-  inputHands.AddRange([straightTo1, straightTo5]);
-
-  expectedHands.Clear;
-  expectedHands.Add(straightTo1);
+  expectedHands.AddRange(['JD QH JS 8D QC']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -326,9 +344,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Straight_vs_flush;
-const straightTo8: string = '4S 6H 7S 8D 5H';
-      flushTo7: string = '2S 4S 5S 6S 7S';
+procedure PokerTest.Both_hands_have_two_identically_ranked_pairs_tie_goes_to_remaining_card_kicker;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -337,10 +353,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([straightTo8, flushTo7]);
+  inputHands.AddRange(['JD QH JS 8D QC',
+                       'JS QS JC 2D QD']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(flushTo7);
+  expectedHands.AddRange(['JD QH JS 8D QC']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -351,9 +368,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_flushes;
-const flushTo8: string = '3H 6H 7H 8H 5H';
-      flushTo7: string = '2S 4S 5S 6S 7S';
+procedure PokerTest.Three_of_a_kind_beats_two_pair;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -362,10 +377,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([flushTo8, flushTo7]);
+  inputHands.AddRange(['2S 8H 2H 8D JH',
+                       '4S 5H 4C 8S 4H']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(flushTo8);
+  expectedHands.AddRange(['4S 5H 4C 8S 4H']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -376,9 +392,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Flush_vs_full;
-const flushTo8: string = '3H 6H 7H 8H 5H';
-      full: string = '4S 5H 4S 5D 4H';
+procedure PokerTest.Both_hands_have_three_of_a_kind_tie_goes_to_highest_ranked_triplet;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -387,10 +401,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([flushTo8, full]);
+  inputHands.AddRange(['2S 2H 2C 8D JH',
+                       '4S AH AS 8C AD']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(full);
+  expectedHands.AddRange(['4S AH AS 8C AD']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -401,9 +416,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_fulls;
-const fullOf4By9: string = '4H 4S 4D 9S 9D';
-      fullOf5By8: string = '5H 5S 5D 8S 8D';
+procedure PokerTest.With_multiple_decks_two_players_can_have_same_three_of_a_kind_ties_go_to_highest_remaining_cards;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -412,10 +425,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([fullOf4By9, fullOf5By8]);
+  inputHands.AddRange(['4S AH AS 7C AD',
+                       '4S AH AS 8C AD']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(fullOf5By8);
+  expectedHands.AddRange(['4S AH AS 8C AD']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -426,9 +440,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Full_vs_square;
-const full: string = '4S 5H 4S 5D 4H';
-      squareOf3: string = '3S 3H 2S 3D 3H';
+procedure PokerTest.A_straight_beats_three_of_a_kind;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -437,10 +449,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([squareOf3,full]);
+  inputHands.AddRange(['4S 5H 4C 8D 4H',
+                       '3S 4D 2S 6D 5C']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(squareOf3);
+  expectedHands.AddRange(['3S 4D 2S 6D 5C']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -451,9 +464,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_squares;
-const squareOf2: string = '2S 2H 2S 8D 2H';
-      squareOf5: string = '4S 5H 5S 5D 5H';
+procedure PokerTest.Aces_can_end_a_straight_10_J_Q_K_A;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -462,10 +473,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([squareOf2, squareOf5]);
+  inputHands.AddRange(['4S 5H 4C 8D 4H',
+                       '10D JH QS KD AC']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(squareOf5);
+  expectedHands.AddRange(['10D JH QS KD AC']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -476,9 +488,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Square_vs_straight_flush;
-const squareOf5: string = '4S 5H 5S 5D 5H';
-      straightFlushTo9: string = '5S 7S 8S 9S 6S';
+procedure PokerTest.Aces_can_start_a_straight_A_2_3_4_5;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -487,10 +497,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([squareOf5, straightFlushTo9]);
+  inputHands.AddRange(['4S 5H 4C 8D 4H',
+                       '4D AH 3S 2D 5C']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(straightFlushTo9);
+  expectedHands.AddRange(['4D AH 3S 2D 5C']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -501,9 +512,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Two_straight_flushes;
-const straightFlushTo8: string = '4H 6H 7H 8H 5H';
-      straightFlushTo9: string = '5S 7S 8S 9S 6S';
+procedure PokerTest.Both_hands_with_a_straight_tie_goes_to_highest_ranked_card;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -512,10 +521,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([straightFlushTo8, straightFlushTo9]);
+  inputHands.AddRange(['4S 6C 7S 8D 5H',
+                       '5S 7H 8S 9D 6H']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.Add(straightFlushTo9);
+  expectedHands.AddRange(['5S 7H 8S 9D 6H']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -526,10 +536,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Three_hand_with_tie;
-const spadeStraightTo9: string = '9S 8S 7S 6S 5S';
-      diamondStraightTo9: string = '9D 8D 7D 6D 5D';
-      threeOf4: string = '4D 4S 4H QS KS';
+procedure PokerTest.Even_though_an_ace_is_usually_high_a_5_high_straight_is_the_lowest_scoring_straight;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -538,10 +545,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([spadeStraightTo9, threeOf4, diamondStraightTo9]);
+  inputHands.AddRange(['2H 3C 4D 5D 6H',
+                       '4S AH 3S 2D 5H']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.AddRange([spadeStraightTo9, diamondStraightTo9]);
+  expectedHands.AddRange(['2H 3C 4D 5D 6H']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -552,9 +560,7 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
-procedure PokerTest.Straight_to_5_against_a_pair_of_jacks;
-const straightTo5: string = '2S 4D 5C 3S AS';
-      twoJacks: string = 'JD 8D 7D JC 5D';
+procedure PokerTest.Flush_beats_a_straight;
 var expectedHands,
     inputHands: TList<string>;
     ActualHands: TList<string>;
@@ -563,10 +569,11 @@ var expectedHands,
     i: integer;
 begin
   inputHands := TList<string>.Create;
-  inputHands.AddRange([straightTo5, twoJacks]);
+  inputHands.AddRange(['4C 6H 7D 8D 5H',
+                       '2S 4S 5S 6S 7S']);
 
   expectedHands := TList<string>.Create;
-  expectedHands.AddRange(straightTo5);
+  expectedHands.AddRange(['2S 4S 5S 6S 7S']);
 
   ActualHands := Poker.BestHands(inputHands);
 
@@ -577,6 +584,221 @@ begin
     Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
 end;
 
+procedure PokerTest.Both_hands_have_a_flush_tie_goes_to_high_card_down_to_the_last_one_if_necessary;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['4H 7H 8H 9H 6H',
+                       '2S 4S 5S 6S 7S']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['4H 7H 8H 9H 6H']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.Full_house_beats_a_flush;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['3H 6H 7H 8H 5H',
+                       '4S 5H 4C 5D 4H']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['4S 5H 4C 5D 4H']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.Both_hands_have_a_full_house_tie_goes_to_highest_ranked_triplet;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['4H 4S 4D 9S 9D',
+                       '5H 5S 5D 8S 8D']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['5H 5S 5D 8S 8D']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.With_multiple_decks_both_hands_have_a_full_house_with_the_same_triplet_tie_goes_to_the_pair;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['5H 5S 5D 9S 9D',
+                       '5H 5S 5D 8S 8D']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['5H 5S 5D 9S 9D']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.Four_of_a_kind_beats_a_full_house;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['4S 5H 4D 5D 4H',
+                       '3S 3H 2S 3D 3C']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['3S 3H 2S 3D 3C']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.Both_hands_have_four_of_a_kind_tie_goes_to_high_quad;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['2S 2H 2C 8D 2D',  //708
+                       '4S 5H 5S 5D 5C']); //705
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['4S 5H 5S 5D 5C']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.With_multiple_decks_both_hands_with_identical_four_of_a_kind_tie_determined_by_kicker;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['3S 3H 2S 3D 3C',
+                       '3S 3H 4S 3D 3C']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['3S 3H 4S 3D 3C']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.Straight_flush_beats_four_of_a_kind;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['4S 5H 5S 5D 5C',
+                       '7S 8S 9S 6S 10S']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['7S 8S 9S 6S 10S']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
+
+procedure PokerTest.Both_hands_have_straight_flush_tie_goes_to_highest_ranked_card;
+var expectedHands,
+    inputHands: TList<string>;
+    ActualHands: TList<string>;
+    expectedHandsArray,
+    ActualHandsArray: TArray<string>;
+    i: integer;
+begin
+  inputHands := TList<string>.Create;
+  inputHands.AddRange(['4H 6H 7H 8H 5H',
+                       '5S 7S 8S 9S 6S']);
+
+  expectedHands := TList<string>.Create;
+  expectedHands.AddRange(['5S 7S 8S 9S 6S']);
+
+  ActualHands := Poker.BestHands(inputHands);
+
+  expectedHandsArray := expectedHands.ToArray;
+  ActualHandsArray := ActualHands.ToArray;
+  Assert.AreEqual(expectedHands.Count,ActualHands.Count);
+  for i := Low(expectedHandsArray) to High(expectedHandsArray) do
+    Assert.AreEqual(expectedHandsArray[i], ActualHandsArray[i]);
+end;
 
 initialization
   TDUnitX.RegisterTestFixture(PokerTest);

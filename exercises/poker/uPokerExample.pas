@@ -12,18 +12,22 @@ type
                Rank,
                Suit: integer;
              end;
+      Scores = record
+                 Score: integer;
+                 TieBreakerScore: integer;
+      end;
       Hand = record
                Input: string;
-               Score: integer;
+               handResult: Scores;
              end;
-    class function ParseHand(aHand: string): Hand; static;
-    class function ParseCards(aHand: string): TArray<Card>; static;
-    class function ParseCard(aCard: string): Card; static;
-    class function ParseRank(aCard: string): integer; static;
-    class function ParseSuit(aCard: string): integer; static;
-    class function ScoreHand(aCards: TArray<Card>): integer; static;
+    class function ParseHand(aHand: string): Hand;
+    class function ParseCards(aHand: string): TArray<Card>;
+    class function ParseCard(aCard: string): Card;
+    class function ParseRank(aCard: string): integer;
+    class function ParseSuit(aCard: string): integer;
+    class function ScoreHand(aCards: TArray<Card>): Scores;
   public
-    class function BestHands(aHands: TList<String>): TList<string>; static;
+    class function BestHands(aHands: TList<String>): TList<string>;
   end;
 
 implementation
@@ -38,8 +42,8 @@ class function Poker.BestHands(aHands: TList<String>): TList<string>;
   begin
     lResult := 0;
     for aItem in aList do
-      if aItem.Score > lResult then
-        lResult := aItem.score;
+      if aItem.handResult.Score > lResult then
+        lResult := aItem.handResult.Score;
     result := lResult;
   end;
 
@@ -52,33 +56,61 @@ class function Poker.BestHands(aHands: TList<String>): TList<string>;
   end;
 
   function ListOfWinningHands(const aTarget: integer; aList: IList<Hand>): IList<string>;
+
+    function MaxTieBreakerScore: integer;
+    var
+      aItem: Hand;
+      lResult: integer;
+    begin
+      lResult := 0;
+      for aItem in aList do
+        if aItem.handResult.TieBreakerScore > lResult then
+          lResult := aItem.handResult.TieBreakerScore;
+      result := lResult;
+    end;
+
   var aItem: Hand;
+      lmaxTieBreakerScore: integer;
   begin
     result := TCollections.CreateList<string>;
+    lmaxTieBreakerScore := MaxTieBreakerScore;
     for aItem in aList do
-      if aItem.Score = aTarget then
+      if aItem.handResult.TieBreakerScore = lmaxTieBreakerScore then
         result.Add(aItem.Input);
+  end;
+
+  function MaxHands(aScoredHands: IList<Hand>; aMaxScore: integer): IList<Hand>;
+  var
+    lHand: Hand;
+  begin
+    result := TCollections.CreateList<Hand>;
+    for lHand in aScoredHands do
+      if lHand.handResult.Score = aMaxScore then
+        result.Add(lHand);
   end;
 {$endregion}
 
 var scoredHands: IList<Hand>;
     lmaxScore: integer;
+    lmaxHands: IList<Hand>;
 begin
   scoredHands := ScoreHands(aHands);
   lMaxScore := MaxScore(scoredHands);
+  lmaxHands := MaxHands(scoredHands, lMaxScore);
 
   result := TList<string>.Create;
-  result.AddRange(ListOfWinningHands(lMaxScore, scoredHands).ToArray);
+  result.AddRange(ListOfWinningHands(lMaxScore, lmaxHands).ToArray);
 end;
 
 class function Poker.ParseHand(aHand: string): Hand;
 begin
   result.Input := aHand;
-  result.Score := ScoreHand(ParseCards(aHand));
+  result.handResult := ScoreHand(ParseCards(aHand));
 end;
 
 class function Poker.ParseCards(aHand: string): TArray<Card>;
 var lhand: TArray<string>;
+    lhandReplace10: string;
     lCardStr: string;
     lParsedHand: IList<Card>;
 begin
@@ -88,7 +120,8 @@ begin
       result := TComparer<integer>.Default.Compare(left.Rank, right.Rank);
     end);
 
-  lhand := aHand.Split([' ']);
+  lhandReplace10 := aHand.Replace('10', 'T');
+  lhand := lhandReplace10.Split([' ']);
   for lCardStr in lhand do
     lParsedHand.Add(ParseCard(lCardStr));
   lParsedHand.Sort;
@@ -122,7 +155,7 @@ begin
   result := lSuits.IndexOf(lCard[high(lCard)]);
 end;
 
-class function Poker.ScoreHand(aCards: TArray<Card>): integer;
+class function Poker.ScoreHand(aCards: TArray<Card>): Scores;
 
 {$region 'ScoreHand Workers'}
     function CardsByRankOccurance: IList<integer>;
@@ -139,11 +172,14 @@ class function Poker.ScoreHand(aCards: TArray<Card>): integer;
       result.Add(0);
       for rank := High(lRankOccurence) downto Low(lRankOccurence) + 2 do
       begin
-        if lRankOccurence[rank] >= currentOccurenceCount  then
+        if (lRankOccurence[rank] >= currentOccurenceCount) then
         begin
           result.Insert(0,rank);
           currentOccurenceCount := lRankOccurence[rank];
-        end;
+        end
+        else
+          if lRankOccurence[rank] > 0 then
+            result.Insert(1,rank);
       end;
     end;
 
@@ -222,31 +258,50 @@ begin
   flush := Distinct(Suits) = 1;
   straight := (Distinct(Ranks) = 5) and ((Ranks[0] - Ranks[4]) = 4);
 
+  fillchar(result, SizeOf(Scores), #0);
   if straight and flush then
-    result := 800 + Ranks.First
+    result.Score := 800 + Ranks.First
   else
     if listOfRankCounts.EqualsTo([4,1]) then   // 4 of a kind
-      result := 700 + listOfCardsByRank[0]
+    begin
+      result.Score := 700 + listOfCardsByRank[0];
+      result.TieBreakerScore := listOfCardsByRank[1];
+    end
     else
       if listOfRankCounts.EqualsTo([3,2]) then // full house
-        result := 600 + listOfCardsByRank[0]
+      begin
+        result.Score := 600 + listOfCardsByRank[0];
+        result.TieBreakerScore := listofCardsByRank[1];
+      end
       else
         if flush then
-          result := 500 + Ranks.First
+          result.Score := 500 + Ranks.First
         else
           if straight then
-            result := 400 + Ranks.First
+            result.Score := 400 + Ranks.First
           else
             if listOfRankCounts.EqualsTo([3,1,1]) then  //3 of a kind
-              result := 300 + listOfCardsByRank[0]
+            begin
+              result.Score := 300 + listOfCardsByRank[0];
+              result.TieBreakerScore := listOfCardsByRank[2];
+            end
             else
               if listOfRankCounts.EqualsTo([2,2,1]) then  // 2 pair
-                result := 200 + Math.Max(listOfCardsByRank[0], listOfCardsByRank[1])
+              begin
+                result.Score := 200 + listOfCardsByRank[0] + listOfCardsByRank[1];
+                result.TieBreakerScore := Ranks.Min;
+              end
               else
                 if listOfRankCounts.EqualsTo([2,1,1,1]) then // 1 pair
-                  result := 100 + listOfCardsByRank[0]
+                begin
+                  result.Score := 100 + listOfCardsByRank[0];
+                  result.TieBreakerScore := 0;
+                end
                 else
-                  result := Ranks.Max;  // high card
+                begin
+                  result.Score := Ranks.Max;  // high card
+                  result.TieBreakerScore := Ranks.Min;
+                end;
 
 end;
 
