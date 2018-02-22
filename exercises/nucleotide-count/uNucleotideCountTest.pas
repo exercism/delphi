@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework, System.Generics.Collections;
 
+const
+  CanonicalVersion = '1.3.0';
+
 type
 
   [TestFixture('count all nucleotides in a strand')]
@@ -13,7 +16,7 @@ type
     procedure Validate_CompareDictionaries;
 
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure empty_strand;
 
     [Test]
@@ -26,15 +29,11 @@ type
 
     [Test]
     [Ignore]
-    procedure Counts_a_nucleotide_only_once;
+    procedure strand_with_multiple_nucleotides;
 
     [Test]
     [Ignore]
     procedure strand_with_invalid_nucleotides;
-
-    [Test]
-    [Ignore]
-    procedure strand_with_multiple_nucleotides;
   end;
 
 implementation
@@ -101,17 +100,6 @@ begin
   dna := TDNA.Create(inStr);
 
   CompareDictionaries(expected, dna.NucleotideCounts);
-end;
-
-procedure NucleoTideCountTest.Counts_a_nucleotide_only_once;
-var dna: TDNA;
-    inStr: string;
-begin
-  inStr := 'GGTTGG';
-  dna := TDNA.Create(inStr);
-  dna.Count('T');
-
-  Assert.AreEqual(2, dna.Count('T'));
 end;
 
 procedure NucleoTideCountTest.strand_with_invalid_nucleotides;
