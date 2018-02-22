@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.1.0';
+
 type
   [TestFixture]
   TgrainsTests = class(TObject)
@@ -50,7 +53,7 @@ type
 
     [Test]
     [Ignore]
-    procedure Test_total_grains;
+    procedure Returns_the_total_number_of_grains_on_the_board;
   end;
 
 implementation
@@ -138,7 +141,7 @@ begin
   Assert.WillRaise(MyProc, ERangeError);
 end;
 
-procedure TgrainsTests.Test_total_grains;
+procedure TgrainsTests.Returns_the_total_number_of_grains_on_the_board;
 var expected: UInt64;
 begin
   expected := 18446744073709551615;
