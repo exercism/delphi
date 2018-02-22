@@ -15,6 +15,12 @@ implementation
 class function BinarySearch.SearchHelper(input: TArray<Integer>; target: Integer; minIndex: Integer; maxIndex: Integer): integer;
 var middleIndex: integer;
 begin
+  if minIndex > maxIndex then
+  begin
+    result := -1;
+    exit;
+  end;
+
   middleIndex := (minIndex + maxIndex) div 2;
 
   if (input[middleIndex] = target) then
