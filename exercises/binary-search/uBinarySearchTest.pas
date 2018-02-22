@@ -4,59 +4,66 @@ interface
 uses
   DUnitX.TestFramework;
 
+const
+  CanonicalVersion = '1.1.0';
+
 type
 
   [TestFixture]
   TBinarySearchTest = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure Should_return_minus_one_when_an_empty_array_is_searched;
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure Finds_a_value_in_an_array_with_one_element;
 
     [Test]
     [Ignore]
-    procedure Should_be_able_to_find_a_value_in_a_single_element_array_with_one_access;
+    procedure Finds_a_value_in_the_middle_of_an_array;
 
     [Test]
     [Ignore]
-    procedure Should_return_minus_one_if_a_value_is_less_than_the_element_in_a_single_element_array;
+    procedure Finds_a_value_at_the_beginning_of_an_array;
 
     [Test]
     [Ignore]
-    procedure Should_return_minus_one_if_a_value_is_greater_than_the_element_in_a_single_element_array;
+    procedure Finds_a_value_at_the_end_of_an_array;
 
     [Test]
     [Ignore]
-    procedure Should_find_an_element_in_a_longer_array;
+    procedure Finds_a_value_in_an_array_of_odd_length;
 
     [Test]
     [Ignore]
-    procedure Should_find_elements_at_the_beginning_of_an_array;
+    procedure Finds_a_value_in_an_array_of_even_length;
 
     [Test]
     [Ignore]
-    procedure Should_find_elements_at_the_end_of_an_array;
+    procedure Identifies_that_a_value_is_not_included_in_the_array;
 
     [Test]
     [Ignore]
-    procedure Should_return_minus_one_if_a_value_is_less_than_all_elements_in_a_long_array;
+    procedure A_value_smaller_than_the_arrays_smallest_value_is_not_included;
 
     [Test]
     [Ignore]
-    procedure Should_return_minus_one_if_a_value_is_greater_than_all_elements_in_a_long_array;
+    procedure A_value_larger_than_the_arrays_largest_value_is_not_included;
+
+    [Test]
+    [Ignore]
+    procedure Nothing_is_included_in_an_empty_array;
   end;
 
 implementation
 uses System.Generics.Collections, uBinarySearch;
 
-procedure TBinarySearchTest.Should_return_minus_one_when_an_empty_array_is_searched;
+procedure TBinarySearchTest.Nothing_is_included_in_an_empty_array;
 var input: TArray<Integer>;
 begin
   SetLength(input, 0);
   Assert.AreEqual(-1, BinarySearch.Search(input, 6));
 end;
 
-procedure TBinarySearchTest.Should_be_able_to_find_a_value_in_a_single_element_array_with_one_access;
+procedure TBinarySearchTest.Finds_a_value_in_an_array_with_one_element;
 var input: TArray<integer>;
 begin
   SetLength(input, 1);
@@ -65,67 +72,76 @@ begin
   Assert.AreEqual(0, BinarySearch.Search(input, 6));
 end;
 
-procedure TBinarySearchTest.Should_return_minus_one_if_a_value_is_less_than_the_element_in_a_single_element_array;
-var input: TArray<integer>;
-begin
-  SetLength(input, 1);
-  input[0] := 94;
-
-  Assert.AreEqual(-1, BinarySearch.Search(input, 6));
-end;
-
-procedure TBinarySearchTest.Should_return_minus_one_if_a_value_is_greater_than_the_element_in_a_single_element_array;
-var input: TArray<integer>;
-begin
-  SetLength(input, 1);
-  input[0] := 94;
-
-  Assert.AreEqual(-1, BinarySearch.Search(input, 602));
-end;
-
-procedure TBinarySearchTest.Should_find_an_element_in_a_longer_array;
+procedure TBinarySearchTest.Finds_a_value_in_the_middle_of_an_array;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
-  inputList.AddRange([6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322]);
+  inputList.AddRange([1, 3, 4, 6, 8, 9, 11]);
 
-  Assert.AreEqual(7, BinarySearch.Search(inputList.ToArray, 2002));
+  Assert.AreEqual(3, BinarySearch.Search(inputList.ToArray, 6));
 end;
 
-procedure TBinarySearchTest.Should_find_elements_at_the_beginning_of_an_array;
+procedure TBinarySearchTest.Finds_a_value_at_the_beginning_of_an_array;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
-  inputList.AddRange([6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322]);
+  inputList.AddRange([1, 3, 4, 6, 8, 9, 11]);
 
-  Assert.AreEqual(0, BinarySearch.Search(inputList.ToArray, 6));
+  Assert.AreEqual(0, BinarySearch.Search(inputList.ToArray, 1));
 end;
 
-procedure TBinarySearchTest.Should_find_elements_at_the_end_of_an_array;
+procedure TBinarySearchTest.Finds_a_value_at_the_end_of_an_array;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
-  inputList.AddRange([6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322]);
+  inputList.AddRange([1, 3, 4, 6, 8, 9, 11]);
 
-  Assert.AreEqual(9, BinarySearch.Search(inputList.ToArray, 54322));
+  Assert.AreEqual(6, BinarySearch.Search(inputList.ToArray, 11));
 end;
 
-procedure TBinarySearchTest.Should_return_minus_one_if_a_value_is_less_than_all_elements_in_a_long_array;
+procedure TBinarySearchTest.Finds_a_value_in_an_array_of_odd_length;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
-  inputList.AddRange([6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322]);
+  inputList.AddRange([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 634]);
 
-  Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 2));
+  Assert.AreEqual(9, BinarySearch.Search(inputList.ToArray, 144));
 end;
 
-procedure TBinarySearchTest.Should_return_minus_one_if_a_value_is_greater_than_all_elements_in_a_long_array;
+procedure TBinarySearchTest.Finds_a_value_in_an_array_of_even_length;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
-  inputList.AddRange([6, 67, 123, 345, 456, 457, 490, 2002, 54321, 54322]);
+  inputList.AddRange([1, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]);
 
-  Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 54323));
+  Assert.AreEqual(5, BinarySearch.Search(inputList.ToArray, 21));
+end;
+
+procedure TBinarySearchTest.Identifies_that_a_value_is_not_included_in_the_array;
+var inputList: TList<integer>;
+begin
+  inputList := TList<integer>.Create;
+  inputList.AddRange([1, 3, 4, 6, 8, 9, 11]);
+
+  Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 7));
+end;
+
+procedure TBinarySearchTest.A_value_larger_than_the_arrays_largest_value_is_not_included;
+var inputList: TList<integer>;
+begin
+  inputList := TList<integer>.Create;
+  inputList.AddRange([1, 3, 4, 6, 8, 9, 11]);
+
+  Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 13));
+end;
+
+procedure TBinarySearchTest.A_value_smaller_than_the_arrays_smallest_value_is_not_included;
+var inputList: TList<integer>;
+begin
+  inputList := TList<integer>.Create;
+  inputList.AddRange([1, 3, 4, 6, 8, 9, 11]);
+
+  Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 0));
 end;
 
 initialization
