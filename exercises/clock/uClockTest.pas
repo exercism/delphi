@@ -46,15 +46,15 @@ type
 
     [Test]
     [Ignore]
-    procedure Hour_and_minute_roll_over;
+    procedure Hour_and_minutes_roll_over;
 
     [Test]
     [Ignore]
-    procedure Hour_and_minute_roll_over_continuously;
+    procedure Hour_and_minutes_roll_over_continuously;
 
     [Test]
     [Ignore]
-    procedure Hour_and_minute_roll_over_to_exactly_midnight;
+    procedure Hour_and_minutes_roll_over_to_exactly_midnight;
 
     [Test]
     [Ignore]
@@ -269,17 +269,17 @@ begin
   Assert.AreEqual('04:43', Clock.SetHands(0, 1723).ToString);
 end;
 
-procedure TClockTest.Hour_and_minute_roll_over;
+procedure TClockTest.Hour_and_minutes_roll_over;
 begin
   Assert.AreEqual('03:40', Clock.SetHands(25, 160).ToString);
 end;
 
-procedure TClockTest.Hour_and_minute_roll_over_continuously;
+procedure TClockTest.Hour_and_minutes_roll_over_continuously;
 begin
   Assert.AreEqual('11:01', Clock.SetHands(201, 3001).ToString);
 end;
 
-procedure TClockTest.Hour_and_minute_roll_over_to_exactly_midnight;
+procedure TClockTest.Hour_and_minutes_roll_over_to_exactly_midnight;
 begin
   Assert.AreEqual('00:00', Clock.SetHands(72, 8640).ToString);
 end;
