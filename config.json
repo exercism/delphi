@@ -33,7 +33,7 @@
       "uuid": "8bdf3796-592c-48f1-b2ef-8e4deb40cc37"
     },
     {
-      "core": false,
+      "core": true,
       "difficulty": 1,
       "slug": "bob",
       "topics": [
