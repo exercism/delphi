@@ -37,6 +37,7 @@ type
   public
     function Total:integer;
     constructor Create(aBasket: TArray<Integer>);
+    destructor Destroy; override;
   end;
 
 function NewBasket(aBasket: TArray<Integer>): IBasket;
@@ -143,6 +144,12 @@ begin
   subResult[1] := computeTotal;
 
   result := min(subResult[0], subResult[1]);
+end;
+
+destructor TBasket.Destroy;
+begin
+  fIntList.DisposeOf;
+  inherited;
 end;
 
 function TBasket.DiscountPercentage(inStr : string):extended;
