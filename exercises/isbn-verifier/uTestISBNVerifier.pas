@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '2.2.0';
+  CanonicalVersion = '2.3.0';
 
 type
   [TestFixture]
@@ -90,7 +90,7 @@ end;
 
 procedure ISBNVerifierTest.invalid_character_in_isbn;
 begin
-  Assert.IsFalse(TIsbn.isValid('3-598-2K507-0'))
+  Assert.IsFalse(TIsbn.isValid('3-598-P1581-X'))
 end;
 
 procedure ISBNVerifierTest.invalid_isbn_check_digit;
