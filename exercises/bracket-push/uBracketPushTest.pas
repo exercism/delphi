@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.2.0';
+  CanonicalVersion = '1.3.0';
 
 type
   [TestFixture]
@@ -34,6 +34,10 @@ type
     [Test]
     [Ignore]
     procedure paired_with_whitespace;
+
+    [Test]
+    [Ignore]
+    procedure partially_paired_brackets;
 
     [Test]
     [Ignore]
@@ -107,6 +111,11 @@ end;
 procedure BracketPushTest.paired_with_whitespace;
 begin
   Assert.IsTrue(TBracketPush.IsPaired('{ }'));
+end;
+
+procedure BracketPushTest.partially_paired_brackets;
+begin
+  Assert.IsFalse(TBracketPush.IsPaired('{[])'));
 end;
 
 procedure BracketPushTest.several_paired_brackets;
