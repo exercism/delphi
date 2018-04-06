@@ -293,6 +293,17 @@
       "uuid": "5ab52a90-8a72-42f8-b430-042436041348"
     },
     {
+      "core": false,
+      "difficulty": 5,
+      "slug": "bracket-push",
+      "topics": [
+        "parsing",
+        "strings"
+      ],
+      "unlocked_by": "bob",
+      "uuid": "81e0a0f7-b97d-4ff0-90b2-a43eb933f68f"
+    },
+    {
       "core": true,
       "difficulty": 5,
       "slug": "roman-numerals",
