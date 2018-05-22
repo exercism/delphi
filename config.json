@@ -198,6 +198,17 @@
       ]
     },
     {
+      "slug": "proverb",
+      "uuid": "aa42eae2-9a5c-4d01-8900-fad674434cd5",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 3,
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "2032ba03-845a-460b-ad93-0958e97eb7cc",
       "core": false,
