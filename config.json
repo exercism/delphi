@@ -154,6 +154,17 @@
       ]
     },
     {
+      "slug": "grade-school",
+      "uuid": "37d13c81-2347-4620-931b-11ae46ea95f8",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 2,
+      "topics": [
+        "lists",
+        "sorting"
+      ]
+    },
+    {
       "slug": "collatz-conjecture",
       "uuid": "edfc2903-1165-4029-9901-0be72b32865f",
       "core": true,
