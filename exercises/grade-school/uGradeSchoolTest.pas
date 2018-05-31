@@ -36,19 +36,19 @@ type
 
     [Test]
     [Ignore]
-    procedure Grade_returns_the_students_in_that_grade_in_alphabetical_order;
-
-    [Test]
-    [Ignore]
-    procedure Grade_returns_an_empty_list_if_there_are_no_students_in_that_grade;
-
-    [Test]
-    [Ignore]
     procedure Roster_returns_an_empty_list_if_there_are_no_students_enrolled;
 
     [Test]
     [Ignore]
     procedure Student_names_with_grades_are_displayed_in_the_same_sorted_roster;
+
+    [Test]
+    [Ignore]
+    procedure Grade_returns_the_students_in_that_grade_in_alphabetical_order;
+
+    [Test]
+    [Ignore]
+    procedure Grade_returns_an_empty_list_if_there_are_no_students_in_that_grade;
   end;
 
 implementation
