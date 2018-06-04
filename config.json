@@ -17,6 +17,7 @@
       "slug": "two-fer",
       "uuid": "60eb0882-495d-45f4-8d38-5b10d8851cf6",
       "core": false,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "optional_values",
@@ -48,6 +49,7 @@
       "slug": "leap",
       "uuid": "9e54a998-450c-4020-834e-eaa77f909744",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "integers"
@@ -124,6 +126,7 @@
       "slug": "nucleotide-count",
       "uuid": "f2fae277-db73-482c-ac3a-496237ad5a42",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 2,
       "topics": [
         "dictionaries",
@@ -256,6 +259,7 @@
       "slug": "clock",
       "uuid": "0223dfe4-3ff4-4f4e-8cd2-821e1fd50217",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 3,
       "topics": [
         "structural_equality",
@@ -277,6 +281,7 @@
       "slug": "allergies",
       "uuid": "65214085-edfc-4ee7-a286-eca225b57ea3",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 4,
       "topics": [
         "bitwise_operations",
@@ -287,6 +292,7 @@
       "slug": "saddle-points",
       "uuid": "78166582-6df9-4076-bd37-53230cd78f71",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 4,
       "topics": [
         "arrays",
@@ -298,6 +304,7 @@
       "slug": "circular-buffer",
       "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 5,
       "topics": [
         "classes",
@@ -330,6 +337,7 @@
       "slug": "roman-numerals",
       "uuid": "51d6c5fc-6bde-4b78-842b-518346649431",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 5,
       "topics": [
         "control_flow_loops",
@@ -362,6 +370,7 @@
       "slug": "book-store",
       "uuid": "d471f0d3-6d7c-4abe-bf31-712fb0cadea7",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 6,
       "topics": [
         "arrays",
