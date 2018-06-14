@@ -16,6 +16,47 @@ type
 	
     [Test]
     [Ignore]
+    procedure Count_one_word;
+
+    [Test]
+    [Ignore]
+    procedure Count_one_of_each_word;
+
+    [Test]
+    [Ignore]
+    procedure Multiple_occurrences_of_a_word;
+
+    [Test]
+    [Ignore]
+    procedure Handles_cramped_lists;
+
+    [Test]
+    [Ignore]
+    procedure Handles_expanded_lists;
+
+    [Test]
+    [Ignore]
+    procedure Ignore_punctuation;
+
+    [Test]
+    [Ignore]
+    procedure Include_numbers;
+
+    [Test]
+    [Ignore]
+    procedure Normalize_case;
+
+    [Test]
+    [Ignore]
+    procedure With_apostrophes;
+
+    [Test]
+    [Ignore]
+    procedure With_quotations;
+
+    [Test]
+    [Ignore]
+    procedure Multiple_spaces_not_detected_as_a_word;
 
   end;
 	
