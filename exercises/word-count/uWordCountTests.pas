@@ -91,6 +91,36 @@ begin
   CompareDictionaries(expected, actual);
 end;
 
+procedure WordCountTests.Count_one_word;
+var expected, actual: TDictionary<String, integer>;
+begin
+  expected := TDictionary<String, integer>.Create;
+  expected.Add('word',1);
+  CompareDictionaries(expected, WordCount('word').countWords);
+end;
+
+procedure WordCountTests.Count_one_of_each_word;
+var expected, actual: TDictionary<String, integer>;
+begin
+  expected := TDictionary<String, integer>.Create;
+  expected.Add('one',1);
+  expected.Add('of',1);
+  expected.Add('each',1);  
+  CompareDictionaries(expected, WordCount('one of each').countWords);
+end;
+
+procedure WordCountTests.Multiple_occurrences_of_a_word;
+var expected, actual: TDictionary<String, integer>;
+begin
+  expected := TDictionary<String, integer>.Create;
+  expected.Add('one',1);
+  expected.Add('fish',4);
+  expected.Add('two',1);  
+  expected.Add('red',1);
+  expected.Add('blue',1);
+  CompareDictionaries(expected, WordCount('one fish two fish red fish blue fish').countWords);
+end;
+
 initialization
   TDUnitX.RegisterTestFixture(WordCountTests);
 end.
