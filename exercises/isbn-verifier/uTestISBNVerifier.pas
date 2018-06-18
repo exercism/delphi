@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '2.3.0';
+  CanonicalVersion = '2.6.0';
 
 type
   [TestFixture]
@@ -53,6 +53,10 @@ type
 
     [Test]
     [Ignore]
+    procedure too_short_isbn;
+
+    [Test]
+    [Ignore]
     procedure isbn_without_check_digit;
 
     [Test]
@@ -66,6 +70,14 @@ type
     [Test]
     [Ignore]
     procedure empty_ISBN;
+
+    [Test]
+    [Ignore]
+    procedure input_is_9_characters;
+
+    [Test]
+    [Ignore]
+    procedure invalid_characters_are_not_ignored;
   end;
 
 implementation
@@ -85,12 +97,22 @@ end;
 
 procedure ISBNVerifierTest.empty_ISBN;
 begin
-  Assert.IsFalse(TIsbn.isValid(''))
+  Assert.IsFalse(TIsbn.isValid(''));
+end;
+
+procedure ISBNVerifierTest.input_is_9_characters;
+begin
+  Assert.IsFalse(TIsbn.isValid('134456729'));
+end;
+
+procedure ISBNVerifierTest.invalid_characters_are_not_ignored;
+begin
+  Assert.IsFalse(TIsbn.isValid('3132P34035'));
 end;
 
 procedure ISBNVerifierTest.invalid_character_in_isbn;
 begin
-  Assert.IsFalse(TIsbn.isValid('3-598-P1581-X'))
+  Assert.IsFalse(TIsbn.isValid('3-598-P1581-X'));
 end;
 
 procedure ISBNVerifierTest.invalid_isbn_check_digit;
@@ -121,6 +143,11 @@ end;
 procedure ISBNVerifierTest.too_long_isbn_and_no_dashes;
 begin
   Assert.IsFalse(TIsbn.isValid('3598215078X'));
+end;
+
+procedure ISBNVerifierTest.too_short_isbn;
+begin
+  Assert.IsFalse(TIsbn.isValid('00'));
 end;
 
 procedure ISBNVerifierTest.valid_isbn_number;
