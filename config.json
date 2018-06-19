@@ -302,6 +302,18 @@
       ]
     },
     {
+      "slug": "word-count",
+      "uuid": "70643878-7f92-4823-8ec8-1159e901286f",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+      "dictionaries",
+      "strings",
+      "transforming"
+      ]
+    },
+    {
       "slug": "circular-buffer",
       "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57",
       "core": true,
