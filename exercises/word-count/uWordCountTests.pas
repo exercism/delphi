@@ -15,7 +15,7 @@ type
     procedure Validate_CompareDictionaries;
 	
     [Test]
-    [Ignore]
+    // [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Count_one_word;
 
     [Test]
