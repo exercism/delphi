@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '2.6.0';
+  CanonicalVersion = '2.7.0';
 
 type
   [TestFixture]
@@ -61,10 +61,6 @@ type
 
     [Test]
     [Ignore]
-    procedure too_long_isbn;
-
-    [Test]
-    [Ignore]
     procedure check_digit_of_X_should_not_be_used_for_0;
 
     [Test]
@@ -78,6 +74,10 @@ type
     [Test]
     [Ignore]
     procedure invalid_characters_are_not_ignored;
+
+    [Test]
+    [Ignore]
+    procedure input_is_too_long_but_contains_a_valid_isbn;
   end;
 
 implementation
@@ -135,9 +135,9 @@ begin
   Assert.IsTrue(TIsbn.isValid('359821507X'));
 end;
 
-procedure ISBNVerifierTest.too_long_isbn;
+procedure ISBNVerifierTest.input_is_too_long_but_contains_a_valid_isbn;
 begin
-  Assert.IsFalse(TIsbn.isValid('3-598-21507-XX'));
+  Assert.IsFalse(TIsbn.isValid('98245726788'));
 end;
 
 procedure ISBNVerifierTest.too_long_isbn_and_no_dashes;
