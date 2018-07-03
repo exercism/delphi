@@ -17,7 +17,7 @@
     {
       "slug": "two-fer",
       "uuid": "60eb0882-495d-45f4-8d38-5b10d8851cf6",
-      "core": false,
+      "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
@@ -199,6 +199,17 @@
       "topics": [
         "algorithms",
         "text_formatting"
+      ]
+    },
+    {
+      "slug": "isogram",
+      "uuid": "7a489381-5ef6-49df-a05d-4c73b3ed9b53",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "filtering",
+        "strings"
       ]
     },
     {
