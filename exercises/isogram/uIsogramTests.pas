@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.4.0';
 
 type
 
@@ -23,6 +23,10 @@ type
     [Test]
     [Ignore]
     procedure word_with_one_duplicated_character;
+
+    [Test]
+    [Ignore]
+    procedure word_with_one_duplicated_character_from_the_end_of_the_alphabet;
 
     [Test]
     [Ignore]
@@ -97,6 +101,11 @@ end;
 procedure IsogramTests.word_with_one_duplicated_character;
 begin
   Assert.IsFalse(isIsogram('eleven'));
+end;
+
+procedure IsogramTests.word_with_one_duplicated_character_from_the_end_of_the_alphabet;
+begin
+  Assert.IsFalse(isIsogram('zzyzx'));
 end;
 
 initialization
