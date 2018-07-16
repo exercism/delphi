@@ -158,6 +158,16 @@
       ]
     },
     {
+      "slug": "pangram",
+      "uuid": "9417a5a1-72f7-4a2f-bfd2-c4eb1dbf63cf",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 2,
+      "topics": [
+        "strings"
+      ]
+    },
+    {
       "slug": "grade-school",
       "uuid": "37d13c81-2347-4620-931b-11ae46ea95f8",
       "core": true,
