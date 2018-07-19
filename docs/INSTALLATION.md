@@ -1,14 +1,14 @@
 # Installing Delphi and DUnitX Testing Framework #
 ### Windows ###
 
-A 30 day free trial of Embarcadero's RAD Studio or Delphi may be downloaded from [here](https://www.embarcadero.com/products?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_content=brand&utm_embarcadero&gclid=CjwKEAiAp97CBRDr2Oyl-faxqRMSJABx4kh9V8bOEuG0CznQ9AGToIyuKeTzvevljmHTboYXk4n6OxoC4Frw_wcB).  Alternatively, a free [Starter Edition](https://www.embarcadero.com/products/delphi/starter/promotional-download) version is also available.  Follow installation instructions included with the product.
+A 30 day free trial of Embarcadero's RAD Studio or Delphi may be downloaded from [here](https://www.embarcadero.com/products?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_content=brand&utm_embarcadero&gclid=CjwKEAiAp97CBRDr2Oyl-faxqRMSJABx4kh9V8bOEuG0CznQ9AGToIyuKeTzvevljmHTboYXk4n6OxoC4Frw_wcB).  Alternatively, a free [Community Edition](https://www.embarcadero.com/products/delphi/starter) version is also available.  Follow installation instructions included with the product.
 
 ### Non-Windows based Operating Systems ###
 
 Delphi will not run in a non-Windows based operating system.  However, it is possible to run Delphi within a virtual machine that is hosting Windows.
 
 ### Installing DUnitX Test Framework ###
-DUnitX comes installed in Delphi version XE8 and up with an exception for the Starter Edition of Delphi.
+DUnitX may be optionally installed while installing Delphi versions XE8 and up.  However, I recommend following the instructions below and manually, obtaining a copy of DUnitX directly from the authors GitHub repository as it is updated more frequently.
 
 With Delphi successfully installed, and working correctly, please follow these steps for retrieving and installing DUnitX if you find that your installation of Delphi is lacking the DUnitX framework.
 
@@ -43,7 +43,7 @@ If you had to install DUnitX because your installation didn't already come with 
 
 ![Click New](http://x.exercism.io/v3/tracks/delphi/docs/img/04delphioptionsenvironmentvariablesclicknew.png)
 
-- A New User Variable window should appear that contains two fields.  In the top field enter `DUNITX` for the Variable Name.  In the bottom field enter the complete path to your copy of DUnitX, for example mine is `C:\Program Files\Embarcadero\Studio\18.0\source\DUnitX`. Click the `Ok` button to then close this window.
+- A New User Variable window should appear that contains two fields.  In the top field enter `DUNITX` for the Variable Name.  In the bottom field enter the complete path to your copy of DUnitX, for example mine is `C:\Program Files\Embarcadero\Studio\19.0\source\DUnitX`.  *you may not have a folder 19.0, it depends on the version of Delphi installed.*  Click the `Ok` button to then close this window.
 
 ![New User Variable](http://x.exercism.io/v3/tracks/delphi/docs/img/05delphinewuservariable.png)
 
@@ -63,7 +63,6 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Click the `Ok` button to store the change.
 
-![ClickOK](http://x.exercism.io/v3/tracks/delphi/docs/img/09delphidirectoriesclickok.png)
 
 - Finally, click the `Ok` button on the Options window to save all the changes.
 
