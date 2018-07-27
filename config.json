@@ -68,6 +68,17 @@
       ]
     },
     {
+      "slug": "difference-of-squares",
+      "uuid": "e13b29f1-be95-445f-b00c-94cd312abda3",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 1,
+      "topics": [
+        "control_flow_loops",
+        "integers"
+      ]
+    },
+    {
       "slug": "isbn-verifier",
       "uuid": "4cdb8216-4526-49ac-8ab5-68d70060a54e",
       "core": false,
