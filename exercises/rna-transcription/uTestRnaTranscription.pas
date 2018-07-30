@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '1.3.0';
 
 type
   [TestFixture]
@@ -13,6 +13,10 @@ type
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
+    procedure Empty_RNA_sequence;
+
+    [Test]
+    [Ignore]
     procedure Rna_complement_of_cytosine_is_guanine;
 
     [Test]
@@ -53,6 +57,11 @@ end;
 procedure RnaTranscriptionTest.Rna_complement_of_adenine_is_uracil;
 begin
   Assert.AreEqual('U', complement.OfDna('A'));
+end;
+
+procedure RnaTranscriptionTest.Empty_RNA_sequence;
+begin
+  Assert.AreEqual('', complement.OfDna(''));
 end;
 
 procedure RnaTranscriptionTest.Rna_complement;
