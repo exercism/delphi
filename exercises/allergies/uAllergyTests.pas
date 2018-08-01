@@ -5,12 +5,12 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '1.2.0';
 
 type
 
   [TestFixture]
-  AllergyTests = class(TObject) 
+  AllergyTests = class(TObject)
   public
     [Test]
 //  [Ignore('Comment the "[Ignore]" statement to run the test')]
@@ -23,6 +23,10 @@ type
     [Test]
     [Ignore]
     procedure Allergic_to_eggs_in_addition_to_other_stuff;
+
+    [Test]
+    [Ignore]
+    procedure Allergic_to_strawberries_but_not_peanuts;
 
     [Test]
     [Ignore]
@@ -136,6 +140,16 @@ begin
   assert.AreEqual(2, allergies.IList.Count);
   assert.IsTrue(allergies.IList.Contains('eggs'));
   assert.IsTrue(allergies.IList.Contains('shellfish'));
+end;
+
+procedure AllergyTests.Allergic_to_strawberries_but_not_peanuts;
+var allergies: IAllergies;
+begin
+  allergies := TAllergies.Create(9);
+  assert.IsTrue(allergies.AllergicTo('eggs'));
+  assert.IsFalse(allergies.AllergicTo('peanuts'));
+  assert.IsFalse(allergies.AllergicTo('shellfish'));
+  assert.IsTrue(allergies.AllergicTo('strawberries'));
 end;
 
 procedure AllergyTests.Allergic_to_lots_of_stuff;
