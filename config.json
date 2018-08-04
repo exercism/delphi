@@ -75,7 +75,8 @@
       "difficulty": 1,
       "topics": [
         "control_flow_loops",
-        "integers"
+        "integers",
+        "math"
       ]
     },
     {
@@ -198,6 +199,7 @@
       "topics": [
         "algorithms",
         "looping",
+        "math",
         "raising_exceptions"
       ]
     },
@@ -208,7 +210,8 @@
       "unlocked_by": "collatz-conjecture",
       "difficulty": 2,
       "topics": [
-        "algorithms"
+        "algorithms",
+        "math"
       ]
     },
     {
@@ -273,7 +276,8 @@
       "unlocked_by": "leap",
       "difficulty": 3,
       "topics": [
-        "integers"
+        "integers",
+        "math"
       ]
     },
     {
@@ -340,9 +344,9 @@
       "unlocked_by": "bob",
       "difficulty": 4,
       "topics": [
-      "dictionaries",
-      "strings",
-      "transforming"
+        "dictionaries",
+        "strings",
+        "transforming"
       ]
     },
     {
