@@ -25,39 +25,39 @@ If you had to install DUnitX because your installation didn't already come with 
 
 - Start Delphi.  If your installation is new you will most likely end up at a `Welcome Page` similar to this.
 
-[![Welcome Page](http://x.exercism.io/v3/tracks/delphi/docs/img/00delphiwelcomepageLogo.png)](http://x.exercism.io/v3/tracks/delphi/docs/img/00delphiwelcomepage.png)
+[![Welcome Page](/docs/img/00delphiwelcomepageLogo.png)](/docs/img/00delphiwelcomepage.png)
 
 - Find and click `Tools` along the top menu.
  
-![Tools](http://x.exercism.io/v3/tracks/delphi/docs/img/01delphiclicktools.png)
+![Tools](/docs/img/01delphiclicktools.png)
 
 - Click `Options`.
 
-![Options](http://x.exercism.io/v3/tracks/delphi/docs/img/02delphiclickoptions.png)
+![Options](/docs/img/02delphiclickoptions.png)
 
 - Along the left side of the Options screen find and click on `Environment Variables`.
 
-[![Options Screen Environment Variables](http://x.exercism.io/v3/tracks/delphi/docs/img/03delphioptionsenvironmentvariablesLogo.png)](http://x.exercism.io/v3/tracks/delphi/docs/img/03delphioptionsenvironmentvariables.png)
+[![Options Screen Environment Variables](/docs/img/03delphioptionsenvironmentvariablesLogo.png)](/docs/img/03delphioptionsenvironmentvariables.png)
 
 - Click the `New` button located in the `User overrides` group 
 
-![Click New](http://x.exercism.io/v3/tracks/delphi/docs/img/04delphioptionsenvironmentvariablesclicknew.png)
+![Click New](/docs/img/04delphioptionsenvironmentvariablesclicknew.png)
 
 - A New User Variable window should appear that contains two fields.  In the top field enter `DUNITX` for the Variable Name.  In the bottom field enter the complete path to your copy of DUnitX, for example mine is `C:\Program Files\Embarcadero\Studio\19.0\source\DUnitX`.  *you may not have a folder 19.0, it depends on the version of Delphi installed.*  Click the `Ok` button to then close this window.
 
-![New User Variable](http://x.exercism.io/v3/tracks/delphi/docs/img/05delphinewuservariable.png)
+![New User Variable](/docs/img/05delphinewuservariable.png)
 
 - Locate and click on `Library` along the left side of the Options screen.
 
-[![Library](http://x.exercism.io/v3/tracks/delphi/docs/img/06delphioptionslibraryLogo.png)](http://x.exercism.io/v3/tracks/delphi/docs/img/06delphioptionslibrary.png)
+[![Library](/docs/img/06delphioptionslibraryLogo.png)](/docs/img/06delphioptionslibrary.png)
 
 - Click the `...` button associated with the Library path in the Directories group
 
-[![...button](http://x.exercism.io/v3/tracks/delphi/docs/img/07delphiclicklibrarypathbuttonLogo.png)](http://x.exercism.io/v3/tracks/delphi/docs/img/07delphiclicklibrarypathbutton.png)
+[![...button](/docs/img/07delphiclicklibrarypathbuttonLogo.png)](/docs/img/07delphiclicklibrarypathbutton.png)
 
 - In the Directories window enter the variable name that you created a few steps ago.  The entry should appear like this `$(DUNITX)` 
 
-![Directories](http://x.exercism.io/v3/tracks/delphi/docs/img/08delphidirectoriesinputvarnameclickadd.png)
+![Directories](/docs/img/08delphidirectoriesinputvarnameclickadd.png)
 
 - Click the `Add` button to add this new item to the list.
 
