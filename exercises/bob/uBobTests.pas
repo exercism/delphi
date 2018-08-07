@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '1.2.1';
 
 type
 
@@ -13,12 +13,16 @@ type
   BobTests = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Stating_something;
 
     [Test]
     [Ignore]
     procedure Shouting;
+
+    [Test]
+    [Ignore]
+    procedure Shouting_gibberish;
 
     [Test]
     [Ignore]
@@ -50,11 +54,11 @@ type
 
     [Test]
     [Ignore]
-    procedure Only_numbers;
+    procedure No_letters;
 
     [Test]
     [Ignore]
-    procedure Question_with_only_numbers;
+    procedure Question_with_no_letters;
 
     [Test]
     [Ignore]
@@ -162,12 +166,17 @@ begin
   Assert.AreEqual('Calm down, I know what I''m doing!', TBob.Response('WHAT THE HELL WERE YOU THINKING?'));
 end;
 
+procedure BobTests.Shouting_gibberish;
+begin
+  Assert.AreEqual('Whoa, chill out!', TBob.Response('FCECDFCAAB'));
+end;
+
 procedure BobTests.Shouting_numbers;
 begin
   Assert.AreEqual('Whoa, chill out!', TBob.Response('1, 2, 3 GO!'));
 end;
 
-procedure BobTests.Only_numbers;
+procedure BobTests.No_letters;
 begin
   Assert.AreEqual('Whatever.', TBob.Response('1, 2, 3'));
 end;
@@ -177,7 +186,7 @@ begin
   Assert.AreEqual('Fine. Be that way!', TBob.Response(#13#10 + ' ' + #9));
 end;
 
-procedure BobTests.Question_with_only_numbers;
+procedure BobTests.Question_with_no_letters;
 begin
   Assert.AreEqual('Sure.', TBob.Response('4?'));
 end;
