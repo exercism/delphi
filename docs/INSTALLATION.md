@@ -1,25 +1,24 @@
 # Installing Delphi and DUnitX Testing Framework #
 ### Windows ###
 
-A 30 day free trial of Embarcadero's RAD Studio or Delphi may be downloaded from [here](https://www.embarcadero.com/products?utm_source=google&utm_medium=cpc&utm_campaign=brand&utm_content=brand&utm_embarcadero&gclid=CjwKEAiAp97CBRDr2Oyl-faxqRMSJABx4kh9V8bOEuG0CznQ9AGToIyuKeTzvevljmHTboYXk4n6OxoC4Frw_wcB).  Alternatively, a free [Community Edition](https://www.embarcadero.com/products/delphi/starter) version is also available.  Follow installation instructions included with the product.
+A free [Community Edition](https://www.embarcadero.com/products/delphi/starter) version is available.  Follow installation instructions included with the product.
 
 ### Non-Windows based Operating Systems ###
 
-Delphi will not run in a non-Windows based operating system.  However, it is possible to run Delphi within a virtual machine that is hosting Windows.
+Delphi will only run in a Windows based operating system.  Delphi may be run within a virtual machine that is hosting Windows.
 
 ### Installing DUnitX Test Framework ###
 DUnitX may be optionally installed while installing Delphi versions XE8 and up.  However, I recommend following the instructions below and manually, obtaining a copy of DUnitX directly from the authors GitHub repository as it is updated more frequently.
 
-With Delphi successfully installed, and working correctly, please follow these steps for retrieving and installing DUnitX if you find that your installation of Delphi is lacking the DUnitX framework.
+With Delphi successfully installed, please follow these steps for retrieving and installing DUnitX if you find that your installation of Delphi is lacking this testing framework.
 
 - DUnitX is an open source project by [VSoftTechnologies](https://www.github.com/VSoftTechnologies).  The DUnitX GitHub repo is available [here](https://github.com/VSoftTechnologies/DUnitX).
 - It is best to fork the repo and then clone or otherwise download the fork to your local machine.
 - Step-by-step instructions on how to install DUnitX into Delphi have been posted by Vincent Parrett in a blog post located [here](https://www.finalbuilder.com/resources/blogs/postid/702/dunitx-has-a-wizard).
-- The Starter Edition of Delphi doesn't allow the use of project experts.  DUnitX comes with an expert which will aid the student in creating a new DUnitX based project.  The expert creates the project's .DPR file.  The exercises in this track all include the .DPR file making the expert not necessary.  DUnitX otherwise has no issues with projects created in Delphi versions starting with XE all the way up to and including the Starter Edition of Berlin.
 
 ### Delphi Configuration for DUnitX ###
 
-If you had to install DUnitX because your installation didn't already come with it then please follow the following illustrated steps to make the necessary configuration changes to Delphi in order for it to locate your installation of DUnitX.
+If you installed DUnitX manually because your installation didn't already come with it then please follow the following illustrated steps to make the necessary configuration changes to Delphi in order for it to locate your installation of DUnitX.
 
 *Note: it is assumed that you have completed the installation of Delphi by this point.*
 
