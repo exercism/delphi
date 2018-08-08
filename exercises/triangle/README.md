@@ -47,4 +47,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 The Ruby Koans triangle project, parts 1 & 2 [http://rubykoans.com](http://rubykoans.com)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+It's possible to submit an incomplete solution so you may receive assistance from a mentor.

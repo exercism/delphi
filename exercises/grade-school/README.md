@@ -59,4 +59,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 A pairing session with Phil Battos at gSchool [http://gschool.it](http://gschool.it)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+It's possible to submit an incomplete solution so you may receive assistance from a mentor.

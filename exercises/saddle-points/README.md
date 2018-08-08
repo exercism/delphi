@@ -23,6 +23,8 @@ A matrix may have zero or more saddle points.
 Your code should be able to provide the (possibly empty) list of all the
 saddle points for any given matrix.
 
+The matrix can have a different number of rows and columns (Non square).
+
 Note that you may find other definitions of matrix saddle points online,
 but the tests for this exercise follow the above unambiguous definition.
 
@@ -51,4 +53,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 J Dalbey's Programming Practice problems [http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html](http://users.csc.calpoly.edu/~jdalbey/103/Projects/ProgrammingPractice.html)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+It's possible to submit an incomplete solution so you may receive assistance from a mentor.
