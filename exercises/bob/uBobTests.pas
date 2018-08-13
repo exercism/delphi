@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.2.1';
+  CanonicalVersion = '1.3.0';
 
 type
 
@@ -198,7 +198,7 @@ end;
 
 procedure BobTests.Shouting_with_no_exclamation_mark;
 begin
-  Assert.AreEqual('Whoa, chill out!', TBob.Response('I HATE YOU'));
+  Assert.AreEqual('Whoa, chill out!', TBob.Response('I HATE THE DMV'));
 end;
 
 procedure BobTests.Starting_with_whitespace;
