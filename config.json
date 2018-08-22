@@ -338,6 +338,17 @@
       ]
     },
     {
+      "slug": "anagram",
+      "uuid": "f7639fb5-eca7-4233-986c-293adc76aa9e",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "filtering",
+        "strings"
+      ]
+    },
+    {
       "slug": "word-count",
       "uuid": "70643878-7f92-4823-8ec8-1159e901286f",
       "core": false,
