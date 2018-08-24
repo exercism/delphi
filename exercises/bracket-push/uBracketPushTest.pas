@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.4.0';
 
 type
   [TestFixture]
@@ -65,6 +65,10 @@ type
 
     [Test]
     [Ignore]
+    procedure paired_and_incomplete_brackets;
+
+    [Test]
+    [Ignore]
     procedure math_expression;
 
     [Test]
@@ -91,6 +95,11 @@ end;
 procedure BracketPushTest.math_expression;
 begin
   Assert.IsTrue(TBracketPush.IsPaired('(((185 + 223.85) * 15) - 543)/2'));
+end;
+
+procedure BracketPushTest.paired_and_incomplete_brackets;
+begin
+  Assert.IsFalse(TBracketPush.IsPaired('{}['));
 end;
 
 procedure BracketPushTest.paired_and_nested_brackets;
