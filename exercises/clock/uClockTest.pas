@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '2.2.1';
+  CanonicalVersion = '2.3.0';
 
 type
 
@@ -223,6 +223,10 @@ type
     [Test]
     [Ignore]
     procedure Clocks_with_negative_hours_and_minutes_that_wrap;
+
+    [Test]
+    [Ignore]
+    procedure full_clock_and_zeroed_clock;
   end;
 
 implementation
@@ -544,6 +548,16 @@ begin
 
   Assert.IsTrue(Clock1.Equal(Clock2));
 end;
+
+procedure TCompareClocks.full_clock_and_zeroed_clock;
+var Clock1, Clock2: Clock;
+begin
+  Clock1 := Clock.SetHands(24, 0);
+  Clock2 := Clock.SetHands(0, 0);
+
+  Assert.IsTrue(Clock1.Equal(Clock2));
+end;
+
 {$endregion}
 
 initialization
