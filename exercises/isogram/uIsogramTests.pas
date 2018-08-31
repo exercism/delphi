@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.4.0';
+  CanonicalVersion = '1.5.0';
 
 type
 
@@ -35,6 +35,10 @@ type
     [Test]
     [Ignore]
     procedure word_with_duplicated_character_in_mixed_case;
+
+    [Test]
+    [Ignore]
+    procedure word_with_duplicated_character_in_mixed_case_lowercase_first;
 
     [Test]
     [Ignore]
@@ -96,6 +100,11 @@ end;
 procedure IsogramTests.word_with_duplicated_character_in_mixed_case;
 begin
   Assert.IsFalse(isIsogram('Alphabet'));
+end;
+
+procedure IsogramTests.word_with_duplicated_character_in_mixed_case_lowercase_first;
+begin
+  Assert.IsFalse(isIsogram('alphAbet'));
 end;
 
 procedure IsogramTests.word_with_one_duplicated_character;

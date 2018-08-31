@@ -1,33 +1,27 @@
 unit uIsogram;
 
 interface
-uses
-  System.Generics.Collections;
 
 function isIsogram(aWords: string): Boolean;
 
 implementation
-uses SysUtils;
+uses SysUtils, System.Character;
 
 function isIsogram(aWords: string): Boolean;
 var
-  Letters: TList<char>;
-  lChar: char;
+  Letters: string;
+  _Char: char;
 begin
-  Letters := TList<char>.Create;
-  try
-    aWords := aWords.ToLowerInvariant.Replace('-', '').Replace(' ','');
-    for lChar in aWords do
+  result := true;
+  Letters := '';
+  for _Char in aWords.ToLowerInvariant do
+    if _Char.IsLetter then
     begin
-      if Letters.Contains(lChar) then
+      if Letters.Contains(_Char) then
         exit(false)
       else
-        Letters.Add(lChar);
+        Letters := Letters + _Char;
     end;
-    result := true;
-  finally
-    Letters.Free;
-  end;
 end;
 
 end.
