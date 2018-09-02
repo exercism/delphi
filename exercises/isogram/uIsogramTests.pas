@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.5.0';
+  CanonicalVersion = '1.6.0';
 
 type
 
@@ -55,6 +55,10 @@ type
     [Test]
     [Ignore]
     procedure duplicated_character_in_the_middle;
+
+    [Test]
+    [Ignore]
+    procedure same_first_and_last_characters;
   end;
 	
 implementation
@@ -95,6 +99,11 @@ end;
 procedure IsogramTests.made_up_name_that_is_an_isogram;
 begin
   Assert.IsTrue(isIsogram('Emily Jung Schwartzkopf'));
+end;
+
+procedure IsogramTests.same_first_and_last_characters;
+begin
+  Assert.IsFalse(isIsogram('angola'));
 end;
 
 procedure IsogramTests.word_with_duplicated_character_in_mixed_case;
