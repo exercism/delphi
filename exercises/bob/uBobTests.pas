@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.4.0';
 
 type
 
@@ -228,7 +228,7 @@ end;
 
 procedure BobTests.Multiple_line_question;
 begin
-  Assert.AreEqual('Whatever.', TBob.Response('Does this cryogenic chamber make me look fat?' + #13#10 + 'no'));
+  Assert.AreEqual('Whatever.', TBob.Response(#13#10 + 'Does this cryogenic chamber make me look fat?' + #13#10 + 'No.'));
 end;
 
 procedure BobTests.non_letters_with_question;
