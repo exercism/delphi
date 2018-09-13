@@ -11,29 +11,21 @@ type
 function NewBasket(aBasket: TArray<Integer>): IBasket;
 
 implementation
-uses System.SysUtils, System.Generics.collections, System.Math;
-
-const
-  seriesBooks = '12345';
-  cNumberOfBooks = 5;
-  cDiscounts: array[1..cNumberOfBooks] of extended = (1.00,
-                                                      0.95,
-                                                      0.90,
-                                                      0.80,
-                                                      0.75);
+uses System.SysUtils, System.Generics.collections;
 
 type
   TBasket = class(TInterfacedObject, IBasket)
   private
-    fSingleBookPrice: integer;
-    fBasket: string;
-    fIntList: TList<integer>;
-    class function Head(inStr: string): string; static;
-    class function Tail(inStr: string): string; static;
-    class function ConvertIntArrayToString(const aIntArray: TArray<Integer>): string; static;
-    function DiscountPercentage(inStr : string): extended;
-    function GroupBasket:TArray<String>;
-    function NumberOfDifferentBooks(inStr : string):integer;
+    const
+      cDiscounts: array[1..5] of extended = (1.00,
+                                             0.95,
+                                             0.90,
+                                             0.80,
+                                             0.75);
+      cSingleBookPrice = 800;
+    var
+      fRanges: TList<integer>;
+    procedure GroupBasket(aBasket: TArray<Integer>);
   public
     function Total:integer;
     constructor Create(aBasket: TArray<Integer>);
@@ -45,127 +37,108 @@ begin
   result := TBasket.Create(aBasket);
 end;
 
-class function TBasket.Head(inStr : string):string;
-begin
-  result := inStr.Remove(1);
-end;
-
-class function TBasket.Tail(inStr : string):string;
-begin
-  result := inStr.Remove(0,1);
-end;
-
-class function TBasket.ConvertIntArrayToString(const aIntArray: TArray<Integer>): string;
-var arrayItem: integer;
-begin
-  result := '';
-  if length(aIntArray) > 0 then
-    for arrayItem in aIntArray do
-      result := result + arrayItem.ToString;
-end;
-
 constructor TBasket.Create(aBasket: TArray<Integer>);
 begin
-  fSingleBookPrice := 800;
-  fIntList := TList<integer>.Create;
-  fIntList.AddRange(aBasket);
-  fIntList.Sort;
-  fBasket := ConvertIntArrayToString(aBasket);
+  GroupBasket(aBasket);
 end;
 
-function TBasket.GroupBasket:TArray<String>;
-var lStrArray: TArray<String>;
-    wrkBasket: string;
-    tmpStr   : string;
-    thisBook : string;
-    Index    : integer;
-    StrCount : integer;
-begin
-  wrkBasket := fBasket;
-  StrCount := 1;
-  SetLength(lStrArray,StrCount);
-  thisBook := Head(wrkBasket);
-  while wrkBasket.Length > 0 do
+procedure TBasket.GroupBasket(aBasket: TArray<Integer>);
+
+{$region 'Worker Functions'}
+  function FindQuantanties: TDictionary<integer, integer>;
+  var
+    lBook: integer;
   begin
-    Index := 0;
-    repeat
-      tmpStr := lStrArray[Index];
-      if thisBook.Length > 0 then
-      begin
-        if not tmpStr.Contains(thisBook) then
-        begin
-          tmpStr := tmpStr + thisBook;
-          lStrArray[Index] := tmpStr;
-          wrkBasket := Tail(wrkBasket);
-          thisBook := Head(wrkBasket);
-        end
-        else
-        if (Index = StrCount - 1) then
-        begin
-          inc(StrCount);
-          SetLength(lStrArray,StrCount);
-        end;
-        inc(Index);
-      end;
-    until (Index = StrCount) or wrkBasket.IsEmpty;
+    Result :=  TDictionary<integer, integer>.Create;
+    for lBook in aBasket do
+      if not Result.ContainsKey(lBook) then
+        Result.Add(lBook, 1)
+      else
+        Result.Items[lBook] := Result.Items[lBook] + 1;
   end;
-  result := lStrArray;
+
+  function QuantantiesToSets(aQtys : TDictionary<integer, integer>): TList<integer>;
+  var
+    lQty: TPair<integer, integer>;
+  begin
+    Result := TList<integer>.Create;
+    for lQty in aQtys do
+      Result.Add(lQty.Value);
+    Result.Sort;
+  end;
+
+  function RangeOfSets(aSets : TList<integer>): TList<integer>;
+  var
+    i, R, Tmp: Integer;
+  begin
+    Result := TList<integer>.Create;
+    if aSets.Count > 0 then
+      for i := 0 to aSets.Last - 1 do
+      begin
+        Tmp := 0;
+        for R in ASets do
+          if R - i > 0 then
+            inc(Tmp);
+        Result.Add(Tmp);
+      end;
+  end;
+{$endregion}
+
+var
+  lQtys : TDictionary<integer, integer>;
+  lSets : TList<integer>;
+begin
+  lQtys := FindQuantanties;
+  lSets := QuantantiesToSets(lQtys);
+  FRanges := RangeOfSets(lSets);
+  lQtys.DisposeOf;
+  lSets.DisposeOf;
 end;
 
 function TBasket.Total:integer;
-var
-    subBaskets    : TArray<String>;
-    subResult     : array[0..1] of integer;
-    lSortedBasket : TArray<integer>;
 
-    function computeTotal: integer;
-    var wrkSubBasket: string;
-        totalBooks  : integer;
-        subTotal    : integer;
+{$region 'Worker Functions'}
+  procedure Recombine;
+  begin
+    if fRanges.First - fRanges.Last > 1 then
     begin
-      result := 0;
-      for wrkSubBasket in subBaskets do
-      begin
-        totalBooks := wrkSubBasket.Length;
-        subTotal := totalBooks * round(fSingleBookPrice * DiscountPercentage(wrkSubBasket));
-        Result := Result + subTotal;
-      end;
+      fRanges[0] := fRanges.First - 1;
+      fRanges[fRanges.Count - 1] := fRanges.Last + 1;
+      fRanges.Sort;
+      fRanges.Reverse;
     end;
+  end;
 
+  function computeTotal: integer;
+  var
+    s: integer;
+  begin
+    Result := 0;
+    for S in fRanges do
+      Result := Result + round(S * cSingleBookPrice * cDiscounts[S]);
+  end;
+{$endregion}
+
+var
+  newTotal: integer;
 begin
-  fillchar(subResult, sizeof(integer), #0);
-
-  subBaskets := GroupBasket;
-  subResult[0] := computeTotal;
-
-  lSortedBasket := fIntList.ToArray;
-  fBasket := ConvertIntArrayToString(lSortedBasket);
-  subBaskets := GroupBasket;
-  subResult[1] := computeTotal;
-
-  result := min(subResult[0], subResult[1]);
+  result := 0;
+  if fRanges.Count > 0 then
+  begin
+    result := computeTotal;
+    repeat
+      Recombine;
+      newTotal := computeTotal;
+      if newTotal < Result then
+        Result := newTotal;
+    until fRanges.First - fRanges.Last <= 1;
+  end;
 end;
 
 destructor TBasket.Destroy;
 begin
-  fIntList.DisposeOf;
+  fRanges.DisposeOf;
   inherited;
-end;
-
-function TBasket.DiscountPercentage(inStr : string):extended;
-var numDiffBooks: integer;
-begin
-  numDiffBooks := NumberOfDifferentBooks(inStr);
-  result := CDiscounts[numDiffBooks];
-end;
-
-function TBasket.NumberOfDifferentBooks(inStr : string):integer;
-var Book: char;
-begin
-  result := 0;
-  for Book in seriesBooks do
-    if inStr.Contains(Book) then
-      inc(result);
 end;
 
 end.

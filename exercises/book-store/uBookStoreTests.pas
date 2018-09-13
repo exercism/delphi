@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-   CanonicalVersion = '1.3.0';
+   CanonicalVersion = '1.4.0';
 
 type
   [TestFixture]
@@ -13,61 +13,69 @@ type
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure A_basket_containing_only_a_single_book;
+    procedure only_a_single_book;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_only_two_of_the_same_book;
+    procedure two_of_the_same_book;
 
     [Test]
     [Ignore]
-    procedure No_charge_to_carry_around_an_empty_basket;
+    procedure empty_basket;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_only_two_different_books;
+    procedure two_different_books;
 
     [Test]
     [Ignore]
-    procedure A_basket_with_three_different_books;
+    procedure three_different_books;
 
     [Test]
     [Ignore]
-    procedure A_basket_with_four_different_books;
+    procedure four_different_books;
 
     [Test]
     [Ignore]
-    procedure A_basket_with_five_different_books;
+    procedure five_different_books;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_eight_books_consisting_of_a_pair_each_of_the_first_three_books_plus_one_copy_each_of_the_last_two_books;
+    procedure two_groups_of_four_is_cheaper_than_group_of_five_plus_group_of_three;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_nine_books_consisting_of_a_pair_each_of_the_first_four_books_plus_one_of_the_last_book;
+    procedure two_groups_of_four_is_cheaper_than_groups_of_five_and_three;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_ten_books_consisting_of_two_copies_of_each_book_in_the_series;
+    procedure group_of_four_plus_group_of_two_is_cheaper_than_two_groups_of_three;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_eleven_books_consisting_of_three_copies_of_the_first_book_plus_two_each_of_the_remaing_four_bookes_in_the_series;
+    procedure two_each_of_first_4_books_and_1_copy_each_of_rest;
 
     [Test]
     [Ignore]
-    procedure A_basket_containing_twelve_books_consisting_of_three_copies_of_the_first_two_books_plus_two_each_of_the_remaining_three_books_in_the_series;
+    procedure two_copies_of_each_book;
 
     [Test]
     [Ignore]
-    procedure Four_groups_of_four_are_cheaper_than_two_groups_each_of_five_and_three;
+    procedure three_copies_of_first_book_and_2_each_of_remaining;
+
+    [Test]
+    [Ignore]
+    procedure three_each_of_first_2_books_and_2_each_of_remaining_books;
+
+    [Test]
+    [Ignore]
+    procedure four_groups_of_four_are_cheaper_than_two_groups_each_of_five_and_three;
   end;
 
 implementation
 uses System.SysUtils, uBookStore;
 
-procedure hpTests.A_basket_containing_only_a_single_book;
+procedure hpTests.only_a_single_book;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -80,7 +88,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_only_two_of_the_same_book;
+procedure hpTests.two_of_the_same_book;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -94,7 +102,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.No_charge_to_carry_around_an_empty_basket;
+procedure hpTests.empty_basket;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -106,7 +114,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_only_two_different_books;
+procedure hpTests.two_different_books;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -120,7 +128,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_with_three_different_books;
+procedure hpTests.three_different_books;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -135,7 +143,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.Four_groups_of_four_are_cheaper_than_two_groups_each_of_five_and_three;
+procedure hpTests.four_groups_of_four_are_cheaper_than_two_groups_each_of_five_and_three;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -163,7 +171,25 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_with_four_different_books;
+procedure hpTests.group_of_four_plus_group_of_two_is_cheaper_than_two_groups_of_three;
+var Basket: TArray<integer>;
+    fBasket: IBasket;
+    Expected: integer;
+begin
+  SetLength(Basket, 6);
+  Basket[0] := 1;
+  Basket[1] := 1;
+  Basket[2] := 2;
+  Basket[3] := 2;
+  Basket[4] := 3;
+  Basket[5] := 4;
+  Expected := 4080;
+
+  fBasket := NewBasket(Basket);
+  assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
+end;
+
+procedure hpTests.four_different_books;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -179,7 +205,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_with_five_different_books;
+procedure hpTests.five_different_books;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -196,7 +222,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_eight_books_consisting_of_a_pair_each_of_the_first_three_books_plus_one_copy_each_of_the_last_two_books;
+procedure hpTests.two_groups_of_four_is_cheaper_than_group_of_five_plus_group_of_three;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -216,7 +242,27 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_nine_books_consisting_of_a_pair_each_of_the_first_four_books_plus_one_of_the_last_book;
+procedure hpTests.two_groups_of_four_is_cheaper_than_groups_of_five_and_three;
+var Basket: TArray<integer>;
+    fBasket: IBasket;
+    Expected: integer;
+begin
+  SetLength(Basket, 8);
+  Basket[0] := 1;
+  Basket[1] := 1;
+  Basket[2] := 2;
+  Basket[3] := 3;
+  Basket[4] := 4;
+  Basket[5] := 4;
+  Basket[6] := 5;
+  Basket[7] := 5;
+  Expected := 5120;
+
+  fBasket := NewBasket(Basket);
+  assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
+end;
+
+procedure hpTests.two_each_of_first_4_books_and_1_copy_each_of_rest;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -237,7 +283,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_ten_books_consisting_of_two_copies_of_each_book_in_the_series;
+procedure hpTests.two_copies_of_each_book;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -259,7 +305,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_eleven_books_consisting_of_three_copies_of_the_first_book_plus_two_each_of_the_remaing_four_bookes_in_the_series;
+procedure hpTests.three_copies_of_first_book_and_2_each_of_remaining;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
@@ -282,7 +328,7 @@ begin
   assert.AreEqual(Expected, fBasket.Total, format('Total should be %d cents',[Expected]));
 end;
 
-procedure hpTests.A_basket_containing_twelve_books_consisting_of_three_copies_of_the_first_two_books_plus_two_each_of_the_remaining_three_books_in_the_series;
+procedure hpTests.three_each_of_first_2_books_and_2_each_of_remaining_books;
 var Basket: TArray<integer>;
     fBasket: IBasket;
     Expected: integer;
