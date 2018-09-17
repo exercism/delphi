@@ -340,13 +340,6 @@ var game: IBowlingGame;
 begin
   game := RollMany([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10], NewBowlingGame);
   Assert.IsFalse(game.Roll(11));
-    (*{
-        var sut = new BowlingGame();
-        var previousRolls = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10};
-        DoRoll(previousRolls, sut);
-        Assert.Throws<ArgumentException>(() => sut.Roll(11));
-    } (**)
-
 end;
 
 procedure BowlingTests.Bonus_roll_for_a_spare_in_the_last_frame_must_be_rolled_before_score_can_be_calculated;
