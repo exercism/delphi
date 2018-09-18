@@ -136,6 +136,17 @@
       ]
     },
     {
+      "slug": "acronym",
+      "uuid": "0bad09fa-ea2f-4ebe-95a8-5b183c32912b",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 4,
+      "topics": [
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "nucleotide-count",
       "uuid": "f2fae277-db73-482c-ac3a-496237ad5a42",
       "core": true,
