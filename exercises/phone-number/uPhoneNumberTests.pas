@@ -11,7 +11,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.4.0';
+  CanonicalVersion = '1.5.0';
 
 type
 
@@ -73,6 +73,22 @@ type
     [Test]
     [Ignore]
     procedure Invalid_if_exchange_code_starts_with_1;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_if_area_code_starts_with_0_on_valid_11_digit_number;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_if_area_code_starts_with_1_on_valid_11_digit_number;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_if_exchange_code_starts_with_0_on_valid_11_digit_number;
+
+    [Test]
+    [Ignore]
+    procedure Invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number;
 
     [Test]
     [Ignore('This is a bonus test')]
@@ -167,10 +183,24 @@ begin
   assert.AreEqual('', phone.Clean);
 end;
 
+procedure PhoneNumberTests.Invalid_if_area_code_starts_with_0_on_valid_11_digit_number;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('1 (023) 456-7890');
+  assert.AreEqual('', phone.Clean);
+end;
+
 procedure PhoneNumberTests.Invalid_if_area_code_starts_with_1;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('(123) 456-7890');
+  assert.AreEqual('', phone.Clean);
+end;
+
+procedure PhoneNumberTests.Invalid_if_area_code_starts_with_1_on_valid_11_digit_number;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('1 (123) 456-7890');
   assert.AreEqual('', phone.Clean);
 end;
 
@@ -181,10 +211,24 @@ begin
   assert.AreEqual('', phone.Clean);
 end;
 
+procedure PhoneNumberTests.Invalid_if_exchange_code_starts_with_0_on_valid_11_digit_number;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('1 (223) 056-7890');
+  assert.AreEqual('', phone.Clean);
+end;
+
 procedure PhoneNumberTests.Invalid_if_exchange_code_starts_with_1;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('(223) 156-7890');
+  assert.AreEqual('', phone.Clean);
+end;
+
+procedure PhoneNumberTests.Invalid_if_exchange_code_starts_with_1_on_valid_11_digit_number;
+var phone: IPhoneNumber;
+begin
+  phone := NewPhoneNumber('1 (223) 156-7890');
   assert.AreEqual('', phone.Clean);
 end;
 
@@ -206,7 +250,7 @@ procedure PhoneNumberTests.Formats_a_number;
 var phone: IPhoneNumber;
 begin
   phone := NewPhoneNumber('2234567890');
-  assert.AreEqual('(223) 456-7890', phone.Formatted);
+  assert.AreEqual('(223) 456-7890', phone.ToString);
 end;
 
 initialization
