@@ -147,6 +147,17 @@
       ]
     },
     {
+      "slug": "twelve-days",
+      "uuid": "a5b1032f-8897-4952-bc56-5cbb281513dc",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "strings"
+      ]
+    },
+    {
       "slug": "nucleotide-count",
       "uuid": "f2fae277-db73-482c-ac3a-496237ad5a42",
       "core": true,
