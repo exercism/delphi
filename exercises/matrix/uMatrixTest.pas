@@ -1,9 +1,13 @@
 unit uMatrixTest;
 
 interface
+
 uses
   DUnitX.TestFramework, uMatrix,
   System.Generics.Collections;
+
+const
+  CanonicalVersion = '1.0.0';
 
 type
 
@@ -98,7 +102,6 @@ begin
   Assert.AreEqual(Length(Expected), Length(Actual));
   for i := Low(expected) to High(expected) do
     Assert.AreEqual(expected[i], Actual[i]);
-
 end;
 
 procedure TMatrixTest.extract_column_from_one_number_matrix;
