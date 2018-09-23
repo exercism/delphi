@@ -2,68 +2,81 @@ unit uRobotSimulator;
 
 interface
 
-uses System.Types;
-
 type
   TDirection = (north, east, south, west);
 
-  TCoordinate = TPoint;
-
-  RobotSimulator = class
-    FDirection : TDirection;
-    FCoordinate : TCoordinate;
+  TCoordinate = record
+  private
+    fX: integer;
+    fY: integer;
   public
-    property Direction : TDirection read FDirection;
-    property Coordinate : TCoordinate read FCoordinate;
-    constructor Create(ADirection : TDirection; ACoord : TCoordinate);
+    constructor create(aX, aY: integer);
+    property X: integer read fX;
+    property Y: integer read fY;
+  end;
+
+  TRobotSimulator = class
+  private
+    FDirection: TDirection;
+    FCoordinate: TCoordinate;
+  public
+    constructor Create(ADirection: TDirection; ACoord: TCoordinate);
+    property Direction: TDirection read FDirection;
+    property Coordinate: TCoordinate read FCoordinate;
     procedure TurnRight;
     procedure TurnLeft;
     procedure Advance;
-    procedure Instructions(APath : string);
+    procedure Instructions(APath: string);
   end;
 
 implementation
 
-{ RobotSimulator }
+{ TRobotSimulator }
 
-procedure RobotSimulator.Advance;
+procedure TRobotSimulator.Advance;
 begin
   case FDirection of
-    north: FCoordinate.Y := Coordinate.Y + 1;
-    east: FCoordinate.X := Coordinate.X + 1;
-    south: FCoordinate.Y := Coordinate.Y - 1;
-    west: FCoordinate.X := Coordinate.X - 1;
+    north: FCoordinate.fY := FCoordinate.fY + 1;
+    east: FCoordinate.fX := FCoordinate.fX + 1;
+    south: FCoordinate.fY := FCoordinate.fY - 1;
+    west: FCoordinate.fX := FCoordinate.fX - 1;
   end;
 end;
 
-constructor RobotSimulator.Create(ADirection: TDirection; ACoord: TCoordinate);
+constructor TRobotSimulator.Create(ADirection: TDirection; ACoord: TCoordinate);
 begin
   FDirection := ADirection;
   FCoordinate := ACoord;
 end;
 
-procedure RobotSimulator.Instructions(APath: string);
+procedure TRobotSimulator.Instructions(APath: string);
 var
   C: char;
 begin
   for C in APath do
-  begin
     case c of
-      'L' : TurnLeft;
-      'R' : TurnRight;
-      'A' : Advance;
-    end;
-  end;
+      'L', 'l' : TurnLeft;
+      'R', 'r' : TurnRight;
+      'A', 'a' : Advance;
+    end; //case
 end;
 
-procedure RobotSimulator.TurnLeft;
+procedure TRobotSimulator.TurnLeft;
 begin
   FDirection := TDirection(((ord(FDirection) + 3)) mod 4);
 end;
 
-procedure RobotSimulator.TurnRight;
+procedure TRobotSimulator.TurnRight;
 begin
   FDirection := TDirection((ord(FDirection) + 1) mod 4);
+end;
+
+{ TCoordinate }
+
+constructor TCoordinate.create(aX, aY: integer);
+begin
+  fX := aX;
+  fY := aY;
 end;
 
 end.
