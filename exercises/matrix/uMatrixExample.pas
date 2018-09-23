@@ -2,10 +2,8 @@ unit uMatrix;
 
 interface
 
-uses System.SysUtils;
-
 type
-  Matrix = class
+  TMatrix = class
   private
     FMat : TArray<TArray<integer>>;
   public
@@ -15,10 +13,11 @@ type
   end;
 
 implementation
+uses System.SysUtils;
 
-{ Matrix }
+{ TMatrix }
 
-function Matrix.Column(AInd: integer): TArray<integer>;
+function TMatrix.Column(AInd: integer): TArray<integer>;
 var i : integer;
 begin
   SetLength(Result, Length(FMat));
@@ -26,7 +25,7 @@ begin
     Result[i] := FMat[i, AInd];
 end;
 
-constructor Matrix.Create(AMatr: string);
+constructor TMatrix.Create(AMatr: string);
 var Rows, Elems : TArray<string>;
     i, j : integer;
 begin
@@ -41,7 +40,7 @@ begin
   end;
 end;
 
-function Matrix.Row(AInd: integer): TArray<integer>;
+function TMatrix.Row(AInd: integer): TArray<integer>;
 begin
   Result := FMat[AInd];
 end;

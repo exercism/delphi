@@ -3,8 +3,7 @@ unit uMatrixTest;
 interface
 
 uses
-  DUnitX.TestFramework, uMatrix,
-  System.Generics.Collections;
+  DUnitX.TestFramework, System.Generics.Collections;
 
 const
   CanonicalVersion = '1.0.0';
@@ -15,6 +14,7 @@ type
   TMatrixTest = class(TObject)
   private
     ExpectedRow : TList<integer>;
+    procedure CompareArrays(Array1, Array2: TArray<integer>);
   public
     [Setup]
     procedure Setup;
@@ -55,101 +55,119 @@ type
   end;
 
 implementation
+uses uMatrix;
 
 procedure TMatrixTest.can_extract_column;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([3, 6, 9]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1 2 3\n4 5 6\n7 8 9').column(2);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1 2 3\n4 5 6\n7 8 9');
+  Actual := CUT.column(2);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.can_extract_column_from_non_square_matrix;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([3, 6, 9, 6]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1 2 3\n4 5 6\n7 8 9\n8 7 6').column(2);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1 2 3\n4 5 6\n7 8 9\n8 7 6');
+  Actual := CUT.column(2);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.can_extract_row;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([3, 4]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1 2\n3 4').Row(1);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1 2\n3 4');
+  Actual := CUT.Row(1);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.can_extract_row_from_non_square_matrix;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([7, 8, 9]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1 2 3\n4 5 6\n7 8 9\n8 7 6').Row(2);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1 2 3\n4 5 6\n7 8 9\n8 7 6');
+  Actual := CUT.Row(2);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.extract_column_from_one_number_matrix;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([1]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1').column(0);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1');
+  Actual := CUT.column(0);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.extract_column_where_numbers_have_different_widths;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([1903, 3, 4]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('89 1903 3\n18 3 1\n9 4 800').column(1);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('89 1903 3\n18 3 1\n9 4 800');
+  Actual := CUT.column(1);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.extract_row_from_one_number_matrix;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([1]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1').Row(0);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1');
+  Actual := CUT.Row(0);
+  CompareArrays(Expected, Actual);
 end;
 
 procedure TMatrixTest.extract_row_where_numbers_have_different_widths;
-var Expected, Actual : TArray<integer>;
+var
+  CUT: TMatrix;
+  Expected, Actual : TArray<integer>;
   i: Integer;
 begin
   ExpectedRow.AddRange([10, 20]);
   Expected := ExpectedRow.ToArray;
-  Actual := Matrix.Create('1 2\n10 20').Row(1);
-  Assert.AreEqual(Length(Expected), Length(Actual));
-  for i := Low(expected) to High(expected) do
-    Assert.AreEqual(expected[i], Actual[i]);
+  CUT := TMatrix.Create('1 2\n10 20');
+  Actual := CUT.Row(1);
+  CompareArrays(Expected, Actual);
+end;
+
+procedure TMatrixTest.CompareArrays(Array1, Array2: TArray<integer>);
+var
+  i: integer;
+begin
+  Assert.AreEqual(Length(Array1), Length(Array2));
+  for i := Low(Array1) to High(Array1) do
+    Assert.AreEqual(Array1[i], Array2[i]);
 end;
 
 procedure TMatrixTest.Setup;
