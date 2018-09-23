@@ -248,6 +248,18 @@
       ]
     },
     {
+      "slug": "robot-simulator",
+      "uuid": "2ee9e156-ebda-4e92-a9bc-17d491252354",
+      "core": false,
+      "unlocked_by": "clock",
+      "difficulty": 3,
+      "topics": [
+        "classes",
+        "records",
+        "enumerations"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "7a489381-5ef6-49df-a05d-4c73b3ed9b53",
       "core": false,
