@@ -146,6 +146,17 @@
         "transforming"
       ]
     },
+	  {
+      "slug": "matrix",
+      "uuid": "c1c01b18-7473-47fc-a86f-a770b844435b",
+      "core": false,
+      "unlocked_by": "grade-school",
+      "difficulty": 4,
+      "topics": [
+        "matrices",
+        "parsing"
+      ]
+    },
     {
       "slug": "twelve-days",
       "uuid": "a5b1032f-8897-4952-bc56-5cbb281513dc",
