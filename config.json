@@ -224,6 +224,18 @@
       ]
     },
     {
+      "slug": "pascals-triangle",
+      "uuid": "e5ec2940-ea15-475b-91b9-2caf85b73b35",
+      "core": false,
+      "unlocked_by": "grade-school",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "control_flow_loops",
+        "math"
+      ]
+    },
+    {
       "slug": "collatz-conjecture",
       "uuid": "edfc2903-1165-4029-9901-0be72b32865f",
       "core": true,
