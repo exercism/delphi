@@ -4,7 +4,7 @@ interface
 uses
   DUnitX.TestFramework, uPascalsTriangle;
 
-const CanonicalVersion = '1.3.0';
+const CanonicalVersion = '1.5.0';
 
 type
   TMatrix = TArray<TArray<integer>>;
@@ -13,7 +13,6 @@ type
   TPascalsTriangleTest = class(TObject)
   private
     procedure CompareIntMatrices(AExpected, AActual : TArray<TArray<integer>>);
-
   public
 
     [Test]
@@ -47,14 +46,9 @@ type
     [Test]
     [Ignore]
     procedure ten_rows;
-
-    [Test]
-    [Ignore]
-    procedure negative_rows;
   end;
 
 implementation
-
 uses System.SysUtils;
 
 procedure TPascalsTriangleTest.CompareIntMatrices(AExpected, AActual: TArray<TArray<integer>>);
@@ -155,12 +149,6 @@ begin
               [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]];
   Actual := PascalsTriangle.Calculate(10);
   CompareIntMatrices(Expected, Actual);
-end;
-
-procedure TPascalsTriangleTest.negative_rows;
-begin
-  Assert.WillRaise(procedure() begin PascalsTriangle.Calculate(-1) end,
-                    EArgumentOutOfRangeException);
 end;
 
 initialization
