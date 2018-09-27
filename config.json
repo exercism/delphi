@@ -418,6 +418,17 @@
       ]
     },
     {
+      "slug": "ocr-numbers",
+      "uuid": "01c0f2de-e1bc-4540-a127-21e78e9630b3",
+      "core": false,
+      "unlocked_by": "nucleotide-count",
+      "difficulty": 5,
+      "topics": [
+        "parsing",
+        "pattern_recognition"
+      ]
+    },
+    {
       "slug": "circular-buffer",
       "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57",
       "core": true,
