@@ -11,7 +11,6 @@ type
   [TestFixture('Binary digit test')]
   TBinaryDigitTest = class(TObject)
   public
-
     [Test]
 //  [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Recognizes_0;
@@ -86,7 +85,8 @@ implementation
 uses System.SysUtils;
 
 procedure TBinaryDigitTest.Garbled_numbers_in_a_string_are_replaced_with_question_mark;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['       _     _           _ ',
            '  |  || |  || |     || || |',
@@ -96,28 +96,43 @@ begin
 end;
 
 procedure TBinaryDigitTest.Input_with_a_number_of_columns_that_is_not_a_multiple_of_three_raises_an_error;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
+  MyProc: TTestLocalMethod;
 begin
+  MyProc := procedure
+            begin
+              TOcrNumbers.convert(rows)
+            end;
+
   rows := ['    ',
            '   |',
            '   |',
            '    '];
-  Assert.WillRaiseWithMessage(procedure () begin TOcrNumbers.convert(rows) end,
-                              EArgumentException, 'Number of input columns is not a multiple of three');
+  Assert.WillRaiseWithMessage(MyProc, EArgumentException,
+    'Number of input columns is not a multiple of three');
 end;
 
 procedure TBinaryDigitTest.Input_with_a_number_of_lines_that_is_not_a_multiple_of_four_raises_an_error;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
+  MyProc: TTestLocalMethod;
 begin
+  MyProc := procedure
+            begin
+              TOcrNumbers.convert(rows)
+            end;
+
   rows := [' _ ',
            '| |',
            '   '];
-  Assert.WillRaiseWithMessage(procedure () begin TOcrNumbers.convert(rows) end,
-                              EArgumentException, 'Number of input lines is not a multiple of four');
+  Assert.WillRaiseWithMessage(MyProc, EArgumentException,
+    'Number of input lines is not a multiple of four');
 end;
 
 procedure TBinaryDigitTest.Recognizes_0;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            '| |',
@@ -127,7 +142,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_1;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['   ',
            '  |',
@@ -137,7 +153,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Unreadable_but_correctly_sized_inputs_return_question_mark;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['   ',
            '  _',
@@ -147,7 +164,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_110101100;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['       _     _        _  _ ',
            '  |  || |  || |  |  || || |',
@@ -157,7 +175,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_2;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            ' _|',
@@ -167,7 +186,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_3;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            ' _|',
@@ -177,7 +197,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_4;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['   ',
            '|_|',
@@ -187,7 +208,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_5;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            '|_ ',
@@ -197,7 +219,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_6;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            '|_ ',
@@ -207,7 +230,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_7;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            '  |',
@@ -217,7 +241,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_8;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            '|_|',
@@ -227,7 +252,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Recognizes_9;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := [' _ ',
            '|_|',
@@ -239,7 +265,8 @@ end;
 
 
 procedure TBinaryDigitTest.Recognizes_string_of_decimal_numbers;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['    _  _     _  _  _  _  _  _ ',
            '  | _| _||_||_ |_   ||_||_|| |',
@@ -249,7 +276,8 @@ begin
 end;
 
 procedure TBinaryDigitTest.Numbers_separated_by_empty_lines_are_recognized_Lines_are_joined_by_commas;
-var rows : TArray<string>;
+var
+  rows: TArray<string>;
 begin
   rows := ['    _  _ ',
            '  | _| _|',
@@ -264,7 +292,6 @@ begin
            '  ||_| _|',
            '         '];
   Assert.AreEqual('123,456,789', TOcrNumbers.convert(rows));
-
 end;
 
 initialization
