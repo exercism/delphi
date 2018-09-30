@@ -250,8 +250,8 @@
     {
       "slug": "collatz-conjecture",
       "uuid": "edfc2903-1165-4029-9901-0be72b32865f",
-      "core": true,
-      "unlocked_by": null,
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 2,
       "topics": [
         "algorithms",
@@ -264,7 +264,7 @@
       "slug": "armstrong-numbers",
       "uuid": "5315f8b0-f2a2-4750-8dc3-b4d182111036",
       "core": false,
-      "unlocked_by": "collatz-conjecture",
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 2,
       "topics": [
         "algorithms",
@@ -309,7 +309,7 @@
       "slug": "phone-number",
       "uuid": "cba5cf99-8001-4113-af80-cf9c041f1b21",
       "core": false,
-      "unlocked_by": "collatz-conjecture",
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 3,
       "topics": [
         "parsing",
@@ -331,7 +331,7 @@
       "slug": "secret-handshake",
       "uuid": "2032ba03-845a-460b-ad93-0958e97eb7cc",
       "core": false,
-      "unlocked_by": "collatz-conjecture",
+      "unlocked_by": "sum-of-multiples",
       "difficulty": 3,
       "topics": [
         "arrays",
