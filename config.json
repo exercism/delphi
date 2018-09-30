@@ -47,6 +47,18 @@
       ]
     },
     {
+      "slug": "sum-of-multiples",
+      "uuid": "47c634ec-3f67-49fa-b0fa-62be3c351610",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "arrays",
+        "math",
+        "transforming"
+      ]
+    },
+    {
       "slug": "leap",
       "uuid": "9e54a998-450c-4020-834e-eaa77f909744",
       "core": true,
