@@ -11,7 +11,7 @@ type
     procedure CompareStringArrays(ExpectedArray, ActualArray : TArray<string>);
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure garden_with_single_student;
 
     [Test]
@@ -60,7 +60,8 @@ begin
 end;
 
 procedure TPartialGardenTest.different_garden_with_single_student;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['violets', 'clover', 'radishes', 'clover'];
@@ -69,7 +70,8 @@ begin
 end;
 
 procedure TPartialGardenTest.garden_with_single_student;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['radishes', 'clover', 'grass', 'grass'];
@@ -78,7 +80,8 @@ begin
 end;
 
 procedure TPartialGardenTest.garden_with_two_students;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['clover', 'grass', 'radishes', 'clover'];
@@ -87,7 +90,8 @@ begin
 end;
 
 procedure TPartialGardenTest.multiple_students_for_the_same_garden_with_three_students_second_students_garden;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['clover', 'clover', 'clover', 'clover'];
@@ -96,7 +100,8 @@ begin
 end;
 
 procedure TPartialGardenTest.multiple_students_for_the_same_garden_with_three_students_third_students_garden;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['grass', 'grass', 'grass', 'grass'];
@@ -105,7 +110,8 @@ begin
 end;
 
 procedure TPartialGardenTest.first_students_garden;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['violets', 'radishes', 'violets', 'radishes'];
@@ -114,7 +120,8 @@ begin
 end;
 
 procedure TPartialGardenTest.second_students_garden;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['clover', 'grass', 'clover', 'clover'];
@@ -123,7 +130,8 @@ begin
 end;
 
 procedure TPartialGardenTest.second_to_last_students_garden;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['grass', 'clover', 'clover', 'grass'];
@@ -132,7 +140,8 @@ begin
 end;
 
 procedure TPartialGardenTest.last_students_garden;
-var Garden : TGarden;
+var
+  Garden : TGarden;
   ExpectedArray : TArray<string>;
 begin
   ExpectedArray := ['grass', 'violets', 'clover', 'violets'];
