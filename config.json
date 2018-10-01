@@ -362,6 +362,17 @@
       ]
     },
     {
+      "slug": "kindergarten-garden",
+      "uuid": "e02e1384-f8dd-4912-ab0c-1d8e6a96200c",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "enumerations",
+        "parsing"
+      ]
+    },
+    {
       "slug": "clock",
       "uuid": "0223dfe4-3ff4-4f4e-8cd2-821e1fd50217",
       "core": true,
