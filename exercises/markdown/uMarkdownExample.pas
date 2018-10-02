@@ -15,19 +15,13 @@ uses
 { TMarkdown }
 
 class function TMarkdown.Parse(AInp : string): string;
-//type
-//  TParserState = (Paragraf, Header, List);
 var
   Lines, Tokens : TList<string>;
   L, NewLine: string;
   H : integer;
   IsListStarted : boolean;
 
-
-
   function ParseLine(ALine : string) : string;
-  var
-    i, LHeader : integer;
 
     function CheckHeader(AToken : string) : integer;
     var
@@ -41,22 +35,30 @@ var
           exit(0);
     end;
 
+    procedure DoFormat;
+    var
+      i : integer;
+    begin
+      for i := 0 to Tokens.Count - 1 do
+      begin
+         if Tokens[i].StartsWith('__') then
+          Tokens[i] := '<strong>' + Tokens[i].Substring(2);
+        if Tokens[i].EndsWith('__') then
+          Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 2) + '</strong>';
+        if Tokens[i].StartsWith('_') then
+          Tokens[i] := '<em>' + Tokens[i].Substring(1);
+        if Tokens[i].EndsWith('_') then
+          Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 1) + '</em>';
+      end;
+    end;
+
   begin
     Tokens.Clear;
     Tokens.AddRange(ALine.Split([' ']));
-    LHeader := CheckHeader(Tokens[0]);
-    for i := 0 to Tokens.Count - 1 do
-    begin
-       if Tokens[i].StartsWith('__') then
-        Tokens[i] := '<strong>' + Tokens[i].Substring(2);
-      if Tokens[i].EndsWith('__') then
-        Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 2) + '</strong>';
-      if Tokens[i].StartsWith('_') then
-        Tokens[i] := '<em>' + Tokens[i].Substring(1);
-      if Tokens[i].EndsWith('_') then
-        Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 1) + '</em>';
-    end;
+    DoFormat;
+
     H := CheckHeader(Tokens[0]);
+    Result := '<p>' + string.Join(' ', Tokens.ToArray) + '</p>';
     if H <> 0 then
     begin
       Tokens.Delete(0);
@@ -68,10 +70,26 @@ var
         Tokens.Delete(0);
         Result := '<li>' + string.Join(' ', Tokens.ToArray) + '</li>';
       end
-      else
-      begin
-        Result := '<p>' + string.Join(' ', Tokens.ToArray) + '</p>';
-      end;
+  end;
+
+  procedure OpenList;
+  begin
+    if NewLine.StartsWith('<li>') then
+    begin
+      Result := Result + '<ul>' + NewLine;
+      IsListStarted := true;
+    end
+    else
+      Result := Result + NewLine
+  end;
+
+  procedure CloseList;
+  begin
+    if not NewLine.StartsWith('<li>') then
+    begin
+      Result := Result + NewLine + '</ul>';
+      IsListStarted := false;
+    end;
   end;
 
 begin
@@ -84,19 +102,9 @@ begin
   begin
     NewLine := ParseLine(L);
     if not IsListStarted then
-      if NewLine.StartsWith('<li>') then
-      begin
-        Result := Result + '<ul>' + NewLine;
-        IsListStarted := true;
-      end
-      else
-        Result := Result + NewLine
+      OpenList
     else
-      if not NewLine.StartsWith('<li>') then
-      begin
-        Result := Result + NewLine + '</ul>';
-        IsListStarted := false;
-      end;
+      CloseList;
   end;
   if IsListStarted  then
     Result := Result + NewLine + '</ul>';

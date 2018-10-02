@@ -15,39 +15,26 @@ uses
 { TMarkdown }
 
 class function TMarkdown.Parse(AInp : string): string;
-//type
-//  TParserState = (Paragraf, Header, List);
 var
   Lines, Tokens : TList<string>;
   L, NewLine: string;
-  H : integer;
+  H, i : integer;
   IsListStarted : boolean;
 
-
-
-  function ParseLine(ALine : string) : string;
-  var
-    i, LHeader : integer;
-
-    function CheckHeader(AToken : string) : integer;
-    var
-      c: char;
-    begin
-      Result := 0;
-      for c in AToken do
-        if (c = '#') and (Result < 6) then
-          inc(Result)
-        else
-          exit(0);
-    end;
-
+begin
+  Lines := TList<string>.Create;
+  Tokens := TList<string>.Create;
+  Result := '';
+  H := 0;
+  IsListStarted := false;
+  Lines.AddRange(AInp.Split(['\n']));
+  for L in Lines do
   begin
     Tokens.Clear;
-    Tokens.AddRange(ALine.Split([' ']));
-    LHeader := CheckHeader(Tokens[0]);
+    Tokens.AddRange(L.Split([' ']));
     for i := 0 to Tokens.Count - 1 do
     begin
-       if Tokens[i].StartsWith('__') then
+      if Tokens[i].StartsWith('__') then
         Tokens[i] := '<strong>' + Tokens[i].Substring(2);
       if Tokens[i].EndsWith('__') then
         Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 2) + '</strong>';
@@ -56,33 +43,34 @@ var
       if Tokens[i].EndsWith('_') then
         Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 1) + '</em>';
     end;
-    H := CheckHeader(Tokens[0]);
+
+    for i := 1 to Length(Tokens[0]) do
+      if Tokens[0][i] = '#' then
+        if H < 6 then
+          H := H + 1
+        else
+      else
+      begin
+        H := 0;
+        break;
+      end;
+
     if H <> 0 then
     begin
       Tokens.Delete(0);
-      Result :=format('<h%d>%s</h%0:d>',[H, string.Join(' ', Tokens.ToArray)]);
+      NewLine :=format('<h%d>%s</h%0:d>',[H, string.Join(' ', Tokens.ToArray)]);
     end
     else
       if Tokens[0] = '*' then
       begin
         Tokens.Delete(0);
-        Result := '<li>' + string.Join(' ', Tokens.ToArray) + '</li>';
+        NewLine := '<li>' + string.Join(' ', Tokens.ToArray) + '</li>';
       end
       else
       begin
-        Result := '<p>' + string.Join(' ', Tokens.ToArray) + '</p>';
+        NewLine := '<p>' + string.Join(' ', Tokens.ToArray) + '</p>';
       end;
-  end;
 
-begin
-  Lines := TList<string>.Create;
-  Tokens := TList<string>.Create;
-  Result := '';
-  IsListStarted := false;
-  Lines.AddRange(AInp.Split(['\n']));
-  for L in Lines do
-  begin
-    NewLine := ParseLine(L);
     if not IsListStarted then
       if NewLine.StartsWith('<li>') then
       begin
@@ -90,7 +78,9 @@ begin
         IsListStarted := true;
       end
       else
-        Result := Result + NewLine
+      begin
+        Result := Result + NewLine;
+      end
     else
       if not NewLine.StartsWith('<li>') then
       begin
