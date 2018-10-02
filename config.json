@@ -419,6 +419,18 @@
       ]
     },
     {
+      "slug": "markdown",
+      "uuid": "94751c15-6ad9-4d80-b54c-cd360ec240e2",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 5,
+      "topics": [
+        "parsing",
+        "refactoring",
+        "transforming"
+      ]
+    },
+    {
       "slug": "anagram",
       "uuid": "f7639fb5-eca7-4233-986c-293adc76aa9e",
       "core": false,
