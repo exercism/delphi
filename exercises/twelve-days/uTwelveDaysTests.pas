@@ -92,7 +92,7 @@ begin
     'eight Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five ' +
     'Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, ' +
     'and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(8));
+  Assert.AreEqual(expected, TwelveDays.Recite(8),false);
 end;
 
 procedure TwelveDaysVerseTests.eleventh_day_eleven_pipers_piping;
@@ -102,7 +102,7 @@ begin
     'Maids-a-Milking, seven Swans-a-Swimming, six Geese-a-Laying, five Gold ' +
     'Rings, four Calling Birds, three French Hens, two Turtle Doves, and a ' +
     'Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(11));
+  Assert.AreEqual(expected, TwelveDays.Recite(11),false);
 end;
 
 procedure TwelveDaysVerseTests.fifth_day_five_gold_rings;
@@ -110,14 +110,14 @@ begin
   expected := 'On the fifth day of Christmas my true love gave to me: five ' +
     'Gold Rings, four Calling Birds, three French Hens, two Turtle Doves, ' +
     'and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(5));
+  Assert.AreEqual(expected, TwelveDays.Recite(5),false);
 end;
 
 procedure TwelveDaysVerseTests.first_day_a_partridge_in_a_pear_tree;
 begin
   expected := 'On the first day of Christmas my true love gave to me: a ' +
     'Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(1));
+  Assert.AreEqual(expected, TwelveDays.Recite(1),false);
 end;
 
 procedure TwelveDaysVerseTests.fourth_day_four_calling_birds;
@@ -125,7 +125,7 @@ begin
   expected := 'On the fourth day of Christmas my true love gave to me: four ' +
     'Calling Birds, three French Hens, two Turtle Doves, and a Partridge in ' +
     'a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(4));
+  Assert.AreEqual(expected, TwelveDays.Recite(4),false);
 end;
 
 procedure TwelveDaysVerseTests.ninth_day_nine_ladies_dancing;
@@ -134,14 +134,14 @@ begin
     'Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six ' +
     'Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, ' +
     'two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(9));
+  Assert.AreEqual(expected, TwelveDays.Recite(9),false);
 end;
 
 procedure TwelveDaysVerseTests.second_day_two_turtle_doves;
 begin
   expected := 'On the second day of Christmas my true love gave to me: two ' +
     'Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(2));
+  Assert.AreEqual(expected, TwelveDays.Recite(2).false);
 end;
 
 procedure TwelveDaysVerseTests.seventh_day_seven_swans_a_swimming;
@@ -150,7 +150,7 @@ begin
     'seven Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four ' +
     'Calling Birds, three French Hens, two Turtle Doves, and a Partridge in ' +
     'a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(7));
+  Assert.AreEqual(expected, TwelveDays.Recite(7).false);
 end;
 
 procedure TwelveDaysVerseTests.sixth_day_six_geese_a_laying;
@@ -158,7 +158,7 @@ begin
   expected := 'On the sixth day of Christmas my true love gave to me: six ' +
     'Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, ' +
     'two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(6));
+  Assert.AreEqual(expected, TwelveDays.Recite(6),false);
 end;
 
 procedure TwelveDaysVerseTests.tenth_day_ten_lords_a_leaping;
@@ -168,14 +168,14 @@ begin
     'Swans-a-Swimming, six Geese-a-Laying, five Gold Rings, four Calling ' +
     'Birds, three French Hens, two Turtle Doves, and a Partridge in a Pear ' +
     'Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(10));
+  Assert.AreEqual(expected, TwelveDays.Recite(10),false);
 end;
 
 procedure TwelveDaysVerseTests.third_day_three_french_hens;
 begin
   expected := 'On the third day of Christmas my true love gave to me: three ' +
     'French Hens, two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(3));
+  Assert.AreEqual(expected, TwelveDays.Recite(3).false);
 end;
 
 procedure TwelveDaysVerseTests.twelfth_day_twelve_drummers_drumming;
@@ -185,7 +185,7 @@ begin
     'nine Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six ' +
     'Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, ' +
     'two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(12));
+  Assert.AreEqual(expected, TwelveDays.Recite(12),false);
 end;
 
 { TwelveDaysLyricsTests }
@@ -198,7 +198,7 @@ begin
     'Turtle Doves, and a Partridge in a Pear Tree.\n' +
     'On the third day of Christmas my true love gave to me: three French ' +
     'Hens, two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(1, 3));
+  Assert.AreEqual(expected, TwelveDays.Recite(1, 3),false);
 end;
 
 procedure TwelveDaysLyricsTests.recites_the_whole_song;
@@ -245,7 +245,7 @@ begin
     'Ladies Dancing, eight Maids-a-Milking, seven Swans-a-Swimming, six ' +
     'Geese-a-Laying, five Gold Rings, four Calling Birds, three French ' +
     'Hens, two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(1, 12));
+  Assert.AreEqual(expected, TwelveDays.Recite(1, 12),false);
 end;
 
 procedure TwelveDaysLyricsTests.recites_three_verses_from_the_middle_of_the_song;
@@ -259,7 +259,7 @@ begin
     'On the sixth day of Christmas my true love gave to me: six ' +
     'Geese-a-Laying, five Gold Rings, four Calling Birds, three French Hens, ' +
     'two Turtle Doves, and a Partridge in a Pear Tree.';
-  Assert.AreEqual(expected, TwelveDays.Recite(4, 6));
+  Assert.AreEqual(expected, TwelveDays.Recite(4, 6),false);
 end;
 
 initialization
