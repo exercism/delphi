@@ -330,6 +330,16 @@
       ]
     },
     {
+      "slug": "scrabble-score",
+      "uuid": "90ec6341-080d-41cf-bb08-4a4c9357b10e",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 3,
+      "topics": [
+        "transforming"
+      ]
+    },
+    {
       "slug": "proverb",
       "uuid": "aa42eae2-9a5c-4d01-8900-fad674434cd5",
       "core": false,
