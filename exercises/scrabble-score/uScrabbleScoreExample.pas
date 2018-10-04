@@ -8,10 +8,9 @@ uses
 type
   TScrabble = class
   private
-    type
-      TC = array ['A' .. 'Z'] of integer;
-    class var FValues : TC;
-    class constructor Create;
+    const
+      FValues : array ['A' .. 'Z'] of integer =
+        (1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10);
   public
     class function Score(AInp : string) : integer;
   end;
@@ -20,13 +19,6 @@ implementation
 
 uses
   System.SysUtils;
-
-class constructor TScrabble.Create;
-const
-  LValues : TC = (1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10);
-begin
-  FValues := LValues;
-end;
 
 class function TScrabble.Score(AInp: string): integer;
 var
