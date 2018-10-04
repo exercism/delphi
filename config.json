@@ -329,6 +329,18 @@
       ]
     },
     {
+      "slug": "protein-translation",
+      "uuid": "1e7a5bdb-4505-4b67-a3e7-76681f810d74",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 3,
+      "topics": [
+        "lists",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "secret-handshake",
       "uuid": "2032ba03-845a-460b-ad93-0958e97eb7cc",
       "core": false,
