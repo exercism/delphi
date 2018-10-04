@@ -40,7 +40,7 @@ begin
       3:
         result := result + 'three French Hens, ';
       4:
-        result := result + 'four calling Birds, ';
+        result := result + 'four Calling Birds, ';
       5:
         result := result + 'five Gold Rings, ';
       6:
