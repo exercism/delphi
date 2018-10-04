@@ -183,6 +183,18 @@
       ]
     },
     {
+      "slug": "series",
+      "uuid": "f0974244-d52d-44a2-9df4-85a586b1c2cb",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 4,
+      "topics": [
+        "arrays",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "twelve-days",
       "uuid": "a5b1032f-8897-4952-bc56-5cbb281513dc",
       "core": false,
