@@ -62,9 +62,10 @@ procedure TSeriesTest.CompareArrays(Array1, Array2: TArray<string>);
 var
   i: integer;
 begin
-  Assert.AreEqual(Length(Array1), Length(Array2), ' - Arrays doesn''t have same length');
+  Assert.AreEqual(Length(Array1), Length(Array2), ' - Array lengths must be equal');
   for i := Low(Array1) to High(Array1) do
-    Assert.AreEqual(Array1[i], Array2[i], format(' - on [%d] place of array', [i]));
+    Assert.AreEqual(Array1[i], Array2[i], format('Expecting element %d to = %s, Actual = %s',
+      [i, Array1[i], Array2[i]]));
 end;
 
 procedure TSeriesTest.empty_series_is_invalid;
@@ -142,7 +143,8 @@ var
   Actual : TSlice;
 begin
   Actual := TSlice.Create('123');
-  Assert.WillRaiseWithMessage(procedure()
+  Assert.WillRaiseWithMessage(
+    procedure
     begin
       try
         Actual.slices(-1);
@@ -174,7 +176,8 @@ var
   Actual : TSlice;
 begin
   Actual := TSlice.Create('12345');
-  Assert.WillRaiseWithMessage(procedure()
+  Assert.WillRaiseWithMessage(
+    procedure
     begin
       try
         Actual.slices(6);

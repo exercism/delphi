@@ -2,6 +2,9 @@ unit uSeries;
 
 interface
 
+const
+  CanonicalVersion = '1.0.0';
+
 type
   TSlice = class
   private
@@ -28,17 +31,20 @@ var
 begin
   if (FSerie = '') then
     raise EArgumentException.Create('series cannot be empty');
-  case ALenght of
-    low(integer) .. -1 : raise EArgumentOutOfRangeException.Create('slice length cannot be negative');
-     0 : raise EArgumentOutOfRangeException.Create('slice length cannot be zero');
-    else
-      if (Length(FSerie) < ALenght) then
-        raise EArgumentOutOfRangeException.Create('slice length cannot be greater than series length');
-  end;
+
+  if (Length(FSerie) < ALenght) then
+    raise EArgumentOutOfRangeException.Create('slice length cannot be greater than series length');
+
+  if ALenght = 0 then
+    raise EArgumentOutOfRangeException.Create('slice length cannot be zero');
+
+  if ALenght < 0 then
+    raise EArgumentOutOfRangeException.Create('slice length cannot be negative');
 
   L := TList<string>.Create;
   for i := 0 to Length(FSerie) - ALenght do
     L.Add(FSerie.Substring(i, ALenght));
+
   Result := L.ToArray;
   L.DisposeOf;
 end;
