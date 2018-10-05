@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.4.0';
 
 type
 
@@ -60,7 +60,7 @@ type
 
     [Test]
     [Ignore]
-    procedure capital_word_is_not_own_anagram;
+    procedure words_are_not_anagrams_of_themselves_case_insensitive;
   end;
 
 implementation
@@ -81,15 +81,17 @@ begin
   CompareDynamicArrays(Expected, Anagram.findAnagram(candidates));
 end;
 
-procedure AnagramTests.capital_word_is_not_own_anagram;
+procedure AnagramTests.words_are_not_anagrams_of_themselves_case_insensitive;
 var
   Anagram: TAnagram;
   Expected: TArray<string>;
   candidates: TArray<string>;
 begin
   SetLength(Expected, 0);
-  SetLength(candidates, 1);
-  candidates[0] := 'Banana';
+  SetLength(candidates, 3);
+  candidates[0] := 'BANANA';
+  candidates[1] := 'Banana';
+  candidates[2] := 'banana';
   Anagram := TAnagram.Create('BANANA');
   CompareDynamicArrays(Expected, Anagram.findAnagram(candidates));
 end;
