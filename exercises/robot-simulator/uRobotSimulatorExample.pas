@@ -19,14 +19,14 @@ type
   private
     FDirection: TDirection;
     FCoordinate: TCoordinate;
+    procedure TurnRight;
+    procedure TurnLeft;
+    procedure Advance;
   public
     constructor Create(ADirection: TDirection; ACoord: TCoordinate);
     property Direction: TDirection read FDirection;
     property Coordinate: TCoordinate read FCoordinate;
-    procedure TurnRight;
-    procedure TurnLeft;
-    procedure Advance;
-    procedure Instructions(APath: string);
+    procedure move(APath: string);
   end;
 
 implementation
@@ -49,7 +49,7 @@ begin
   FCoordinate := ACoord;
 end;
 
-procedure TRobotSimulator.Instructions(APath: string);
+procedure TRobotSimulator.move(APath: string);
 var
   C: char;
 begin
