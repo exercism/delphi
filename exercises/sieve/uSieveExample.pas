@@ -14,8 +14,6 @@ implementation
 
 uses System.Generics.Collections;
 
-{ TSieve }
-
 class function TSieve.Primes(AInp: integer): TArray<integer>;
 var Sieve : TList<boolean>;
 
@@ -46,7 +44,7 @@ var Sieve : TList<boolean>;
     LOut := TList<integer>.Create;
     for i :=  2 to AInp do
       if Sieve[i - 2] then
-        LOut.Add(i );
+        LOut.Add(i);
     Result := LOut.ToArray;
     LOut.DisposeOf;
     Sieve.DisposeOf;
