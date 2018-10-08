@@ -308,6 +308,17 @@
       ]
     },
     {
+      "slug": "sieve",
+      "uuid": "1ca27657-488d-492b-94d2-36380ceabfed",
+      "core": false,
+      "unlocked_by": "raindrops",
+      "difficulty": 3,
+      "topics": [
+        "filtering",
+        "math"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "7a489381-5ef6-49df-a05d-4c73b3ed9b53",
       "core": false,
