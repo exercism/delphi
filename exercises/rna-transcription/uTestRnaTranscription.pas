@@ -34,10 +34,13 @@ type
     [Test]
     [Ignore]
     procedure Rna_complement;
+    [Test]
+    [Ignore]
+    procedure Rna_complement_with_invalid_input;
   end;
 
 implementation
-uses uRnaTranscription;
+uses uRnaTranscription, SysUtils;
 
 procedure RnaTranscriptionTest.Rna_complement_of_cytosine_is_guanine;
 begin
@@ -67,6 +70,16 @@ end;
 procedure RnaTranscriptionTest.Rna_complement;
 begin
   Assert.AreEqual('UGCACCAGAAUU', complement.OfDna('ACGTGGTCTTAA'));
+end;
+
+procedure RnaTranscriptionTest.Rna_complement_with_invalid_input;
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              complement.OfDna('ACGTXXXCTTAA');
+            end;
+  Assert.WillRaiseWithMessage(MyProc, Exception, 'Invalid DNA character');
 end;
 
 initialization
