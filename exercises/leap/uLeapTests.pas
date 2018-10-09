@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.4.0';
 
 type
 
@@ -13,7 +13,7 @@ type
   YearTest = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure year_not_divisible_by_4_common_year;
 
     [Test]
@@ -27,6 +27,10 @@ type
     [Test]
     [Ignore]
     procedure year_divisible_by_400_leap_year;
+
+    [Test]
+    [Ignore]
+    procedure year_divisible_by_200_not_divisible_by_400_common_year;
   end;
 
 implementation
@@ -45,6 +49,11 @@ end;
 procedure YearTest.year_divisible_by_100_not_divisible_by_400_common_year;
 begin
   assert.IsFalse(TYear.IsLeap(2100), 'Expected ''false'', 2100 is not a leap year.');
+end;
+
+procedure YearTest.year_divisible_by_200_not_divisible_by_400_common_year;
+begin
+  assert.IsFalse(TYear.IsLeap(1800), 'Expected ''false'', 1800 is not a leap year.');
 end;
 
 procedure YearTest.year_divisible_by_400_leap_year;
