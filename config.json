@@ -589,6 +589,16 @@
       ]
     },
     {
+      "slug": "gigasecond",
+      "uuid": "9b81502d-4c02-44e1-b369-5de6436d1dee",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "dates"
+      ]
+    },
+    {
       "slug": "wordy",
       "uuid": "24d81651-de3b-4cc8-8a4a-67cefc0453f6",
       "core": false,
