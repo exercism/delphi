@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework, uSumsOfMultiples;
 
 const
-  CanonicalVersion = '1.2.0';
+  CanonicalVersion = '1.3.0';
 
 type
   [TestFixture]
@@ -62,6 +62,10 @@ type
     [Test]
     [Ignore]
     procedure multiples_of_an_empty_list_up_to_10000;
+
+    [Test]
+    [Ignore]
+    procedure the_only_multiple_of_0_is_0;
   end;
 
 implementation
@@ -129,6 +133,11 @@ end;
 procedure TSumsOfMultipleTest.multiples_of_an_empty_list_up_to_10000;
 begin
   Assert.AreEqual(0, TMultiplesOf.Sum(10000, []));
+end;
+
+procedure TSumsOfMultipleTest.the_only_multiple_of_0_is_0;
+begin
+  Assert.AreEqual(0, TMultiplesOf.Sum(1, [0]));
 end;
 
 initialization
