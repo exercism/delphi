@@ -8,7 +8,6 @@ const
   CanonicalVersion = '1.1.0';
 
 type
-
   [TestFixture]
   TGigaSecondTest = class(TObject)
   public
@@ -17,19 +16,19 @@ type
     procedure date_only_specification_of_time;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure second_test_for_date_only_specification_of_time;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure third_test_for_date_only_specification_of_time;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure full_time_specified;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure full_time_with_day_roll_over;
 
   end;
