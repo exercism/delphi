@@ -34,7 +34,7 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 
 ## Source
 
-[https://en.wikipedia.org/wiki/Two-fer](https://en.wikipedia.org/wiki/Two-fer)
+[https://github.com/exercism/problem-specifications/issues/757](https://github.com/exercism/problem-specifications/issues/757)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you may receive assistance from a mentor.
