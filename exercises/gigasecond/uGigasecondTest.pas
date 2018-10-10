@@ -30,7 +30,6 @@ type
     [Test]
     [Ignore]
     procedure full_time_with_day_roll_over;
-
   end;
 
 implementation
