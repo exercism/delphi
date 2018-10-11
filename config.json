@@ -319,6 +319,16 @@
       ]
     },
     {
+      "slug": "queen-attack",
+      "uuid": "eeb4d081-ef63-4383-9f98-2cff3ebbb5aa",
+      "core": false,
+      "unlocked_by": "clock",
+      "difficulty": 3,
+      "topics": [
+        "records"
+      ]
+    },
+    {
       "slug": "isogram",
       "uuid": "7a489381-5ef6-49df-a05d-4c73b3ed9b53",
       "core": false,
