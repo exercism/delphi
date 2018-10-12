@@ -4,6 +4,9 @@ interface
 uses
   DUnitX.TestFramework, uRobotName;
 
+const
+  CanonicalVersion = '0.0.0';
+
 type
   [TestFixture]
   TRobotNameTest = class(TObject)
