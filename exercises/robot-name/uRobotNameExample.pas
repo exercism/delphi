@@ -8,7 +8,6 @@ uses
 type
   TRobot = class
   private
-
     FName: string;
     class var FUsedNames : TList<string>;
     class constructor Create;
