@@ -54,7 +54,6 @@ procedure TRobot.SetName;
   var
     i: Integer;
   begin
-    Randomize;
     for i := 0 to 1 do
       Result := Result + Char(65 + Random(26));
     Result := Result + format('%.*d', [3, Random(1000)]);
@@ -70,4 +69,6 @@ begin
   FName := N;
 end;
 
+initialization
+  Randomize;
 end.
