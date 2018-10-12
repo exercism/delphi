@@ -49,8 +49,7 @@ begin
 end;
 
 procedure TRobot.SetName;
-var
-  N : string;
+
   function CreateName : string;
   var
     i: Integer;
@@ -61,6 +60,8 @@ var
     Result := Result + format('%.*d', [3, Random(1000)]);
   end;
 
+var
+  N : string;
 begin
   repeat
     N := CreateName;
