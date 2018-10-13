@@ -554,6 +554,18 @@
       ]
     },
     {
+      "slug": "atbash-cipher",
+      "uuid": "1e2bc8a1-814a-448c-b78f-56ffe5327341",
+      "core": false,
+      "unlocked_by": "grade-school",
+      "difficulty": 5,
+      "topics": [
+        "algorithms",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "bracket-push",
       "uuid": "81e0a0f7-b97d-4ff0-90b2-a43eb933f68f",
       "core": false,
