@@ -90,7 +90,6 @@ procedure TRobotNameTest.is_able_to_reset_name;
 var
   old : string;
   i, changeCount : Integer;
-
 begin
   Robots.Add(TRobot.Create);
   old := Robots.Last.Name;
