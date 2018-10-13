@@ -13,6 +13,7 @@ type
     class constructor Create;
     class destructor Destroy;
     procedure SetName;
+
   public
     constructor Create;
     property Name : string read FName;
@@ -48,6 +49,8 @@ begin
   SetName;
 end;
 
+
+
 procedure TRobot.SetName;
 
   function CreateName : string;
@@ -59,14 +62,62 @@ procedure TRobot.SetName;
     Result := Result + format('%.*d', [3, Random(1000)]);
   end;
 
-var
-  N : string;
+  function Encode (AVal : integer) : string;
+  var LP : string;
+    t : integer;
+  begin
+    if (AVal < 0) or (AVal > 675999) then
+      result := '';
+    t := AVal div 1000;
+    LP := char(ord('A') + t div 26);
+    LP := LP + char(ord('A') + t mod 26);
+    Result := LP + format('%.*d', [3, AVal mod 1000]);
+  end;
+
+  function Decode(AName: string): integer;
+  begin
+    Result := (Ord(AName[1]) - Ord('A')) * 26;
+    Result := (Result + (Ord(AName[2]) - Ord('A'))) * 1000;
+    Result := Result + AName.Remove(0, 2).ToInteger;
+  end;
+
+  function CheckOther(AName : string; ADist : integer) : string;
+  var
+    OtherVal: integer;
+    Other: string;
+  begin
+    Result := '';
+    OtherVal := Decode(AName) + ADist;
+    Other := Encode(OtherVal);
+    if (OtherVal < 676000) and not FUsedNames.Contains(Other) then
+      exit(Other);
+    OtherVal := Decode(AName) - ADist;
+    Other := Encode(OtherVal);
+    if (OtherVal > -1) and not FUsedNames.Contains(Other) then
+      Result := Other;
+  end;
+
+  function FindFirstUnused(AName : string) : string;
+  var Dist : integer;
+    Unused : string;
+  begin
+    Result := '';
+    Unused := AName;
+    Dist := 0;
+    while FUsedNames.Contains(Unused) do
+    begin
+      inc(Dist);
+      Unused := CheckOther(AName, Dist);
+    end;
+    Result := Unused;
+  end;
+
+var position : integer;
+
 begin
-  repeat
-    N := CreateName;
-  until not FUsedNames.Contains(N);
-  FUsedNames.Add(N);
-  FName := N;
+  FName := FindFirstUnused(CreateName);
+  FUsedNames.BinarySearch(FName, position);
+  FUsedNames.Insert(position, FName);
 end;
 
 initialization

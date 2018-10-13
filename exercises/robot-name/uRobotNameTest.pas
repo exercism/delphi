@@ -27,13 +27,13 @@ type
 
     [Test]
     [Ignore]
-    procedure different_robots_have_different_names;
+    procedure each_robot_have_unique_name;
   end;
 
 implementation
 
 uses
-  System.RegularExpressions, System.Classes, Generics.Collections;
+  System.RegularExpressions, System.Classes, Generics.Collections, SysUtils;
 
 procedure TRobotNameTest.is_name_persistent;
 begin
@@ -49,18 +49,23 @@ begin
   FRobot.DisposeOf;
 end;
 
-procedure TRobotNameTest.different_robots_have_different_names;
+procedure TRobotNameTest.each_robot_have_unique_name;
 var Names : TList<string>;
   Robots : TObjectList<TRobot>;
-  i: Integer;
+  i, j: char;
+  k : integer;
 begin
   Names := TList<string>.create;
   Robots := TObjectList<TRobot>.Create;
-  for i := 1 to 10000 do
+  for i := 'A' to 'Z' do
+    for j := 'A' to 'Z' do
+      for k := 0 to 999 do
+        Names.Add(i + j + format('%.*d', [3, k]));
+  for k := 1 to 1000 do
   begin
     Robots.Add(TRobot.Create);
-    Assert.IsFalse(Names.Contains(Robots.Last.Name));
-    Names.Add(Robots.Last.Name);
+    Assert.IsTrue(Names.Contains(Robots.Last.Name), Robots.Last.Name);
+    Names.Remove(Robots.Last.Name);
   end;
   Names.DisposeOf;
   Robots.DisposeOf;
