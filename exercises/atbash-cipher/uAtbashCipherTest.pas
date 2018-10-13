@@ -2,7 +2,7 @@ unit uAtbashCipherTest;
 
 interface
 uses
-  DUnitX.TestFramework, uAtbashCipher;
+  DUnitX.TestFramework;
 
 const
   CanonicalVersion = '1.2.0';
@@ -70,11 +70,10 @@ type
     [Test]
     [Ignore]
     procedure decode_with_no_spaces;
-
   end;
-implementation
 
-{$REGION 'encode'}
+implementation
+uses uAtbashCipher;
 
 procedure TAtbashCipherEncodeTest.encode_all_the_letters;
 begin
@@ -116,10 +115,6 @@ begin
   Assert.AreEqual('bvh', TAtbashCipher.Encode('yes'));
 end;
 
-{$ENDREGION}
-
-{$REGION 'decode'}
-
 procedure TAtbashCipherDecodeTest.decode_all_the_letters;
 begin
   Assert.AreEqual('thequickbrownfoxjumpsoverthelazydog', TAtbashCipher.Decode('gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt'));
@@ -149,8 +144,6 @@ procedure TAtbashCipherDecodeTest.decode_with_too_many_spaces;
 begin
   Assert.AreEqual('exercism', TAtbashCipher.Decode('vc vix    r hn'));
 end;
-
-{$ENDREGION}
 
 initialization
   TDUnitX.RegisterTestFixture(TAtbashCipherEncodeTest);
