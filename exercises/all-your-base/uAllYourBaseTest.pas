@@ -1,8 +1,8 @@
-unit uAllYourBasesTest;
+unit uAllYourBaseTest;
 
 interface
 uses
-  DUnitX.TestFramework, System.SysUtils, uAllYourBases;
+  DUnitX.TestFramework, System.SysUtils;
 
 const
   CanonicalVersion = '2.3.0';
@@ -99,6 +99,7 @@ type
   end;
 
 implementation
+uses uAllYourBase;
 
 procedure TAllYourBaseTest.binary_to_multiple_decimal;
 begin

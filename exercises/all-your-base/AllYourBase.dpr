@@ -1,4 +1,4 @@
-program AllYourBases;
+program AllYourBase;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uAllYourBasesTest in 'uAllYourBasesTest.pas',
-  uAllYourBases in 'uAllYourBases.pas';
+  uAllYourBaseTest in 'uAllYourBaseTest.pas',
+  uAllYourBase in 'uAllYourBase.pas';
 
 var
   runner : ITestRunner;
