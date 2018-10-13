@@ -261,6 +261,18 @@
       ]
     },
     {
+      "slug": "all-your-base",
+      "uuid": "07d5d657-4e23-4c48-beb7-826bc6bf8a5e",
+      "core": false,
+      "unlocked_by": "sum-of-multiples",
+      "difficulty": 4,
+      "topics": [
+        "integers",
+        "math",
+        "transforming"
+      ]
+    },
+    {
       "slug": "pascals-triangle",
       "uuid": "e5ec2940-ea15-475b-91b9-2caf85b73b35",
       "core": false,
