@@ -29,7 +29,7 @@ type
     procedure is_name_persistent;
 
     [Test]
-    [Ignore]
+    [Ignore('New name must remain unique when compared to other robot names')]
     procedure is_able_to_reset_name;
 
     [Test]
