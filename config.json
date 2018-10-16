@@ -603,7 +603,7 @@
       "slug": "bowling",
       "uuid": "88f7ab7d-30c1-4cb5-81ff-1114b5f78291",
       "core": false,
-      "unlocked_by": "circular-buffer",
+      "unlocked_by": "markdown",
       "difficulty": 6,
       "topics": [
         "algorithms",
