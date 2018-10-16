@@ -384,6 +384,18 @@
       ]
     },
     {
+      "slug": "robot-name",
+      "uuid": "72a58eb7-c25b-4aff-84a7-2e0df68a51db",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 3,
+      "topics": [
+        "classes",
+        "randomness",
+        "strings"
+      ]
+    },
+    {
       "slug": "protein-translation",
       "uuid": "1e7a5bdb-4505-4b67-a3e7-76681f810d74",
       "core": false,
