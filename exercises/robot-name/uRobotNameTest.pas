@@ -29,7 +29,7 @@ type
     procedure is_name_persistent;
 
     [Test]
-    [Ignore('New name must remain unique when compared to other robot names')]
+    [Ignore]
     procedure is_able_to_reset_name;
 
     [Test]
@@ -40,7 +40,7 @@ type
 implementation
 
 uses
-  System.RegularExpressions, System.Classes, SysUtils;
+  System.RegularExpressions, System.Classes, SysUtils, Windows;
 
 procedure TRobotNameTest.is_name_persistent;
 begin
@@ -76,13 +76,28 @@ end;
 
 procedure TRobotNameTest.each_robot_have_unique_name;
 var
-  k : integer;
+  i, ind : integer;
+  Rob: TRobot;
+
+  Procedure WriteXY( x , y : Integer; s : string);
+  var
+   LCoord: TCoord;
+   Begin
+    LCoord.X := x;
+    LCoord.Y := y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), LCoord);
+    Write(s);
+   End;
+
 begin
-  for k := 1 to 1000 do
+  for i := 0 to 20000 do
   begin
-    Robots.Add(TRobot.Create);
-    Assert.IsTrue(Names.Contains(Robots.Last.Name), 'Robot name is not unique');
-    Names.Remove(Robots.Last.Name);
+    Rob := TRobot.Create;
+    Assert.IsTrue(Names.BinarySearch(Rob.Name, ind), 'Robot name is not unique');
+    Names.Delete(ind);
+    Robots.BinarySearch(Rob, ind);
+    Robots.Insert(ind, Rob);
+    WriteXY(2, 9, format('%*.d',[5, i]));
   end;
 end;
 
@@ -90,6 +105,7 @@ procedure TRobotNameTest.is_able_to_reset_name;
 var
   old : string;
   i, changeCount : Integer;
+
 begin
   Robots.Add(TRobot.Create);
   old := Robots.Last.Name;
