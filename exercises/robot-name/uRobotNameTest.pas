@@ -93,11 +93,11 @@ begin
   for i := 0 to 20000 do
   begin
     Rob := TRobot.Create;
-    Assert.IsTrue(Names.BinarySearch(Rob.Name, ind), 'Robot name is not unique');
+    Assert.IsTrue(Names.BinarySearch(Rob.Name, ind), format('Robot #: %*.d, named %s is not unique',[5, ind, Rob.Name]));
     Names.Delete(ind);
     Robots.BinarySearch(Rob, ind);
     Robots.Insert(ind, Rob);
-    WriteXY(2, 9, format('%*.d',[5, i]));
+    WriteXY(2, 9, format('Robot #: %*.d, named %s, is unique',[5, i, Rob.Name]));
   end;
 end;
 
