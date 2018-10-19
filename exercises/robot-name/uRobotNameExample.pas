@@ -15,8 +15,6 @@ type
     class function Encode(AVal : integer) : string;
     procedure SetName;
     function GetName: string;
-
-
   public
     constructor Create;
     property Name : string read GetName;
