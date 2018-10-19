@@ -52,7 +52,7 @@ class function TRobot.Encode(AVal: integer): string;
   var LP : string;
     t : integer;
 begin
-  if (AVal < 0) or (AVal > (MaxRobots - 1) then
+  if (AVal < 0) or (AVal > (MaxRobots - 1)) then
     result := '';
   t := AVal div 1000;
   LP := char(ord('A') + t div 26);
