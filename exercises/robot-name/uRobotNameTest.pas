@@ -44,20 +44,17 @@ uses
 
 procedure TRobotNameTest.is_name_persistent;
 begin
-  FRobot := TRobot.Create;
   Assert.AreEqual(FRobot.Name, FRobot.Name);
-  FRobot.DisposeOf;
 end;
 
 procedure TRobotNameTest.name_properly_formated;
 begin
-  FRobot := TRobot.Create;
   Assert.IsTrue(TRegEx.IsMatch(FRobot.Name, '^[A-Z]{2}\d{3}$'), 'expected format''ssddd'', found ' + FRobot.Name);
-  FRobot.DisposeOf;
 end;
 
 procedure TRobotNameTest.Setup;
-var i, j : char;
+var
+  i, j : char;
   k : integer;
 begin
   Names := TList<string>.create;
@@ -66,12 +63,14 @@ begin
       for k := 0 to 999 do
         Names.Add(i + j + format('%.*d', [3, k]));
   Robots := TObjectList<TRobot>.Create;
+  FRobot := TRobot.Create;
 end;
 
 procedure TRobotNameTest.TearDown;
 begin
   Names.DisposeOf;
   Robots.DisposeOf;
+  FRobot.DisposeOf;
 end;
 
 procedure TRobotNameTest.each_robot_have_unique_name;
@@ -82,12 +81,12 @@ var
   Procedure WriteXY( x , y : Integer; s : string);
   var
    LCoord: TCoord;
-   Begin
-    LCoord.X := x;
-    LCoord.Y := y;
-    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), LCoord);
-    Write(s);
-   End;
+   begin
+     LCoord.X := x;
+     LCoord.Y := y;
+     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), LCoord);
+     Write(s);
+   end;
 
 begin
   for i := 0 to 20000 do
