@@ -9,6 +9,7 @@ type
   TRobot = class
   private
     FIndex: integer;
+    const MaxRobots = 676000;
     class var FUnusedNames : TList<integer>;
     class constructor Create;
     class destructor Destroy;
@@ -33,7 +34,7 @@ var
   I: Integer;
 begin
   FUnusedNames := TList<integer>.Create;
-  for I := 0 to 675999 do
+  for I := 0 to MaxRobots - 1 do
     FUnusedNames.Add(i);
 end;
 
@@ -51,7 +52,7 @@ class function TRobot.Encode(AVal: integer): string;
   var LP : string;
     t : integer;
 begin
-  if (AVal < 0) or (AVal > 675999) then
+  if (AVal < 0) or (AVal > (MaxRobots - 1) then
     result := '';
   t := AVal div 1000;
   LP := char(ord('A') + t div 26);
