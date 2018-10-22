@@ -8,15 +8,17 @@ uses
 type
   TRobot = class
   private
-    FName: string;
-    class var FUsedNames : TList<string>;
+    FIndex: integer;
+    const MaxRobots = 676000;
+    class var FUnusedNames : TList<integer>;
     class constructor Create;
     class destructor Destroy;
+    class function Encode(AVal : integer) : string;
     procedure SetName;
-
+    function GetName: string;
   public
     constructor Create;
-    property Name : string read FName;
+    property Name : string read GetName;
     procedure Reset;
   end;
 
@@ -28,8 +30,12 @@ uses
 { TRobot }
 
 class constructor TRobot.Create;
+var
+  I: Integer;
 begin
-  FUsedNames := TList<string>.Create;
+  FUnusedNames := TList<integer>.Create;
+  for I := 0 to MaxRobots - 1 do
+    FUnusedNames.Add(i);
 end;
 
 constructor TRobot.Create;
@@ -39,85 +45,42 @@ end;
 
 class destructor TRobot.Destroy;
 begin
-  FUsedNames.DisposeOf;
+  FUnusedNames.DisposeOf;
+end;
+
+class function TRobot.Encode(AVal: integer): string;
+  var LP : string;
+    t : integer;
+begin
+  if (AVal < 0) or (AVal > (MaxRobots - 1)) then
+    result := '';
+  t := AVal div 1000;
+  LP := char(ord('A') + t div 26);
+  LP := LP + char(ord('A') + t mod 26);
+  Result := LP + format('%.*d', [3, AVal mod 1000]);
+end;
+
+function TRobot.GetName: string;
+begin
+  Result := Encode(FIndex);
 end;
 
 procedure TRobot.Reset;
+var i : integer;
 begin
-  if FUsedNames.Contains(FName) then
-    FUsedNames.Remove(FName);
+  if not FUnusedNames.BinarySearch(FIndex, i) then
+    FUnusedNames.Insert(i, FIndex);
   SetName;
 end;
 
-
-
 procedure TRobot.SetName;
-
-  function CreateName : string;
-  var
-    i: Integer;
-  begin
-    for i := 0 to 1 do
-      Result := Result + Char(65 + Random(26));
-    Result := Result + format('%.*d', [3, Random(1000)]);
-  end;
-
-  function Encode (AVal : integer) : string;
-  var LP : string;
-    t : integer;
-  begin
-    if (AVal < 0) or (AVal > 675999) then
-      result := '';
-    t := AVal div 1000;
-    LP := char(ord('A') + t div 26);
-    LP := LP + char(ord('A') + t mod 26);
-    Result := LP + format('%.*d', [3, AVal mod 1000]);
-  end;
-
-  function Decode(AName: string): integer;
-  begin
-    Result := (Ord(AName[1]) - Ord('A')) * 26;
-    Result := (Result + (Ord(AName[2]) - Ord('A'))) * 1000;
-    Result := Result + AName.Remove(0, 2).ToInteger;
-  end;
-
-  function CheckOther(AName : string; ADist : integer) : string;
-  var
-    OtherVal: integer;
-    Other: string;
-  begin
-    Result := '';
-    OtherVal := Decode(AName) + ADist;
-    Other := Encode(OtherVal);
-    if (OtherVal < 676000) and not FUsedNames.Contains(Other) then
-      exit(Other);
-    OtherVal := Decode(AName) - ADist;
-    Other := Encode(OtherVal);
-    if (OtherVal > -1) and not FUsedNames.Contains(Other) then
-      Result := Other;
-  end;
-
-  function FindFirstUnused(AName : string) : string;
-  var Dist : integer;
-    Unused : string;
-  begin
-    Result := '';
-    Unused := AName;
-    Dist := 0;
-    while FUsedNames.Contains(Unused) do
-    begin
-      inc(Dist);
-      Unused := CheckOther(AName, Dist);
-    end;
-    Result := Unused;
-  end;
-
-var position : integer;
+var
+  ind : integer;
 
 begin
-  FName := FindFirstUnused(CreateName);
-  FUsedNames.BinarySearch(FName, position);
-  FUsedNames.Insert(position, FName);
+  ind := random(FUnusedNames.Count);
+  FIndex := FUnusedNames.Items[ind];
+  FUnusedNames.Delete(ind);
 end;
 
 initialization
