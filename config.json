@@ -555,6 +555,17 @@
       ]
     },
     {
+      "slug": "tournament",
+      "uuid": "474ff9f9-395b-4f70-8c14-addaea5f2415",
+      "core": false,
+      "unlocked_by": "kindergarten-garden",
+      "difficulty": 6,
+      "topics": [
+        "parsing",
+        "strings"
+      ]
+    },
+    {
       "slug": "minesweeper",
       "uuid": "5ab52a90-8a72-42f8-b430-042436041348",
       "core": false,
