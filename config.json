@@ -533,6 +533,16 @@
       ]
     },
     {
+      "slug": "meetup",
+      "uuid": "c43c02e3-f780-4d91-b371-569b31feca14",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "dates"
+      ]
+    },
+    {
       "slug": "ocr-numbers",
       "uuid": "01c0f2de-e1bc-4540-a127-21e78e9630b3",
       "core": false,
