@@ -3,9 +3,11 @@ unit uPrimeFactorsTest;
 interface
 uses
   DUnitX.TestFramework;
+  
+const
+  CanonicalVersion = '1.1.0';
 
 type
-
   [TestFixture]
   TPrimeFactorsTest = class(TObject)
   private
@@ -94,14 +96,3 @@ end;
 initialization
   TDUnitX.RegisterTestFixture(TPrimeFactorsTest);
 end.
-
-(*
- {
-          "description": "factors include a large prime",
-          "property": "factors",
-          "input": {
-            "value": 93819012551
-          },
-          "expected": [11, 9539, 894119]
-        }
-*)
