@@ -29,21 +29,28 @@ var
     end;
   end;
 
-begin
-  factors := TList<Int64>.create;
-  Factorize(2);
-
-  p := 3;
-  while p <= Round(Sqrt(AVal)) do
+  function GatherFactors: TList<Int64>;
   begin
-    Factorize(p);
-    p := p + 2;
+    factors := TList<Int64>.Create;
+    Factorize(2);
+    p := 3;
+    while p <= Round(Sqrt(AVal)) do
+    begin
+      Factorize(p);
+      p := p + 2;
+    end;
+    if AVal > 1 then
+      factors.Add(AVal);
   end;
-  if AVal > 1 then
-    factors.Add(AVal);
 
-  Result := factors.ToArray;
-  factors.DisposeOf;
+begin
+  result := nil;
+  try
+    GatherFactors;
+    Result := factors.ToArray;
+  finally
+    factors.DisposeOf;
+  end;
 end;
 
 end.
