@@ -688,6 +688,14 @@
         "parsing",
         "sorting"
       ]
+    },
+    {
+      "slug": "darts",
+      "uuid": "9ec1b3e9-8aa6-4308-b12d-e4c84456fc6a",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 2,
+      "topics": ["floating_point_numbers", "math"]
     }
   ]
 }
