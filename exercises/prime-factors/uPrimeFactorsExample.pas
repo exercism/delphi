@@ -6,7 +6,6 @@ type
   TPrimeFactors = class
   public
     class function factors(AVal: Int64): TArray<Int64>;
-
   end;
 
 implementation
