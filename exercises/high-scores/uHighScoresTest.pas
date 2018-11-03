@@ -74,7 +74,7 @@ uses System.SysUtils;
 
 procedure THighScoresTest.Setup;
 begin
-  Scores := TScores.Create;
+  Scores := NewScores;
 end;
 
 procedure THighScoresTest.CompareArrays(Array1, Array2: TArray<integer>);

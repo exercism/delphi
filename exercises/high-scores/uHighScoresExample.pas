@@ -12,6 +12,15 @@ type
     function Report : string;
   end;
 
+function NewScores: IScores;
+
+implementation
+
+uses
+  System.Generics.Collections, System.SysUtils;
+
+type
+
   TScores = class(TInterfacedObject, IScores)
   private
     FScores : TArray<integer>;
@@ -24,12 +33,12 @@ type
     function Report : string;
   end;
 
-implementation
+ { TScores }
 
-uses
-  System.Generics.Collections, System.SysUtils;
-
-{ TScores }
+function NewScores: IScores;
+begin
+  result := TScores.Create;
+end;
 
 function TScores.Highest: integer;
 var l : TList<integer>;
