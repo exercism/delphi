@@ -610,6 +610,14 @@
       ]
     },
     {
+      "slug": "crypto-square",
+      "uuid": "23dbd754-71f3-4b05-8ebc-5ee4f9c64618",
+      "core": false,
+      "unlocked_by": "allergies",
+      "difficulty": 5,
+      "topics": ["algorithms", "strings", "transforming"]
+    },
+    {
       "slug": "roman-numerals",
       "uuid": "51d6c5fc-6bde-4b78-842b-518346649431",
       "core": true,
