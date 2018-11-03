@@ -16,30 +16,28 @@ type
     procedure no_factors;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure prime_number;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure square_of_a_prime;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure cube_of_a_prime;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure product_of_primes_and_non_primes;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure product_of_primes;
 
     [Test]
-//    [Ignore]
+    [Ignore]
     procedure factors_include_a_large_prime;
-
-
   end;
 
 implementation
