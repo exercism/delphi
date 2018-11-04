@@ -533,6 +533,14 @@
       ]
     },
     {
+      "slug": "prime-factors",
+      "uuid": "4ae6a435-769f-4c29-945b-532a5a2abcb3",
+      "core": false,
+      "unlocked_by": "leap",
+      "difficulty": 4,
+      "topics": ["integers", "math"]
+    },
+    {
       "slug": "meetup",
       "uuid": "c43c02e3-f780-4d91-b371-569b31feca14",
       "core": false,
