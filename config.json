@@ -250,6 +250,16 @@
       ]
     },
     {
+      "slug": "high-scores",
+      "uuid": "5ebb07db-2523-4807-b1e8-4e9446a4d85d",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 2,
+      "topics": [
+        "arrays"
+      ]
+    },
+    {
       "slug": "grade-school",
       "uuid": "37d13c81-2347-4620-931b-11ae46ea95f8",
       "core": true,
