@@ -617,6 +617,14 @@
       ]
     },
     {
+      "slug": "food-chain",
+      "uuid": "38faed57-9602-4db1-916d-b4503ef017d5",
+      "core": false,
+      "unlocked_by": "allergies",
+      "difficulty": 5,
+      "topics": ["algorithms", "strings"]
+    },
+    {
       "slug": "bracket-push",
       "uuid": "81e0a0f7-b97d-4ff0-90b2-a43eb933f68f",
       "core": false,
