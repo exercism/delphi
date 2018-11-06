@@ -583,6 +583,14 @@
       ]
     },
     {
+      "slug": "luhn",
+      "uuid": "32d6a899-00ac-415e-b24b-bd117199e4c9",
+      "core": false,
+      "unlocked_by": "markdown",
+      "difficulty": 5,
+      "topics": ["algorithms", "strings", "transforming"]
+    },
+    {
       "slug": "tournament",
       "uuid": "474ff9f9-395b-4f70-8c14-addaea5f2415",
       "core": false,
