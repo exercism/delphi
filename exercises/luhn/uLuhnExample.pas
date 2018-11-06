@@ -20,7 +20,7 @@ var
   i, R, P: int64;
 begin
   R := 0;
-  s := ReverseString(TRegEx.Replace(AInp, ' ', ''));
+  s := ReverseString(AInp.Replace( ' ', ''));
   if (Length(s) <= 1) or (TRegEx.IsMatch(s, '\D')) then
     exit(false);
   for i := Low(s) to High(s) do
