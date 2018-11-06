@@ -13,6 +13,7 @@ function abbreviate(aPhrase: string): string;
 
   function findWords(inputPhrase: string): TMatchCollection;
   begin
+    inputPhrase := inputPhrase.Replace('''s', '');
     result := TRegex.Matches(inputPhrase,'[A-Z]+[a-z]*|[a-z]+');
   end;
 
