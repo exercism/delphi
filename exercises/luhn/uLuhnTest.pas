@@ -76,7 +76,7 @@ uses
 
 procedure TLuhnTest.a_simple_valid_SIN_that_becomes_invalid_if_reversed;
 begin
-  Assert.AreEqual(false, TLuhn.Valid('59'));
+  Assert.AreEqual(true, TLuhn.Valid('59'));
 end;
 
 procedure TLuhnTest.a_simple_valid_SIN_that_remains_valid_if_reversed;

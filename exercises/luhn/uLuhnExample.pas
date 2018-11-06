@@ -10,7 +10,7 @@ type
 implementation
 
 uses
-  System.Regularexpressions, System.SysUtils;
+  System.Regularexpressions, System.SysUtils, System.StrUtils;
 
 { TLuhn }
 
@@ -20,8 +20,8 @@ var
   i, R, P: int64;
 begin
   R := 0;
-  s := TRegEx.Replace(AInp, ' ', '');
-  if (Length(s) <= 1) or (TRegEx.IsMatch(s, '\D')) then    // or (StrToIntDef(s, 0) = 0)
+  s := ReverseString(TRegEx.Replace(AInp, ' ', ''));
+  if (Length(s) <= 1) or (TRegEx.IsMatch(s, '\D')) then
     exit(false);
   for i := Low(s) to High(s) do
     if odd(i) then
