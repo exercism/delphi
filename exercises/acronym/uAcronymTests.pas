@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.5.0';
+  CanonicalVersion = '1.6.0';
 
 type
 
@@ -39,6 +39,10 @@ type
     [Test]
     [Ignore]
     procedure consecutive_delimiters;
+
+    [Test]
+    [Ignore]
+    procedure apostrophes;
   end;
 
 implementation
@@ -49,6 +53,11 @@ uses SysUtils, uAcronym;
 procedure AcronymTests.all_caps_word;
 begin
   Assert.AreEqual('GIMP', abbreviate('GNU Image Manipulation Program'));
+end;
+
+procedure AcronymTests.apostrophes;
+begin
+  Assert.AreEqual('HC', abbreviate('Halley''s Comet'));
 end;
 
 procedure AcronymTests.basic;
