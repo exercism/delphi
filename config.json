@@ -646,7 +646,7 @@
     {
       "slug": "roman-numerals",
       "uuid": "51d6c5fc-6bde-4b78-842b-518346649431",
-      "core": true,
+      "core": false,
       "unlocked_by": null,
       "difficulty": 5,
       "topics": [
