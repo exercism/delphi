@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.2.0';
+  CanonicalVersion = '1.3.0';
 
 type
 
@@ -39,6 +39,10 @@ type
     [Test]
     [Ignore]
     procedure invalid_credit_card;
+
+    [Test]
+    [Ignore]
+    procedure valid_number_with_an_even_number_of_digits;
 
     [Test]
     [Ignore]
@@ -127,6 +131,11 @@ end;
 procedure TLuhnTest.strings_with_non_digits_is_invalid;
 begin
   Assert.AreEqual(false, TLuhn.Valid(':9'));
+end;
+
+procedure TLuhnTest.valid_number_with_an_even_number_of_digits;
+begin
+  Assert.AreEqual(true, TLuhn.Valid('095 245 88'));
 end;
 
 procedure TLuhnTest.valid_strings_with_a_non_digit_included_become_invalid;
