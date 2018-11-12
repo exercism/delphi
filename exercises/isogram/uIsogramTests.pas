@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.6.0';
+  CanonicalVersion = '1.7.0';
 
 type
 
@@ -46,6 +46,10 @@ type
 
     [Test]
     [Ignore]
+    procedure hypothetical_word_with_duplicated_character_following_hyphen;
+
+    [Test]
+    [Ignore]
     procedure isogram_with_duplicated_hyphen;
 
     [Test]
@@ -79,6 +83,11 @@ end;
 procedure IsogramTests.hypothetical_isogrammic_word_with_hyphen;
 begin
   Assert.IsTrue(isIsogram('thumbscrew-japingly'));
+end;
+
+procedure IsogramTests.hypothetical_word_with_duplicated_character_following_hyphen;
+begin
+  Assert.IsFalse(isIsogram('thumbscrew-jappingly'));
 end;
 
 procedure IsogramTests.isogram_with_duplicated_hyphen;
