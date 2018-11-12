@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
   
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '1.4.0';
 
 type
 
@@ -13,6 +13,10 @@ type
   WordyTests = class(TObject)
   public
 //   [Ignore('Comment the "[Ignore]" statement to run the test')]
+   [TestCase('a number', 'What is 5?,5')]
+   procedure just_a_number(const aInput: string; const aExpected: integer);
+
+   [Ignore]
    [TestCase('addition', 'What is 1 plus 1?,2')]
    procedure Addition(const aInput: string; const aExpected: integer);
 
@@ -69,12 +73,32 @@ type
    procedure Multiple_division(const aInput: string; aExpected: integer);
 
    [Ignore]
-   [TestCase('unknown operation', 'What is 52 cubed?,Invalid Problem')]
+   [TestCase('unknown operation', 'What is 52 cubed?,unknown operation')]
    procedure Unknown_operation(const aInput: string; aExpected: string);
 
    [Ignore]
-   [TestCase('Non math question', 'Who is the President of the United States?,Invalid Problem')]
+   [TestCase('Non math question', 'Who is the President of the United States?,unknown operation')]
    procedure Non_math_question(const aInput: string; aExpected: string);
+
+   [Ignore]
+   [TestCase('reject incomplete problem', 'What is 1 plus?,syntax error')]
+   procedure incomplete_Problem(const aInput: string; aExpected: string);
+
+   [Ignore]
+   [TestCase('reject two operations in a row', 'What is 1 plus plus 2?,syntax error')]
+   procedure reject_two_operations_in_a_row(const aInput: string; aExpected: string);
+
+   [Ignore]
+   [TestCase('reject two numbers in a row', 'What is 1 plus 2 1?,syntax error')]
+   procedure reject_two_numbers_in_a_row(const aInput: string; aExpected: string);
+
+   [Ignore]
+   [TestCase('reject postfix notation', 'What is 1 2 plus?,syntax error')]
+   procedure reject_postfix_notation(const aInput: string; aExpected: string);
+
+   [Ignore]
+   [TestCase('reject prefix notation', 'What is plus 1 2?,syntax error')]
+   procedure reject_prefix_notation(const aInput: string; aExpected: string);
   end;
 
 implementation
@@ -104,6 +128,24 @@ begin
 end;
 
 procedure WordyTests.Division(const aInput: string; aExpected: integer);
+begin
+  Assert.AreEqual(aExpected, TWordy.Answer(aInput));
+end;
+
+procedure WordyTests.incomplete_Problem(const aInput: string;
+  aExpected: string);
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              TWordy.Answer(aInput);
+            end;
+
+  Assert.WillRaiseWithMessage(MyProc, EInvalidProblem, aExpected);
+end;
+
+procedure WordyTests.just_a_number(const aInput: string;
+  const aExpected: integer);
 begin
   Assert.AreEqual(aExpected, TWordy.Answer(aInput));
 end;
@@ -172,6 +214,54 @@ begin
 end;
 
 procedure WordyTests.Non_math_question(const aInput: string; aExpected: string);
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              TWordy.Answer(aInput);
+            end;
+
+  Assert.WillRaiseWithMessage(MyProc, EInvalidProblem, aExpected);
+end;
+
+procedure WordyTests.reject_postfix_notation(const aInput: string;
+  aExpected: string);
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              TWordy.Answer(aInput);
+            end;
+
+  Assert.WillRaiseWithMessage(MyProc, EInvalidProblem, aExpected);
+end;
+
+procedure WordyTests.reject_prefix_notation(const aInput: string;
+  aExpected: string);
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              TWordy.Answer(aInput);
+            end;
+
+  Assert.WillRaiseWithMessage(MyProc, EInvalidProblem, aExpected);
+end;
+
+procedure WordyTests.reject_two_numbers_in_a_row(const aInput: string;
+  aExpected: string);
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              TWordy.Answer(aInput);
+            end;
+
+  Assert.WillRaiseWithMessage(MyProc, EInvalidProblem, aExpected);
+end;
+
+procedure WordyTests.reject_two_operations_in_a_row(const aInput: string;
+  aExpected: string);
 var MyProc: TTestLocalMethod;
 begin
   MyProc := procedure
