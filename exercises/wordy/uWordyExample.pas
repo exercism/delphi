@@ -15,7 +15,8 @@ type
         Y: integer;
         Operation2: string;
         Z: integer;
-        constructor create(parsedGroups: TGroupCollection);
+        constructor create(parsedGroups: TGroupCollection); overload;
+        constructor create(aXValue: integer); overload;
       end;
     class var Operations: TDictionary<string, TFunc<integer, integer, integer>>;
     class var VariableAndOperatorGroupsRegex: TRegex;
@@ -43,14 +44,21 @@ begin
   end;
 
   ParsedProblem := ParseProblem(aQuestion);
-  Operation := Operations[ParsedProblem.Operation1];
-  firstPass := Operation(ParsedProblem.X, ParsedProblem.Y);
-  if ParsedProblem.Operation2.IsEmpty then
-    result := firstPass
+  if ParsedProblem.Operation1.IsEmpty then
+  begin
+    result := ParsedProblem.X;
+  end
   else
   begin
-    Operation := Operations[ParsedProblem.Operation2];
-    result := Operation(firstPass, ParsedProblem.Z);
+    Operation := Operations[ParsedProblem.Operation1];
+    firstPass := Operation(ParsedProblem.X, ParsedProblem.Y);
+    if ParsedProblem.Operation2.IsEmpty then
+      result := firstPass
+    else
+    begin
+      Operation := Operations[ParsedProblem.Operation2];
+      result := Operation(firstPass, ParsedProblem.Z);
+    end;
   end;
 end;
 
@@ -90,15 +98,60 @@ end;
 
 class function TWordy.ParseProblem(aProblem: string): TParsedProblem;
 var Match: TMatch;
+
+    function TryGetTrailingValue(out aTrailingValue: integer): boolean;
+    var
+      stripPunc: string;
+      splitProb: TArray<string>;
+    begin
+      stripPunc := aProblem.Replace('?','');
+      splitProb := stripPunc.Split([' ']);
+      try
+        aTrailingValue := splitProb[high(splitProb)].ToInteger;
+        result := true;
+      except
+        result := false;
+      end;
+    end;
+
+    function ContainsValidOperations: boolean;
+    begin
+      result := TRegex.IsMatch(aProblem, '(plus|minus|multiplied by|divided by)')
+    end;
+
+    function ContainsDoubledUpOperations: boolean;
+    var
+      lMatch: TMatch;
+    begin
+      result := false;
+      lMatch := TRegex.Match(aProblem, '(plus|minus|multiplied by|divided by)');
+      result := lMatch.Groups.Count > 1;
+    end;
+
+var
+  lTrailingValue: integer;
 begin
   Match := VariableAndOperatorGroupsRegex.Match(aProblem);
   if Match.Groups.Count = 0 then
-    raise EInvalidProblem.Create('Invalid Problem');
+  begin
+    if not ContainsDoubledUpOperations and aProblem.StartsWith('What is') and TryGetTrailingValue(lTrailingValue) then
+      exit(TParsedProblem.create(lTrailingValue))
+    else
+    if ContainsValidOperations then
+      raise EInvalidProblem.Create('syntax error')
+    else
+      raise EInvalidProblem.Create('unknown operation');
+  end;
 
   result := TParsedProblem.create(Match.Groups);
 end;
 
 { TWordy.TParsedProblem }
+
+constructor TWordy.TParsedProblem.create(aXValue: integer);
+begin
+  X := aXValue;
+end;
 
 constructor TWordy.TParsedProblem.create(parsedGroups: TGroupCollection);
 var i: integer;
@@ -121,10 +174,13 @@ begin
   Operation1 := parsedItemsArray[1];
   Y := parsedItemsArray[2].ToInteger;
   Operation2 := parsedItemsArray[3];
-  if parsedItemsArray[4] <> '' then
+  if (parsedItemsArray[4] <> '') then
+  begin
+    if Operation2.IsEmpty then
+      raise EInvalidProblem.Create('syntax error');
+
     Z := parsedItemsArray[4].ToInteger
-  else
-    Z := 0;
+  end;
 end;
 
 end.
