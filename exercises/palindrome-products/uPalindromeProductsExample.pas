@@ -21,7 +21,7 @@ implementation
 uses
   System.StrUtils;
 
-{ TPalindromeResult }
+{ TPalindromeProduct }
 
 class function TPalindromeProduct.Calculate(AMin, AMax, AExt: integer;
   ACond: TFunc<integer, integer, boolean>) : TPalindromeResult;
@@ -32,7 +32,7 @@ begin
     raise EArgumentException.Create(format('invalid input: min is %d and max is %d', [AMin, AMax]));
 
   Result := nil;
-  for i := AMin  to AMax do
+  for i := AMin to AMax do
     for j := i to AMax do
       if IsPalindrom(i * j) then
       begin
@@ -59,7 +59,7 @@ end;
 class function TPalindromeProduct.IsPalindrom(ANum: integer): boolean;
 var s : string;
 begin
-  s := IntToStr(ANum);
+  s := ANum.ToString;
   Result := s = ReverseString(s);
 end;
 

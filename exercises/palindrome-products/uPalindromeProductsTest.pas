@@ -82,7 +82,7 @@ end;
 
 procedure TPalindromeProductsTest.empty_result_for_largest_if_no_palindrome_in_the_range;
 begin
-  Assert.WillRaise(procedure()
+  Assert.WillRaiseWithMessage(procedure()
     begin
       TPalindromeProduct.Largest(1002, 1003)
     end,
@@ -91,7 +91,7 @@ end;
 
 procedure TPalindromeProductsTest.empty_result_for_smallest_if_no_palindrome_in_the_range;
 begin
-  Assert.WillRaise(procedure()
+  Assert.WillRaiseWithMessage(procedure()
     begin
       TPalindromeProduct.Smallest(15, 15)
     end,
@@ -100,7 +100,7 @@ end;
 
 procedure TPalindromeProductsTest.error_result_for_largest_if_min_is_more_than_max;
 begin
-  Assert.WillRaise(procedure()
+  Assert.WillRaiseWithMessage(procedure()
     begin
       TPalindromeProduct.Largest(2, 1)
     end,
@@ -109,7 +109,7 @@ end;
 
 procedure TPalindromeProductsTest.error_result_for_smallest_if_min_is_more_than_max;
 begin
-  Assert.WillRaise(procedure()
+  Assert.WillRaiseWithMessage(procedure()
     begin
       TPalindromeProduct.Smallest(10000, 1)
     end,
@@ -120,10 +120,11 @@ procedure TPalindromeProductsTest.Compare(Expected, Actual : TPalindromeResult);
 var
   i: Integer;
 begin
-  Assert.AreEqual( 2, length(Actual),
-    format('Result is not well formatted, expected 2 members, but %d found', [length(Actual)]));
+  i := length(Actual);
+  Assert.AreEqual( 2, i,
+    format('Result is not well formatted, expected 2 members, but %d found', [i]));
   Assert.AreEqual(Expected[0, 0, 0], Actual[0, 0, 0],
-    format('Expected plindrome value %d, but %d found', [Expected[0, 0, 0], Actual[0, 0, 0]]));
+    format('Expected palindrome value %d, but %d found', [Expected[0, 0, 0], Actual[0, 0, 0]]));
   Assert.AreEqual( length(Expected[1]), length(Actual[1]),
     format('Expected %d factors, but %d found', [length(Expected[1]), length(Actual[1])]));
   for i := Low(Expected[1]) to High(Expected[1]) do
