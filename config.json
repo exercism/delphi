@@ -685,6 +685,14 @@
       ]
     },
     {
+      "slug": "palindrome-products",
+      "uuid": "f949f8a4-c5d4-4d48-957e-c7a13cb84a98",
+      "core": false,
+      "unlocked_by": "saddle-points",
+      "difficulty": 6,
+      "topics": ["algorithms", "math", "strings", "arrays"]
+    },
+    {
       "slug": "book-store",
       "uuid": "d471f0d3-6d7c-4abe-bf31-712fb0cadea7",
       "core": true,
