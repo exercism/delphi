@@ -732,8 +732,8 @@
       "uuid": "372c1fa2-bdfc-4f4d-8a5a-f9ea5f0e2f52",
       "core": false,
       "unlocked_by": "saddle-points",
-      "difficulty": 8,
-      "topics": ["algorithms", "strings"]
+      "difficulty": 4,
+      "topics": ["algorithms", "strings", "loops", "arrays"]
     },
     {
       "slug": "poker",
