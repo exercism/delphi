@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '2.3.0';
+  CanonicalVersion = '2.4.0';
 
 type
 
@@ -79,6 +79,10 @@ type
     [Test]
     [Ignore]
     procedure Negative_minutes_roll_over_continuously;
+
+    [Test]
+    [Ignore]
+    procedure Negative_sixty_minutes_is_previous_hour;
 
     [Test]
     [Ignore]
@@ -316,6 +320,11 @@ end;
 procedure TClockTest.Negative_minutes_roll_over_continuously;
 begin
   Assert.AreEqual('16:40', Clock.SetHands(1, -4820).ToString);
+end;
+
+procedure TClockTest.Negative_sixty_minutes_is_previous_hour;
+begin
+  Assert.AreEqual('01:00', Clock.SetHands(2, -60).ToString);
 end;
 
 procedure TClockTest.Negative_hour_and_minutes_both_roll_over;
