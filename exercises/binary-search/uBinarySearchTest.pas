@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.2.0';
+  CanonicalVersion = '1.3.0';
 
 type
 
@@ -42,21 +42,30 @@ type
 
     [Test]
     [Ignore]
-    procedure A_value_smaller_than_the_arrays_smallest_value_is_not_included;
+    procedure A_value_smaller_than_the_arrays_smallest_value_is_not_found;
 
     [Test]
     [Ignore]
-    procedure A_value_larger_than_the_arrays_largest_value_is_not_included;
+    procedure A_value_larger_than_the_arrays_largest_value_is_not_found;
 
     [Test]
     [Ignore]
-    procedure Nothing_is_included_in_an_empty_array;
+    procedure Nothing_is_found_in_an_empty_array;
+
+    [Test]
+    [Ignore]
+    procedure Nothing_is_found_when_the_left_and_right_bounds_cross;
   end;
 
 implementation
 uses System.Generics.Collections, uBinarySearch;
 
-procedure TBinarySearchTest.Nothing_is_included_in_an_empty_array;
+procedure TBinarySearchTest.Nothing_is_found_when_the_left_and_right_bounds_cross;
+begin
+  Assert.AreEqual(-1, BinarySearch.Search([1, 2], 0));
+end;
+
+procedure TBinarySearchTest.Nothing_is_found_in_an_empty_array;
 var input: TArray<Integer>;
 begin
   SetLength(input, 0);
@@ -126,7 +135,7 @@ begin
   Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 7));
 end;
 
-procedure TBinarySearchTest.A_value_larger_than_the_arrays_largest_value_is_not_included;
+procedure TBinarySearchTest.A_value_larger_than_the_arrays_largest_value_is_not_found;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
@@ -135,7 +144,7 @@ begin
   Assert.AreEqual(-1, BinarySearch.Search(inputList.ToArray, 13));
 end;
 
-procedure TBinarySearchTest.A_value_smaller_than_the_arrays_smallest_value_is_not_included;
+procedure TBinarySearchTest.A_value_smaller_than_the_arrays_smallest_value_is_not_found;
 var inputList: TList<integer>;
 begin
   inputList := TList<integer>.Create;
