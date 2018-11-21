@@ -2,14 +2,14 @@ unit uGigasecondTest;
 
 interface
 uses
-  DUnitX.TestFramework, uGigasecond;
+  DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '2.0.0';
 
 type
   [TestFixture]
-  TGigaSecondTest = class(TObject)
+  TGigasecondTest = class(TObject)
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
@@ -33,32 +33,34 @@ type
   end;
 
 implementation
+uses
+  uGigasecond;
 
-procedure TGigaSecondTest.date_only_specification_of_time;
+procedure TGigasecondTest.date_only_specification_of_time;
 begin
-  Assert.AreEqual('2043-01-01T01:46:40' ,TGigaSecond.Add('2011-04-25'));
+  Assert.AreEqual('2043-01-01T01:46:40' ,TGigasecond.Add('2011-04-25'));
 end;
 
-procedure TGigaSecondTest.full_time_specified;
+procedure TGigasecondTest.full_time_specified;
 begin
-  Assert.AreEqual('2046-10-02T23:46:40' ,TGigaSecond.Add('2015-01-24T22:00:00'));
+  Assert.AreEqual('2046-10-02T23:46:40' ,TGigasecond.Add('2015-01-24T22:00:00'));
 end;
 
-procedure TGigaSecondTest.full_time_with_day_roll_over;
+procedure TGigasecondTest.full_time_with_day_roll_over;
 begin
-  Assert.AreEqual('2046-10-03T01:46:39' ,TGigaSecond.Add('2015-01-24T23:59:59'));
+  Assert.AreEqual('2046-10-03T01:46:39' ,TGigasecond.Add('2015-01-24T23:59:59'));
 end;
 
-procedure TGigaSecondTest.second_test_for_date_only_specification_of_time;
+procedure TGigasecondTest.second_test_for_date_only_specification_of_time;
 begin
-  Assert.AreEqual('2009-02-19T01:46:40' ,TGigaSecond.Add('1977-06-13'));
+  Assert.AreEqual('2009-02-19T01:46:40' ,TGigasecond.Add('1977-06-13'));
 end;
 
-procedure TGigaSecondTest.third_test_for_date_only_specification_of_time;
+procedure TGigasecondTest.third_test_for_date_only_specification_of_time;
 begin
-  Assert.AreEqual('1991-03-27T01:46:40' ,TGigaSecond.Add('1959-07-19'));
+  Assert.AreEqual('1991-03-27T01:46:40' ,TGigasecond.Add('1959-07-19'));
 end;
 
 initialization
-  TDUnitX.RegisterTestFixture(TGigaSecondTest);
+  TDUnitX.RegisterTestFixture(TGigasecondTest);
 end.
