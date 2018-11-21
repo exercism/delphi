@@ -736,6 +736,14 @@
       "topics": ["algorithms", "strings", "loops", "arrays"]
     },
     {
+      "slug": "say",
+      "uuid": "1924b22a-6bab-4e15-9ed3-e7add2a596d7",
+      "core": false,
+      "unlocked_by": "kindergarten-garden",
+      "difficulty": 8,
+      "topics": ["strings", "transforming"]
+    },
+    {
       "slug": "poker",
       "uuid": "d4f0509b-2687-4ee2-adbb-2a1a295a9975",
       "core": false,
