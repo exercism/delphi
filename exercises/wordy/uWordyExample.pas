@@ -43,6 +43,9 @@ begin
     buildVariableAndOperatorGroupsRegex;
   end;
 
+  if aQuestion.Trim.IsEmpty or (aQuestion.Trim.ToUpperInvariant = 'WHAT IS?') then
+    raise EInvalidProblem.Create('syntax error');
+
   ParsedProblem := ParseProblem(aQuestion);
   if ParsedProblem.Operation1.IsEmpty then
   begin
