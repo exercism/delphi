@@ -3,9 +3,9 @@ unit uWordyTests;
 interface
 uses
   DUnitX.TestFramework;
-  
+
 const
-  CanonicalVersion = '1.4.0';
+  CanonicalVersion = '1.5.0';
 
 type
 
@@ -81,8 +81,12 @@ type
    procedure Non_math_question(const aInput: string; aExpected: string);
 
    [Ignore]
-   [TestCase('reject incomplete problem', 'What is 1 plus?,syntax error')]
-   procedure incomplete_Problem(const aInput: string; aExpected: string);
+   [TestCase('reject problem missing an operand', 'What is 1 plus?,syntax error')]
+   procedure problem_missing_an_operand(const aInput: string; aExpected: string);
+
+   [Ignore]
+   [TestCase('reject problem with no operands or operators', 'What is?,syntax error')]
+   procedure problem_with_no_operands_or_operators(const aInput: string; aExpected: string);
 
    [Ignore]
    [TestCase('reject two operations in a row', 'What is 1 plus plus 2?,syntax error')]
@@ -132,7 +136,7 @@ begin
   Assert.AreEqual(aExpected, TWordy.Answer(aInput));
 end;
 
-procedure WordyTests.incomplete_Problem(const aInput: string;
+procedure WordyTests.problem_missing_an_operand(const aInput: string;
   aExpected: string);
 var MyProc: TTestLocalMethod;
 begin
@@ -203,6 +207,17 @@ begin
 end;
 
 procedure WordyTests.Unknown_operation(const aInput: string; aExpected: string);
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              TWordy.Answer(aInput);
+            end;
+
+  Assert.WillRaiseWithMessage(MyProc, EInvalidProblem, aExpected);
+end;
+
+procedure WordyTests.problem_with_no_operands_or_operators(const aInput: string; aExpected: string);
 var MyProc: TTestLocalMethod;
 begin
   MyProc := procedure
