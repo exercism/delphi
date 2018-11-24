@@ -87,7 +87,7 @@ begin
   Assert.WillRaiseWithMessage(procedure
     begin
       Say(Anum);
-      end, EArgumentOutOfRangeException, 'input out of range');
+    end, EArgumentOutOfRangeException, 'input out of range');
 end;
 
 initialization
