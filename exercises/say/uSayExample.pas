@@ -2,10 +2,7 @@ unit uSay;
 
 interface
 
-type
-  TSay = class
-    class function Say(AInp : Int64) : string;
-  end;
+function Say(AInp : Int64) : string;
 
 implementation
 
@@ -14,7 +11,7 @@ uses
 
 { TSay }
 
-class function TSay.Say(AInp: Int64): string;
+function Say(AInp: Int64): string;
 
 const
   Smalls : Array [0..20] of string = ('', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
@@ -26,7 +23,6 @@ var
   S, UT: string;
 
   function UnderHundred(Ainp : integer) : string;
-  var S : string;
   begin
     if Ainp = 0 then
       exit('');

@@ -10,9 +10,6 @@ const
 type
   [TestFixture]
   TSayTest = class(TObject)
-  private
-    procedure Setup;
-    procedure TearDown;
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
@@ -59,45 +56,37 @@ implementation
 uses
   System.SysUtils, uSay;
 
-procedure TSayTest.Setup;
-begin
-end;
-
-procedure TSayTest.TearDown;
-begin
-end;
-
 procedure TSayTest.TestDigits(const ANum: int64; const AWord: string);
 begin
-  Assert.AreEqual(AWord, TSay.Say(Anum));
+  Assert.AreEqual(AWord, Say(Anum));
 end;
 
 procedure TSayTest.Test_hundreds(const ANum: int64; const AWord: string);
 begin
-  Assert.AreEqual(AWord, TSay.Say(Anum));
+  Assert.AreEqual(AWord, Say(Anum));
 end;
 
 procedure TSayTest.Test_millions(const ANum: int64; const AWord: string);
 begin
-  Assert.AreEqual(AWord, TSay.Say(Anum));
+  Assert.AreEqual(AWord, Say(Anum));
 end;
 
 procedure TSayTest.Test_thousands(const ANum: int64; const AWord: string);
 begin
-  Assert.AreEqual(AWord, TSay.Say(Anum));
+  Assert.AreEqual(AWord, Say(Anum));
 end;
 
 procedure TSayTest.Test_two_digit_numbers(const ANum: int64;
   const AWord: string);
 begin
-  Assert.AreEqual(AWord, TSay.Say(Anum));
+  Assert.AreEqual(AWord, Say(Anum));
 end;
 
 procedure TSayTest.Test_values_outside_range(const ANum: Int64);
 begin
   Assert.WillRaiseWithMessage(procedure
     begin
-      TSay.Say(Anum);
+      Say(Anum);
       end, EArgumentOutOfRangeException, 'input out of range');
 end;
 
