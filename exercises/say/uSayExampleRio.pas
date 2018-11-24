@@ -1,3 +1,6 @@
+// Example code is compatible with 10.3 and newer versions of Delphi only.
+// It utilizes inline var declarations as well as type inference.
+
 unit uSay;
 
 interface
