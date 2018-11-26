@@ -21,7 +21,7 @@ type
 //    [TestCase('second prime','2,3')]
 //    [TestCase('sixth prime','6,13')]
 //    [TestCase('second prime','10001,104743')]
-    procedure prime_test(const AValue1 : Integer;const AValue2 : Integer);
+    procedure prime_test(const ANumber : Integer;const AExpected : Integer);
   end;
 
 implementation
@@ -39,9 +39,9 @@ begin
     EArgumentOutOfRangeException, 'there is no zeroth prime');
 end;
 
-procedure TNthPrimeTest.prime_test(const AValue1 : Integer;const AValue2 : Integer);
+procedure TNthPrimeTest.prime_test(const ANumber : Integer;const AExpected : Integer);
 begin
-  Assert.AreEqual(AValue2, NthPrime(AValue1));
+  Assert.AreEqual(AExpected, NthPrime(ANumber));
 end;
 
 initialization
