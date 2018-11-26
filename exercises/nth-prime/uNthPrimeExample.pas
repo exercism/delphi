@@ -10,15 +10,12 @@ uses
   System.SysUtils;
 
 function NthPrime(AOrder : integer) : integer;
-var
-  i, num : integer;
 
   function IsPrime(AInp : integer) : boolean;
-  var i : integer;
   begin
     Result := true;
-    for i := 2 to round(sqrt(AInp)) do
-      if Ainp mod I = 0 then
+    for var i := 2 to round(sqrt(AInp)) do
+      if Ainp mod i = 0 then
         exit(false);
   end;
 
@@ -26,11 +23,12 @@ begin
   if AOrder < 1 then
     raise EArgumentOutOfRangeException.Create('there is no zeroth prime');
 
-  if AOrder = 1 then
-    Exit(2);
+  var i := 2;
+  var num := 3;
 
-  i := 2;
-  num := 3;
+  if AOrder = 1 then
+    Exit(i);
+
   Result := 3;
 
   while i < AOrder do
