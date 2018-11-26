@@ -31,7 +31,12 @@ uses
 
 procedure TNthPrimeTest.there_is_no_zeroth_prime;
 begin
-  Assert.WillRaiseWithMessage(procedure begin NthPrime(0); end , EArgumentOutOfRangeException, 'there is no zeroth prime');
+  Assert.WillRaiseWithMessage(
+    procedure
+    begin
+      NthPrime(0);
+    end,
+    EArgumentOutOfRangeException, 'there is no zeroth prime');
 end;
 
 procedure TNthPrimeTest.prime_test(const AValue1 : Integer;const AValue2 : Integer);
