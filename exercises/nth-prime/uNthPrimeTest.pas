@@ -16,12 +16,21 @@ type
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure there_is_no_zeroth_prime;
 
-//  'Uncomment the wanted test cases attributes to run the test')]
-//    [TestCase('first prime','1,2')]
-//    [TestCase('second prime','2,3')]
-//    [TestCase('sixth prime','6,13')]
-//    [TestCase('second prime','10001,104743')]
-    procedure prime_test(const ANumber : Integer;const AExpected : Integer);
+    [Test]
+    [Ignore]
+    procedure first_prime;
+
+    [Test]
+    [Ignore]
+    procedure second_prime;
+
+    [Test]
+    [Ignore]
+    procedure sixth_prime;
+
+    [Test]
+    [Ignore]
+    procedure big_prime;
   end;
 
 implementation
@@ -29,19 +38,30 @@ implementation
 uses
   System.SysUtils, uNthPrime;
 
-procedure TNthPrimeTest.there_is_no_zeroth_prime;
+
+procedure TNthPrimeTest.first_prime;
 begin
-  Assert.WillRaiseWithMessage(
-    procedure
-    begin
-      NthPrime(0);
-    end,
-    EArgumentOutOfRangeException, 'there is no zeroth prime');
+  Assert.AreEqual(2, NthPrime(1));
 end;
 
-procedure TNthPrimeTest.prime_test(const ANumber : Integer;const AExpected : Integer);
+procedure TNthPrimeTest.second_prime;
 begin
-  Assert.AreEqual(AExpected, NthPrime(ANumber));
+  Assert.AreEqual(3, NthPrime(2));
+end;
+
+procedure TNthPrimeTest.sixth_prime;
+begin
+  Assert.AreEqual(13, NthPrime(6));
+end;
+
+procedure TNthPrimeTest.big_prime;
+begin
+  Assert.AreEqual(104743, NthPrime(10001));
+end;
+
+procedure TNthPrimeTest.there_is_no_zeroth_prime;
+begin
+  Assert.WillRaiseWithMessage(procedure begin NthPrime(0); end , EArgumentOutOfRangeException, 'there is no zeroth prime');
 end;
 
 initialization
