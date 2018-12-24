@@ -22,7 +22,7 @@ var i : integer;
 begin
   SetLength(Result, Length(FMat));
   for i := Low(FMat) to High(FMat) do
-    Result[i] := FMat[i, AInd];
+    Result[i] := FMat[i, AInd - 1];
 end;
 
 constructor TMatrix.Create(AMatr: string);
@@ -42,7 +42,7 @@ end;
 
 function TMatrix.Row(AInd: integer): TArray<integer>;
 begin
-  Result := FMat[AInd];
+  Result := FMat[AInd - 1];
 end;
 
 end.

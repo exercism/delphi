@@ -6,7 +6,7 @@ uses
   DUnitX.TestFramework, System.Generics.Collections;
 
 const
-  CanonicalVersion = '1.0.0';
+  CanonicalVersion = '1.1.0';
 
 type
 
@@ -18,6 +18,7 @@ type
   public
     [Setup]
     procedure Setup;
+
     [TearDown]
     procedure TearDown;
 
@@ -66,7 +67,7 @@ begin
   ExpectedRow.AddRange([3, 6, 9]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1 2 3\n4 5 6\n7 8 9');
-  Actual := CUT.column(2);
+  Actual := CUT.column(3);
   CompareArrays(Expected, Actual);
 end;
 
@@ -79,7 +80,7 @@ begin
   ExpectedRow.AddRange([3, 6, 9, 6]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1 2 3\n4 5 6\n7 8 9\n8 7 6');
-  Actual := CUT.column(2);
+  Actual := CUT.column(3);
   CompareArrays(Expected, Actual);
 end;
 
@@ -92,7 +93,7 @@ begin
   ExpectedRow.AddRange([3, 4]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1 2\n3 4');
-  Actual := CUT.Row(1);
+  Actual := CUT.Row(2);
   CompareArrays(Expected, Actual);
 end;
 
@@ -105,7 +106,7 @@ begin
   ExpectedRow.AddRange([7, 8, 9]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1 2 3\n4 5 6\n7 8 9\n8 7 6');
-  Actual := CUT.Row(2);
+  Actual := CUT.Row(3);
   CompareArrays(Expected, Actual);
 end;
 
@@ -118,7 +119,7 @@ begin
   ExpectedRow.AddRange([1]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1');
-  Actual := CUT.column(0);
+  Actual := CUT.column(1);
   CompareArrays(Expected, Actual);
 end;
 
@@ -131,7 +132,7 @@ begin
   ExpectedRow.AddRange([1903, 3, 4]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('89 1903 3\n18 3 1\n9 4 800');
-  Actual := CUT.column(1);
+  Actual := CUT.column(2);
   CompareArrays(Expected, Actual);
 end;
 
@@ -144,7 +145,7 @@ begin
   ExpectedRow.AddRange([1]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1');
-  Actual := CUT.Row(0);
+  Actual := CUT.Row(1);
   CompareArrays(Expected, Actual);
 end;
 
@@ -157,7 +158,7 @@ begin
   ExpectedRow.AddRange([10, 20]);
   Expected := ExpectedRow.ToArray;
   CUT := TMatrix.Create('1 2\n10 20');
-  Actual := CUT.Row(1);
+  Actual := CUT.Row(2);
   CompareArrays(Expected, Actual);
 end;
 
