@@ -663,6 +663,18 @@
       ]
     },
     {
+      "slug": "binary-search-tree",
+      "uuid": "ad64efb9-8db3-40e2-8b2a-5ae757d6cd51",
+      "core": false,
+      "unlocked_by": "grade-school",
+      "difficulty": 5,
+      "topics": [
+        "overloading",
+        "searching", 
+        "trees",
+        "recursion"]
+    },
+    {
       "slug": "bowling",
       "uuid": "88f7ab7d-30c1-4cb5-81ff-1114b5f78291",
       "core": false,
