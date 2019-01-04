@@ -11,7 +11,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.6.1';
+  CanonicalVersion = '1.7.0';
 
 type
 
