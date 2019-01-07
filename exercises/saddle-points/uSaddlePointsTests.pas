@@ -11,7 +11,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.5.0';
 
 type
 
@@ -60,7 +60,7 @@ type
     fValue1: T1;
     fValue2: T2;
   public
-    constructor Create(Value1: T1; Value2: T2);
+    constructor Create(aValue1: T1; aValue2: T2);
     property Value1 : T1 read fValue1;
     property Value2 : T2 read fValue2;
   end;
@@ -68,10 +68,10 @@ type
 implementation
 uses uSaddlePoints;
 
-constructor TTuple<T1, T2>.Create(Value1: T1; Value2: T2);
+constructor TTuple<T1, T2>.Create(aValue1: T1; aValue2: T2);
 begin
-  fValue1 := Value1;
-  fValue2 := Value2;
+  fValue1 := aValue1;
+  fValue2 := aValue2;
 end;
 
 procedure TSaddlePointTests.Can_identify_single_saddle_point;
@@ -91,7 +91,7 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 1);
-  expected[0] := TTuple<integer,integer>.Create(1,0);
+  expected[0] := TTuple<integer,integer>.Create(2,1);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
@@ -130,8 +130,8 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 2);
-  expected[0] := TTuple<integer,integer>.Create(1,0);
-  expected[1] := TTuple<integer,integer>.Create(3,0);
+  expected[0] := TTuple<integer,integer>.Create(2,1);
+  expected[1] := TTuple<integer,integer>.Create(4,1);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
@@ -150,8 +150,8 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 2);
-  expected[0] := TTuple<integer,integer>.Create(0,1);
-  expected[1] := TTuple<integer,integer>.Create(0,3);
+  expected[0] := TTuple<integer,integer>.Create(1,2);
+  expected[1] := TTuple<integer,integer>.Create(1,4);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
@@ -192,9 +192,9 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 3);
-  expected[0] := TTuple<integer,integer>.Create(0,1);
-  expected[1] := TTuple<integer,integer>.Create(1,1);
-  expected[2] := TTuple<integer,integer>.Create(2,1);
+  expected[0] := TTuple<integer,integer>.Create(1,2);
+  expected[1] := TTuple<integer,integer>.Create(2,2);
+  expected[2] := TTuple<integer,integer>.Create(3,2);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
@@ -215,9 +215,9 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 3);
-  expected[0] := TTuple<integer,integer>.Create(1,0);
-  expected[1] := TTuple<integer,integer>.Create(1,1);
-  expected[2] := TTuple<integer,integer>.Create(1,2);
+  expected[0] := TTuple<integer,integer>.Create(2,1);
+  expected[1] := TTuple<integer,integer>.Create(2,2);
+  expected[2] := TTuple<integer,integer>.Create(2,3);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
@@ -237,8 +237,8 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 2);
-  expected[0] := TTuple<integer,integer>.Create(0,0);
-  expected[1] := TTuple<integer,integer>.Create(0,2);
+  expected[0] := TTuple<integer,integer>.Create(1,1);
+  expected[1] := TTuple<integer,integer>.Create(1,3);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
@@ -259,7 +259,7 @@ begin
   SaddlePoints := newSaddlePoints(values);
 
   SetLength(expected, 1);
-  expected[0] := TTuple<integer,integer>.Create(2,2);
+  expected[0] := TTuple<integer,integer>.Create(3,3);
   Assert.AreEqual(expected, SaddlePoints.Calculate);
 end;
 
