@@ -67,7 +67,7 @@ end;
 
 function TBinarySearchTree.SortedData: TArray<string>;
 var
-  List : TList<string>;
+  List: TList<string>;
 begin
   List := TList<string>.Create;
   if Assigned(Left) then
