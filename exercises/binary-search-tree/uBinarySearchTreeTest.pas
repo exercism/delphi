@@ -35,11 +35,11 @@ type
     [Ignore]
     procedure can_create_complex_tree;
 
-   [Test]
+    [Test]
     [Ignore]
     procedure can_sort_single_number;
 
-   [Test]
+    [Test]
     [Ignore]
     procedure can_sort_if_second_number_is_smaller_than_first;
 
@@ -54,7 +54,6 @@ type
     [Test]
     [Ignore]
     procedure can_sort_complex_tree;
-
   end;
 
 implementation

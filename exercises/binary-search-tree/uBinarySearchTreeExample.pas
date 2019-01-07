@@ -33,7 +33,7 @@ end;
 
 constructor TBinarySearchTree.Create(AVal: TArray<string>);
 var
-  I, L: Integer;
+  i, L: Integer;
 begin
   inherited Create;
   L := length(AVal);
@@ -43,7 +43,7 @@ begin
     Left := nil;
     Right := nil;
 
-    for I := 1 to length(AVal) - 1 do
+    for i := 1 to length(AVal) - 1 do
       Add(AVal[i]);
   end;
 end;
