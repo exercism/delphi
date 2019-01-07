@@ -1,7 +1,7 @@
 //========================================================================
 // For this example solution I utilized Stefen Glienke's
-// open-source code library titled Spring4D.  Latest
-// version is available here: https://bitbucket.org/sglienke/spring4d
+// open-source code library Spring4D.  Latest version is available
+// here: https://bitbucket.org/sglienke/spring4d
 // Spring4D is not absolutely necessary, but it does greatly help
 // facilitate a much simpler solution.
 //
@@ -55,16 +55,12 @@ begin
 end;
 
 function TSaddlePoints.getMaxRows: TArray<integer>;
-var
-  Row: integer;
-  Col: integer;
-  lRow: IList<integer>;
 begin
-  lRow := TCollections.CreateList<integer>;
+  var lRow := TCollections.CreateList<integer>;
   SetLength(result, RowCount);
-  for Row := 0 to RowCount - 1 do
+  for var Row := 0 to RowCount - 1 do
   begin
-    for Col := 0 to ColumnCount - 1 do
+    for var Col := 0 to ColumnCount - 1 do
       lRow.Add(fValues[Row,Col]);
     result[Row] := lRow.Max;
     lRow.Clear;
@@ -72,16 +68,12 @@ begin
 end;
 
 function TSaddlePoints.getMinColumns: TArray<integer>;
-var
-  Col: integer;
-  Row: integer;
-  lColumn: IList<integer>;
 begin
-  lColumn := TCollections.CreateList<integer>;
+  var lColumn := TCollections.CreateList<integer>;
   SetLength(result, ColumnCount);
-  for Col := 0 to ColumnCount - 1 do
+  for var Col := 0 to ColumnCount - 1 do
   begin
-    for Row := 0 to RowCount - 1 do
+    for var Row := 0 to RowCount - 1 do
       lColumn.Add(fValues[Row,Col]);
     result[Col] := lColumn.Min;
     lColumn.Clear;
@@ -89,18 +81,20 @@ begin
 end;
 
 function TSaddlePoints.Coordinates: IList<TTuple<integer, integer>>;
-var
-  Row, Col: integer;
 begin
   result := TCollections.CreateList<TTuple<integer, integer>>;
-  for Row := 0 to RowCount - 1 do
-    for Col := 0 to ColumnCount - 1 do
+  for var Row := 0 to RowCount - 1 do
+    for var Col := 0 to ColumnCount - 1 do
       result.Add(TTuple<integer, integer>.Create(Row,Col));
 end;
 
 function TSaddlePoints.Calculate: TArray<TTuple<integer, integer>>;
 begin
-  result := Coordinates.Where(IsSaddlePoint).ToArray;
+  var wrkArray := Coordinates.Where(isSaddlePoint).ToArray;
+  var wrkList := TCollections.CreateList<TTuple<integer, integer>>;
+  for var Coordinate in wrkArray do
+    wrkList.Add(TTuple<integer, integer>.Create(Coordinate.Value1 + 1, Coordinate.Value2 + 1));
+  result := wrkList.ToArray;
 end;
 
 function TSaddlePoints.ColumnCount: integer;
@@ -117,11 +111,9 @@ begin
 end;
 
 function TSaddlePoints.IsSaddlePoint(const coordinate: TTuple<integer, integer>): boolean;
-var
-  row, col: integer;
 begin
-  row := coordinate.Value1;
-  col := coordinate.Value2;
+  var row := coordinate.Value1;
+  var col := coordinate.Value2;
   result := (fmaxRows[row] = fValues[row, col]) and
             (fminCols[col] = fValues[row, col]);
 end;
