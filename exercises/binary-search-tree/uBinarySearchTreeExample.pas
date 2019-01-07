@@ -8,7 +8,7 @@ type
     FValue: string;
     procedure DoAdd(Aval : string; var ABranch : TBinarySearchTree);
   public
-    Left, Right : TBinarySearchTree;
+    Left, Right: TBinarySearchTree;
     procedure Add(AVal : string);
     function SortedData : TArray<string>;
     property Data : string read FValue;
