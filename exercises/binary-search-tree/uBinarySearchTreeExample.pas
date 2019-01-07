@@ -9,7 +9,7 @@ type
     procedure DoAdd(Aval : string; var ABranch : TBinarySearchTree);
   public
     Left, Right: TBinarySearchTree;
-    procedure Add(AVal : string);
+    procedure Add(AVal: string);
     function SortedData : TArray<string>;
     property Data : string read FValue;
     constructor Create(AVal : TArray<string>);
