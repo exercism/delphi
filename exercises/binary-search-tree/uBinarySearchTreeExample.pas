@@ -5,7 +5,7 @@ interface
 type
   TBinarySearchTree = class
   private
-    FValue : string;
+    FValue: string;
     procedure DoAdd(Aval : string; var ABranch : TBinarySearchTree);
   public
     Left, Right : TBinarySearchTree;
