@@ -11,7 +11,7 @@ type
     Left, Right: TBinarySearchTree;
     procedure Add(AVal: string);
     function SortedData: TArray<string>;
-    property Data : string read FValue;
+    property Data: string read FValue;
     constructor Create(AVal : TArray<string>);
     destructor Destroy; override;
   end;
