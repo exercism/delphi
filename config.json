@@ -75,7 +75,6 @@
       "unlocked_by": "leap",
       "difficulty": 1,
       "topics": [
-        "_bit_integers",
         "floating_point_numbers"
       ]
     },
