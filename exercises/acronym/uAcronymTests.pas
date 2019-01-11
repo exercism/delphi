@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.6.0';
+  CanonicalVersion = '1.7.0';
 
 type
 
@@ -43,6 +43,10 @@ type
     [Test]
     [Ignore]
     procedure apostrophes;
+
+    [Test]
+    [Ignore]
+    procedure underscore_emphasis;
   end;
 
 implementation
@@ -89,6 +93,11 @@ procedure AcronymTests.very_long_abbreviation;
 begin
   Assert.AreEqual('ROTFLSHTMDCOALM', abbreviate('Rolling On The Floor ' +
     'Laughing So Hard That My Dogs Came Over And Licked Me'));
+end;
+
+procedure AcronymTests.underscore_emphasis;
+begin
+  Assert.AreEqual('TRNT', abbreviate('The Road _Not_ Taken'));
 end;
 
 initialization
