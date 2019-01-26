@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '1.2.0';
 
 type
 
@@ -75,8 +75,8 @@ var
   MyAge: ISpaceAge;
   expectedAge: double;
 begin
-  MyAge := NewSpaceAge(2329871239);
-  expectedAge := 39.25;
+  MyAge := NewSpaceAge(2129871239);
+  expectedAge := 35.88;
   Assert.AreEqual(expectedAge, MyAge.OnMars);
 end;
 
@@ -95,8 +95,8 @@ var
   MyAge: ISpaceAge;
   expectedAge: double;
 begin
-  MyAge := NewSpaceAge(8210123456);
-  expectedAge := 1.58;
+  MyAge := NewSpaceAge(1821023456);
+  expectedAge := 0.35;
   Assert.AreEqual(expectedAge, MyAge.OnNeptune);
 end;
 
@@ -105,8 +105,8 @@ var
   MyAge: ISpaceAge;
   expectedAge: double;
 begin
-  MyAge := NewSpaceAge(3000000000);
-  expectedAge := 3.23;
+  MyAge := NewSpaceAge(2000000000);
+  expectedAge := 2.15;
   Assert.AreEqual(expectedAge, MyAge.OnSaturn);
 end;
 
@@ -115,8 +115,8 @@ var
   MyAge: ISpaceAge;
   expectedAge: double;
 begin
-  MyAge := NewSpaceAge(3210123456);
-  expectedAge := 1.21;
+  MyAge := NewSpaceAge(1210123456);
+  expectedAge := 0.46;
   Assert.AreEqual(expectedAge, MyAge.OnUranus);
 end;
 

@@ -15,7 +15,7 @@ type
     function OnNeptune: double;
   end;
 
-  function NewSpaceAge(Seconds: Int64): ISpaceAge;
+  function NewSpaceAge(Seconds: integer): ISpaceAge;
 
 implementation
 uses System.Generics.Collections, System.Math;
@@ -30,9 +30,9 @@ type
       TPlanets = (Earth, Mercury, Venus, Mars, Jupiter, Saturn, Uranus, Neptune);
     var
       earthYearToPlanetPeriod: TDictionary<TPlanets, double>;
-      fSeconds: Int64;
+      fSeconds: integer;
     function CalculateAge(periodInEarthYears: double): double;
-    constructor Create(Seconds: Int64);
+    constructor Create(Seconds: integer);
     destructor Destroy; override;
     function OnEarth: double;
     function OnMercury: double;
@@ -44,7 +44,7 @@ type
     function OnNeptune: double;
   end;
 
-function NewSpaceAge(Seconds: Int64): ISpaceAge;
+function NewSpaceAge(Seconds: integer): ISpaceAge;
 begin
   result := TSpaceAge.Create(Seconds);
 end;
@@ -54,13 +54,13 @@ begin
   result := SimpleRoundTo(fSeconds / (cEarth_Orbit_In_Seconds * periodInEarthYears), -2);
 end;
 
-constructor TSpaceAge.Create(Seconds: Int64);
+constructor TSpaceAge.Create(Seconds: integer);
 begin
   fSeconds := Seconds;
   earthYearToPlanetPeriod := TDictionary<TPlanets, double>.Create;
   with earthYearToPlanetPeriod do
   begin
-    add(Earth, 1);
+    add(Earth, 1.0);
     add(Mercury, 0.2408467);
     add(Venus, 0.61519726);
     add(Mars, 1.8808158);
