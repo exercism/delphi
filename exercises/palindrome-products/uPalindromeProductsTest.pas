@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework, uPalindromeProducts;
 
 const
-  CanonicalVersion = '1.1.0';
+  CanonicalVersion = '1.2.0';
 
 type
   [TestFixture]
@@ -13,8 +13,6 @@ type
   private
     Expected, Actual : TPalindromeResult;
     procedure Compare(Expected, Actual : TPalindromeResult);
-    procedure CompareArrays(Array1, Array2: TArray<integer>);
-
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
@@ -70,53 +68,51 @@ implementation
 uses
   System.SysUtils;
 
-procedure TPalindromeProductsTest.CompareArrays(Array1, Array2: TArray<integer>);
-var
-  i: integer;
-begin
-  Assert.AreEqual(Length(Array1), Length(Array2), ' - Array lengths must be equal');
-  for i := Low(Array1) to High(Array1) do
-    Assert.AreEqual(Array1[i], Array2[i], format('Expecting element %d to = %d, Actual = %d',
-      [i, Array1[i], Array2[i]]));
-end;
-
 procedure TPalindromeProductsTest.empty_result_for_largest_if_no_palindrome_in_the_range;
 begin
-  Assert.WillRaiseWithMessage(procedure()
-    begin
-      TPalindromeProduct.Largest(1002, 1003)
-    end,
-    EArgumentException, 'no palindrome with factors in the range 1002 to 1003');
+  Expected := nil;
+  Actual := TPalindromeProduct.Largest(15, 15);
+  assert.AreEqual(Expected, Actual);
 end;
 
 procedure TPalindromeProductsTest.empty_result_for_smallest_if_no_palindrome_in_the_range;
 begin
-  Assert.WillRaiseWithMessage(procedure()
-    begin
-      TPalindromeProduct.Smallest(15, 15)
-    end,
-    EArgumentException, 'no palindrome with factors in the range 15 to 15');
+  Expected := nil;
+  Actual := TPalindromeProduct.Smallest(1002, 1003);
+  assert.AreEqual(Expected, Actual);
 end;
 
 procedure TPalindromeProductsTest.error_result_for_largest_if_min_is_more_than_max;
 begin
-  Assert.WillRaiseWithMessage(procedure()
+  Assert.WillRaiseWithMessage(
+    procedure()
     begin
       TPalindromeProduct.Largest(2, 1)
     end,
-    EArgumentException, 'invalid input: min is 2 and max is 1');
+    EArgumentException, 'min must be <= max');
 end;
 
 procedure TPalindromeProductsTest.error_result_for_smallest_if_min_is_more_than_max;
 begin
-  Assert.WillRaiseWithMessage(procedure()
+  Assert.WillRaiseWithMessage(
+    procedure()
     begin
       TPalindromeProduct.Smallest(10000, 1)
     end,
-    EArgumentException, 'invalid input: min is 10000 and max is 1');
+    EArgumentException, 'min must be <= max');
 end;
 
 procedure TPalindromeProductsTest.Compare(Expected, Actual : TPalindromeResult);
+
+  procedure CompareArrays(Array1, Array2: TArray<integer>);
+  var
+    i: integer;
+  begin
+    Assert.AreEqual(Length(Array1), Length(Array2), ' - Array lengths must be equal');
+    for i := Low(Array1) to High(Array1) do
+      Assert.AreEqual(Array1[i], Array2[i], 'min must be <= max');
+  end;
+
 var
   i: Integer;
 begin

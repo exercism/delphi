@@ -29,7 +29,7 @@ var
   i, j, L, Mult: Integer;
 begin
   if AMin > AMax then
-    raise EArgumentException.Create(format('invalid input: min is %d and max is %d', [AMin, AMax]));
+    raise EArgumentException.Create('min must be <= max');
 
   Result := nil;
   for i := AMin to AMax do
@@ -51,9 +51,6 @@ begin
           AExt := Mult;
         end;
       end;
-
-  if not Assigned(result) then
-    raise EArgumentException.Create(format('no palindrome with factors in the range %d to %d', [AMin, AMax]));
 end;
 
 class function TPalindromeProduct.IsPalindrom(ANum: integer): boolean;
@@ -64,8 +61,6 @@ begin
 end;
 
 class function TPalindromeProduct.Largest(AMin, AMax : integer): TPalindromeResult;
-var
-  i, j, L, Mult: Integer;
 begin
   Result := Calculate(AMin, AMax, 0,
     function(Ext : integer; Mult : integer) : boolean
@@ -75,8 +70,6 @@ begin
 end;
 
 class function TPalindromeProduct.Smallest(AMin, AMax : integer): TPalindromeResult;
-var
-  i, j, L, Mult: Integer;
 begin
   Result := Calculate(AMin, AMax, MaxInt,
     function(Ext : integer; Mult : integer) : boolean
