@@ -108,7 +108,6 @@ begin
             begin
               inStr := 'AGXXACT';
               dna := TDNA.Create(inStr);
-              dna.Count('X');
             end;
   Assert.WillRaiseWithMessage(MyProc,EInvalidNucleotideException,'Invalid nucleotide in strand');
 end;

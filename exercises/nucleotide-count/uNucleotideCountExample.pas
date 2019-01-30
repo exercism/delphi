@@ -13,7 +13,6 @@ type
   public
     constructor create(aSequence: string);
     destructor destroy;
-    function Count(aChar: char): integer;
     property NucleotideCounts: TDictionary<char, integer> read GetNucleotideCounts;
   end;
 
@@ -51,13 +50,6 @@ end;
 function TDNA.GetNucleotideCounts: TDictionary<char, integer>;
 begin
   result := fNucleotideCounts;
-end;
-
-function TDNA.Count(aChar: Char): integer;
-begin
-  result := 0;
-  if not fNucleotideCounts.TryGetValue(aChar, result) then
-    raise EInvalidNucleotideException.Create('Invalid nucleotide in strand');
 end;
 
 end.
