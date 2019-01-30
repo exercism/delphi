@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework, System.Generics.Collections;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.3.0.1';
 
 type
 
