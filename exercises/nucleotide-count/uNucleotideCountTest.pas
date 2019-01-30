@@ -40,17 +40,14 @@ implementation
 uses SysUtils, uNucleotideCount;
 
 procedure CompareDictionaries(Expected, Actual: TDictionary<Char, Integer>);
-var expectedArray,
-    actualArray: TArray<TPair<char, integer>>;
-    i: integer;
+var
+  expectedItem: TPair<char, integer>;
 begin
-  Assert.AreEqual(Expected.Count, Actual.Count);
-  expectedArray := Expected.ToArray;
-  actualArray := Actual.ToArray;
-  for i := Low(expectedArray) to High(expectedArray) do
-  begin
-    Assert.AreEqual(expectedArray[i].Key, actualArray[i].Key,'Keys don''t match');
-    Assert.AreEqual(expectedArray[i].Value, actualArray[i].Value, format('Key %s count is wrong',[expectedArray[i].Key]));
+  Assert.AreEqual(Expected.Count, Actual.Count); //Actual should have 4 nucleotides as expected
+  for expectedItem in Expected do
+  begin  //Every Actual item should match an expected item.
+    Assert.IsTrue(Actual.ContainsKey(expectedItem.Key));
+    Assert.AreEqual(expectedItem.Value, Actual[expectedItem.Key]);
   end;
 end;
 
