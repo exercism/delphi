@@ -38,7 +38,9 @@ begin
       count := fNucleotideCounts[charInSequence];
       inc(count);
       fNucleotideCounts[charInSequence] := count;
-    end;
+    end
+    else
+      raise EInvalidNucleotideException.Create('Invalid nucleotide in strand');
   end;
 end;
 
