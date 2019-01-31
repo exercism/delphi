@@ -3,22 +3,30 @@ unit uWordCountTests;
 interface
 uses
   System.Generics.Collections, DUnitX.TestFramework;
-  
+
 const
-  CanonicalVersion = '1.2.0';  
+  CanonicalVersion = '1.3.0';
 
 type
 
   [TestFixture]
   WordCountTests = class(TObject)
   private
+    Expected,
+    Actual: TDictionary<String, integer>;
     procedure CompareDictionaries(Expected, Actual: TDictionary<String, integer>);
   public
+    [Setup]
+    procedure Setup;
+
+    [TearDown]
+    procedure TearDown;
+
     [Test]
     procedure Validate_CompareDictionaries;
-	
+
     [Test]
-    // [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Count_one_word;
 
     [Test]
@@ -61,185 +69,195 @@ type
     [Ignore]
     procedure Multiple_spaces_not_detected_as_a_word;
 
+    [Test]
+    [Ignore]
+    procedure Alternating_word_separators_not_detected_as_a_word;
   end;
-	
+
 implementation
 
 uses SysUtils, uWordCount;
 
+
 procedure WordCountTests.CompareDictionaries(Expected, Actual: TDictionary<String, Integer>);
-var expectedPair: TPair<string, Integer>;
+var
+  expectedPair: TPair<string, Integer>;
 begin
-  Assert.AreEqual(Expected.Count, Actual.Count);
+  Assert.AreEqual(Expected.Count, Actual.Count,
+    '{Word counts should be equal}');
   for expectedPair in Expected do
   begin
-    Assert.IsTrue(Actual.ContainsKey(expectedPair.Key));
-    Assert.AreEqual(expectedPair.Value, Actual[expectedPair.Key]);
+    Assert.IsTrue(Actual.ContainsKey(expectedPair.Key),
+      format('Actual doesn''t contain Expected "%s"',[expectedPair.Key]));
+    Assert.AreEqual(expectedPair.Value, Actual[expectedPair.Key],
+      format('{Expected %s: %d; Actual %s: %d}',
+        [expectedPair.Key,
+         expectedPair.Value,
+         expectedPair.Key,
+         Actual[expectedPair.Key]]));
   end;
 end;
 
 procedure WordCountTests.Validate_CompareDictionaries;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('r',5);
-  expected.Add('a',10);
-  expected.Add('n',15);
-  expected.Add('d',20);
-  expected.Add('o',25);
-  expected.Add('m',30);
+  Expected.Add('r',5);
+  Expected.Add('a',10);
+  Expected.Add('n',15);
+  Expected.Add('d',20);
+  Expected.Add('o',25);
+  Expected.Add('m',30);
 
   actual := TDictionary<String, Integer>.create(expected);
 
-  CompareDictionaries(expected, actual);
+  CompareDictionaries(Expected, Actual);
+end;
+
+procedure WordCountTests.Alternating_word_separators_not_detected_as_a_word;
+begin
+  Expected.Add('one',1);
+  Expected.Add('two',1);
+  Expected.Add('three',1);
+
+  Actual := WordCount(',\n,one,\n ,two \n ''three''').countWords;
+
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Count_one_word;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('word',1);
+  Expected.Add('word',1);
 
-  actual := WordCount('word').countWords;
-  
-  CompareDictionaries(expected, actual);
+  Actual := WordCount('word').countWords;
+
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Count_one_of_each_word;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('one',1);
-  expected.Add('of',1);
-  expected.Add('each',1);
+  Expected.Add('one',1);
+  Expected.Add('of',1);
+  Expected.Add('each',1);
 
-  actual :=  WordCount('one of each').countWords;
-  
-  CompareDictionaries(expected, actual);
+  Actual :=  WordCount('one of each').countWords;
+
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Multiple_occurrences_of_a_word;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('one',1);
-  expected.Add('fish',4);
-  expected.Add('two',1);  
-  expected.Add('red',1);
-  expected.Add('blue',1);
-  
-  actual := WordCount('one fish two fish red fish blue fish').countWords;
+  Expected.Add('one',1);
+  Expected.Add('fish',4);
+  Expected.Add('two',1);
+  Expected.Add('red',1);
+  Expected.Add('blue',1);
 
-  CompareDictionaries(expected, actual);
+  Actual := WordCount('one fish two fish red fish blue fish').countWords;
+
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Handles_cramped_lists;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('one',1);
-  expected.Add('two',1);
-  expected.Add('three',1);  
+  Expected.Add('one',1);
+  Expected.Add('two',1);
+  Expected.Add('three',1);
 
-  actual := WordCount('one,two,three').countWords;
+  Actual := WordCount('one,two,three').countWords;
 
-  CompareDictionaries(expected, actual);  
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Handles_expanded_lists;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('one',1);
-  expected.Add('two',1);
-  expected.Add('three',1);  
+  Expected.Add('one',1);
+  Expected.Add('two',1);
+  Expected.Add('three',1);
 
-  actual := WordCount('one,\ntwo,\nthree').countWords;
+  Actual := WordCount('one,\ntwo,\nthree').countWords;
 
-  CompareDictionaries(expected, actual);  
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Ignore_punctuation;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('car',1);
-  expected.Add('carpet',1);
-  expected.Add('as',1);  
-  expected.Add('java',1);
-  expected.Add('javascript',1);
+  Expected.Add('car',1);
+  Expected.Add('carpet',1);
+  Expected.Add('as',1);
+  Expected.Add('java',1);
+  Expected.Add('javascript',1);
 
-  actual := WordCount('car: carpet as java: javascript!!&@$%^&').countWords;
+  Actual := WordCount('car: carpet as java: javascript!!&@$%^&').countWords;
 
-  CompareDictionaries(expected, actual);  
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Include_numbers;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('testing',2);
-  expected.Add('1',1);
-  expected.Add('2',1);  
+  Expected.Add('testing',2);
+  Expected.Add('1',1);
+  Expected.Add('2',1);
 
-  actual := WordCount('testing, 1, 2 testing').countWords;
+  Actual := WordCount('testing, 1, 2 testing').countWords;
 
-  CompareDictionaries(expected, actual);
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Normalize_case;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('go',3);
-  expected.Add('stop',2);
+  Expected.Add('go',3);
+  Expected.Add('stop',2);
 
-  actual := WordCount('go Go GO Stop stop').countWords;
+  Actual := WordCount('go Go GO Stop stop').countWords;
 
-  CompareDictionaries(expected, actual);  
+  CompareDictionaries(Expected, Actual);
+end;
+
+procedure WordCountTests.Setup;
+begin
+  Expected := TDictionary<String, integer>.Create;
+end;
+
+procedure WordCountTests.TearDown;
+begin
+  Expected.DisposeOf;
+  Actual.DisposeOf;
 end;
 
 procedure WordCountTests.With_apostrophes;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('first',1);
-  expected.Add('don''t',2);
-  expected.Add('laugh',1);  
-  expected.Add('then',1);
-  expected.Add('cry',1);
+  Expected.Add('first',1);
+  Expected.Add('don''t',2);
+  Expected.Add('laugh',1);
+  Expected.Add('then',1);
+  Expected.Add('cry',1);
 
-  actual := WordCount('First: don''t laugh. Then: don''t cry.').countWords;
+  Actual := WordCount('First: don''t laugh. Then: don''t cry.').countWords;
 
-  CompareDictionaries(expected, actual);    
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.With_quotations;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('joe',1);
-  expected.Add('can''t',1);
-  expected.Add('tell',1);  
-  expected.Add('between',1);
-  expected.Add('large',2);
-  expected.Add('and',1);  
+  Expected.Add('joe',1);
+  Expected.Add('can''t',1);
+  Expected.Add('tell',1);
+  Expected.Add('between',1);
+  Expected.Add('large',2);
+  Expected.Add('and',1);
 
-  actual := WordCount('Joe can''t tell between ''large'' and large').countWords;
+  Actual := WordCount('Joe can''t tell between ''large'' and large').countWords;
 
-  CompareDictionaries(expected, actual);    
+  CompareDictionaries(Expected, Actual);
 end;
 
 procedure WordCountTests.Multiple_spaces_not_detected_as_a_word;
-var expected, actual: TDictionary<String, integer>;
 begin
-  expected := TDictionary<String, integer>.Create;
-  expected.Add('multiple',1);
-  expected.Add('whitespaces',1);
+  Expected.Add('multiple',1);
+  Expected.Add('whitespaces',1);
 
-  actual := WordCount(' multiple   whitespaces').countWords;
+  Actual := WordCount(' multiple   whitespaces').countWords;
 
-  CompareDictionaries(expected, actual);    
+  CompareDictionaries(Expected, Actual);
 end;
 
 initialization
