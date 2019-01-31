@@ -3,22 +3,30 @@ unit uWordCountTests;
 interface
 uses
   System.Generics.Collections, DUnitX.TestFramework;
-  
+
 const
-  CanonicalVersion = '1.2.0';  
+  CanonicalVersion = '1.3.0';
 
 type
 
   [TestFixture]
   WordCountTests = class(TObject)
   private
+    Expected,
+    Actual: TDictionary<String, integer>;
     procedure CompareDictionaries(Expected, Actual: TDictionary<String, integer>);
   public
+    [Setup]
+    procedure Setup;
+
+    [TearDown]
+    procedure TearDown;
+
     [Test]
     procedure Validate_CompareDictionaries;
-	
+
     [Test]
-    // [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure Count_one_word;
 
     [Test]
