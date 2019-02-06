@@ -135,6 +135,18 @@
       ]
     },
     {
+      "slug": "rotational-cipher",
+      "uuid": "18f5ccc6-6fda-4844-9997-93130d18065d",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "strings",
+        "transforming"
+      ]
+    },
+    {
       "slug": "clock",
       "uuid": "0223dfe4-3ff4-4f4e-8cd2-821e1fd50217",
       "core": true,
@@ -689,7 +701,7 @@
       "slug": "ocr-numbers",
       "uuid": "01c0f2de-e1bc-4540-a127-21e78e9630b3",
       "core": false,
-      "unlocked_by": "grade-school",
+      "unlocked_by": "rotational-cipher",
       "difficulty": 5,
       "topics": [
         "parsing",
