@@ -5,14 +5,14 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '2.2.0';
+  CanonicalVersion = '2.3.0';
 
 type
   [TestFixture]
   HammingTests = class(TObject)
   public
     [Test]
-//  [Ignore('Comment the "[Ignore]" statement to run the test')]
+//    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure empty_strands;
 
     [Test]
@@ -38,6 +38,14 @@ type
     [Test]
     [Ignore]
     procedure disallow_second_strand_longer;
+
+    [Test]
+    [Ignore]
+    procedure disallow_left_empty_strand;
+
+    [Test]
+    [Ignore]
+    procedure disallow_right_empty_strand;
   end;
 
 implementation
@@ -76,6 +84,26 @@ begin
               THamming.Distance('AATG', 'AAA');
             end;
   Assert.WillRaiseWithMessage(MyProc, EArgumentException, 'error: left and right strands must be of equal length');
+end;
+
+procedure HammingTests.disallow_left_empty_strand;
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              THamming.Distance('', 'G');
+            end;
+  Assert.WillRaiseWithMessage(MyProc, EArgumentException, 'error: left strand must not be empty');
+end;
+
+procedure HammingTests.disallow_right_empty_strand;
+var MyProc: TTestLocalMethod;
+begin
+  MyProc := procedure
+            begin
+              THamming.Distance('G', '');
+            end;
+  Assert.WillRaiseWithMessage(MyProc, EArgumentException, 'error: right strand must not be empty');
 end;
 
 procedure HammingTests.disallow_second_strand_longer;
