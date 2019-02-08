@@ -3,13 +3,14 @@ unit uHighScores;
 interface
 
 type
-  IScores = interface
-    function Input(AInput : TArray<integer>) : ISCores;
-    function Scores :  TArray<integer>;
-    function Latest : integer;
-    function Highest : integer;
-    function Top : TArray<integer>;
-    function Report : string;
+  IScores = interface(IInvokable)
+  ['{3D174C80-BA8D-4D92-AB1B-DA29ED0812CE}']
+    function Input(AInput: TArray<integer>): ISCores;
+    function Scores:  TArray<integer>;
+    function Latest: integer;
+    function Highest: integer;
+    function personalTopThree: TArray<integer>;
+    function Report: string;
   end;
 
 function NewScores: IScores;
@@ -23,14 +24,14 @@ type
 
   TScores = class(TInterfacedObject, IScores)
   private
-    FScores : TArray<integer>;
+    FScores: TArray<integer>;
   public
-    function Input(AInput : TArray<integer>) : ISCores;
-    function Scores :  TArray<integer>;
-    function Latest : integer;
-    function Highest : integer;
-    function Top : TArray<integer>;
-    function Report : string;
+    function Input(AInput: TArray<integer>): ISCores;
+    function Scores:  TArray<integer>;
+    function Latest: integer;
+    function Highest: integer;
+    function personalTopThree: TArray<integer>;
+    function Report: string;
   end;
 
  { TScores }
@@ -41,9 +42,8 @@ begin
 end;
 
 function TScores.Highest: integer;
-var l : TList<integer>;
 begin
-  l := TList<integer>.Create;
+  var l := TList<integer>.Create;
   l.AddRange(FScores);
   l.Sort;
   Result := l.Last;
@@ -62,10 +62,9 @@ begin
 end;
 
 function TScores.Report: string;
-var L, H  : integer;
 begin
-  L := Latest;
-  H := Highest;
+  var L := Latest;
+  var H := Highest;
   if L = H then
     Result := format('Your latest score was %d. That''s your personal best!',[L])
   else
@@ -77,10 +76,9 @@ begin
   Result := FScores;
 end;
 
-function TScores.Top: TArray<integer>;
-var l : TList<integer>;
+function TScores.personalTopThree: TArray<integer>;
 begin
-  l := TList<integer>.Create;
+  var l := TList<integer>.Create;
   l.AddRange(FScores);
   l.Sort;
   l.Reverse;

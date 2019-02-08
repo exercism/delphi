@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework, uHighScores;
 
 const
-  CanonicalVersion = '1.0.0';
+  CanonicalVersion = '3.0.0';
 
 type
 
@@ -28,31 +28,27 @@ type
 
     [Test]
     [Ignore]
-    procedure Highest_score;
+    procedure Personal_best;
 
     [Test]
     [Ignore]
-    procedure Personal_bests;
+    procedure Personal_top_three_from_a_list_of_scores;
 
     [Test]
     [Ignore]
-    procedure Personal_bests_highest_to_lowest;
+    procedure Personal_top_highest_to_lowest;
 
     [Test]
     [Ignore]
-    procedure Personal_bests_when_there_is_a_tie;
+    procedure Personal_top_when_there_is_a_tie;
 
     [Test]
     [Ignore]
-    procedure Personal_bests_when_there_are_less_than_3;
+    procedure Personal_top_when_there_are_less_than_3;
 
     [Test]
     [Ignore]
-    procedure Personal_bests_when_there_is_only_one;
-
-    [Test]
-    [Ignore]
-    procedure Personal_bests_from_a_long_list;
+    procedure Personal_top_when_there_is_only_one;
 
     [Test]
     [Ignore]
@@ -65,7 +61,6 @@ type
     [Test]
     [Ignore]
     procedure Message_for_repeated_personal_best;
-
   end;
 
 implementation
@@ -87,7 +82,7 @@ begin
       [i, Array1[i], Array2[i]]));
 end;
 
-procedure THighScoresTest.Highest_score;
+procedure THighScoresTest.Personal_best;
 begin
   Assert.AreEqual(100, Scores.Input([40, 100, 70]).Highest);
 end;
@@ -120,35 +115,31 @@ begin
       Scores.Input([20, 40, 0, 30, 70]).Report);
 end;
 
-procedure THighScoresTest.Personal_bests;
-begin
-  CompareArrays([50, 30, 10], Scores.Input([50, 30, 10]).Top);
-end;
-
-procedure THighScoresTest.Personal_bests_from_a_long_list;
+procedure THighScoresTest.Personal_top_three_from_a_list_of_scores;
 begin
   CompareArrays([100, 90, 70],
-    Scores.Input([10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70]).Top);
+    Scores.Input([10, 30, 90, 30, 100, 20, 10, 0, 30, 40, 40, 70, 70])
+    .personalTopThree);
 end;
 
-procedure THighScoresTest.Personal_bests_highest_to_lowest;
+procedure THighScoresTest.Personal_top_highest_to_lowest;
 begin
-  CompareArrays([30, 20, 10], Scores.Input([20, 10, 30]).Top);
+  CompareArrays([30, 20, 10], Scores.Input([20, 10, 30]).personalTopThree);
 end;
 
-procedure THighScoresTest.Personal_bests_when_there_are_less_than_3;
+procedure THighScoresTest.Personal_top_when_there_are_less_than_3;
 begin
-  CompareArrays([70, 30], Scores.Input([30, 70]).Top);
+  CompareArrays([70, 30], Scores.Input([30, 70]).personalTopThree);
 end;
 
-procedure THighScoresTest.Personal_bests_when_there_is_a_tie;
+procedure THighScoresTest.Personal_top_when_there_is_a_tie;
 begin
-  CompareArrays([40, 40, 30], Scores.Input([40, 20, 40, 30]).Top);
+  CompareArrays([40, 40, 30], Scores.Input([40, 20, 40, 30]).personalTopThree);
 end;
 
-procedure THighScoresTest.Personal_bests_when_there_is_only_one;
+procedure THighScoresTest.Personal_top_when_there_is_only_one;
 begin
-  CompareArrays([40], Scores.Input([40]).Top);
+  CompareArrays([40], Scores.Input([40]).personalTopThree);
 end;
 
 initialization
