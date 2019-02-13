@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework, uHighScores;
 
 const
-  CanonicalVersion = '3.0.0';
+  CanonicalVersion = '4.0.0';
 
 type
 
@@ -51,15 +51,15 @@ type
     procedure Personal_top_when_there_is_only_one;
 
     [Test]
-    [Ignore]
+    [Ignore('Optional Bonus')]
     procedure Message_for_new_personal_best;
 
     [Test]
-    [Ignore]
+    [Ignore('Optional Bonus')]
     procedure Message_when_latest_score_is_not_the_highest_score;
 
     [Test]
-    [Ignore]
+    [Ignore('Optional Bonus')]
     procedure Message_for_repeated_personal_best;
   end;
 
@@ -97,24 +97,6 @@ begin
   CompareArrays([30, 50, 20, 70], Scores.Input([30, 50, 20, 70]).Scores);
 end;
 
-procedure THighScoresTest.Message_for_new_personal_best;
-begin
-  Assert.AreEqual('Your latest score was 70. That''s 30 short of your personal best!',
-    Scores.Input([20, 100, 0, 30, 70]).Report);
-end;
-
-procedure THighScoresTest.Message_for_repeated_personal_best;
-begin
-  Assert.AreEqual('Your latest score was 30. That''s 40 short of your personal best!',
-    Scores.Input([20, 70, 50, 70, 30]).Report);
-end;
-
-procedure THighScoresTest.Message_when_latest_score_is_not_the_highest_score;
-begin
-    Assert.AreEqual('Your latest score was 70. That''s your personal best!',
-      Scores.Input([20, 40, 0, 30, 70]).Report);
-end;
-
 procedure THighScoresTest.Personal_top_three_from_a_list_of_scores;
 begin
   CompareArrays([100, 90, 70],
@@ -141,6 +123,26 @@ procedure THighScoresTest.Personal_top_when_there_is_only_one;
 begin
   CompareArrays([40], Scores.Input([40]).personalTopThree);
 end;
+
+{$region 'Optional Bonus'}
+procedure THighScoresTest.Message_for_new_personal_best;
+begin
+  Assert.AreEqual('Your latest score was 70. That''s 30 short of your personal best!',
+    Scores.Input([20, 100, 0, 30, 70]).Report);
+end;
+
+procedure THighScoresTest.Message_when_latest_score_is_not_the_highest_score;
+begin
+  Assert.AreEqual('Your latest score was 70. That''s your personal best!',
+    Scores.Input([20, 40, 0, 30, 70]).Report);
+end;
+
+procedure THighScoresTest.Message_for_repeated_personal_best;
+begin
+  Assert.AreEqual('Your latest score was 30. That''s 40 short of your personal best!',
+    Scores.Input([20, 70, 50, 70, 30]).Report);
+end;
+{$endregion}
 
 initialization
   TDUnitX.RegisterTestFixture(THighScoresTest);
