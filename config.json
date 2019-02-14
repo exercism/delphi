@@ -224,6 +224,16 @@
       ]
     },
     {
+      "slug": "resistor-color",
+      "uuid": "cd21de38-d572-4cc1-9a6f-1c5aed511b32",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "arrays"
+      ]
+    },
+    {
       "slug": "collatz-conjecture",
       "uuid": "edfc2903-1165-4029-9901-0be72b32865f",
       "core": false,
