@@ -47,14 +47,13 @@
       ]
     },
     {
-      "slug": "series",
-      "uuid": "f0974244-d52d-44a2-9df4-85a586b1c2cb",
+      "slug": "resistor-color",
+      "uuid": "cd21de38-d572-4cc1-9a6f-1c5aed511b32",
       "core": true,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
-        "arrays",
-        "strings"
+        "arrays"
       ]
     },
     {
@@ -215,7 +214,7 @@
       "slug": "sum-of-multiples",
       "uuid": "47c634ec-3f67-49fa-b0fa-62be3c351610",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
         "arrays",
@@ -224,13 +223,14 @@
       ]
     },
     {
-      "slug": "resistor-color",
-      "uuid": "cd21de38-d572-4cc1-9a6f-1c5aed511b32",
+      "slug": "series",
+      "uuid": "f0974244-d52d-44a2-9df4-85a586b1c2cb",
       "core": false,
-      "unlocked_by": "two-fer",
+      "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
-        "arrays"
+        "arrays",
+        "strings"
       ]
     },
     {
@@ -272,7 +272,7 @@
       "slug": "difference-of-squares",
       "uuid": "e13b29f1-be95-445f-b00c-94cd312abda3",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 1,
       "topics": [
         "control_flow_loops",
@@ -559,7 +559,7 @@
       "slug": "prime-factors",
       "uuid": "4ae6a435-769f-4c29-945b-532a5a2abcb3",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -580,7 +580,7 @@
       "slug": "all-your-base",
       "uuid": "07d5d657-4e23-4c48-beb7-826bc6bf8a5e",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "integers",
@@ -592,7 +592,7 @@
       "slug": "pascals-triangle",
       "uuid": "e5ec2940-ea15-475b-91b9-2caf85b73b35",
       "core": false,
-      "unlocked_by": "series",
+      "unlocked_by": "resistor-color",
       "difficulty": 4,
       "topics": [
         "arrays",
