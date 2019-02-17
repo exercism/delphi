@@ -35,7 +35,7 @@ type
 
 implementation
 uses
-  uResistor;
+  uResistorColor;
 
 type
   Assert = class(DUnitX.TestFramework.Assert)
