@@ -2,7 +2,10 @@ unit uResistorColorTests;
 
 interface
 uses
-  DUnitX.TestFramework, uResistor;
+  DUnitX.TestFramework;
+
+const
+  CanonicalVersion = '1.0.0';
 
 type
 
@@ -24,8 +27,6 @@ type
 
   [TestFixture('Colors')]
   TTestColors = class(TObject)
-  private
-    procedure CompareDynamicArrays(aExpected, aActual: TArray<TResistorColors>);
   public
     [Test]
     [Ignore]
@@ -33,46 +34,52 @@ type
   end;
 
 implementation
+uses
+  uResistor;
+
+type
+  Assert = class(DUnitX.TestFramework.Assert)
+    class procedure AreEqual(Expected, Actual: TArray<string>); overload;
+  end;
 
 { TTestResistorColor }
 
 procedure TTestResistorColor.Black;
 begin
-  Assert.AreEqual(0, TResistor.colorCode(rcBlack));
+  Assert.AreEqual(0, TResistor.colorCode('black'));
 end;
 
 procedure TTestResistorColor.White;
 begin
-  Assert.AreEqual(9, TResistor.colorCode(rcWhite));
+  Assert.AreEqual(9, TResistor.colorCode('white'));
 end;
 
 procedure TTestResistorColor.Orange;
 begin
-  Assert.AreEqual(3, TResistor.colorCode(rcOrange));
+  Assert.AreEqual(3, TResistor.colorCode('orange'));
 end;
 
 { TTestColors }
 
 procedure TTestColors.Colors;
 var
-  Expected: TArray<TResistorColors>;
-  Actual: TArray<TResistorColors>;
+  Expected: TArray<string>;
 begin
-  Expected := [rcBlack, rcBrown, rcRed, rcOrange, rcYellow, rcGreen, rcBlue,
-    rcViolet, rcGrey, rcWhite];
+  Expected := ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue',
+    'violet', 'grey', 'white'];
 
-  Actual := TResistor.colors;
-
-  CompareDynamicArrays(Expected, Actual);
+  Assert.AreEqual(Expected, TResistor.colors);
 end;
 
-procedure TTestColors.CompareDynamicArrays(aExpected, aActual: TArray<TResistorColors>);
+{ Assert }
+
+class procedure Assert.AreEqual(Expected, Actual: TArray<string>);
 var
   i: integer;
 begin
-  Assert.AreEqual(length(aExpected), length(aActual));
-  for i := Low(aExpected) to High(aExpected) do
-    Assert.AreEqual(aExpected[i], aActual[i]);
+  Assert.AreEqual(length(Expected), length(Actual));
+  for i := Low(Expected) to High(Expected) do
+    Assert.AreEqual(Expected[i], Actual[i]);
 end;
 
 initialization
