@@ -12,7 +12,7 @@ uses
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
   uResistorColorTests in 'uResistorColorTests.pas',
-  uResistor in 'uResistor.pas';
+  uResistorColor in 'uResistorColor.pas';
 
 var
   runner : ITestRunner;

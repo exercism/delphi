@@ -1,4 +1,4 @@
-unit uResistor;
+unit uResistorColor;
 
 interface
 
