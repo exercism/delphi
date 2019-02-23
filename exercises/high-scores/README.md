@@ -4,6 +4,10 @@ Manage a game player's High Score list.
 
 Your task is to build a high-score component of the classic Frogger game, one of the highest selling and addictive games of all time, and a classic of the arcade era. Your task is to write methods that return the highest score from the list, the last added score and the three highest scores.
 
+## Hints
+- Lists is the topic being introduced in this exercise.  `TList<T>` can be utilized when you use System.Generics.Collections.
+
+
 ## Testing
 
 In order to run the tests for this track, you will need to install
