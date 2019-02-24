@@ -672,6 +672,18 @@
       ]
     },
     {
+      "slug": "parallel-letter-frequency",
+      "uuid": "4879c1d9-6215-49f8-bea4-83b26c200e0e",
+      "core": false,
+      "unlocked_by": "nucleotide-count",
+      "difficulty": 5,
+      "topics": [
+        "dictionaries",
+        "parallellism",
+        "transforming"
+      ]
+    },
+    {
       "slug": "atbash-cipher",
       "uuid": "1e2bc8a1-814a-448c-b78f-56ffe5327341",
       "core": false,
