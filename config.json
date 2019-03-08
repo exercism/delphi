@@ -145,6 +145,17 @@
       ]
     },
     {
+      "slug": "circular-buffer",
+      "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "classes",
+        "queues"
+      ]
+    },
+    {
       "slug": "clock",
       "uuid": "0223dfe4-3ff4-4f4e-8cd2-821e1fd50217",
       "core": true,
@@ -164,17 +175,6 @@
       "topics": [
         "control_flow_if_else_statements",
         "strings"
-      ]
-    },
-    {
-      "slug": "circular-buffer",
-      "uuid": "f949b958-d2e0-4f21-a6db-12ba89f8ab57",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 5,
-      "topics": [
-        "classes",
-        "queues"
       ]
     },
     {
