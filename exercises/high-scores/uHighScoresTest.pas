@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework, uHighScores;
 
 const
-  CanonicalVersion = '4.0.0.1';
+  CanonicalVersion = '4.0.0.2';
 
 type
 
@@ -134,8 +134,8 @@ procedure THighScoresTest.Message_for_new_personal_best;
 var
   Scores: IScores;
 begin
-  Scores := NewScores([20, 100, 0, 30, 70]);
-  Assert.AreEqual('Your latest score was 70. That''s 30 short of your personal best!',
+  Scores := NewScores([20, 40, 0, 30, 70]);
+  Assert.AreEqual('Your latest score was 70. That''s your personal best!',
     Scores.Report);
 end;
 
@@ -143,8 +143,8 @@ procedure THighScoresTest.Message_when_latest_score_is_not_the_highest_score;
 var
   Scores: IScores;
 begin
-  Scores := NewScores([20, 40, 0, 30, 70]);
-  Assert.AreEqual('Your latest score was 70. That''s your personal best!',
+  Scores := NewScores([20, 100, 0, 30, 70]);
+  Assert.AreEqual('Your latest score was 70. That''s 30 short of your personal best!',
     Scores.Report);
 end;
 
