@@ -257,6 +257,17 @@
       ]
     },
     {
+      "slug": "rational-numbers",
+      "uuid": "697486fd-104e-4094-81da-2923bf9dc46c",
+      "core": false,
+      "unlocked_by": "space-age",
+      "difficulty": 4,
+      "topics": [
+        "operator_overloading",
+        "math"
+      ]
+    },
+    {
       "slug": "rna-transcription",
       "uuid": "4a50bfd2-f6c9-480e-af82-d468cf585f0d",
       "core": false,
