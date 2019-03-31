@@ -15,24 +15,23 @@ uses
 { TLuhn }
 
 class function TLuhn.Valid(AInp: string): boolean;
-var
-  s : string;
-  i, R, P: int64;
 begin
-  R := 0;
-  s := ReverseString(AInp.Replace( ' ', ''));
-  if (Length(s) <= 1) or (TRegEx.IsMatch(s, '\D')) then
+  var R := 0;
+  var s := ReverseString(AInp.Replace( ' ', ''));
+  if (s.Length <= 1) or (TRegEx.IsMatch(s, '\D')) then
     exit(false);
-  for i := Low(s) to High(s) do
+  for var i := Low(s) to High(s) do
+  begin
     if odd(i) then
       R := R + StrToInt(s[i])
     else
     begin
-      P := StrToInt(s[i]) * 2;
+      var P := StrToInt(s[i]) * 2;
       if P > 9 then
         P := P - 9;
       R := R + P;
     end;
+  end;
   Result := R mod 10 = 0;
 end;
 
