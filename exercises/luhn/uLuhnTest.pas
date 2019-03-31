@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.4.0';
+  CanonicalVersion = '1.5.0';
 
 type
 
@@ -46,10 +46,6 @@ type
 
     [Test]
     [Ignore]
-    procedure valid_strings_with_a_non_digit_included_become_invalid;
-
-    [Test]
-    [Ignore]
     procedure valid_strings_with_a_non_digit_added_at_the_end_become_invalid;
 
     [Test]
@@ -74,7 +70,11 @@ type
 
     [Test]
     [Ignore]
-    procedure strings_with_non_digits_is_invalid;
+    procedure using_ascii_value_for_non_doubled_non_digit_is_not_allowed;
+
+    [Test]
+    [Ignore]
+    procedure using_ascii_value_for_doubled_non_digit_is_not_allowed;
   end;
 
 implementation
@@ -132,7 +132,7 @@ begin
   Assert.AreEqual(false, TLuhn.Valid(' 0'));
 end;
 
-procedure TLuhnTest.strings_with_non_digits_is_invalid;
+procedure TLuhnTest.using_ascii_value_for_doubled_non_digit_is_not_allowed;
 begin
   Assert.AreEqual(false, TLuhn.Valid(':9'));
 end;
@@ -147,7 +147,7 @@ begin
   Assert.AreEqual(false, TLuhn.Valid('059a'));
 end;
 
-procedure TLuhnTest.valid_strings_with_a_non_digit_included_become_invalid;
+procedure TLuhnTest.using_ascii_value_for_non_doubled_non_digit_is_not_allowed;
 begin
   Assert.AreEqual(false, TLuhn.Valid('055a 444 285'));
 end;
