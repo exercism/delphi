@@ -5,31 +5,51 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.0.0';
+  CanonicalVersion = '1.2.0';
 
 type
-  [TestFixture]
+  [TestFixture('Return the correct amount earned by a dart landing in a given point in the target problem.')]
   TDartsTest = class(TObject)
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
-    procedure A_dart_lands_outside_the_target;
+    procedure ADartLandsOutsideTheTarget;
 
     [Test]
     [Ignore]
-    procedure A_dart_lands_just_in_the_border_of_the_target;
+    procedure ADartLandsJustInTheBorderOfTheTarget;
 
     [Test]
     [Ignore]
-    procedure A_dart_lands_in_the_middle_circle;
+    procedure ADartLandsInTheOuterCircle;
 
     [Test]
     [Ignore]
-    procedure A_dart_lands_right_in_the_border_between_outside_and_middle_circles;
+    procedure ADartLandsRightInTheBorderBetweenOutsideAndMiddleCircles;
 
     [Test]
     [Ignore]
-    procedure A_dart_lands_in_the_inner_circle;
+    procedure ADartLandsInTheMiddleCircle;
+
+    [Test]
+    [Ignore]
+    procedure ADartLandsRightInTheBorderBetweenMiddleAndInnerCircles;
+
+    [Test]
+    [Ignore]
+    procedure ADartLandsInTheInnerCircle;
+
+    [Test]
+    [Ignore]
+    procedure ADartWhoseCoordinatesSumToGreaterThanOneButWhoseRadiusToOriginIsLessThanOrEqualToOneIsScoredInTheInnerCircle;
+
+    [Test]
+    [Ignore]
+    procedure ADartWhoseCoordinatesSumToGreaterThanFiveButWhoseRadiusToOriginIsLessThanOrEqualToFiveIsScoredInTheMiddleCircle;
+
+    [Test]
+    [Ignore]
+    procedure ADartWhoseCoordinatesSumToGreaterThanTenButWhoseRadiusToOriginIsLessThanOrEqualTenIsScoredInTheOuterCircle;
   end;
 
 implementation
@@ -37,29 +57,54 @@ implementation
 uses
   uDarts;
 
-procedure TDartsTest.A_dart_lands_in_the_inner_circle;
+procedure TDartsTest.ADartLandsInTheInnerCircle;
 begin
-    Assert.AreEqual(10, TDarts.Score(0, 0));
+  Assert.AreEqual(10, TDarts.Score(-0.1, -0.1));
 end;
 
-procedure TDartsTest.A_dart_lands_in_the_middle_circle;
+procedure TDartsTest.ADartLandsInTheMiddleCircle;
 begin
-    Assert.AreEqual(5, TDarts.Score(3.0, 3.7));
+  Assert.AreEqual(5, TDarts.Score(0.8, -0.8));
 end;
 
-procedure TDartsTest.A_dart_lands_just_in_the_border_of_the_target;
+procedure TDartsTest.ADartLandsInTheOuterCircle;
 begin
-  Assert.AreEqual(1, TDarts.Score(10, 0));
+  Assert.AreEqual(1, TDarts.Score(4, 4));
 end;
 
-procedure TDartsTest.A_dart_lands_outside_the_target;
+procedure TDartsTest.ADartLandsJustInTheBorderOfTheTarget;
 begin
-  Assert.AreEqual(0, TDarts.Score(15.3, 13.2));
+  Assert.AreEqual(1, TDarts.Score(0, 10));
 end;
 
-procedure TDartsTest.A_dart_lands_right_in_the_border_between_outside_and_middle_circles;
+procedure TDartsTest.ADartLandsOutsideTheTarget;
 begin
-  Assert.AreEqual(5, TDarts.Score(0, 5));
+  Assert.AreEqual(0, TDarts.Score(-9, 9));
+end;
+
+procedure TDartsTest.ADartLandsRightInTheBorderBetweenMiddleAndInnerCircles;
+begin
+  Assert.AreEqual(10, TDarts.Score(0, -1));
+end;
+
+procedure TDartsTest.ADartLandsRightInTheBorderBetweenOutsideAndMiddleCircles;
+begin
+  Assert.AreEqual(5, TDarts.Score(5, 0));
+end;
+
+procedure TDartsTest.ADartWhoseCoordinatesSumToGreaterThanFiveButWhoseRadiusToOriginIsLessThanOrEqualToFiveIsScoredInTheMiddleCircle;
+begin
+  Assert.AreEqual(5, TDarts.Score(2, 4));
+end;
+
+procedure TDartsTest.ADartWhoseCoordinatesSumToGreaterThanOneButWhoseRadiusToOriginIsLessThanOrEqualToOneIsScoredInTheInnerCircle;
+begin
+  Assert.AreEqual(10, TDarts.Score(0.4, 0.8));
+end;
+
+procedure TDartsTest.ADartWhoseCoordinatesSumToGreaterThanTenButWhoseRadiusToOriginIsLessThanOrEqualTenIsScoredInTheOuterCircle;
+begin
+  Assert.AreEqual(1, TDarts.Score(4, 8));
 end;
 
 initialization
