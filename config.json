@@ -263,8 +263,8 @@
       "unlocked_by": "space-age",
       "difficulty": 4,
       "topics": [
-        "operator_overloading",
-        "math"
+        "math",
+        "operator_overloading"
       ]
     },
     {
