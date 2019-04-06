@@ -7,8 +7,9 @@ type
    IAllergies = interface(IInvokable)
    ['{0A1F6B96-4CDC-4D7C-BE50-6B466CA27EB0}']
      function GetAllergyList: TList<string>;
+
      function AllergicTo(allergy: string): Boolean;
-     property IList: TList<string> read GetAllergyList;
+     property List: TList<string> read GetAllergyList;
    end;
 
    TAllergies = class(TInterfacedObject, IAllergies)
@@ -21,7 +22,7 @@ type
      constructor Create(aScore: integer);
      destructor Destroy; override;
      function AllergicTo(allergy: string): Boolean;
-     property IList: TList<string> read GetAllergyList;
+     property List: TList<string> read GetAllergyList;
    end;
 
 implementation
