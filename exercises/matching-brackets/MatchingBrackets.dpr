@@ -1,4 +1,4 @@
-program BracketPush;
+program MatchingBrackets;
 
 {$IFNDEF TESTINSIGHT}
 {$APPTYPE CONSOLE}
@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uBracketPushTest in 'uBracketPushTest.pas',
-  uBracketPush in 'uBracketPush.pas';
+  uMatchingBracketsTest in 'uMatchingBracketsTest.pas',
+  uMatchingBrackets in 'uMatchingBrackets.pas';
 
 var
   runner : ITestRunner;
