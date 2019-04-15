@@ -37,7 +37,7 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 
 ## Source
 
-Inspired by an excersie created by a professor Della Paolera in Argentina
+Inspired by an exercise created by a professor Della Paolera in Argentina
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you may receive assistance from a mentor.
