@@ -10,7 +10,7 @@ type
   private
     FPos : TPoint;
   public
-    constructor Create(ARow, ACol : integer; var ASuccess : integer);
+    constructor Create(ARow, ACol : integer);
     function CanAttack(ABlackQueen : TQueen) : boolean;
   end;
 
@@ -29,9 +29,8 @@ begin
     (FPos.X + FPos.Y = ABlackQueen.FPos.X + ABlackQueen.FPos.Y);
 end;
 
-constructor TQueen.Create(ARow, ACol: integer; var ASuccess : integer);
+constructor TQueen.Create(ARow, ACol: integer);
 begin
-  ASuccess := -1;
   if ARow < 0 then
     raise EArgumentException.Create('queen must have positive row');
   if ARow > 7 then
@@ -40,7 +39,6 @@ begin
     raise EArgumentException.Create('queen must have positive column');
   if ACol > 7 then
     raise EArgumentException.Create('queen must have column on board');
-  ASuccess := 0;
   FPos := TPoint.Create(ARow, ACol);
 end;
 
