@@ -1,9 +1,9 @@
-unit uBracketPush;
+unit uMatchingBrackets;
 
 interface
 
 type
-  TBracketPush = class
+  TMatchingBrackets = class
   private
     class var
       fBrackets: string;
@@ -15,9 +15,9 @@ type
 implementation
 uses SysUtils;
 
-{ BracketPush }
+{ TMatchingBrackets }
 
-class function TBracketPush.IsPaired(aInput: string): boolean;
+class function TMatchingBrackets.IsPaired(aInput: string): boolean;
 var
   aChar: char;
 begin

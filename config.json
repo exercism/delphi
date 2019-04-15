@@ -178,7 +178,7 @@
       ]
     },
     {
-      "slug": "bracket-push",
+      "slug": "matching-brackets",
       "uuid": "81e0a0f7-b97d-4ff0-90b2-a43eb933f68f",
       "core": true,
       "unlocked_by": null,
@@ -627,7 +627,7 @@
       "slug": "markdown",
       "uuid": "94751c15-6ad9-4d80-b54c-cd360ec240e2",
       "core": false,
-      "unlocked_by": "bracket-push",
+      "unlocked_by": "matching-brackets",
       "difficulty": 5,
       "topics": [
         "parsing",
@@ -744,7 +744,7 @@
       "slug": "luhn",
       "uuid": "32d6a899-00ac-415e-b24b-bd117199e4c9",
       "core": false,
-      "unlocked_by": "bracket-push",
+      "unlocked_by": "matching-brackets",
       "difficulty": 5,
       "topics": [
         "algorithms",
@@ -825,7 +825,7 @@
       "slug": "diamond",
       "uuid": "372c1fa2-bdfc-4f4d-8a5a-f9ea5f0e2f52",
       "core": false,
-      "unlocked_by": "bracket-push",
+      "unlocked_by": "matching-brackets",
       "difficulty": 8,
       "topics": [
         "algorithms",
