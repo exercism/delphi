@@ -2,14 +2,14 @@ unit uMarkdownTest;
 
 interface
 uses
-  DUnitX.TestFramework, uMarkdown;
+  DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.3.0';
+  CanonicalVersion = '1.4.0';
 
 type
   [TestFixture]
-  TMyTestObject = class(TObject) 
+  TMyTestObject = class(TObject)
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
@@ -58,9 +58,15 @@ type
     [Test]
     [Ignore]
     procedure with_markdown_symbols_in_the_paragraph_text_that_should_not_be_interpreted;
+
+    [Test]
+    [Ignore]
+    procedure unordered_lists_close_properly_with_preceding_and_following_lines;
   end;
 
 implementation
+uses
+  uMarkDown;
 
 procedure TMyTestObject.parsing_bold_text;
 begin
@@ -78,6 +84,12 @@ procedure TMyTestObject.unordered_lists;
 begin
   Assert.AreEqual('<ul><li>Item 1</li><li>Item 2</li></ul>',
     TMarkdown.Parse('* Item 1\n* Item 2'));
+end;
+
+procedure TMyTestObject.unordered_lists_close_properly_with_preceding_and_following_lines;
+begin
+  Assert.AreEqual('<h1>Start a list</h1><ul><li>Item 1</li><li>Item 2</li></ul><p>End a list</p>',
+    TMarkdown.Parse('# Start a list\n* Item 1\n* Item 2\nEnd a list'));
 end;
 
 procedure TMyTestObject.with_a_little_bit_of_everything;
