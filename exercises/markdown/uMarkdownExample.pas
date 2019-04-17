@@ -4,113 +4,90 @@ interface
 
 type
   TMarkdown = class
-    class function Parse(AInp : string) : string;
+    class function Parse(input: String): String;
   end;
 
 implementation
 
 uses
-  System.Generics.Collections, System.SysUtils;
+  System.Sysutils, RegularExpressions;
 
-{ TMarkdown }
-
-class function TMarkdown.Parse(AInp : string): string;
+class function TMarkdown.Parse(input: String): String;
 var
-  Lines, Tokens : TList<string>;
-  L, NewLine: string;
-  H : integer;
-  IsListStarted : boolean;
+  isNormalText: Boolean;
+  Lines: TArray<String>;
 
-  function ParseLine(ALine : string) : string;
-
-    function CheckHeader(AToken : string) : integer;
-    var
-      c: char;
-    begin
-      Result := 0;
-      for c in AToken do
-        if (c = '#') and (Result < 6) then
-          inc(Result)
-        else
-          exit(0);
-    end;
-
-    procedure DoFormat;
-    var
-      i : integer;
-    begin
-      for i := 0 to Tokens.Count - 1 do
-      begin
-         if Tokens[i].StartsWith('__') then
-          Tokens[i] := '<strong>' + Tokens[i].Substring(2);
-        if Tokens[i].EndsWith('__') then
-          Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 2) + '</strong>';
-        if Tokens[i].StartsWith('_') then
-          Tokens[i] := '<em>' + Tokens[i].Substring(1);
-        if Tokens[i].EndsWith('_') then
-          Tokens[i] := Copy(Tokens[i], 0, High(Tokens[i]) - 1) + '</em>';
-      end;
-    end;
-
+  procedure ParseBold(var line: String);
   begin
-    Tokens.Clear;
-    Tokens.AddRange(ALine.Split([' ']));
-    DoFormat;
-
-    H := CheckHeader(Tokens[0]);
-    Result := '<p>' + string.Join(' ', Tokens.ToArray) + '</p>';
-    if H <> 0 then
+    while TRegEx.IsMatch(line, '\_\_(.)+\_\_') do
     begin
-      Tokens.Delete(0);
-      Result :=format('<h%d>%s</h%0:d>',[H, string.Join(' ', Tokens.ToArray)]);
-    end
-    else
-      if Tokens[0] = '*' then
-      begin
-        Tokens.Delete(0);
-        Result := '<li>' + string.Join(' ', Tokens.ToArray) + '</li>';
-      end
+      line := line.Replace('__', '<strong>', []);
+      line := line.Replace('__', '</strong>', []);
+    end;
   end;
 
-  procedure OpenList;
+  procedure ParseItalic(var line: String);
   begin
-    if NewLine.StartsWith('<li>') then
+    while TRegEx.IsMatch(line, '\_(.)+\_') do
     begin
-      Result := Result + '<ul>' + NewLine;
-      IsListStarted := true;
-    end
-    else
-      Result := Result + NewLine
+      line := line.Replace('_', '<em>', []);
+      line := line.Replace('_', '</em>', []);
+    end;
   end;
 
-  procedure CloseList;
+  function ParseHeaders(var line: String): Boolean;
   begin
-    if not NewLine.StartsWith('<li>') then
+    var HeaderLevel := 0;
+    for var ch in line do
+      if ch = '#' then
+        inc(HeaderLevel)
+      else
+        break;
+    if (HeaderLevel = 0) then
+      Exit(False)
+    else
     begin
-      Result := Result + NewLine + '</ul>';
-      IsListStarted := false;
+      line := Format('<h%0:d>' + line.Remove(0, HeaderLevel).TrimLeft +
+        '</h%0:d>', [HeaderLevel]);
+      Exit(True);
     end;
+  end;
+
+  function ParseLI(var line: String): Boolean;
+  begin
+    Result := False;
+    if line.TrimLeft.StartsWith('*') then
+    begin
+      Result := True;
+      line := line.TrimLeft.Remove(0, 1);
+      line := '<li>' + line.Trim + '</li>';
+    end;
+  end;
+
+  procedure WrapUL(var Str: String);
+  begin
+    Str := TRegEx.Replace(Str, '<li>.*?<\/li>(?!<li>)', '<ul>$0</ul>');
   end;
 
 begin
-  Lines := TList<string>.Create;
-  Tokens := TList<string>.Create;
-  Result := '';
-  IsListStarted := false;
-  Lines.AddRange(AInp.Split(['\n']));
-  for L in Lines do
+  Lines := input.Split(['\n'], TStringSplitOptions.ExcludeEmpty);
+
+  for var i := Low(Lines) to High(Lines) do
   begin
-    NewLine := ParseLine(L);
-    if not IsListStarted then
-      OpenList
+    isNormalText := True;
+    ParseBold(Lines[i]);
+    ParseItalic(Lines[i]);
+    isNormalText := not ParseHeaders(Lines[i]);
+    isNormalText := not ParseLI(Lines[i]) and isNormalText;
+
+    if isNormalText then
+      Result := Result + '<p>' + Lines[i] + '</p>'
     else
-      CloseList;
+      Result := Result + Lines[i];
   end;
-  if IsListStarted  then
-    Result := Result + NewLine + '</ul>';
-  Lines.DisposeOf;
-  Tokens.DisposeOf;
+
+  WrapUL(Result);
+
 end;
 
 end.
-
