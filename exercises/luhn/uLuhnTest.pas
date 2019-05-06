@@ -5,12 +5,12 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.5.0';
+  CanonicalVersion = '1.6.0';
 
 type
 
   [TestFixture]
-  TLuhnTest = class(TObject) 
+  TLuhnTest = class(TObject)
   public
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
@@ -43,6 +43,10 @@ type
     [Test]
     [Ignore]
     procedure valid_number_with_an_even_number_of_digits;
+
+    [Test]
+    [Ignore]
+    procedure valid_number_with_an_odd_number_of_spaces;
 
     [Test]
     [Ignore]
@@ -140,6 +144,11 @@ end;
 procedure TLuhnTest.valid_number_with_an_even_number_of_digits;
 begin
   Assert.AreEqual(true, TLuhn.Valid('095 245 88'));
+end;
+
+procedure TLuhnTest.valid_number_with_an_odd_number_of_spaces;
+begin
+  Assert.AreEqual(true, TLuhn.Valid('234 567 891 234'));
 end;
 
 procedure TLuhnTest.valid_strings_with_a_non_digit_added_at_the_end_become_invalid;
