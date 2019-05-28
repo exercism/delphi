@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-  CanonicalVersion = '1.6.0';
+  CanonicalVersion = '1.6.1';
 
 type
 
@@ -168,7 +168,7 @@ end;
 
 procedure TLuhnTest.valid_strings_with_symbols_included_become_invalid;
 begin
-  Assert.AreEqual(false, TLuhn.Valid('055£ 444$ 285'));
+  Assert.AreEqual(false, TLuhn.Valid('055# 444$ 285'));
 end;
 
 initialization
