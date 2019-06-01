@@ -5,7 +5,7 @@ uses
   DUnitX.TestFramework;
 
 const
-   CanonicalVersion = '1.0.1';
+   CanonicalVersion = '1.2.0';
 
 type
 
@@ -31,6 +31,10 @@ type
     [Test]
     [Ignore]
     procedure a_palindrome;
+
+    [Test]
+    [Ignore]
+    procedure an_even_sized_word;
   end;
 
 implementation
@@ -42,6 +46,11 @@ uses uReverseString;
 procedure ReverseStringTest.an_empty_string;
 begin
   Assert.AreEqual('', reverse(''));
+end;
+
+procedure ReverseStringTest.an_even_sized_word;
+begin
+  Assert.AreEqual('reward',reverse('drawer'));
 end;
 
 procedure ReverseStringTest.a_capitalized_word;
