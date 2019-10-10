@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uQueenAttackTest in 'uQueenAttackTest.pas',
+  uQueenAttackTests in 'uQueenAttackTests.pas',
   uQueenAttack in 'uQueenAttack.pas';
 
 var

@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uAtbashCipherTest in 'uAtbashCipherTest.pas',
+  uAtbashCipherTests in 'uAtbashCipherTests.pas',
   uAtbashCipher in 'uAtbashCipher.pas';
 
 var

@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uCryptoSquareTest in 'uCryptoSquareTest.pas',
+  uCryptoSquareTests in 'uCryptoSquareTests.pas',
   uCryptoSquare in 'uCryptoSquare.pas';
 
 var

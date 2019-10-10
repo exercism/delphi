@@ -10,8 +10,8 @@ uses
   {$ENDIF }
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
+  uRnaTranscriptionTests in 'uRnaTranscriptionTests.pas',
   DUnitX.TestFramework,
-  uTestRnaTranscription in 'uTestRnaTranscription.pas',
   uRnaTranscription in 'uRnaTranscription.pas';
 
 var

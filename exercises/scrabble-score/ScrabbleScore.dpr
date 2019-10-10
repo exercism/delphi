@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uScrabbleScoreTest in 'uScrabbleScoreTest.pas',
+  uScrabbleScoreTests in 'uScrabbleScoreTests.pas',
   uScrabbleScore in 'uScrabbleScore.pas';
 
 var

@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uBinarySearchTest in 'uBinarySearchTest.pas',
+  uBinarySearchTests in 'uBinarySearchTests.pas',
   uBinarySearch in 'uBinarySearch.pas';
 
 var

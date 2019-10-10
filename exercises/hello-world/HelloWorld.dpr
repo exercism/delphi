@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uTestHelloWorld in 'uTestHelloWorld.pas',
+  uHelloWorldTests in 'uHelloWorldTests.pas',
   uHelloWorld in 'uHelloWorld.pas';
 
 var

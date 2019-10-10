@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uSayTest in 'uSayTest.pas',
+  uSayTests in 'uSayTests.pas',
   uSay in 'uSay.pas';
 
 var

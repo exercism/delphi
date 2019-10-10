@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uCollatzconjectureTest in 'uCollatzconjectureTest.pas',
+  uCollatzconjectureTests in 'uCollatzconjectureTests.pas',
   uCollatzconjecture in 'uCollatzconjecture.pas';
 
 var

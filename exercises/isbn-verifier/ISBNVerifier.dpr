@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uTestISBNVerifier in 'uTestISBNVerifier.pas',
+  uISBNVerifierTests in 'uISBNVerifierTests.pas',
   uISBNVerifier in 'uISBNVerifier.pas';
 
 var

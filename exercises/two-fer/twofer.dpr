@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  utwoferTest in 'utwoferTest.pas',
+  utwoferTests in 'utwoferTests.pas',
   utwofer in 'utwofer.pas';
 
 var

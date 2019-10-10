@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uKindergartenGardenTest in 'uKindergartenGardenTest.pas',
+  uKindergartenGardenTests in 'uKindergartenGardenTests.pas',
   uKindergartenGarden in 'uKindergartenGarden.pas';
 
 var

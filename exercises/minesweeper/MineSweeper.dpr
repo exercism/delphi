@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uMineSweeperTest in 'uMineSweeperTest.pas',
+  uMineSweeperTests in 'uMineSweeperTests.pas',
   uMineSweeper in 'uMineSweeper.pas';
 
 var

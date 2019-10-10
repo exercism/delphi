@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uMatrixTest in 'uMatrixTest.pas',
+  uMatrixTests in 'uMatrixTests.pas',
   uMatrix in 'uMatrix.pas';
 
 var

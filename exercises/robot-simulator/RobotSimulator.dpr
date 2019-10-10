@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uRobotSimulatorTest in 'uRobotSimulatorTest.pas',
+  uRobotSimulatorTests in 'uRobotSimulatorTests.pas',
   uRobotSimulator in 'uRobotSimulator.pas';
 
 var

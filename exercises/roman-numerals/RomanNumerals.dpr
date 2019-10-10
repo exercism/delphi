@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uRomanNumeralsTest in 'uRomanNumeralsTest.pas',
+  uRomanNumeralsTests in 'uRomanNumeralsTests.pas',
   uRomanNumerals in 'uRomanNumerals.pas';
 
 var

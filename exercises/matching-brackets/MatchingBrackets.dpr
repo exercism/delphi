@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uMatchingBracketsTest in 'uMatchingBracketsTest.pas',
+  uMatchingBracketsTests in 'uMatchingBracketsTests.pas',
   uMatchingBrackets in 'uMatchingBrackets.pas';
 
 var

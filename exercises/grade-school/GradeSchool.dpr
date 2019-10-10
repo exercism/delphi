@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uGradeSchoolTest in 'uGradeSchoolTest.pas',
+  uGradeSchoolTests in 'uGradeSchoolTests.pas',
   uGradeSchool in 'uGradeSchool.pas';
 
 var
