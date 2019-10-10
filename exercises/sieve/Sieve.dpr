@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uSieveTest in 'uSieveTest.pas',
+  uSieveTests in 'uSieveTests.pas',
   uSieve in 'uSieve.pas';
 
 var

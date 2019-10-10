@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uRobotNameTest in 'uRobotNameTest.pas',
+  uRobotNameTests in 'uRobotNameTests.pas',
   uRobotName in 'uRobotName.pas';
 
 var

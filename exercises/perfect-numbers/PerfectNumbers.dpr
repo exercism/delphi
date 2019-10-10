@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uPerfectNumbersTest in 'uPerfectNumbersTest.pas',
+  uPerfectNumbersTests in 'uPerfectNumbersTests.pas',
   uPerfectNumbers in 'uPerfectNumbers.pas';
 
 var

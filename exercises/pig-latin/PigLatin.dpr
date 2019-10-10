@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uTestPigLatin in 'uTestPigLatin.pas',
+  uPigLatinTests in 'uPigLatinTests.pas',
   uPigLatin in 'uPigLatin.pas';
 
 var

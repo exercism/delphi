@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console, 
   DUnitX.Loggers.Xml.NUnit, 
   DUnitX.TestFramework, 
-  uTestTriangle in 'uTestTriangle.pas', 
+  uTriangleTests in 'uTriangleTests.pas', 
   uTriangle in 'uTriangle.pas'; 
  
 var 

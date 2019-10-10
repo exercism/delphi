@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uHighScoresTest in 'uHighScoresTest.pas',
+  uHighScoresTests in 'uHighScoresTests.pas',
   uHighScores in 'uHighScores.pas';
 
 var

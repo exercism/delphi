@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uOcrNumbersTest in 'uOcrNumbersTest.pas',
+  uOcrNumbersTests in 'uOcrNumbersTests.pas',
   uOcrNumbers in 'uOcrNumbers.pas';
 
 var

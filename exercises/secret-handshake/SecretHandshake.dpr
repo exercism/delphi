@@ -11,8 +11,8 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uSecretHandshake in 'uSecretHandshake.pas',
-  uTestSecretHandshake in 'uTestSecretHandshake.pas';
+  uSecretHandshakeTests in 'uSecretHandshakeTests.pas',
+  uSecretHandshake in 'uSecretHandshake.pas';
 
 var
   runner : ITestRunner;

@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uSumOfMultiplesTest in 'uSumOfMultiplesTest.pas',
+  uSumOfMultiplesTests in 'uSumOfMultiplesTests.pas',
   uSumsOfMultiples in 'uSumsOfMultiples.pas';
 
 var

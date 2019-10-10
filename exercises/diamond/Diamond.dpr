@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uDiamondTest in 'uDiamondTest.pas',
+  uDiamondTests in 'uDiamondTests.pas',
   uDiamond in 'uDiamond.pas';
 
 var

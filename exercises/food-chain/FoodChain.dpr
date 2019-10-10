@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uFoodChainTest in 'uFoodChainTest.pas',
+  uFoodChainTests in 'uFoodChainTests.pas',
   uFoodChain in 'uFoodChain.pas';
 
 var

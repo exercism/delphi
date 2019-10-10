@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uNthPrimeTest in 'uNthPrimeTest.pas',
+  uNthPrimeTests in 'uNthPrimeTests.pas',
   uNthPrime in 'uNthPrime.pas';
 
 var

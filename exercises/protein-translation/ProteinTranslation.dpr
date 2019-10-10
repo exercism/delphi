@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uProteinTranslationTest in 'uProteinTranslationTest.pas',
+  uProteinTranslationTests in 'uProteinTranslationTests.pas',
   uProteinTranslation in 'uProteinTranslation.pas';
 
 var

@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uPalindromeProductsTest in 'uPalindromeProductsTest.pas',
+  uPalindromeProductsTests in 'uPalindromeProductsTests.pas',
   uPalindromeProducts in 'uPalindromeProducts.pas';
 
 var

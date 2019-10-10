@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uNucleotideCountTest in 'uNucleotideCountTest.pas',
+  uNucleotideCountTests in 'uNucleotideCountTests.pas',
   uNucleotideCount in 'uNucleotideCount.pas';
 
 var

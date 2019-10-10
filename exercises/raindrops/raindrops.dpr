@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uRaindropsTest in 'uRaindropsTest.pas',
+  uRaindropsTests in 'uRaindropsTests.pas',
   uRaindrops in 'uRaindrops.pas';
 
 var

@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uRationalNumbersTest in 'uRationalNumbersTest.pas',
+  uRationalNumbersTests in 'uRationalNumbersTests.pas',
   uRationalNumbers in 'uRationalNumbers.pas';
 
 var

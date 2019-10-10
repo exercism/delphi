@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uParallelLetterFrequencyTest in 'uParallelLetterFrequencyTest.pas',
+  uParallelLetterFrequencyTests in 'uParallelLetterFrequencyTests.pas',
   uParallelLetterFrequency in 'uParallelLetterFrequency.pas';
 
 var

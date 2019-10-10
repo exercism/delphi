@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uGigasecondTest in 'uGigasecondTest.pas',
+  uGigasecondTests in 'uGigasecondTests.pas',
   uGigasecond in 'uGigasecond.pas';
 
 var

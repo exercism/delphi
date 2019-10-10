@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uDartsTest in 'uDartsTest.pas',
+  uDartsTests in 'uDartsTests.pas',
   uDarts in 'uDarts.pas';
 
 var

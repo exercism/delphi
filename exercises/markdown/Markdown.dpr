@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uMarkdownTest in 'uMarkdownTest.pas',
+  uMarkdownTests in 'uMarkdownTests.pas',
   uMarkdown in 'uMarkdown.pas';
 
 var

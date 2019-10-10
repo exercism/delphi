@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uClockTest in 'uClockTest.pas',
+  uClockTests in 'uClockTests.pas',
   uClock in 'uClock.pas';
 
 var

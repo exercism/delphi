@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uPokerTest in 'uPokerTest.pas',
+  uPokerTests in 'uPokerTests.pas',
   uPoker in 'uPoker.pas';
 
 var
