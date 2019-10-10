@@ -54,4 +54,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 Sieve of Eratosthenes at Wikipedia [http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you may receive assistance from a mentor.
+It's possible to submit an incomplete solution so you may request help from a mentor.

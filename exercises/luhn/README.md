@@ -89,4 +89,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 The Luhn Algorithm on Wikipedia [http://en.wikipedia.org/wiki/Luhn_algorithm](http://en.wikipedia.org/wiki/Luhn_algorithm)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you may receive assistance from a mentor.
+It's possible to submit an incomplete solution so you may request help from a mentor.

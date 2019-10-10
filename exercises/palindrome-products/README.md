@@ -57,4 +57,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 Problem 4 at Project Euler [http://projecteuler.net/problem=4](http://projecteuler.net/problem=4)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you may receive assistance from a mentor.
+It's possible to submit an incomplete solution so you may request help from a mentor.

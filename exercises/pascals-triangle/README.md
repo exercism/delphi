@@ -39,4 +39,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 Pascal's Triangle at Wolfram Math World [http://mathworld.wolfram.com/PascalsTriangle.html](http://mathworld.wolfram.com/PascalsTriangle.html)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you may receive assistance from a mentor.
+It's possible to submit an incomplete solution so you may request help from a mentor.

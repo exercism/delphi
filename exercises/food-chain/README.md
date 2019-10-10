@@ -88,4 +88,4 @@ For example, if you're submitting `ubob.pas` for the Bob exercise, the submit co
 Wikipedia [http://en.wikipedia.org/wiki/There_Was_an_Old_Lady_Who_Swallowed_a_Fly](http://en.wikipedia.org/wiki/There_Was_an_Old_Lady_Who_Swallowed_a_Fly)
 
 ## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you may receive assistance from a mentor.
+It's possible to submit an incomplete solution so you may request help from a mentor.
