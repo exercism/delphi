@@ -1,6 +1,6 @@
 # Exercism Delphi Pascal Track
 
-[![Build Status](https://travis-ci.org/exercism/delphi.svg?branch=master)](https://travis-ci.org/exercism/delphi)
+![CI](https://github.com/exercism/delphi/workflows/configlet/badge.svg)
 
 Exercism exercises in Delphi Pascal.
 
@@ -9,4 +9,3 @@ Exercism exercises in Delphi Pascal.
 ## Contributing Guide
 
 Please see the [contributing guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md).
-
