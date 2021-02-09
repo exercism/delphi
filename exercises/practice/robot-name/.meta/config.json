@@ -3,7 +3,9 @@
   "files": {
     "solution": [],
     "test": [],
-    "example": []
+    "example": [
+      ".meta/uRobotNameExample.pas"
+    ]
   },
   "source": "A debugging session with Paul Blackwell at gSchool."
 }
