@@ -1,13 +1,13 @@
 # Installing Delphi and DUnitX Testing Framework #
-### Windows ###
+## Windows ###
 
 A free [Community Edition](https://www.embarcadero.com/products/delphi/starter) version is available.  Follow installation instructions included with the product.
 
-### Non-Windows based Operating Systems ###
+## Non-Windows based Operating Systems ###
 
 Delphi will only run in a Windows based operating system.  Delphi may be run within a virtual machine that is hosting Windows.
 
-### Installing DUnitX Test Framework ###
+## Installing DUnitX Test Framework ###
 DUnitX may be optionally installed while installing Delphi versions XE8 and up.  However, I recommend following the instructions below and manually, obtaining a copy of DUnitX directly from the authors GitHub repository as it is updated more frequently.
 
 With Delphi successfully installed, please follow these steps for retrieving and installing DUnitX if you find that your installation of Delphi is lacking this testing framework.
@@ -16,7 +16,7 @@ With Delphi successfully installed, please follow these steps for retrieving and
 - It is best to fork the repo and then clone or otherwise download the fork to your local machine.
 - Step-by-step instructions on how to install DUnitX into Delphi have been posted by Vincent Parrett in a blog post located [here](https://www.finalbuilder.com/resources/blogs/postid/702/dunitx-has-a-wizard).
 
-### Delphi Configuration for DUnitX ###
+## Delphi Configuration for DUnitX ###
 
 If you installed DUnitX manually because your installation didn't already come with it then please follow the following illustrated steps to make the necessary configuration changes to Delphi in order for it to locate your installation of DUnitX.
 
