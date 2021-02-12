@@ -1,4 +1,4 @@
-## Recommended Learning Resources
+# Recommended Learning Resources
 
 The [Delphi Basics](http://www.delphibasics.co.uk/) is a good reference on Delphi.
 
