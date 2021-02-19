@@ -15,18 +15,10 @@
     "indent_size": 4
   },
   "files": {
-    "solution": [
-      "path/to/%{kebab_slug}.ext"
-    ],
-    "test": [
-      "path/to/%{kebab_slug}.ext"
-    ],
-    "example": [
-      "path/to/%{kebab_slug}.ext"
-    ],
-    "exemplar": [
-      "path/to/%{kebab_slug}.ext"
-    ]
+    "solution": ["u%{pascal_slug}.pas"],
+    "test": ["u%{pascal_slug}Tests.pas"],
+    "example": [".meta/u%{pascal_slug}Example.pas"],
+    "exemplar": [".meta/u%{pascal_slug}Exemplar.pas"]
   },
   "exercises": {
     "concept": [],
