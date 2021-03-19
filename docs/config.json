@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "969fb4ad-5e44-4f0c-97c2-f3771abb9046",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing Delphi Pascal locally",
+      "blurb": "Learn how to install Delphi Pascal locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "3bb96c4e-2b3f-4a9a-9069-4e9e1b23b69b",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn Delphi Pascal",
+      "blurb": "An overview of how to get started from scratch with Delphi Pascal"
+    },
+    {
+      "uuid": "e5046db7-35d0-4f16-98da-c754cba050e5",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the Delphi Pascal track",
+      "blurb": "Learn how to test your Delphi Pascal exercises on Exercism"
+    },
+    {
+      "uuid": "d6e3c3a6-69ab-428b-aa24-d997c8e7e86c",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful Delphi Pascal resources",
+      "blurb": "A collection of useful resources to help you master Delphi Pascal"
+    }
+  ]
+}
