@@ -1,6 +1,8 @@
 {
   "blurb": "Count the frequency of letters in texts using parallel computation.",
-  "authors": [],
+  "authors": [
+    "rpottsoh"
+  ],
   "files": {
     "solution": [
       "uParallelLetterFrequency.pas"
