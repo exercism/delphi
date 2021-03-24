@@ -1,6 +1,11 @@
 {
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
-  "authors": [],
+  "authors": [
+    "amoradell"
+  ],
+  "contributors": [
+    "rpottsoh"
+  ],
   "files": {
     "solution": [],
     "test": [],

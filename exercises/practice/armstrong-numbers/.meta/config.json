@@ -1,6 +1,8 @@
 {
   "blurb": "Determine if a number is an Armstrong number",
-  "authors": [],
+  "authors": [
+    "rpottsoh"
+  ],
   "files": {
     "solution": [],
     "test": [],

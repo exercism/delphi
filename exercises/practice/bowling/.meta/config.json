@@ -1,6 +1,8 @@
 {
   "blurb": "Score a bowling game",
-  "authors": [],
+  "authors": [
+    "rpottsoh"
+  ],
   "files": {
     "solution": [],
     "test": [],
