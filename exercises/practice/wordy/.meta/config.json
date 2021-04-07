@@ -2,8 +2,12 @@
   "blurb": "Parse and evaluate simple math word problems returning the answer as an integer.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uWordy.pas"
+    ],
+    "test": [
+      "uWordyTests.pas"
+    ],
     "example": [
       ".meta/uWordyExample.pas"
     ]

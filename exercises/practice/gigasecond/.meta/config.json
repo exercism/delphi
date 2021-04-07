@@ -2,8 +2,12 @@
   "blurb": "Given a moment, determine the moment that would be after a gigasecond has passed.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uGigasecond.pas"
+    ],
+    "test": [
+      "uGigasecondTests.pas"
+    ],
     "example": [
       ".meta/uGigasecondExample.pas"
     ]

@@ -2,8 +2,12 @@
   "blurb": "Make sure the brackets and braces all match.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uMatchingBrackets.pas"
+    ],
+    "test": [
+      "uMatchingBracketsTests.pas"
+    ],
     "example": [
       ".meta/uMatchingBracketsExample.pas"
     ]

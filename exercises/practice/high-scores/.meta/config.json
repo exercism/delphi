@@ -2,8 +2,12 @@
   "blurb": "Manage a player's High Score list",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uHighScores.pas"
+    ],
+    "test": [
+      "uHighScoresTests.pas"
+    ],
     "example": [
       ".meta/uHighScoresExample.pas"
     ]

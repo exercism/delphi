@@ -2,8 +2,12 @@
   "blurb": "Detect palindrome products in a given range.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uPalindromeProducts.pas"
+    ],
+    "test": [
+      "uPalindromeProductsTests.pas"
+    ],
     "example": [
       ".meta/uPalindromeProductsExample.pas"
     ]

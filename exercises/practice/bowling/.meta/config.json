@@ -2,8 +2,12 @@
   "blurb": "Score a bowling game",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uBowling.pas"
+    ],
+    "test": [
+      "uBowlingTests.pas"
+    ],
     "example": [
       ".meta/uBowlingExample.pas"
     ]

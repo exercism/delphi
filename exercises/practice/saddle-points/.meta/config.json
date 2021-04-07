@@ -2,8 +2,12 @@
   "blurb": "Detect saddle points in a matrix.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uSaddlePoints.pas"
+    ],
+    "test": [
+      "uSaddlePointsTests.pas"
+    ],
     "example": [
       ".meta/uSaddlePointsExample.pas"
     ]

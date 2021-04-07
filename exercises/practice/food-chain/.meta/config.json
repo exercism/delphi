@@ -2,8 +2,12 @@
   "blurb": "Generate the lyrics of the song 'I Know an Old Lady Who Swallowed a Fly'",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uFoodChain.pas"
+    ],
+    "test": [
+      "uFoodChainTests.pas"
+    ],
     "example": [
       ".meta/uFoodChainExample.pas"
     ]

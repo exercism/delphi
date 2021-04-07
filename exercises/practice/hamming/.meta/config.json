@@ -2,8 +2,12 @@
   "blurb": "Calculate the Hamming difference between two DNA strands.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uHamming.pas"
+    ],
+    "test": [
+      "uHammingTests.pas"
+    ],
     "example": [
       ".meta/uHammingExample.pas"
     ]

@@ -2,8 +2,12 @@
   "blurb": "Refactor a Markdown parser",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uMarkdown.pas"
+    ],
+    "test": [
+      "uMarkdownTests.pas"
+    ],
     "example": [
       ".meta/uMarkdownExample.pas"
     ]
