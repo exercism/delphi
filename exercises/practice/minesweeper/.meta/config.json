@@ -2,8 +2,12 @@
   "blurb": "Add the numbers to a minesweeper board",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uMinesweeper.pas"
+    ],
+    "test": [
+      "uMinesweeperTests.pas"
+    ],
     "example": [
       ".meta/uMineSweeperExample.pas"
     ]

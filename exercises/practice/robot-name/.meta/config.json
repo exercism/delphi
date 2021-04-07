@@ -2,8 +2,12 @@
   "blurb": "Manage robot factory settings.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uRobotName.pas"
+    ],
+    "test": [
+      "uRobotNameTests.pas"
+    ],
     "example": [
       ".meta/uRobotNameExample.pas"
     ]

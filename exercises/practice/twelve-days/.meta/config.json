@@ -2,8 +2,12 @@
   "blurb": "Output the lyrics to 'The Twelve Days of Christmas'",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uTwelveDays.pas"
+    ],
+    "test": [
+      "uTwelveDaysTests.pas"
+    ],
     "example": [
       ".meta/uTwelveDaysExample.pas"
     ]

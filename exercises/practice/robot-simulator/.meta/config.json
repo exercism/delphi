@@ -2,8 +2,12 @@
   "blurb": "Write a robot simulator.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uRobotSimulator.pas"
+    ],
+    "test": [
+      "uRobotSimulatorTests.pas"
+    ],
     "example": [
       ".meta/uRobotSimulatorExample.pas"
     ]

@@ -2,8 +2,12 @@
   "blurb": "Calculate the date of meetups.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uMeetup.pas"
+    ],
+    "test": [
+      "uMeetupTests.pas"
+    ],
     "example": [
       ".meta/uMeetupExample.pas"
     ]

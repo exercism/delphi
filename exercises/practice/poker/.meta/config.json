@@ -2,8 +2,12 @@
   "blurb": "Pick the best hand(s) from a list of poker hands.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uPoker.pas"
+    ],
+    "test": [
+      "uPokerTests.pas"
+    ],
     "example": [
       ".meta/uPokerExample.pas"
     ]

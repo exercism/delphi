@@ -2,8 +2,12 @@
   "blurb": "Given an age in seconds, calculate how old someone is in terms of a given planet's solar years.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uSpaceAge.pas"
+    ],
+    "test": [
+      "uSpaceAgeTests.pas"
+    ],
     "example": [
       ".meta/uSpaceAgeExample.pas"
     ]

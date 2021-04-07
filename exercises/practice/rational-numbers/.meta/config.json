@@ -2,8 +2,12 @@
   "blurb": "Implement rational numbers.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uRationalNumbers.pas"
+    ],
+    "test": [
+      "uRationalNumbersTests.pas"
+    ],
     "example": [
       ".meta/uRationalNumbersExample.pas"
     ]

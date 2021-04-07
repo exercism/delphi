@@ -2,8 +2,12 @@
   "blurb": "Determine if a sentence is a pangram.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uPangram.pas"
+    ],
+    "test": [
+      "uPangramTests.pas"
+    ],
     "example": [
       ".meta/uPangramExample.pas"
     ]

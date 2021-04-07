@@ -2,8 +2,12 @@
   "blurb": "Convert a long phrase to its acronym",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uAcronym.pas"
+    ],
+    "test": [
+      "uAcronymTests.pas"
+    ],
     "example": [
       ".meta/uAcronymExample.pas"
     ]

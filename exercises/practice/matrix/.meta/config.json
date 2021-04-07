@@ -2,8 +2,12 @@
   "blurb": "Given a string representing a matrix of numbers, return the rows and columns of that matrix.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uMatrix.pas"
+    ],
+    "test": [
+      "uMatrixTests.pas"
+    ],
     "example": [
       ".meta/uMatrixExample.pas"
     ]

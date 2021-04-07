@@ -2,8 +2,12 @@
   "blurb": "Clean up user-entered phone numbers so that they can be sent SMS messages.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uPhoneNumber.pas"
+    ],
+    "test": [
+      "uPhoneNumberTests.pas"
+    ],
     "example": [
       ".meta/uPhoneNumberExample.pas"
     ]

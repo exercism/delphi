@@ -2,8 +2,12 @@
   "blurb": "Implement a binary search algorithm.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uBinarySearch.pas"
+    ],
+    "test": [
+      "uBinarySearchTests.pas"
+    ],
     "example": [
       ".meta/uBinarySearchExample.pas"
     ]

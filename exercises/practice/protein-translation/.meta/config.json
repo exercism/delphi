@@ -2,8 +2,12 @@
   "blurb": "Translate RNA sequences into proteins.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uProteinTranslation.pas"
+    ],
+    "test": [
+      "uProteinTranslationTests.pas"
+    ],
     "example": [
       ".meta/uProteinTranslationExample.pas"
     ]

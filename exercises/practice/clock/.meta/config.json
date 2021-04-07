@@ -2,8 +2,12 @@
   "blurb": "Implement a clock that handles times without dates.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uClock.pas"
+    ],
+    "test": [
+      "uClockTests.pas"
+    ],
     "example": [
       ".meta/uClockExample.pas"
     ]

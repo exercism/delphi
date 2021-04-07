@@ -2,8 +2,12 @@
   "blurb": "Convert a number to a string, the content of which depends on the number's factors.",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uRaindrops.pas"
+    ],
+    "test": [
+      "uRaindropsTests.pas"
+    ],
     "example": [
       ".meta/uRaindropsExample.pas"
     ]

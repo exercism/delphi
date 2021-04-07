@@ -2,8 +2,12 @@
   "blurb": "Implement a program that translates from English to Pig Latin",
   "authors": [],
   "files": {
-    "solution": [],
-    "test": [],
+    "solution": [
+      "uPigLatin.pas"
+    ],
+    "test": [
+      "uPigLatinTests.pas"
+    ],
     "example": [
       ".meta/uPigLatinExample.pas"
     ]
