@@ -12,13 +12,23 @@
   "version": 3,
   "online_editor": {
     "indent_style": "space",
-    "indent_size": 2
+    "indent_size": 2,
+    "ace_editor_language": "delphi",
+    "highlightjs_language": "delphi"
   },
   "files": {
-    "solution": ["u%{pascal_slug}.pas"],
-    "test": ["u%{pascal_slug}Tests.pas"],
-    "example": [".meta/u%{pascal_slug}Example.pas"],
-    "exemplar": [".meta/u%{pascal_slug}Exemplar.pas"]
+    "solution": [
+      "u%{pascal_slug}.pas"
+    ],
+    "test": [
+      "u%{pascal_slug}Tests.pas"
+    ],
+    "example": [
+      ".meta/u%{pascal_slug}Example.pas"
+    ],
+    "exemplar": [
+      ".meta/u%{pascal_slug}Exemplar.pas"
+    ]
   },
   "exercises": {
     "concept": [],
