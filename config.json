@@ -13,7 +13,7 @@
   "online_editor": {
     "indent_style": "space",
     "indent_size": 2,
-    "ace_editor_language": "delphi",
+    "ace_editor_language": "pascal",
     "highlightjs_language": "delphi"
   },
   "files": {
