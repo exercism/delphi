@@ -1,0 +1,56 @@
+- name: "Hacktoberfest"
+  description: ""
+  color: "8bbc03"
+
+- name: "New Exercise"
+  description: "Adding New Exercise to Track"
+  color: "1d76db"
+
+- name: "Under Construction"
+  description: ""
+  color: "1d76db"
+
+- name: "bug"
+  description: ""
+  color: "ee0701"
+
+- name: "dependencies"
+  description: "Pull requests that update a dependency file"
+  color: "0366d6"
+
+- name: "duplicate"
+  description: ""
+  color: "cccccc"
+
+- name: "enhancement"
+  description: ""
+  color: "84b6eb"
+
+- name: "help wanted"
+  description: ""
+  color: "128A0C"
+
+- name: "invalid"
+  description: ""
+  color: "e6e6e6"
+
+- name: "pinned"
+  description: ""
+  color: "006b75"
+
+- name: "question"
+  description: ""
+  color: "cc317c"
+
+- name: "security"
+  description: ""
+  color: "fbca04"
+
+- name: "v3-migration 🤖"
+  description: "Preparing for Exercism v3"
+  color: "E99695"
+
+- name: "wontfix"
+  description: ""
+  color: "ffffff"
+
