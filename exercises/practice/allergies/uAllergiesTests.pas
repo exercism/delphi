@@ -1,4 +1,4 @@
-unit uAllergyTests;
+unit uAllergiesTests;
 
 interface
 uses
