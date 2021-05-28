@@ -11,7 +11,7 @@ uses
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
   DUnitX.TestFramework,
-  uAllergyTests in 'uAllergyTests.pas',
+  uAllergiesTests in 'uAllergiesTests.pas',
   uAllergies in 'uAllergies.pas';
 
 var
