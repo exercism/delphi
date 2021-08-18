@@ -963,32 +963,32 @@
   "concepts": [],
   "key_features": [
     {
-      "icon": "features-oop",
+      "icon": "evolving",
       "title": "Modern",
       "content": "Delphi is a modern, evolving language."
     },
     {
-      "icon": "features-strongly-typed",
+      "icon": "cross-platform",
       "title": "Cross-platform",
       "content": "Delphi runs on almost any platform and chipset."
     },
     {
-      "icon": "features-functional",
+      "icon": "multi-paradigm",
       "title": "Multi-paradigm",
       "content": "Delphi is primarily an object-oriented language, but also has lots of functional features."
     },
     {
-      "icon": "features-lazy",
+      "icon": "general-purpose",
       "title": "General purpose",
       "content": "Delphi has a wide variety of uses like websites, console/gui applications, and even games."
     },
     {
-      "icon": "features-declarative",
+      "icon": "tooling",
       "title": "Tooling",
       "content": "Delphi has excellent tooling, with linting and advanced refactoring options built-in."
     },
     {
-      "icon": "features-generic",
+      "icon": "documentation",
       "title": "Documentation",
       "content": "Documentation is excellent and exhaustive, making it easy to get started with Delphi."
     }
