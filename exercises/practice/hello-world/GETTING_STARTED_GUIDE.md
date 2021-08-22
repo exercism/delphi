@@ -82,7 +82,7 @@ The guidelines presented here are based on thepublic portions of the Delphi sour
 
 ### Acknowledgments
 
-The format of this document and some of its language is based on work done to define a style standard for the Java language. Java has had no influence on the rules for formatting Object Pascal source, but documents found on the Sun web site formed the basis for this document. In particular the style and format of this document were heavily influenced by "A Coding Style Guide for Java WorkShop and Java Studio Programming" by Achut Reddy. That document can be found at the following URL: <http://www.sun.com/workshop/java/wp-coding>
+The format of this document and some of its language is based on work done to define a style standard for the Java language. Java has had no influence on the rules for formatting Object Pascal source, but documents found on the Sun web site formed the basis for this document. In particular the style and format of this document were heavily influenced by "A Coding Style Guide for Java WorkShop and Java Studio Programming" by Achut Reddy.
 
 The Delphi team also contributed heavily to the generation of this document, and indeed, it would not have been possible to create it without their help.
 
