@@ -354,7 +354,7 @@
       },
       {
         "slug": "difference-of-squares",
-        "name": "Difference Of Squares",
+        "name": "Difference of Squares",
         "uuid": "e13b29f1-be95-445f-b00c-94cd312abda3",
         "practices": [],
         "prerequisites": [],
@@ -379,7 +379,7 @@
       },
       {
         "slug": "sum-of-multiples",
-        "name": "Sum Of Multiples",
+        "name": "Sum of Multiples",
         "uuid": "47c634ec-3f67-49fa-b0fa-62be3c351610",
         "practices": [],
         "prerequisites": [],
@@ -405,7 +405,7 @@
       },
       {
         "slug": "pascals-triangle",
-        "name": "Pascals Triangle",
+        "name": "Pascal's Triangle",
         "uuid": "e5ec2940-ea15-475b-91b9-2caf85b73b35",
         "practices": [],
         "prerequisites": [],
@@ -550,7 +550,7 @@
       },
       {
         "slug": "etl",
-        "name": "Etl",
+        "name": "ETL",
         "uuid": "f22f0ac1-3836-4ece-9c47-491929c8fc85",
         "practices": [],
         "prerequisites": [],
@@ -712,7 +712,7 @@
       },
       {
         "slug": "ocr-numbers",
-        "name": "Ocr Numbers",
+        "name": "OCR Numbers",
         "uuid": "01c0f2de-e1bc-4540-a127-21e78e9630b3",
         "practices": [],
         "prerequisites": [],
@@ -786,7 +786,7 @@
       },
       {
         "slug": "isbn-verifier",
-        "name": "Isbn Verifier",
+        "name": "ISBN Verifier",
         "uuid": "4cdb8216-4526-49ac-8ab5-68d70060a54e",
         "practices": [],
         "prerequisites": [],
@@ -948,7 +948,7 @@
       },
       {
         "slug": "rna-transcription",
-        "name": "Rna Transcription",
+        "name": "RNA Transcription",
         "uuid": "4a50bfd2-f6c9-480e-af82-d468cf585f0d",
         "practices": [],
         "prerequisites": [],
