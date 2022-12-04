@@ -1,5 +1,4 @@
 {
-  "blurb": "Manage robot factory settings.",
   "authors": [
     "filiptoskovic"
   ],
@@ -17,5 +16,6 @@
       ".meta/uRobotNameExample.pas"
     ]
   },
+  "blurb": "Manage robot factory settings.",
   "source": "A debugging session with Paul Blackwell at gSchool."
 }

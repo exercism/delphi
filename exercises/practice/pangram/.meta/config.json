@@ -1,5 +1,4 @@
 {
-  "blurb": "Determine if a sentence is a pangram.",
   "authors": [
     "rpottsoh"
   ],
@@ -14,6 +13,7 @@
       ".meta/uPangramExample.pas"
     ]
   },
+  "blurb": "Determine if a sentence is a pangram.",
   "source": "Wikipedia",
   "source_url": "https://en.wikipedia.org/wiki/Pangram"
 }

@@ -1,5 +1,4 @@
 {
-  "blurb": "Write a function to convert from normal numbers to Roman Numerals.",
   "authors": [
     "rpottsoh"
   ],
@@ -17,6 +16,7 @@
       ".meta/uRomanNumeralsExample.pas"
     ]
   },
+  "blurb": "Write a function to convert from normal numbers to Roman Numerals.",
   "source": "The Roman Numeral Kata",
   "source_url": "http://codingdojo.org/cgi-bin/index.pl?KataRomanNumerals"
 }
