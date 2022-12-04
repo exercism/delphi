@@ -1,5 +1,4 @@
 {
-  "blurb": "Translate RNA sequences into proteins.",
   "authors": [
     "filiptoskovic"
   ],
@@ -17,5 +16,6 @@
       ".meta/uProteinTranslationExample.pas"
     ]
   },
+  "blurb": "Translate RNA sequences into proteins.",
   "source": "Tyler Long"
 }

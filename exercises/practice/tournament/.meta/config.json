@@ -1,5 +1,4 @@
 {
-  "blurb": "Tally the results of a small football competition.",
   "authors": [
     "filiptoskovic"
   ],
@@ -16,5 +15,6 @@
     "example": [
       ".meta/uTournamentExample.pas"
     ]
-  }
+  },
+  "blurb": "Tally the results of a small football competition."
 }
