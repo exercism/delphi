@@ -2,16 +2,17 @@
 
 interface
 uses
-  DUnitX.TestFramework;
+  DUnitX.TestFramework,
+  System.Generics.Collections;
 
 const
-  CanonicalVersion = '1.0.0.1';
+  CanonicalVersion = '1.0.0.2';
 
 type
-
   [TestFixture]
   ParallelLetterFrequencyTests = class(TObject)
   private
+    fActual: TDictionary<char, integer>;
     // Poem by Friedrich Schiller. The corresponding music is the European Anthem.
     const OdeAnDieFreude =
         'Freude schöner Götterfunken' + sLineBreak +
@@ -45,6 +46,8 @@ type
         'O say does that star-spangled banner yet wave,' + sLineBreak +
         'O''er the land of the free and the home of the brave?'+ sLineBreak;
   public
+    [TearDown]
+    procedure TearDown;
     [Test]
 //    [Ignore('Comment the "[Ignore]" statement to run the test')]
     procedure No_texts_mean_no_letters;
@@ -79,14 +82,14 @@ type
   end;
 
 implementation
+
 uses
-  System.Generics.Collections,
+  SysUtils,
   uParallelLetterFrequency;
 
 type
   Assert = class(DUnitX.TestFramework.Assert)
-    class procedure AreEqual(const expected,
-      actual: TDictionary<char, integer>); overload;
+    class procedure AreEqual(const expected, actual: TDictionary<char, integer>); overload;
   end;
 
 { ParallelLetterFrequencyTests }
@@ -94,45 +97,41 @@ type
 procedure ParallelLetterFrequencyTests.All_three_anthems_together;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
 begin
   Input := OdeAnDieFreude + Wilhelmus + StarSpangledBanner;
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.AreEqual(49, Actual['a']);
-  Assert.AreEqual(56, Actual['t']);
-  Assert.AreEqual(2, Actual['ü']);
+  fActual := TParallelLetterFrequency.Calculate(Input);
+  Assert.AreEqual(49, fActual['a']);
+  Assert.AreEqual(56, fActual['t']);
+  Assert.AreEqual(2, fActual['ü']);
 end;
 
 procedure ParallelLetterFrequencyTests.Case_insensitivity;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
   Expected: TDictionary<char, integer>;
 begin
   Input := 'aA';
   Expected := TDictionary<char, integer>.Create;
   Expected.AddOrSetValue('a', 2);
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.AreEqual(Expected, Actual);
+  fActual := TParallelLetterFrequency.Calculate(Input);
+  Assert.AreEqual(Expected, fActual);
 end;
 
 procedure ParallelLetterFrequencyTests.Many_empty_texts_still_mean_no_letters;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
   i: integer;
 begin
   Input := '';
   for i := 1 to 10000 do
     Input := Input + ' ';
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.AreEqual(0, Actual.Count);
+  fActual := TParallelLetterFrequency.Calculate(Input);
+  Assert.AreEqual(0, fActual.Count);
 end;
 
 procedure ParallelLetterFrequencyTests.Many_times_the_same_text_gives_a_predictable_result;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
   Expected: TDictionary<char, integer>;
   i: integer;
 begin
@@ -140,62 +139,72 @@ begin
   for i := 1 to 1000 do
     Input := Input + 'abc';
   Expected := TDictionary<char, integer>.Create;
-  Expected.AddOrSetValue('a', 1000);
-  Expected.AddOrSetValue('b', 1000);
-  Expected.AddOrSetValue('c', 1000);
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.AreEqual(Expected, Actual);
+  try
+    Expected.AddOrSetValue('a', 1000);
+    Expected.AddOrSetValue('b', 1000);
+    Expected.AddOrSetValue('c', 1000);
+    fActual := TParallelLetterFrequency.Calculate(Input);
+    Assert.AreEqual(Expected, fActual);
+  finally
+    FreeAndNil(Expected);
+  end;
 end;
 
 procedure ParallelLetterFrequencyTests.No_texts_mean_no_letters;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
   Expected: TDictionary<char, integer>;
 begin
   Input := '';
   Expected := TDictionary<char, integer>.Create;
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.AreEqual(Expected, Actual);
+  try
+    fActual := TParallelLetterFrequency.Calculate(Input);
+    Assert.AreEqual(Expected, fActual);
+  finally
+    FreeAndNil(Expected);
+  end;
 end;
 
 procedure ParallelLetterFrequencyTests.Numbers_dont_count;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
 begin
   Input := 'Testing, 1, 2, 3';
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.IsFalse(Actual.ContainsKey('1'));
+  fActual := TParallelLetterFrequency.Calculate(Input);
+  Assert.IsFalse(fActual.ContainsKey('1'));
 end;
 
 procedure ParallelLetterFrequencyTests.One_letter;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
   Expected: TDictionary<char, integer>;
 begin
   Input := 'a';
   Expected := TDictionary<char, integer>.Create;
-  Expected.AddOrSetValue('a', 1);
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.AreEqual(Expected, Actual);
+  try
+    Expected.AddOrSetValue('a', 1);
+    fActual := TParallelLetterFrequency.Calculate(Input);
+    Assert.AreEqual(Expected, fActual);
+  finally
+    FreeAndNil(Expected);
+  end;
 end;
 
 procedure ParallelLetterFrequencyTests.Punctuation_doesnt_count;
 var
   Input: string;
-  Actual: TDictionary<char, integer>;
 begin
   Input := OdeAnDieFreude;
-  Actual := TParallelLetterFrequency.Calculate(Input);
-  Assert.IsFalse(Actual.ContainsKey(','));
+  fActual := TParallelLetterFrequency.Calculate(Input);
+  Assert.IsFalse(fActual.ContainsKey(','));
 end;
 
-{ Assert }
+procedure ParallelLetterFrequencyTests.TearDown;
+begin
+  FreeAndNil(fActual);
+end;
 
-class procedure Assert.AreEqual(const expected,
-  actual: TDictionary<char, integer>);
+class procedure Assert.AreEqual(const expected, actual: TDictionary<char, integer>);
 var
   ExpectedItem: TPair<char, integer>;
 begin
