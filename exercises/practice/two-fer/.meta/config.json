@@ -17,5 +17,21 @@
     ]
   },
   "blurb": "Create a sentence of the form \"One for X, one for me.\"",
-  "source_url": "https://github.com/exercism/problem-specifications/issues/757"
+  "source_url": "https://github.com/exercism/problem-specifications/issues/757",
+  "tag_filters": {
+    "construct": ["add"],
+    "construct": ["assignment"],
+    "construct": ["class"],
+    "construct": ["constructor"],
+    "construct": ["method"],
+    "construct": ["parameter"],
+    "construct": ["string"],
+    "construct": ["throw"],
+    "construct": ["try"],
+    "construct": ["unit"],
+    "construct": ["uses"],
+    "construct": ["visibility-modifiers"],
+    "paradigm": ["object-oriented"],
+    "technique": ["exceptions"]
+  }
 }
