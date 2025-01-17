@@ -30,7 +30,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -960,61 +959,60 @@
       }
     ]
   },
-  "concepts": [],
   "key_features": [
     {
-      "icon": "evolving",
       "title": "Modern",
-      "content": "Delphi is a modern, evolving language."
+      "content": "Delphi is a modern, evolving language.",
+      "icon": "evolving"
     },
     {
-      "icon": "cross-platform",
       "title": "Cross-platform",
-      "content": "Delphi runs on almost any platform and chipset."
+      "content": "Delphi runs on almost any platform and chipset.",
+      "icon": "cross-platform"
     },
     {
-      "icon": "multi-paradigm",
       "title": "Multi-paradigm",
-      "content": "Delphi is primarily an object-oriented language, but also has lots of functional features."
+      "content": "Delphi is primarily an object-oriented language, but also has lots of functional features.",
+      "icon": "multi-paradigm"
     },
     {
-      "icon": "general-purpose",
       "title": "General purpose",
-      "content": "Delphi has a wide variety of uses like websites, console/gui applications, and even games."
+      "content": "Delphi has a wide variety of uses like websites, console/gui applications, and even games.",
+      "icon": "general-purpose"
     },
     {
-      "icon": "tooling",
       "title": "Tooling",
-      "content": "Delphi has excellent tooling, with linting and advanced refactoring options built-in."
+      "content": "Delphi has excellent tooling, with linting and advanced refactoring options built-in.",
+      "icon": "tooling"
     },
     {
-      "icon": "documentation",
       "title": "Documentation",
-      "content": "Documentation is excellent and exhaustive, making it easy to get started with Delphi."
+      "content": "Documentation is excellent and exhaustive, making it easy to get started with Delphi.",
+      "icon": "documentation"
     }
   ],
   "tags": [
+    "execution_mode/compiled",
     "paradigm/declarative",
     "paradigm/imperative",
     "paradigm/object_oriented",
     "paradigm/procedural",
+    "platform/android",
+    "platform/ios",
+    "platform/linux",
+    "platform/web",
+    "platform/windows",
+    "runtime/standalone_executable",
     "typing/static",
     "typing/strong",
-    "execution_mode/compiled",
-    "platform/windows",
-    "platform/linux",
-    "platform/ios",
-    "platform/android",
-    "platform/web",
-    "runtime/standalone_executable",
     "used_for/backends",
     "used_for/cross_platform_development",
+    "used_for/financial_systems",
     "used_for/frontends",
     "used_for/games",
     "used_for/guis",
-    "used_for/web_development",
-    "used_for/financial_systems",
     "used_for/mobile",
-    "used_for/scientific_calculations"
+    "used_for/scientific_calculations",
+    "used_for/web_development"
   ]
 }
