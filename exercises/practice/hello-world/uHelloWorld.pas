@@ -8,7 +8,7 @@ implementation
 
 function Hello: string;
 begin
-  result := 'Goodbye, Mars!';
+  result := 'Hello, World!';
 end;
 
 end.
