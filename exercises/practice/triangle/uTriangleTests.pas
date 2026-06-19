@@ -84,8 +84,16 @@ type
 
     [Test]
     [Ignore]
-    procedure TwoSidesAreEqual;
+    procedure FirstAndSecondSidesAreEqual;
 
+    [Test]
+    [Ignore]
+    procedure FirstAndThirdSidesAreEqual;
+
+    [Test]
+    [Ignore]
+    procedure SecondAndThirdSidesAreEqual;
+  
     [Test]
     [Ignore]
     procedure MayNotViolateTriangleInequality;
@@ -183,10 +191,20 @@ begin
   Assert.AreEqual(false, Triangle.Sides(Scalene, 4, 4, 4)); 
 end; 
  
-procedure ScaleneTests.TwoSidesAreEqual;
+procedure ScaleneTests.FirstAndSecondSidesAreEqual;
 begin 
   Assert.AreEqual(false, Triangle.Sides(Scalene, 4, 4, 3)); 
 end; 
+ 
+procedure ScaleneTests.FirstAndThirdSidesAreEqual;
+begin 
+  Assert.AreEqual(false, Triangle.Sides(Scalene, 3, 4, 3)); 
+end;
+ 
+procedure ScaleneTests.SecondAndThirdSidesAreEqual;
+begin 
+  Assert.AreEqual(false, Triangle.Sides(Scalene, 4, 3, 3)); 
+end;
  
 procedure ScaleneTests.MayNotViolateTriangleInequality;
 begin 
