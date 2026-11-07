@@ -1,0 +1,21 @@
+function MostCommonWord(const Text: string): string;
+var
+  Counts: TDictionary<string, Integer>;
+  Word, Best: string;
+  Count: Integer;
+begin
+  Counts := TDictionary<string, Integer>.Create;
+  try
+    for Word in LowerCase(Text).Split([' ']) do
+    begin
+      if not Counts.TryGetValue(Word, Count) then
+        Count := 0;
+      Counts.AddOrSetValue(Word, Count + 1);
+      if (Best = '') or (Count + 1 > Counts[Best]) then
+        Best := Word;
+    end;
+    Result := Format('"%s" appears %d times', [Best, Counts[Best]]);
+  finally
+    Counts.Free;
+  end;
+end;
